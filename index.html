@@ -94,6 +94,40 @@
         .contact:hover {
             background-color: #8278BE;
         }
+
+
+
+/* Animacja ładowania w kształt mózgu */
+        .brain-loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 40px auto;
+        }
+        .brain-loader div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #3F4D56;
+            border-radius: 50%;
+            animation: brain-move 1.5s infinite ease-in-out;
+        }
+        @keyframes brain-move {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+        .brain-loader div:nth-child(1) { top: 10px; left: 40px; animation-delay: 0s; }
+        .brain-loader div:nth-child(2) { top: 30px; left: 20px; animation-delay: 0.2s; }
+        .brain-loader div:nth-child(3) { top: 30px; left: 60px; animation-delay: 0.4s; }
+        .brain-loader div:nth-child(4) { top: 50px; left: 40px; animation-delay: 0.6s; }
+        .brain-loader div:nth-child(5) { top: 70px; left: 20px; animation-delay: 0.8s; }
+        .brain-loader div:nth-child(6) { top: 70px; left: 60px; animation-delay: 1s; }
+
+        
     </style>
 </head>
 <body>
@@ -107,5 +141,16 @@
         <a href="#" class="button articles">Artykuły</a>
         <a href="#" class="button contact">Kontakt</a>
     </div>
+
+<!-- Animacja ładowania mózgu -->
+    <div class="brain-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
 </body>
 </html>
