@@ -12,12 +12,18 @@
     <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
     
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
             text-align: center;
             padding: 20px;
+            line-height: 1.6;
         }
         .header {
             display: flex;
@@ -44,15 +50,23 @@
             text-decoration: none;
             text-align: center;
             display: inline-block;
-            color: white;
+            font-weight: bold;
         }
-        .home { background-color: #9E60A6; }
-        .articles { background-color: #B5E0F0; }
-        .contact { background-color: #A69FBF; }
+        .home { background-color: #9E60A6; color: white; }
+        .articles { background-color: #B5E0F0; color: white; }
+        .contact { background-color: #A69FBF; color: white; }
         .button:hover { opacity: 0.8; }
         .contact-info {
             margin-top: 20px;
             font-size: 18px;
+        }
+        a {
+            color: #24303A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
