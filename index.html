@@ -97,35 +97,45 @@
 
 
 
-/* Animacja ładowania w kształt mózgu */
-        .brain-loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
+ /* Animacja układania puzzli */
+        .puzzle-loader {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-gap: 5px;
+            justify-content: center;
+            align-items: center;
             margin: 40px auto;
+            width: 140px;
         }
-        .brain-loader div {
-            position: absolute;
-            width: 20px;
-            height: 20px;
+        .puzzle-piece {
+            width: 40px;
+            height: 40px;
             background-color: #3F4D56;
-            border-radius: 50%;
-            animation: brain-move 1.5s infinite ease-in-out;
+            border-radius: 5px;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: puzzle-appear 1.5s forwards;
         }
-        @keyframes brain-move {
-            0%, 100% {
+        .puzzle-piece:nth-child(1) { animation-delay: 0s; }
+        .puzzle-piece:nth-child(2) { animation-delay: 0.2s; }
+        .puzzle-piece:nth-child(3) { animation-delay: 0.4s; }
+        .puzzle-piece:nth-child(4) { animation-delay: 0.6s; }
+        .puzzle-piece:nth-child(5) { animation-delay: 0.8s; }
+        .puzzle-piece:nth-child(6) { animation-delay: 1s; }
+        .puzzle-piece:nth-child(7) { animation-delay: 1.2s; }
+        .puzzle-piece:nth-child(8) { animation-delay: 1.4s; }
+        .puzzle-piece:nth-child(9) { animation-delay: 1.6s; }
+
+        @keyframes puzzle-appear {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
                 transform: scale(1);
             }
-            50% {
-                transform: scale(1.5);
-            }
         }
-        .brain-loader div:nth-child(1) { top: 10px; left: 40px; animation-delay: 0s; }
-        .brain-loader div:nth-child(2) { top: 30px; left: 20px; animation-delay: 0.2s; }
-        .brain-loader div:nth-child(3) { top: 30px; left: 60px; animation-delay: 0.4s; }
-        .brain-loader div:nth-child(4) { top: 50px; left: 40px; animation-delay: 0.6s; }
-        .brain-loader div:nth-child(5) { top: 70px; left: 20px; animation-delay: 0.8s; }
-        .brain-loader div:nth-child(6) { top: 70px; left: 60px; animation-delay: 1s; }
 
         
     </style>
@@ -142,14 +152,17 @@
         <a href="#" class="button contact">Kontakt</a>
     </div>
 
-<!-- Animacja ładowania mózgu -->
-    <div class="brain-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+ <!-- Animacja układania puzzli -->
+    <div class="puzzle-loader">
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
+        <div class="puzzle-piece"></div>
     </div>
     
 </body>
