@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artykuły - Psychownia</title>
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <title>Kontakt - Psychownia</title>
+
+    <!-- Czcionka Google -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Ikonki FontAwesome -->
     <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
     
     <style>
@@ -18,9 +21,9 @@
             font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
-            line-height: 1.6;
             text-align: center;
             padding: 20px;
+            line-height: 1.6;
         }
         .header {
             display: flex;
@@ -30,11 +33,6 @@
             font-size: 32px;
             font-weight: bold;
             margin-bottom: 20px;
-        }
-        .header img {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
         }
         .button-container {
             display: flex;
@@ -52,28 +50,71 @@
             text-decoration: none;
             text-align: center;
             display: inline-block;
+            font-weight: bold;
         }
         .home { background-color: #9E60A6; color: white; }
-        .home:hover { background-color: #B5E0F0; }
         .articles { background-color: #B5E0F0; color: white; }
-        .articles:hover { background-color: #9B76A6; }
         .contact { background-color: #A69FBF; color: white; }
-        .contact:hover { background-color: #9E60A6; }
+        .button:hover { opacity: 0.8; }
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        a {
+            color: #24303A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .article-box {
+            background-color: #ffb6c1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .article-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="pinkbrain.ico" alt="Ikona mózgu">
-        <span>Psychownia</span>
+        <img src="pinkbrain.ico" alt="Ikona mózgu" width="70" height="70" style="border-radius: 10px;">
+        Psychownia
     </div>
     
     <div class="button-container">
         <a href="index.html" class="button home">Strona Główna</a>
-        <a href="artykuly.html" class="button articles">Artykuły</a>
+        <a href="articles.html" class="button articles">Artykuły</a>
         <a href="kontakt.html" class="button contact">Kontakt</a>
     </div>
     
-    <h2>Artykuły</h2>
-    <p>Tu znajdziesz ciekawe artykuły na temat psychologii.</p>
+    <div class="contact-info">
+        <p>Masz pytania? Skontaktuj się z nami!</p>
+        <p>Email: <a href="mailto:psychownia@gmail.com">psychownia@gmail.com</a></p>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://www.instagram.com/psychownia?igsh=dWk1azNnd29wN3Mw&utm_source=qr" target="_blank" style="text-decoration: none; color: #24303A; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <img src="insta.jpg" alt="Instagram" width="30" height="30" style="border-radius: 50%;">
+            <span>Odwiedź @psychownia</span>
+        </a>
+    </div>
+
+    <div class="article-box">
+        <h2>Pułapki Umysłu – Jak Złapać Drabinę?</h2>
+        <img src="drabina.jpg" alt="Obrazek drabiny">
+        <p>Wpadamy w pułapki własnego umysłu, kiedy nie dostrzegamy wyjścia z trudnej sytuacji. Czujemy się uwięzieni w negatywnych schematach myślenia, nie widząc, że rozwiązanie często jest bliżej, niż nam się wydaje.</p>
+        <p>Pierwszym krokiem do zmiany jest uświadomienie sobie problemu – to jak chwycenie za drabinę, która pomoże nam się wydostać. Zrozumienie, że istnieje wyjście, to początek drogi do wolności i lepszego samopoczucia.</p>
+    </div>
 </body>
 </html>
