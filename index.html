@@ -121,12 +121,15 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .who-am-i img {
             width: 400px; /* Większe zdjęcie */
             height: auto;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-right: 20px;
         }
         .who-am-i .funny-img {
             width: 500px; /* Większe zdjęcie funny */
@@ -202,17 +205,20 @@
 
     <!-- Sekcja "Jak się tu znalazłeś?" -->
     <div id="who-am-i" class="who-am-i">
-        <h2>Jak się tu znalazłeś?</h2>
-        <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
-
-        <img src="funny.jpg" alt="Funny Image" class="funny-img">
-        
-        
+        <!-- Twoje zdjęcie z lewej strony -->
         <img src="mojefoto.jpg" alt="Twoje zdjęcie">
-        
-        <h2>Kim jestem i czemu możesz mi zaufać?</h2>
-        <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
+
+        <div>
+            <h2>Kim jestem i czemu możesz mi zaufać?</h2>
+            <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
+        </div>
     </div>
+
+    <h2>Jak się tu znalazłeś?</h2>
+    <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
+
+    <!-- Duże zdjęcie "funny" -->
+    <img src="funny.jpg" alt="Funny Image" class="funny-img">
 
 </body>
 </html>
