@@ -102,7 +102,57 @@
         <a href="artykuly.html" class="button articles">Artykuły</a>
         <a href="kontakt.html" class="button contact">Kontakt</a>
     </div>
-    
+
+    <style>
+    /* Styl kontenera na tematyki */
+    .topics-container {
+        position: fixed;
+        left: 20px;
+        top: 200px;
+        text-align: center;
+    }
+
+    /* Nagłówek "Tematyki" */
+    .topics-header {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    /* Styl dla okrągłych buttonów */
+    .topic-button {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Kolory dla poszczególnych tematów */
+    .stres { background-color: #ff5733; } /* Czerwony */
+    .stres:hover { background-color: #e04c2d; }
+
+    .negatywne-myslenie { background-color: #3366ff; } /* Niebieski */
+    .negatywne-myslenie:hover { background-color: #2b5cd6; }
+</style>
+
+<!-- Kontener na buttony tematyczne (po lewej stronie) -->
+<div class="topics-container">
+    <div class="topics-header">Tematyki</div>
+    <a href="#stres-artykul" class="topic-button stres">Stres</a>
+    <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
+</div>
+
 
 
     <div class="article-box">
