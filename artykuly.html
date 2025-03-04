@@ -37,6 +37,11 @@
             margin-bottom: 20px;
         }
 
+        .header img {
+            width: 50px;  /* Dopasowujemy wielkość logo */
+            height: 50px;
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -89,7 +94,7 @@
         }
 
         .article-box img {
-            max-width: 70%; /* Zmniejsza obrazki do 70% szerokości kontenera */
+            max-width: 70%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 10px;
@@ -103,8 +108,9 @@
         .topics-container {
             position: fixed;
             left: 20px;
-            top: 200px;
+            bottom: 20px; /* Pozycja przycisków na dole */
             text-align: center;
+            z-index: 1000; /* Zapewnia, że będą widoczne na wierzchu */
         }
 
         /* Nagłówek "Tematyki" */
@@ -155,13 +161,12 @@
             }
 
             .article-box img {
-                max-width: 90%; /* Większe obrazy na mniejszych ekranach */
+                max-width: 90%;
             }
 
             .topics-container {
-                position: absolute;
                 left: 10px;
-                top: 150px;
+                bottom: 10px;
             }
 
             .topic-button {
@@ -176,7 +181,7 @@
             }
         }
 
-        /* Dla bardzo małych ekranów (np. telefony) */
+        /* Dla bardzo małych ekranów */
         @media screen and (max-width: 480px) {
             .header {
                 font-size: 20px;
@@ -187,7 +192,7 @@
             }
 
             .article-box img {
-                max-width: 100%; /* Maksymalna szerokość obrazu na małych ekranach */
+                max-width: 100%;
             }
 
             .button-container {
@@ -201,11 +206,19 @@
                 font-size: 10px;
             }
         }
+
+        /* Styl dla kontenera, który zjeżdża wraz z przewijaniem */
+        .sticky-top {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="brain2.ico" alt="Ikona mózgu" width="70" height="70" style="border-radius: 10px;">
+        <img src="brain2.ico" alt="Ikona mózgu">
         Psychownia
     </div>
     
@@ -215,14 +228,7 @@
         <a href="kontakt.html" class="button contact">Kontakt</a>
     </div>
 
-    <!-- Tematyki -->
-    <div class="topics-container">
-        <div class="topics-header">Tematyki</div>
-        <a href="#stres-artykul" class="topic-button stres">Stres</a>
-        <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
-    </div>
-
-    <!-- Artykuł 1: Pułapki Umysłu -->
+    <!-- Artykuły -->
     <div class="article-box" id="negatywne-myslenie-artykul">
         <h2>Pułapki Umysłu – Jak Złapać Drabinę?</h2>
         <img src="drabina.jpg" alt="Drabina">
@@ -239,12 +245,12 @@
         <p>Nie pozwól, by stres rządził tobą. To ty masz pilota do własnej psychiki – przełącz kanał na coś bardziej pozytywnego!</p>
     </div>
 
-    <!-- Dwa obrazki obok siebie -->
-    <div class="image-container" style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
-        <img src="Anger.jpg" alt="Złość" style="max-width: 45%; border-radius: 10px;">
-        <img src="Move.jpg" alt="Ruch to zdrowie" style="max-width: 45%; border-radius: 10px;">
+    <!-- Tematyki (przyciski na dole) -->
+    <div class="topics-container sticky-top">
+        <div class="topics-header">Tematyki</div>
+        <a href="#stres-artykul" class="topic-button stres">Stres</a>
+        <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
     </div>
 
-    <p>Stres jest nieunikniony, ale zamiast wyładowywać go na dzieciach (lub innych 😆), lepiej spróbować sportu, technik oddechowych i śmiechu!</p>
 </body>
 </html>
