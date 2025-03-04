@@ -168,5 +168,42 @@
         Ludzki mózg to jak kostka Rubika – wszystko da się ułożyć. Klikaj i odkrywaj! 👆 Klik, klik, klik!
     </p>
 
+    <script>
+    document.querySelectorAll('.puzzle-piece').forEach(piece => {
+        piece.addEventListener('click', () => {
+            const colors = ['red', 'blue', 'yellow', 'green', 'orange', 'white', 'purple', 'pink', 'cyan'];
+            const currentColor = piece.style.backgroundColor;
+
+            // Wybierz nowy kolor, który jest różny od obecnego
+            let newColor;
+            do {
+                newColor = colors[Math.floor(Math.random() * colors.length)];
+            } while (newColor === currentColor);
+
+            piece.style.backgroundColor = newColor;
+
+            checkIfSolved();
+        });
+    });
+
+    function checkIfSolved() {
+        const pieces = document.querySelectorAll('.puzzle-piece');
+        const colors = Array.from(pieces).map(piece => piece.style.backgroundColor);
+
+        // Sprawdzamy, czy wszystkie pola mają przypisany kolor (czyli nie są domyślnie puste)
+        if (colors.includes("") || colors.includes("rgb(44, 62, 80)")) {
+            return; // Jeśli choć jedno pole nie ma koloru, nie robimy nic
+        }
+
+        const uniqueColors = new Set(colors);
+
+        if (uniqueColors.size === 9) {
+            setTimeout(() => {
+                alert("Brawo! Widzisz, wszystko da się ułożyć!");
+            }, 300);
+        }
+    }
+</script>
+
 </body>
 </html>
