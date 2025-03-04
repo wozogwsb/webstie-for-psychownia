@@ -188,6 +188,12 @@
                 piece.style.backgroundColor = newColor;
             });
         });
+
+        // Przewinięcie do sekcji "Jak się tu znalazłeś?" po załadowaniu strony
+        window.onload = function() {
+            const section = document.getElementById("who-am-i");
+            section.scrollIntoView({behavior: "smooth"});
+        }
     </script>
 
     <p style="margin-top: 20px; font-size: 16px; color: #555; text-align: center;">
@@ -195,7 +201,7 @@
     </p>
 
     <!-- Sekcja "Jak się tu znalazłeś?" -->
-    <div class="who-am-i">
+    <div id="who-am-i" class="who-am-i">
         <h2>Jak się tu znalazłeś?</h2>
         <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
 
