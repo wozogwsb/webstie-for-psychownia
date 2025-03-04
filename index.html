@@ -121,16 +121,16 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
-        .who-am-i img {
-            width: 400px; /* Większe zdjęcie */
+
+        /* Zdjęcie psa */
+        .dog-img {
+            width: 200px; /* Zmniejszone zdjęcie psa */
             height: auto;
             border-radius: 20px;
-            margin-right: 20px;
+            margin-bottom: 20px;
         }
+
         .who-am-i .funny-img {
             width: 500px; /* Większe zdjęcie funny */
             height: auto;
@@ -149,6 +149,20 @@
             line-height: 1.6;
         }
 
+        /* Flexbox do ustawienia zdjęcia z tekstem obok siebie */
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .flex-container img {
+            margin-right: 30px;
+        }
+        .flex-container .text {
+            max-width: 600px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -191,34 +205,31 @@
                 piece.style.backgroundColor = newColor;
             });
         });
-
-        // Przewinięcie do sekcji "Jak się tu znalazłeś?" po załadowaniu strony
-        window.onload = function() {
-            const section = document.getElementById("who-am-i");
-            section.scrollIntoView({behavior: "smooth"});
-        }
     </script>
 
     <p style="margin-top: 20px; font-size: 16px; color: #555; text-align: center;">
         Ludzki mózg to jak kostka Rubika – wszystko da się ułożyć. Klikaj i odkrywaj! 👆 Klik, klik, klik!
     </p>
 
-    <!-- Sekcja "Jak się tu znalazłeś?" -->
-    <div id="who-am-i" class="who-am-i">
-        <!-- Twoje zdjęcie z lewej strony -->
-        <img src="mojefoto.jpg" alt="Twoje zdjęcie">
+    <!-- Sekcja Jak się tu znalazłeś -->
+    <div class="who-am-i">
+        <!-- Piesek -->
+        <img src="dog.jpg" alt="Piesek" class="dog-img">
+        <h2>Jak się tu znalazłeś?</h2>
+        <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
 
-        <div>
-            <h2>Kim jestem i czemu możesz mi zaufać?</h2>
-            <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
+        <!-- Sekcja Kim jestem -->
+        <div class="flex-container">
+            <!-- Twoje zdjęcie -->
+            <img src="mojefoto.jpg" alt="Twoje zdjęcie" class="dog-img">
+            <div class="text">
+                <h2>Kim jestem i czemu możesz mi zaufać?</h2>
+                <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
+            </div>
         </div>
     </div>
 
-    <h2>Jak się tu znalazłeś?</h2>
-    <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
-
-    <!-- Duże zdjęcie "funny" -->
+    <!-- Duże zdjęcie funny -->
     <img src="funny.jpg" alt="Funny Image" class="funny-img">
-
 </body>
 </html>
