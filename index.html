@@ -114,6 +114,48 @@
             transition: background-color 0.3s;
         }
 
+
+
+        
+
+/* Kontener dla kostki Rubika i napisu */
+.rubik-container {
+    background-color: #9E60A6; /* Jednolity kolor */
+    border-radius: 20px; /* Zaokrąglone kanty */
+    padding: 30px;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.rubik-container h2 {
+    font-size: 24px;
+    color: white;
+}
+
+.rubik-container p {
+    font-size: 18px;
+    color: white;
+}
+
+/* Kostka Rubika */
+.rubik-image {
+    width: 150px;
+    height: 150px;
+    background-image: url('rubik-cube.jpg'); /* Zmień na ścieżkę do zdjęcia kostki Rubika */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px; /* Zaokrąglone kanty */
+}
+
+
+        
+
+        
+
         /* Sekcja Kim jestem z dużymi zdjęciami i tekstami */
         .who-am-i {
             margin-top: 40px;
@@ -229,7 +271,7 @@
             <h2>Jak się tu znalazłeś?</h2>
             <div style="height: 0,5cm;"></div>
             <img src="funny.jpg" alt="Funny Dog" class="funny-img">
-            <h2>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć!</h2>
+            <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć!</p>
             
         </div>
     </div>
@@ -249,6 +291,7 @@
             </div>
         </div>
     </div>
+    
 
 </body>
 </html>
