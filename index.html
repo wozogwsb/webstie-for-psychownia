@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychownia</title>
 
-        <div style="text-align: center; margin-bottom: 20px;">
+    <div style="text-align: center; margin-bottom: 20px;">
         <h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
             <img src="pinkbrain.ico" alt="Mózg" width="40" height="40" style="border-radius: 10px;">
             Psychownia
         </h1>
     </div>
 
-     <!-- Ikonka w zakładce -->
+    <!-- Ikonka w zakładce -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
 
     <!-- Czcionka Google -->
@@ -20,8 +20,6 @@
 
     <!-- Ikonki FontAwesome -->
     <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
-
-    
 
     <style>
         * {
@@ -37,76 +35,6 @@
             padding: 20px;
             text-align: center;
         }
-        a {
-            color: #24303A;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .header i {
-            font-size: 40px;
-            color: #3F4D56;
-        }
-       ;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .button {
-            padding: 12px 24px;
-            border-radius: 25px;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        .home {
-            background-color: #9E60A6;
-            color: white;
-        }
-        .home:hover {
-            background-color: #B5E0F0;
-        }
-        .articles {
-            background-color: #B5E0F0;
-            color: white;
-        }
-        .articles:hover {
-            background-color: #9B76A6;
-        }
-        .contact {
-            background-color: #A69FBF;
-            color: white;
-        }
-        .contact:hover {
-            background-color: #9E60A6;
-        }
-
-
-
-  /* Animacja układania puzzli */
         .puzzle-loader {
             display: grid;
             grid-template-columns: repeat(3, 50px);
@@ -124,37 +52,15 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
-        /* Kolory inspirowane kostką Rubika */
-        .colors {
-            background-color: red;
-        }
-        .colors:nth-child(2) { background-color: blue; }
-        .colors:nth-child(3) { background-color: yellow; }
-        .colors:nth-child(4) { background-color: green; }
-        .colors:nth-child(5) { background-color: orange; }
-        .colors:nth-child(6) { background-color: white; }
-        .colors:nth-child(7) { background-color: purple; }
-        .colors:nth-child(8) { background-color: pink; }
-        .colors:nth-child(9) { background-color: cyan; }
-        
     </style>
 </head>
 <body>
+
     <div class="header">
         <i class="fas fa-brain"></i>
         Psychika to Twój największy mięsień. 💪🧠🫴
     </div>
-   
-    </div>
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="index.html" class="button home">Strona Główna</a>
-     <a href="artykuly.html" class="button articles">Artykuły</a>
-        <a href="kontakt.html" class="button contact">Kontakt</a>
 
-    </div>
-
-  <!-- Animacja puzzli -->
     <div class="puzzle-loader">
         <div class="puzzle-piece"></div>
         <div class="puzzle-piece"></div>
@@ -173,13 +79,28 @@
                 const colors = ['red', 'blue', 'yellow', 'green', 'orange', 'white', 'purple', 'pink', 'cyan'];
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
                 piece.style.backgroundColor = randomColor;
+
+                checkIfSolved();
             });
         });
+
+        function checkIfSolved() {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            const colors = Array.from(pieces).map(piece => piece.style.backgroundColor);
+            const uniqueColors = new Set(colors);
+
+            if (uniqueColors.size === 9) {
+                setTimeout(() => {
+                    alert("Brawo! Widzisz, wszystko da się ułożyć.");
+                }, 300);
+            }
+        }
     </script>
 
-     <p style="margin-top: 20px; font-size: 16px; color: #555; text-align: center;">
+    <p style="margin-top: 20px; font-size: 16px; color: #555; text-align: center;">
         Ludzki mózg to jak kostka Rubika – wszystko da się ułożyć. Klikaj i odkrywaj! 👆 Klik, klik, klik!
     </p>
-    
+
 </body>
 </html>
+
