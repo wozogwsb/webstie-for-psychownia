@@ -123,32 +123,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Zdjęcie psa */
-        .funny-img {
-            width: 200px; /* Zmniejszone zdjęcie psa */
-            height: auto;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-
-        .who-am-i .funny-img {
-            width: 500px; /* Większe zdjęcie funny */
-            height: auto;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-        .who-am-i h2 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .who-am-i p {
-            font-size: 20px;
-            color: #555;
-            line-height: 1.6;
-        }
-
         /* Flexbox do ustawienia zdjęcia z tekstem obok siebie */
         .flex-container {
             display: flex;
@@ -156,9 +130,36 @@
             align-items: center;
             margin-top: 40px;
         }
-        .flex-container img {
+
+        /* Zdjęcie pieska, mniejsze i wyśrodkowane */
+        .funny-img {
+            width: 300px; /* Mniejsze zdjęcie */
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Twoje zdjęcie */
+        .dog-img {
+            width: 200px; /* Twoje zdjęcie - rozmiar normalny */
+            height: auto;
+            border-radius: 20px;
             margin-right: 30px;
         }
+
+        .who-am-i h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .who-am-i p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+
         .flex-container .text {
             max-width: 600px;
             text-align: left;
@@ -213,10 +214,11 @@
 
     <!-- Sekcja Jak się tu znalazłeś -->
     <div class="who-am-i">
-       
-        <img src="funny.jpg" alt="Piesek" class="dog-img">
         <h2>Jak się tu znalazłeś?</h2>
         <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć.</p>
+
+        <!-- Piesek, małe zdjęcie -->
+        <img src="funny.jpg" alt="Funny Image" class="funny-img">
 
         <!-- Sekcja Kim jestem -->
         <div class="flex-container">
@@ -229,7 +231,5 @@
         </div>
     </div>
 
-    <!-- Duże zdjęcie funny -->
-    <img src="funny.jpg" alt="Funny Image" class="funny-img">
 </body>
 </html>
