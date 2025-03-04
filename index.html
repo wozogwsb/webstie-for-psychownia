@@ -114,47 +114,46 @@
             transition: background-color 0.3s;
         }
 
+        /* Kostka Rubika jako duży, jednolity kafelek */
+        .rubik-container {
+            background-color: #9E60A6; /* Jednolity kolor */
+            border-radius: 20px; /* Zaokrąglone kanty */
+            padding: 30px;
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
 
+        .rubik-container h2 {
+            font-size: 24px;
+            color: white;
+        }
 
-        
+        .rubik-container p {
+            font-size: 18px;
+            color: white;
+        }
 
-/* Kontener dla kostki Rubika i napisu */
-.rubik-container {
-    background-color: #9E60A6; /* Jednolity kolor */
-    border-radius: 20px; /* Zaokrąglone kanty */
-    padding: 30px;
-    width: 80%;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
+        /* Kostka Rubika jako sekcja - 3x3 siatka */
+        .rubik-cube {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-gap: 5px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
-.rubik-container h2 {
-    font-size: 24px;
-    color: white;
-}
-
-.rubik-container p {
-    font-size: 18px;
-    color: white;
-}
-
-/* Kostka Rubika */
-.rubik-image {
-    width: 150px;
-    height: 150px;
-    background-image: url('rubik-cube.jpg'); /* Zmień na ścieżkę do zdjęcia kostki Rubika */
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px; /* Zaokrąglone kanty */
-}
-
-
-        
-
-        
+        .rubik-piece {
+            width: 50px;
+            height: 50px;
+            background-color: #2C3E50;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         /* Sekcja Kim jestem z dużymi zdjęciami i tekstami */
         .who-am-i {
@@ -175,20 +174,11 @@
 
         /* Zdjęcie pieska, mniejsze i wyśrodkowane */
         .funny-img {
-            width: 300px; /* Mniejsze zdjęcie */
+            width: 400px; /* Zwiększamy rozmiar */
             height: auto;
             border-radius: 20px;
             margin-bottom: 20px;
         }
-
-        /* Zwiększamy rozmiar zdjęcia pieska */
-.funny-img {
-    width: 400px; /* Zwiększamy rozmiar */
-    height: auto;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
 
         /* Twoje zdjęcie */
         .dog-img {
@@ -276,22 +266,34 @@
         </div>
     </div>
 
-<div style="height: 1cm;"></div>
+    <div style="height: 1cm;"></div>
 
-       
+    <!-- Sekcja Kostka Rubika -->
+    <div class="rubik-container">
+        <div class="rubik-cube">
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+            <div class="rubik-piece"></div>
+        </div>
+        <h2>Ludzki mózg to jak kostka Rubika</h2>
+        <p>Wszystko da się ułożyć. Klikaj i odkrywaj! 👆 Klik, klik, klik!</p>
+    </div>
 
-        <!-- Sekcja Kim jestem -->
-        <div class="flex-container">
-            <!-- Twoje zdjęcie -->
-            <img src="mojefoto.jpg" alt="Twoje zdjęcie" class="dog-img">
-            <div class="text">
-                <h2>Kim jestem i czemu możesz mi zaufać?</h2>
-                <div style="height: 1cm;"></div>
-                <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
-            </div>
+    <!-- Sekcja Kim jestem -->
+    <div class="flex-container">
+        <!-- Twoje zdjęcie -->
+        <img src="mojefoto.jpg" alt="Twoje zdjęcie" class="dog-img">
+        <div class="text">
+            <h2>Kim jestem i czemu możesz mi zaufać?</h2>
+            <div style="height: 1cm;"></div>
+            <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
         </div>
     </div>
-    
-
 </body>
 </html>
