@@ -239,6 +239,43 @@
                 width: 90%;
             }
         }
+
+
+
+        .box {
+    width: 100px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    margin: 20px auto;
+}
+.corner {
+    background-color: transparent;
+    animation: fill 16s infinite;
+}
+.corner:nth-child(1) { animation-delay: 0s; }
+.corner:nth-child(2) { animation-delay: 4s; }
+.corner:nth-child(3) { animation-delay: 8s; }
+.corner:nth-child(4) { animation-delay: 12s; }
+
+@keyframes fill {
+    0%, 25% { background-color: transparent; }
+    26%, 100% { background-color: #4CAF50; }
+}
+.countdown {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
     </style>
 </head>
 <body>
@@ -314,7 +351,20 @@
 
 
 
+<!-- Sekcja Oddychania do Kwadratu -->
+<div style="margin-top: 40px;">
+    <h2>Technika Oddychania do Kwadratu</h2>
+    <div class="box">
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="countdown" id="countdown">4</div>
+    </div>
+</div>
 
+
+    
 
 
 
