@@ -183,6 +183,45 @@
             cursor: pointer;
         }
 
+        /* Poniższy pasek z tematami widoczny tylko na urządzeniach mobilnych */
+        .mobile-dropdown {
+            display: none;
+            background-color: #3BBFB2;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .mobile-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .mobile-dropdown ul li {
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown ul li:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query dla urządzeń mobilnych */
+        @media (max-width: 768px) {
+            .top-navbar .nav-buttons {
+                display: none; /* Ukryj poziome menu na urządzeniach mobilnych */
+            }
+
+            .mobile-dropdown {
+                display: block; /* Pokazuje pasek z tematami na urządzeniach mobilnych */
+            }
+        }
     </style>
 </head>
 <body>
@@ -196,8 +235,6 @@
 
         <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
-            
-            <!-- Rozwijane menu -->
             <div class="dropdown">
                 <a href="artykuly.html">Mentalna Siłownia</a>
                 <div class="dropdown-content">
@@ -209,7 +246,6 @@
                     </ul>
                 </div>
             </div>
-            
             <a href="kontakt.html">Kontakt</a>
 
             <!-- Przycisk z ikoną lupy -->
@@ -217,6 +253,15 @@
                 <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
             </button>
         </div>
+    </div>
+
+    <!-- Pasek z tematami widoczny na urządzeniach mobilnych -->
+    <div class="mobile-dropdown">
+        <ul>
+            <li>Stres</li>
+            <li>Chill</li>
+            <!-- Dodaj inne tematy, jeśli chcesz -->
+        </ul>
     </div>
 
     <!-- Treść strony -->
@@ -227,4 +272,3 @@
 
 </body>
 </html>
-
