@@ -2,10 +2,8 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Psychownia</title>
+<title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
-    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -126,7 +124,86 @@
         .header span.psycho { color: #FFD700; } /* Zmieniony kolor na złoty */
         .header span.wnia { color: #0000FF; } /* Zmieniony kolor na niebieski */
 
-        /* Dodatkowe style */
+    </style>
+</head>
+<body>
+
+    <!-- Poziomy pasek na górze -->
+    <div class="top-navbar">
+        <div style="display: flex; align-items: center;">
+            <img src="psychogym.ico" alt="Mózg">
+            <span class="psycho">Psycho</span><span class="wnia">wnia</span>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html">Strona Główna</a>
+            <a href="artykuly.html">Mentalna Siłownia</a>
+            <a href="kontakt.html">Kontakt</a>
+
+            <!-- Przycisk z ikoną lupy -->
+            <button class="search-btn">
+                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
+            </button>
+        </div>
+    </div>
+
+    <!-- Treść strony -->
+    <div class="content">
+        <h2>Witaj w Psychowni!</h2>
+        <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
+    </div>
+
+    
+  
+    
+    </style>
+</head>
+
+      
+
+    </style>
+</head>
+
+    <!-- Ikonka w zakładce -->
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+
+    <!-- Czcionka Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Ikonki FontAwesome -->
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            text-align: center;
+
+            }
+
+        
+        }
+        a {
+            color: #24303A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+
+
+            
+
+        
+        }
         .header {
             display: flex;
             align-items: center;
@@ -135,20 +212,22 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 20px;
-        }
 
+
+
+
+        
+        }
         .header i {
             font-size: 2.5rem;
             color: #3F4D56;
         }
-
         .button-container {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
-
         .button {
             padding: 12px 24px;
             border-radius: 25px;
@@ -160,30 +239,24 @@
             text-align: center;
             display: inline-block;
         }
-
         .home {
             background-color: #9E60A6;
             color: white;
         }
-
         .home:hover {
             background-color: #B5E0F0;
         }
-
         .articles {
             background-color: #B5E0F0;
             color: white;
         }
-
         .articles:hover {
             background-color: #9B76A6;
         }
-
         .contact {
             background-color: #A69FBF;
             color: white;
         }
-
         .contact:hover {
             background-color: #9E60A6;
         }
@@ -198,7 +271,6 @@
             margin: 40px auto;
             width: 170px;
         }
-
         .puzzle-piece {
             width: 50px;
             height: 50px;
@@ -320,70 +392,45 @@
             }
         }
 
+
+
         .box {
-            width: 100px;
-            height: 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            position: relative;
-            margin: 20px auto;
-        }
+    width: 100px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    margin: 20px auto;
+}
+.corner {
+    background-color: transparent;
+    animation: fill 16s infinite;
+}
+.corner:nth-child(1) { animation-delay: 0s; }
+.corner:nth-child(2) { animation-delay: 4s; }
+.corner:nth-child(3) { animation-delay: 8s; }
+.corner:nth-child(4) { animation-delay: 12s; }
 
-        .corner {
-            background-color: transparent;
-            animation: fill 16s infinite;
-        }
+@keyframes fill {
+    0%, 25% { background-color: transparent; }
+    26%, 100% { background-color: #4CAF50; }
+}
+.countdown {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-        .corner:nth-child(1) { animation-delay: 0s; }
-        .corner:nth-child(2) { animation-delay: 4s; }
-        .corner:nth-child(3) { animation-delay: 8s; }
-        .corner:nth-child(4) { animation-delay: 12s; }
-
-        @keyframes fill {
-            0%, 25% { background-color: transparent; }
-            26%, 100% { background-color: #4CAF50; }
-        }
-
-        .countdown {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
     </style>
 </head>
 
-<body>
-    <!-- Poziomy pasek na górze -->
-    <div class="top-navbar">
-        <div style="display: flex; align-items: center;">
-            <img src="psychogym.ico" alt="Mózg">
-            <span class="psycho">Psycho</span><span class="wnia">wnia</span>
-        </div>
-
-        <div class="nav-buttons">
-            <a href="index.html">Strona Główna</a>
-            <a href="artykuly.html">Mentalna Siłownia</a>
-            <a href="kontakt.html">Kontakt</a>
-
-            <!-- Przycisk z ikoną lupy -->
-            <button class="search-btn">
-                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-            </button>
-        </div>
-    </div>
-
-    <!-- Treść strony -->
-    <div class="content">
-        <h2>Witaj w Psychowni!</h2>
-        <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
-    </div>
 
     <!-- Animacja puzzli -->
     <div class="puzzle-loader">
@@ -425,7 +472,7 @@
     <div class="kafel">
         <div class="kafel-content">
             <h2>Jak się tu znalazłeś?</h2>
-            <div style="height: 0.5cm;"></div>
+            <div style="height: 0,5cm;"></div>
             <img src="funny.jpg" alt="Funny Dog" class="funny-img">
             <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć!</p>
         </div>
@@ -436,3 +483,35 @@
     <!-- Sekcja Kim jestem -->
     <div class="flex-container">
         <!-- Twoje zdjęcie -->
+        <img src="mojefoto.jpg" alt="Twoje zdjęcie" class="dog-img">
+        <div class="text">
+            <h2>Kim jestem i czemu możesz mi zaufać?</h2>
+            <div style="height: 1cm;"></div>
+            <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
+        </div>
+    </div>
+
+
+
+<!-- Sekcja Oddychania do Kwadratu -->
+<div style="margin-top: 40px;">
+    <h2>Technika Oddychania do Kwadratu</h2>
+    <div class="box">
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="corner"></div>
+        <div class="countdown" id="countdown">4</div>
+    </div>
+</div>
+
+
+    
+
+
+
+
+
+    
+</body>
+</html>
