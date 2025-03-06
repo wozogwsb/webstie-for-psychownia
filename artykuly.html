@@ -5,6 +5,55 @@
     <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+
+
+        
+
+   /* Przycisk powrotu */
+        .back-button {
+            position: fixed;  /* Ustalamy pozycję fixed, by przycisk był zawsze widoczny */
+            top: 20px;        /* Odstęp od góry */
+            left: 20px;       /* Odstęp od lewej */
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 999;     /* Ustalamy wysoki z-index, by przycisk był zawsze na wierzchu */
+        }
+
+        .back-button img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Przycisk powrotu -->
+    <button class="back-button" onclick="goBack()">
+        <img src="back.png" alt="Powrót">
+    </button>
+
+    <script>
+        // Funkcja do cofania się do poprzedniej strony
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+
+
+
+
+
+
+
+    
+
+
+
+
+        
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
