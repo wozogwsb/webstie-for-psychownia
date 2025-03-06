@@ -81,6 +81,7 @@
             border: none;
             cursor: pointer;
             z-index: 999;
+            display: none;
         }
 
         .back-button img {
@@ -275,7 +276,14 @@
     <script>
         // Funkcja do cofania się do poprzedniej strony
         function goBack() {
-            window.history.back();
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
+
+            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
+            article.style.display = 'none';
+            mainContent.style.display = 'block';
+            backButton.style.display = 'none';
         }
 
         // Funkcja pokazująca dostępne opcje (Stres, Złość)
@@ -287,7 +295,8 @@
         function chooseTopic(topic) {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
-            
+            let backButton = document.querySelector('.back-button');
+
             // Ukrywanie głównej sekcji po wyborze tematu
             mainContent.style.display = 'none';
             // Ukrywamy opcje wyboru
@@ -296,6 +305,7 @@
             if (topic === 'stres') {
                 // Wyświetlamy artykuł o stresie w kontenerze
                 article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             } else if (topic === 'zlosc') {
                 // Wyświetlamy artykuł o złości w kontenerze
                 article.innerHTML = `
@@ -308,6 +318,7 @@
                     <p>Psychicznie: Może prowadzić do agresji, frustracji i obniżenia zdolności do racjonalnego myślenia.</p>
                 `;
                 article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             }
         }
 
@@ -320,6 +331,7 @@
         function chooseSelfTopic(topic) {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
             
             // Ukrywanie głównej sekcji po wyborze tematu
             mainContent.style.display = 'none';
@@ -340,20 +352,22 @@
                     </ul>
                 `;
                 article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             } else if (topic === 'aktywnosc') {
                 // Wyświetlamy artykuł o aktywności fizycznej
                 article.innerHTML = `
                     <h2>Aktywność fizyczna - Klucz do dobrej kondycji</h2>
                     <img src="exercise.jpeg" alt="Aktywność fizyczna">
-                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać dobrą formę fizyczną i psychiczną.</p>
-                    <p>Rodzaje aktywności:</p>
+                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać dobrą formę fizyczną i mentalną.</p>
+                    <p>Korzyści z aktywności fizycznej:</p>
                     <ul>
-                        <li>Bieganie: Pomaga w poprawie kondycji i zdrowia serca.</li>
-                        <li>Joga: Zwiększa elastyczność, redukuje stres.</li>
-                        <li>Siłownia: Buduje siłę mięśniową i poprawia metabolizm.</li>
+                        <li>Poprawia kondycję i wytrzymałość.</li>
+                        <li>Pomaga w walce ze stresem.</li>
+                        <li>Pomaga w utrzymaniu prawidłowej wagi.</li>
                     </ul>
                 `;
                 article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             }
         }
     </script>
