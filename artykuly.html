@@ -156,6 +156,30 @@
         .select-options ul li:hover {
             color: #3BBFB2;
         }
+
+        /* Artykuł */
+        .article-content {
+            display: none;
+            padding: 40px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article-content p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
     </style>
 </head>
 <body>
@@ -193,6 +217,13 @@
         </div>
     </div>
 
+    <!-- Sekcja artykułu -->
+    <div id="article" class="article-content">
+        <h2>Stres - naturalna reakcja organizmu</h2>
+        <p>Stres to naturalna reakcja organizmu na bodźce z otoczenia. W sytuacjach stresowych nasz organizm produkuje hormony stresu, które pomagają nam radzić sobie z trudnościami. Jednak przewlekły stres może prowadzić do problemów zdrowotnych.</p>
+        <p>Aby zredukować stres, warto zacząć od prostych technik relaksacyjnych, takich jak głębokie oddychanie, medytacja czy spacer na świeżym powietrzu.</p>
+    </div>
+
     <script>
         // Funkcja pokazująca dostępne opcje (Stres, Chill)
         function showOptions() {
@@ -202,25 +233,21 @@
         // Funkcja obsługująca wybór tematu
         function chooseTopic(topic) {
             let message = '';
+            let article = document.getElementById('article');
 
             if (topic === 'stres') {
                 message = 'Wybrałeś temat: Stres. Czas na pracę nad tym.';
+                // Wyświetlamy artykuł o stresie
+                article.style.display = 'block';
             } else if (topic === 'chill') {
                 message = 'Wybrałeś temat: Chill. Czas na relaks!';
+                // Możesz tutaj dodać artykuł o chill
             }
 
             alert(message);
             // Możesz tutaj dodać kod, aby otworzyć artykuł związany z wybranym tematem
         }
     </script>
-
-     <!-- Sekcja artykułu -->
-    <div class="article-content">
-        <h2>Stres - naturalna reakcja organizmu</h2>
-        <p>Stres to naturalna reakcja organizmu na bodźce z otoczenia. W sytuacjach stresowych nasz organizm produkuje hormony stresu, które pomagają nam radzić sobie z trudnościami. Jednak przewlekły stres może prowadzić do problemów zdrowotnych.</p>
-        <p>Aby zredukować stres, warto zacząć od prostych technik relaksacyjnych, takich jak głębokie oddychanie, medytacja czy spacer na świeżym powietrzu.</p>
-    </div>
-    
 
 </body>
 </html>
