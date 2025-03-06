@@ -244,6 +244,13 @@
             height: 100vh;
             background-color: #1a202c;
             margin: 0;
+            flex-direction: column;
+        }
+        .text {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .square {
             width: 100px;
@@ -257,7 +264,7 @@
             align-items: center;
             border-radius: 10px;
             animation: breathe 4s infinite alternate ease-in-out;
-
+        }
         .circle {
             width: 40px;
             height: 40px;
@@ -270,12 +277,11 @@
             font-weight: bold;
             color: #1a202c;
             position: absolute;
-       }
+        }
         @keyframes breathe {
             0% { transform: scale(1); }
             100% { transform: scale(1.5); }
         }
-
 
         
     </style>
@@ -309,6 +315,9 @@
     <p>Nie pozwól, by stres rządził tobą. To ty masz pilota do własnej psychiki – przełącz kanał na coś bardziej pozytywnego!</p>
 
     <!-- Oddychający kwadrat -->
+     <div class="text">
+        Oddychaj w rytm kwadratu. Wdech przez 4 sekundy, zatrzymaj na chwilę, a potem wydech przez 4 sekundy.
+    </div>
     <div class="square">
         <div class="circle" id="counter">4</div>
     </div>
