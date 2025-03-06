@@ -5,55 +5,6 @@
     <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-
-
-        
-
-   /* Przycisk powrotu */
-        .back-button {
-            position: fixed;  /* Ustalamy pozycję fixed, by przycisk był zawsze widoczny */
-            top: 20px;        /* Odstęp od góry */
-            left: 20px;       /* Odstęp od lewej */
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 999;     /* Ustalamy wysoki z-index, by przycisk był zawsze na wierzchu */
-        }
-
-        .back-button img {
-            width: 40px;
-            height: 40px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Przycisk powrotu -->
-    <button class="back-button" onclick="goBack()">
-        <img src="back.png" alt="Powrót">
-    </button>
-
-    <script>
-        // Funkcja do cofania się do poprzedniej strony
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-
-</body>
-
-
-
-
-
-
-
-    
-
-
-
-
-        
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -121,14 +72,15 @@
             border-color: #f1c40f;
         }
 
-        /* Przycisk powrotu */
+        /* Kontener na przycisk powrotu */
         .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
             background-color: transparent;
             border: none;
             cursor: pointer;
+            z-index: 999;
         }
 
         .back-button img {
@@ -321,6 +273,11 @@
     </div>
 
     <script>
+        // Funkcja do cofania się do poprzedniej strony
+        function goBack() {
+            window.history.back();
+        }
+
         // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
             document.getElementById('options').style.display = 'block';
@@ -341,7 +298,7 @@
                 article.style.display = 'block';
             } else if (topic === 'zlosc') {
                 // Wyświetlamy artykuł o złości w kontenerze
-                article.innerHTML = ` 
+                article.innerHTML = `
                     <h2>Złość - naturalna reakcja organizmu</h2>
                     <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
                     <p>Co to jest złość?</p>
@@ -388,22 +345,16 @@
                 article.innerHTML = `
                     <h2>Aktywność fizyczna - Klucz do dobrej kondycji</h2>
                     <img src="exercise.jpeg" alt="Aktywność fizyczna">
-                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać ciało w dobrej kondycji.</p>
+                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać dobrą formę fizyczną i psychiczną.</p>
                     <p>Rodzaje aktywności:</p>
                     <ul>
-                        <li>Bieganie: Poprawia kondycję, wzmacnia serce i spala kalorie.</li>
-                        <li>Siłownia: Pomaga w budowaniu siły i masy mięśniowej.</li>
-                        <li>Spacer: To prosty sposób na aktywność fizyczną w każdym wieku.</li>
+                        <li>Bieganie: Zwiększa wytrzymałość i poprawia kondycję.</li>
+                        <li>Siłownia: Pomaga w budowaniu masy mięśniowej i siły.</li>
+                        <li>Jazda na rowerze: Doskonały sposób na poprawę kondycji serca i nóg.</li>
                     </ul>
                 `;
                 article.style.display = 'block';
             }
-        }
-
-        // Funkcja do cofania się do poprzedniego kroku
-        function goBack() {
-            document.getElementById('mainContent').style.display = 'block'; 
-            document.getElementById('article').style.display = 'none';
         }
     </script>
 
