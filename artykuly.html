@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; /* Tło strony */
             color: #333;
             text-align: center;
             padding: 20px;
@@ -28,25 +28,23 @@
         }
 
         .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    border-radius: 15px; /* Zaokrąglone rogi dla nagłówka */
-    padding: 10px; /* Dodatkowy padding dla przestrzeni wokół */
-    background-color: ##EBF0F2; /* Kolor tła nagłówka */
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Cień dla lepszego efektu */
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 15px; 
+            padding: 10px;
+            background-color: #EBF0F2;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.header img {
-    width: 50px;  /* Dopasowujemy wielkość logo */
-    height: 50px;
-    border-radius: 50%; /* Zaokrąglone rogi dla ikony */
-}
-
+        .header img {
+            width: 50px;  
+            height: 50px;
+            border-radius: 50%;
         }
 
         .button-container {
@@ -109,29 +107,86 @@
 
         .stress-box {
             background-color: #B5E0F0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center; /* Wyśrodkowanie tekstu */
         }
 
         .chill-box {
             background-color: #EBF0F2;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
         }
 
-        /* Styl kontenera na tematyki */
+        /* Nowy styl dla artykułu o oddychaniu */
+        .breathing-box {
+            background-color: #B5E0F0; /* Dopasowany do reszty */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .text {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-image: url('oddech.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            animation: breathe 4s infinite alternate ease-in-out;
+            margin: 0 auto; /* Wyśrodkowanie kwadratu */
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a202c;
+            position: absolute;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.5); }
+        }
+
         .topics-container {
             position: fixed;
             left: 20px;
-            bottom: 20px; /* Pozycja przycisków na dole */
+            bottom: 20px;
             text-align: center;
-            z-index: 1000; /* Zapewnia, że będą widoczne na wierzchu */
+            z-index: 1000;
         }
 
-        /* Nagłówek "Tematyki" */
         .topics-header {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        /* Styl dla okrągłych buttonów */
         .topic-button {
             width: 80px;
             height: 80px;
@@ -153,17 +208,15 @@
             line-height: 1.2;
         }
 
-        /* Kolory dla poszczególnych tematów */
         .stres { background-color: #734343; }
         .stres:hover { background-color: #e04c2d; }
 
         .negatywne-myslenie { background-color: #348ABF; }
         .negatywne-myslenie:hover { background-color: #2b5cd6; }
+
         .chill { background-color: #EBF0F2; }
         .chill:hover { background-color: #F2D16D; }
-        
 
-        /* Dla małych ekranów */
         @media screen and (max-width: 768px) {
             .header {
                 font-size: 24px;
@@ -195,7 +248,6 @@
             }
         }
 
-        /* Dla bardzo małych ekranów */
         @media screen and (max-width: 480px) {
             .header {
                 font-size: 20px;
@@ -220,75 +272,6 @@
                 font-size: 10px;
             }
         }
-
-        /* Styl dla kontenera, który zjeżdża wraz z przewijaniem */
-        .sticky-top {
-            position: -webkit-sticky; /* Safari */
-            position: sticky;
-            top: 20px;
-            z-index: 1000;
-        }
-
-
-.stress-box {
-    background-color: #B5E0F0; /* Dopasowany do reszty */
-    padding: 20px;
-    border-radius: 10px;
-
-}
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #1a202c;
-            margin: 0;
-            flex-direction: column;
-        }
-        .text {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .square {
-            width: 100px;
-            height: 100px;
-            background-image: url('oddech.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            animation: breathe 4s infinite alternate ease-in-out;
-        }
-        .circle {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #1a202c;
-            position: absolute;
-        }
-        @keyframes breathe {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.5); }
-        }
-
-
-
-
-
-
-        
     </style>
 </head>
 <body>
@@ -303,69 +286,42 @@
         <a href="kontakt.html" class="button contact">Kontakt</a>
     </div>
 
-    <!-- Artykuły -->
     <div class="article-box" id="negatywne-myslenie-artykul">
         <h2>Pułapki Umysłu – Jak Złapać Drabinę?</h2>
         <img src="drabina.jpg" alt="Drabina">
-        <p>Wpadamy w pułapki własnego umysłu, kiedy nie dostrzegamy wyjścia z trudnej sytuacji. Czujemy się uwięzieni w negatywnych schematach myślenia, nie widząc, że rozwiązanie często jest bliżej, niż nam się wydaje.</p>
-        <p>Pierwszym krokiem do zmiany jest uświadomienie sobie problemu – to jak chwycenie za drabinę, która pomoże nam się wydostać. Zrozumienie, że istnieje wyjście, to początek drogi do wolności i lepszego samopoczucia.</p>
+        <p>Wpadamy w pułapki własnego umysłu. Często nie zdajemy sobie sprawy z tego, jak bardzo nasze myśli mogą nas ograniczać i wpędzać w negatywne spirale. Kluczem do odzyskania kontroli jest nauka rozpoznawania tych myśli i ich przekształcania.</p>
+        <p>Spróbuj zastosować metodę "5 pytań", aby wyjść z pułapek myślowych. Zadawaj sobie pytania, które pomogą Ci zmienić sposób myślenia na bardziej pozytywny i realistyczny.</p>
     </div>
 
-   <!-- Artykuł o stresie -->
-<div class="article-box stress-box" id="stres-artykul">
-    <h2>Stres – Jak Go Rozładować?</h2>
-    <img src="stres.jpg" alt="Osoba zestresowana">
-    <p>Stres jest jak balon – jeśli go nie uwolnisz w kontrolowany sposób, wybuchnie...</p>
-    <p>Sport to najlepszy wentyl bezpieczeństwa – idź pobiegać, poboksować albo chociaż pomachać łopatą w ogródku. Jeśli to nie pomaga, wypróbuj techniki relaksacyjne, głębokie oddychanie lub po prostu wyśpij się.</p>
-    <p>Nie pozwól, by stres rządził tobą. To ty masz pilota do własnej psychiki – przełącz kanał na coś bardziej pozytywnego!</p>
-
-    <!-- Oddychający kwadrat -->
-     <div class="text">
-        Oddychaj w rytm kwadratu. Wdech przez 4 sekundy, zatrzymaj na chwilę, a potem wydech przez 4 sekundy.
+    <div class="article-box stress-box" id="stres-artykul">
+        <h2>Stres – Jak Go Rozładować?</h2>
+        <img src="stres.jpg" alt="Osoba zestresowana">
+        <p>Stres to naturalna reakcja organizmu na bodźce z otoczenia. W sytuacjach stresowych nasz organizm produkuje hormony stresu, które pomagają nam radzić sobie z trudnościami. Jednak przewlekły stres może prowadzić do problemów zdrowotnych.</p>
+        <p>Aby zredukować stres, warto zacząć od prostych technik relaksacyjnych, takich jak głębokie oddychanie, medytacja czy spacer na świeżym powietrzu.</p>
+        
+        <div class="breathing-box">
+            <div class="text">
+                Oddychaj w rytm kwadratu. Wdech przez 4 sekundy, zatrzymaj na chwilę, a potem wydech przez 4 sekundy.
+            </div>
+            <div class="square">
+                <div class="circle" id="counter">4</div>
+            </div>
+        </div>
     </div>
-    <div class="square">
-        <div class="circle" id="counter">4</div>
-    </div>
-    <script>
-        let seconds = 4;
-        setInterval(() => {
-            seconds = seconds === 1 ? 4 : seconds - 1;
-            document.getElementById("counter").textContent = seconds;
-        }, 1000);
-    </script>
 
-
-
-
-<!-- Artykuł o chillu -->
     <div class="article-box chill-box" id="chill-artykul">
         <h2>Dlaczego dobry chill jest kluczowy w stresie?</h2>
-        <img src="chill.jpg" alt="Osoba i wanna">
-        <p>Żyjemy w świecie, gdzie tempo życia nieustannie rośnie, a stres to nasz codzienny towarzysz. Czasem jednak zapominamy o tym, jak ważne jest… po prostu wrzucić na luz. Relaks i dystans do rzeczywistości to nie lenistwo, ale klucz do zdrowia psychicznego i emocjonalnej równowagi.</p>
-        <p>Wielu z nas myśli, że odprężenie to marnowanie czasu, ale prawda jest inna – kiedy się uspokoisz, Twój umysł działa efektywniej. Badania pokazują, że osoby, które potrafią się zrelaksować, szybciej rozwiązują problemy i lepiej radzą sobie ze stresem.</p>
-        <p>Jak wrzucić na luz w stresujących momentach?
-✔ Oddychaj świadomie – kilka głębokich oddechów potrafi zdziałać cuda.
-✔ Śmiej się – humor to naturalny sposób na rozładowanie napięcia.
-✔ Zmień perspektywę – zapytaj siebie: „Czy to będzie miało znaczenie za rok?”
-✔ Zrób coś, co Cię cieszy – muzyka, spacer, książka… cokolwiek, co daje Ci przyjemność. 😎✨ </p>
-       <p> Dlaczego warto?
-Gdy wrzucasz na luz, zmniejsza się poziom kortyzolu (hormonu stresu), Twoje serce zwalnia, a ciało i umysł regenerują się. Dystans emocjonalny pozwala lepiej reagować na trudne sytuacje i nie spalać się psychicznie.
-Więc jeśli masz ciężki dzień – zatrzymaj się na chwilę, weź głęboki oddech i pozwól sobie na odrobinę chillu. Bo dobry luz… to zdrowy luz!</p>
+        <img src="chill.jpg" alt="Osoba w wannie relaksująca się">
+        <p>Żyjemy w świecie, gdzie tempo życia nieustannie rośnie, a stres staje się nieodłączną częścią codzienności. Jednym ze sposobów radzenia sobie z napięciem jest świadome wprowadzenie do swojego dnia chwil relaksu, które pozwolą na pełną regenerację.</p>
+        <p>Chillowanie w formie medytacji, czytania książki lub po prostu relaksującej kąpieli jest kluczowe dla zachowania równowagi psychicznej.</p>
     </div>
 
-
-
-
-    
-    
-  <!-- Tematyki (przyciski po lewej stronie z obramowaniem) -->
-<div class="topics-container sticky-left">
-    <div class="topics-header">Tematyki</div>
-    <a href="#stres-artykul" class="topic-button stres">Stres</a>
-    <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
-    <a href="#chill-artykul" class="topic-button chill">Chill</a>
-</div>
-
+    <div class="topics-container">
+        <div class="topics-header">Tematyki</div>
+        <a href="#stres-artykul" class="topic-button stres">Stres</a>
+        <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
+        <a href="#chill-artykul" class="topic-button chill">Chill</a>
+    </div>
 
 </body>
 </html>
