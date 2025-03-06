@@ -76,21 +76,11 @@
         .content {
             padding: 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-around;
         }
 
-        .content h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Nowe style dla sekcji z obrazkiem */
+        /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
@@ -99,6 +89,7 @@
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 45%;
         }
 
         .image-container img {
@@ -205,7 +196,7 @@
         </div>
     </div>
 
-    <!-- Sekcja z obrazkiem i przyciskiem -->
+    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
@@ -219,6 +210,23 @@
                 <ul>
                     <li onclick="chooseTopic('stres')">Stres</li>
                     <li onclick="chooseTopic('zlosc')">Złość</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
+        <div class="image-container">
+            <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
+            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="selfOptions" class="select-options">
+                <ul>
+                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
+                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
                 </ul>
             </div>
         </div>
@@ -240,16 +248,6 @@
             <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
             <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
             <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
-        <p>Zmiana myślenia:</p>
-        <ul>
-            <li>Przeformułowanie: Zamiast widzieć problem, traktuj go jako wyzwanie.</li>
-            <li>Realistyczne cele: Małe kroki zamiast przytłaczających zadań.</li>
-        </ul>
-        <p>Relaksacja i dieta:</p>
-        <ul>
-            <li>Relaks: Proste techniki, jak relaksacja mięśni, zmniejszają napięcie.</li>
-            <li>Dieta: Omega-3, witaminy B, magnez pomagają w walce ze stresem. Unikaj nadmiaru kofeiny i cukru.</li>
         </ul>
     </div>
 
@@ -282,17 +280,51 @@
                     <p>Jak złość wpływa na organizm?</p>
                     <p>Fizycznie: Przyspiesza tętno, podnosi ciśnienie, zwiększa poziom adrenaliny i kortyzolu.</p>
                     <p>Psychicznie: Może prowadzić do agresji, frustracji i obniżenia zdolności do racjonalnego myślenia.</p>
-                    <p>Techniki radzenia sobie:</p>
+                `;
+                article.style.display = 'block';
+            }
+        }
+
+        // Funkcja pokazująca dostępne opcje (Co chciałbyś zrobić dla siebie)
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu o sobie
+        function chooseSelfTopic(topic) {
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            
+            // Ukrywanie głównej sekcji po wyborze tematu
+            mainContent.style.display = 'none';
+            // Ukrywamy opcje wyboru
+            document.getElementById('selfOptions').style.display = 'none';
+
+            if (topic === 'odpoczynek') {
+                // Wyświetlamy artykuł o odpoczynku
+                article.innerHTML = `
+                    <h2>Odpoczynek - Klucz do zdrowia</h2>
+                    <img src="relax.jpeg" alt="Odpoczynek">
+                    <p>Odpoczynek jest ważny dla zachowania równowagi ciała i umysłu. Pozwala na regenerację organizmu.</p>
+                    <p>Techniki odpoczynku:</p>
                     <ul>
-                        <li>Świadomość emocji: Rozpoznanie złości to pierwszy krok w zarządzaniu nią.</li>
-                        <li>Głębokie oddychanie: Pomaga obniżyć poziom stresu i uspokoić organizm.</li>
-                        <li>Pauza: Zrób przerwę przed wybuchiem, daj sobie czas na refleksję.</li>
-                        <li>Aktywność fizyczna: Pomaga rozładować napięcie i poprawia samopoczucie.</li>
-                        <li>Rozmowa: Wyrażenie emocji w sposób konstruktywny może pomóc w rozwiązaniu problemu.</li>
+                        <li>Medytacja: Pomaga w redukcji stresu i zwiększa koncentrację.</li>
+                        <li>Joga: Łączy ruch z oddechem, poprawiając zdrowie fizyczne i psychiczne.</li>
+                        <li>Chwila ciszy: Czas dla siebie bez bodźców zewnętrznych.</li>
                     </ul>
-                    <p>Zmiana myślenia:</p>
+                `;
+                article.style.display = 'block';
+            } else if (topic === 'aktywnosc') {
+                // Wyświetlamy artykuł o aktywności fizycznej
+                article.innerHTML = `
+                    <h2>Aktywność fizyczna - Klucz do dobrej kondycji</h2>
+                    <img src="exercise.jpeg" alt="Aktywność fizyczna">
+                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać ciało w dobrej kondycji.</p>
+                    <p>Rodzaje aktywności:</p>
                     <ul>
-                        <li>Przeformułowanie: Zamiast skupiać się na tym, co cię zdenerwowało, poszukaj rozwiązania.</li>
+                        <li>Bieganie: Poprawia kondycję, wzmacnia serce i spala kalorie.</li>
+                        <li>Siłownia: Pomaga w budowaniu siły i masy mięśniowej.</li>
+                        <li>Spacer: To prosty sposób na aktywność fizyczną w każdym wieku.</li>
                     </ul>
                 `;
                 article.style.display = 'block';
