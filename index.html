@@ -2,8 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Psychownia</title>
+<title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,8 +16,8 @@
         .top-navbar {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            background-color: #C9DFF2; /* Kolor tła paska */
+            justify-content: space-between;
+            background-color: #4e73df; /* Kolor tła paska */
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky; /* Ustawienie paska na sticky */
@@ -44,6 +43,48 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        /* Przycisk w pasku */
+        .top-navbar .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-navbar .nav-buttons a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 20px;
+            border-radius: 8px; /* Zaokrąglenie krawędzi */
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+            border: 2px solid transparent; /* Obrys przycisku */
+        }
+
+        .top-navbar .nav-buttons a:hover {
+            background-color: #3a5ba3; /* Kolor po najechaniu */
+            transform: scale(1.05); /* Efekt powiększenia przy najechaniu */
+        }
+
+        .top-navbar .nav-buttons a:focus {
+            outline: none;
+            border-color: #f1c40f; /* Złoty obrys przy kliknięciu */
+        }
+
+        /* Ikona lupy (wyszukiwanie) */
+        .search-icon {
+            background-color: #fff;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-icon:hover {
+            background-color: #c6c6c6; /* Kolor po najechaniu */
+        }
+
         /* Treść strony */
         .content {
             padding: 20px;
@@ -67,10 +108,30 @@
 
     <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
-        <img src="psychogym.ico" alt="Mózg">
-        <h1>Psychownia</h1>
+        <div style="display: flex; align-items: center;">
+            <img src="psychogym.ico" alt="Mózg">
+            <h1>Psychownia</h1>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html">Strona Główna</a>
+            <a href="mentalna-silownia.html">Mentalna Siłownia</a>
+            <a href="kontakt.html">Kontakt</a>
+            <!-- Ikona lupy do wyszukiwania -->
+            <div class="search-icon" onclick="alert('Wyszukiwanie wkrótce dostępne!')">
+                <i class="fas fa-search"></i> <!-- FontAwesome dla lupy -->
+            </div>
+        </div>
     </div>
 
+    <!-- Treść strony -->
+    <div class="content">
+        <h2>Witaj w Psychowni!</h2>
+        <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
+    </div>
+
+    <!-- Skrypt dla ikony lupy (wyszukiwanie) -->
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
     
     </style>
 </head>
