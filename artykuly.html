@@ -72,56 +72,10 @@
             border-color: #f1c40f;
         }
 
-        /* Ikona lupy */
-        .search-icon {
-            width: 30px;
-            height: 30px;
-            border: 2px solid white;
-            border-radius: 50%;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-icon:before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 10px;
-            height: 10px;
-            border: 2px solid white;
-            border-radius: 50%;
-            border-left: none;
-            border-top: none;
-            transform: rotate(45deg);
-        }
-
-        .search-icon:hover {
-            background-color: #c6c6c6;
-        }
-
-        .search-btn {
-            background: none;
-            border: none;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .search-btn img {
-            width: 24px;
-            height: 24px;
-            display: block;
-        }
-
         /* Treść strony */
         .content {
             padding: 20px;
+            text-align: center;
         }
 
         .content h2 {
@@ -136,91 +90,71 @@
             line-height: 1.6;
         }
 
-        /* Nowe style dla rozwijanej listy */
-        .dropdown {
+        /* Nowe style dla sekcji z obrazkiem */
+        .image-container {
             position: relative;
+            display: inline-block;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
             border-radius: 8px;
-            top: 100%;
-            left: 0;
-            padding: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
             display: block;
+            margin: 0 auto;
         }
 
-        .dropdown-content h3 {
-            font-size: 1.1rem;
-            font-weight: bold;
+        .image-container .text {
+            font-size: 1.4rem;
+            margin-top: 20px;
             color: #333;
-            margin-bottom: 10px;
-            text-decoration: underline;
         }
 
-        .dropdown-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .dropdown-content ul li {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .dropdown-content ul li:hover {
-            color: #3BBFB2;
-            cursor: pointer;
-        }
-
-        /* Poniższy pasek z tematami widoczny tylko na urządzeniach mobilnych */
-        .mobile-dropdown {
-            display: none;
+        /* Przycisk wyboru */
+        .choose-button {
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #3BBFB2;
-            padding: 10px;
-            text-align: center;
             color: white;
-            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .mobile-dropdown ul {
+        .choose-button:hover {
+            background-color: #8E79D9;
+        }
+
+        /* Sekcja z wyborem tematu */
+        .select-options {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .select-options ul {
             list-style: none;
             padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
         }
 
-        .mobile-dropdown ul li {
-            font-size: 1rem;
-            color: white;
+        .select-options ul li {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             cursor: pointer;
         }
 
-        .mobile-dropdown ul li:hover {
-            text-decoration: underline;
-        }
-
-        /* Media query dla urządzeń mobilnych */
-        @media (max-width: 768px) {
-            .top-navbar .nav-buttons {
-                display: none; /* Ukryj poziome menu na urządzeniach mobilnych */
-            }
-
-            .mobile-dropdown {
-                display: block; /* Pokazuje pasek z tematami na urządzeniach mobilnych */
-            }
+        .select-options ul li:hover {
+            color: #3BBFB2;
         }
     </style>
 </head>
@@ -235,40 +169,50 @@
 
         <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
-            <div class="dropdown">
-                <a href="artykuly.html">Mentalna Siłownia</a>
-                <div class="dropdown-content">
-                    <h3>Pomyśl o</h3>
-                    <ul>
-                        <li>Stres</li>
-                        <li>Chill</li>
-                        <!-- Dodaj inne tematy, jeśli chcesz -->
-                    </ul>
-                </div>
-            </div>
+            <a href="artykuly.html">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
-
-            <!-- Przycisk z ikoną lupy -->
-            <button class="search-btn">
-                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-            </button>
         </div>
     </div>
 
-    <!-- Pasek z tematami widoczny na urządzeniach mobilnych -->
-    <div class="mobile-dropdown">
-        <ul>
-            <li>Stres</li>
-            <li>Chill</li>
-            <!-- Dodaj inne tematy, jeśli chcesz -->
-        </ul>
+    <!-- Sekcja z obrazkiem i przyciskiem -->
+    <div class="content">
+        <div class="image-container">
+            <img src="mozgucwiczacegomiesnie.jpg" alt="Mózg ćwiczący miesięcznie">
+            <div class="text">Co byś chciał dzisiaj przepracować?</div>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="options" class="select-options">
+                <ul>
+                    <li onclick="chooseTopic('stres')">Stres</li>
+                    <li onclick="chooseTopic('chill')">Chill</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <!-- Treść strony -->
-    <div class="content">
-        <h2>Witaj na stronie Psychownia!</h2>
-        <p>Psychownia to miejsce, w którym dbamy o zdrowie psychiczne poprzez różnorodne artykuły, ćwiczenia oraz inspiracje. Znajdziesz tutaj materiały, które pomogą Ci lepiej zarządzać stresem, relaksować się oraz rozwijać swoją mentalną siłę.</p>
-    </div>
+    <script>
+        // Funkcja pokazująca dostępne opcje (Stres, Chill)
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu
+        function chooseTopic(topic) {
+            let message = '';
+
+            if (topic === 'stres') {
+                message = 'Wybrałeś temat: Stres. Czas na pracę nad tym.';
+            } else if (topic === 'chill') {
+                message = 'Wybrałeś temat: Chill. Czas na relaks!';
+            }
+
+            alert(message);
+            // Możesz tutaj dodać kod, aby otworzyć artykuł związany z wybranym tematem
+        }
+    </script>
 
 </body>
 </html>
