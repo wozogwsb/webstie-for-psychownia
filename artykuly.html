@@ -12,6 +12,11 @@
             padding: 0;
             background-color: #f4f4f4;
             font-size: 16px; /* Domyślny rozmiar czcionki */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #f4f4f4;
         }
 
         /* Poziomy pasek na górze */
@@ -24,6 +29,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
+            width: 100%;
             z-index: 1000;
         }
 
@@ -77,7 +83,7 @@
         /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
-            top: 80px; 
+            top: 80px;
             left: 20px;
             background-color: #3BBFB2;
             border: none;
@@ -101,6 +107,8 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            width: 100%;
+            max-width: 1200px; /* Maksymalna szerokość */
         }
 
         /* Kontener na obrazek i przycisk */
@@ -115,6 +123,7 @@
             width: 45%;
             min-width: 280px;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .image-container img {
@@ -331,119 +340,44 @@
         </div>
     </div>
 
-    <!-- Sekcja artykułu -->
-    <div id="article" class="article-container">
-        <h2>Stres - naturalna reakcja organizmu</h2>
-        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <p>Co to jest stres?</p>
-        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <p>Jak stres wpływa na organizm?</p>
-        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-        <p>Techniki radzenia sobie:</p>
-        <ul>
-            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
-    </div>
+    <!-- Nowy kontener na artykuł -->
+    <div class="article-container" id="articleContainer"></div>
 
     <script>
-        // Funkcja do cofania się do poprzedniej strony
-        function goBack() {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-
-            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
-            article.style.display = 'none';
-            mainContent.style.display = 'block';
-            backButton.style.display = 'none';
-        }
-
-        // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
             document.getElementById('options').style.display = 'block';
         }
 
-        // Funkcja obsługująca wybór tematu
         function chooseTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-
-            // Ukrywanie głównej sekcji po wyborze tematu
-            mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
-            document.getElementById('options').style.display = 'none';
+            const articleContainer = document.getElementById('articleContainer');
+            const backButton = document.querySelector('.back-button');
+            let content = '';
 
             if (topic === 'stres') {
-                // Wyświetlamy artykuł o stresie w kontenerze
-                article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+                content = `
+                    <h2>Stres - jak sobie z nim radzić?</h2>
+                    <img src="stres.jpeg" alt="Obrazek stresu">
+                    <p>Stres może mieć poważny wpływ na nasze zdrowie psychiczne i fizyczne. Warto poznać skuteczne techniki radzenia sobie ze stresem.</p>
+                `;
             } else if (topic === 'zlosc') {
-                // Wyświetlamy artykuł o złości w kontenerze
-                article.innerHTML = `
-                    <h2>Złość - naturalna reakcja organizmu</h2>
-                    <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Co to jest złość?</p>
-                    <p>Emocja pojawiająca się w odpowiedzi na zagrożenie, frustrację lub niesprawiedliwość.</p>
-                    <p>Jak złość wpływa na organizm?</p>
-                    <p>Fizycznie: Przyspiesza tętno, podnosi ciśnienie, zwiększa poziom adrenaliny i kortyzolu.</p>
-                    <p>Psychicznie: Może prowadzić do agresji, frustracji i obniżenia zdolności do racjonalnego myślenia.</p>
+                content = `
+                    <h2>Złość - jak ją kontrolować?</h2>
+                    <img src="anger.jpeg" alt="Obrazek złości">
+                    <p>Złość jest naturalnym uczuciem, ale warto nauczyć się ją kontrolować, by nie wpłynęła negatywnie na nasze życie.</p>
                 `;
-                article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             }
+
+            articleContainer.innerHTML = content;
+            articleContainer.style.display = 'block';
+            backButton.style.display = 'block';
+            document.getElementById('options').style.display = 'none';
         }
 
-        // Funkcja pokazująca dostępne opcje (Co chciałbyś zrobić dla siebie)
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
-        // Funkcja obsługująca wybór tematu o sobie
-        function chooseSelfTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-            
-            // Ukrywanie głównej sekcji po wyborze tematu
-            mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
-            document.getElementById('selfOptions').style.display = 'none';
-
-            if (topic === 'odpoczynek') {
-                // Wyświetlamy artykuł o odpoczynku w kontenerze
-                article.innerHTML = `
-                    <h2>Odpoczynek - regeneracja ciała i umysłu</h2>
-                    <img src="relaxation.jpeg" alt="Obrazek odpoczynku">
-                    <p>Odpoczynek jest kluczowy dla utrzymania zdrowia psychicznego i fizycznego.</p>
-                    <p>Techniki odpoczynku:</p>
-                    <ul>
-                        <li>Medytacja - 10 minut dziennie na pełną regenerację.</li>
-                        <li>Cisza i spokój - czas tylko dla siebie, z dala od hałasu i rozproszeń.</li>
-                    </ul>
-                `;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            } else if (topic === 'aktywnosc') {
-                // Wyświetlamy artykuł o aktywności fizycznej
-                article.innerHTML = `
-                    <h2>Aktywność fizyczna - klucz do zdrowia</h2>
-                    <img src="exercise.jpeg" alt="Obrazek aktywności fizycznej">
-                    <p>Regularna aktywność fizyczna wpływa na poprawę samopoczucia, kondycji i zdrowia.</p>
-                    <p>Formy aktywności:</p>
-                    <ul>
-                        <li>Siłownia - rozwój siły i wytrzymałości.</li>
-                        <li>Spacer - najlepszy sposób na relaks i oczyszczenie umysłu.</li>
-                    </ul>
-                `;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            }
+        function goBack() {
+            const articleContainer = document.getElementById('articleContainer');
+            const backButton = document.querySelector('.back-button');
+            articleContainer.style.display = 'none';
+            backButton.style.display = 'none';
         }
     </script>
 
