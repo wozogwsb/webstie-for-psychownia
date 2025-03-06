@@ -60,7 +60,7 @@
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
             border: 2px solid transparent;
-               }
+        }
 
         .top-navbar .nav-buttons a:hover {
             background-color: #8E79D9;
@@ -71,9 +71,21 @@
             outline: none;
             border-color: #f1c40f;
         }
-        
 
-    
+        /* Przycisk powrotu */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button img {
+            width: 40px;
+            height: 40px;
+        }
 
         /* Treść strony */
         .content {
@@ -199,6 +211,11 @@
         </div>
     </div>
 
+    <!-- Przycisk powrotu -->
+    <button class="back-button" onclick="goBack()">
+        <img src="back.png" alt="Powrót">
+    </button>
+
     <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
     <div class="content" id="mainContent">
         <div class="image-container">
@@ -275,7 +292,7 @@
                 article.style.display = 'block';
             } else if (topic === 'zlosc') {
                 // Wyświetlamy artykuł o złości w kontenerze
-                article.innerHTML = `
+                article.innerHTML = ` 
                     <h2>Złość - naturalna reakcja organizmu</h2>
                     <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
                     <p>Co to jest złość?</p>
@@ -332,6 +349,12 @@
                 `;
                 article.style.display = 'block';
             }
+        }
+
+        // Funkcja do cofania się do poprzedniego kroku
+        function goBack() {
+            document.getElementById('mainContent').style.display = 'block'; 
+            document.getElementById('article').style.display = 'none';
         }
     </script>
 
