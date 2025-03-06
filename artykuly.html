@@ -235,15 +235,17 @@
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             
+            // Ukrywanie głównej sekcji po wyborze tematu
+            mainContent.style.display = 'none';
+            // Ukrywamy opcje wyboru
+            document.getElementById('options').style.display = 'none';
+
             if (topic === 'stres') {
-                // Ukrywamy główną zawartość
-                mainContent.style.display = 'none';
                 // Wyświetlamy artykuł o stresie
                 article.style.display = 'block';
             } else if (topic === 'chill') {
-                // W przypadku "chill" możesz dodać artykuł o chill
+                // Tutaj możesz dodać artykuł o chill
                 alert('Wybrałeś temat: Chill. Czas na relaks!');
-                // Możesz tutaj dodać artykuł o chill
             }
         }
     </script>
