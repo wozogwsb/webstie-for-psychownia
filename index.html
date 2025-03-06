@@ -3,38 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychownia</title>
+     <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
-        .header-container {
+        /* Pasek boczny po lewej stronie */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #4e73df; /* Kolor tła paska bocznego */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
 
+        /* Nagłówek w pasku bocznym */
         .header {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #333;
+            color: white;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             transition: color 0.3s ease;
         }
 
         .header:hover {
-            color: #4e73df;
+            color: #f1f1f1; /* Zmiana koloru tekstu przy hover */
         }
 
         .header img {
@@ -45,8 +55,33 @@
         }
 
         .header img:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Powiększenie ikony przy hover */
         }
+
+        /* Ustawienia dla reszty treści strony */
+        .content {
+            margin-left: 250px; /* Przesunięcie treści, aby nie nakładała się na pasek boczny */
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Pasek boczny -->
+    <div class="sidebar">
+        <h1 class="header">
+            <img src="psychogym.ico" alt="Mózg">
+            Psychownia
+        </h1>
+    </div>
+
+    <!-- Treść strony -->
+    <div class="content">
+        <h2>Witaj na stronie Psychowni!</h2>
+       <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
+    </div>
+
+   
 
     </style>
 </head>
