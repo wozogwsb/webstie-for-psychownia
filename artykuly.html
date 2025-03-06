@@ -228,6 +228,53 @@
             top: 20px;
             z-index: 1000;
         }
+
+
+.stress-box {
+    position: relative;
+    padding: 20px;
+    background: #f3f3f3;
+    border-radius: 10px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #4299e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    animation: breathe 4s infinite alternate ease-in-out;
+    margin: 20px auto;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a202c;
+    position: absolute;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.5); }
+}
+
+
+
+
+
+
+
+        
     </style>
 </head>
 <body>
@@ -250,14 +297,20 @@
         <p>Pierwszym krokiem do zmiany jest uświadomienie sobie problemu – to jak chwycenie za drabinę, która pomoże nam się wydostać. Zrozumienie, że istnieje wyjście, to początek drogi do wolności i lepszego samopoczucia.</p>
     </div>
 
-    <!-- Artykuł o stresie -->
-    <div class="article-box stress-box" id="stres-artykul">
-        <h2>Stres – Jak Go Rozładować?</h2>
-        <img src="stres.jpg" alt="Osoba zestresowana">
-        <p>Stres jest jak balon – jeśli go nie uwolnisz w kontrolowany sposób, wybuchnie...</p>
-        <p>Sport to najlepszy wentyl bezpieczeństwa – idź pobiegać, poboksować albo chociaż pomachać łopatą w ogródku. Jeśli to nie pomaga, wypróbuj techniki relaksacyjne, głębokie oddychanie lub po prostu wyśpij się.</p>
-        <p>Nie pozwól, by stres rządził tobą. To ty masz pilota do własnej psychiki – przełącz kanał na coś bardziej pozytywnego!</p>
+   <!-- Artykuł o stresie -->
+<div class="article-box stress-box" id="stres-artykul">
+    <h2>Stres – Jak Go Rozładować?</h2>
+    <img src="stres.jpg" alt="Osoba zestresowana">
+    <p>Stres jest jak balon – jeśli go nie uwolnisz w kontrolowany sposób, wybuchnie...</p>
+    <p>Sport to najlepszy wentyl bezpieczeństwa – idź pobiegać, poboksować albo chociaż pomachać łopatą w ogródku. Jeśli to nie pomaga, wypróbuj techniki relaksacyjne, głębokie oddychanie lub po prostu wyśpij się.</p>
+    <p>Nie pozwól, by stres rządził tobą. To ty masz pilota do własnej psychiki – przełącz kanał na coś bardziej pozytywnego!</p>
+
+    <!-- Oddychający kwadrat -->
+    <div class="square">
+        <div class="circle" id="counter">4</div>
     </div>
+</div>
+
 
 
 
