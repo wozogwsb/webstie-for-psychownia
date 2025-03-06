@@ -36,7 +36,7 @@
         /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.8rem;
-            color: white;
+            color: red;  /* Zmieniony kolor tytułu na czerwony */
             font-weight: bold;
             margin: 0;
             text-transform: uppercase;
@@ -72,7 +72,7 @@
             border-color: #f1c40f; /* Złoty obrys przy kliknięciu */
         }
 
-         /* Ikona lupy */
+        /* Ikona lupy */
         .search-icon {
             width: 30px;
             height: 30px;
@@ -84,9 +84,6 @@
             align-items: center;
             justify-content: center;
         }
-
-
-          }
 
         .search-icon:before {
             content: '';
@@ -107,44 +104,25 @@
             background-color: #c6c6c6; /* Kolor po najechaniu */
         }
 
-       .search-btn {
-    background: none;
-    border: none;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.search-btn img {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
-
-        /* Treść strony */
-        .content {
-            padding: 20px;
+        .search-btn {
+            background: none;
+            border: none;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
-        .content h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 15px;
+        .search-btn img {
+            width: 24px;
+            height: 24px;
+            display: block;
         }
 
-        .content p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-         }
-
-        .header span.psycho { color: #FFD700; }
-        .header span.wnia { color: #00FFFF; }
-
+        /* Kolory dla Psycho i Wnia */
+        .header span.psycho { color: #FFD700; } /* Zmieniony kolor na złoty */
+        .header span.wnia { color: #0000FF; } /* Zmieniony kolor na niebieski */
 
     </style>
 </head>
@@ -154,26 +132,19 @@
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psychogym.ico" alt="Mózg">
-        <span class="psycho">Psycho</span><span class="wnia">wnia</span>
-    </div>
-        
+            <span class="psycho">Psycho</span><span class="wnia">wnia</span>
+        </div>
 
         <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
             <a href="artykuly.html">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
 
-
-
-          <!-- Przycisk z ikoną lupy -->
-<button class="search-btn">
-    <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-</button>
-
-
-         
+            <!-- Przycisk z ikoną lupy -->
+            <button class="search-btn">
+                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
+            </button>
         </div>
-    </div>
     </div>
 
     <!-- Treść strony -->
@@ -182,6 +153,7 @@
         <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
     </div>
 
+    
   
     
     </style>
