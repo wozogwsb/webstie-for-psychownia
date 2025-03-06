@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-<title>Psychownia</title>
+    <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,12 +17,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #3BBFB2; /* Kolor tła paska */
+            background-color: #3BBFB2;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky; /* Ustawienie paska na sticky */
-            top: 0; /* Przyklejenie do góry */
-            z-index: 1000; /* Zapewnia, że pasek będzie zawsze na wierzchu */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         /* Logo w pasku */
@@ -57,22 +57,22 @@
             font-weight: bold;
             text-transform: uppercase;
             padding: 12px 20px;
-            border-radius: 8px; /* Zaokrąglenie krawędzi */
+            border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
-            border: 2px solid transparent; /* Obrys przycisku */
+            border: 2px solid transparent;
         }
 
         .top-navbar .nav-buttons a:hover {
-            background-color: #8E79D9; /* Kolor po najechaniu */
-            transform: scale(1.05); /* Efekt powiększenia przy najechaniu */
+            background-color: #8E79D9;
+            transform: scale(1.05);
         }
 
         .top-navbar .nav-buttons a:focus {
             outline: none;
-            border-color: #f1c40f; /* Złoty obrys przy kliknięciu */
+            border-color: #f1c40f;
         }
 
-         /* Ikona lupy */
+        /* Ikona lupy */
         .search-icon {
             width: 30px;
             height: 30px;
@@ -84,9 +84,6 @@
             align-items: center;
             justify-content: center;
         }
-
-
-          }
 
         .search-icon:before {
             content: '';
@@ -102,26 +99,25 @@
             transform: rotate(45deg);
         }
 
-        /* Efekt najechania na ikonę lupy */
         .search-icon:hover {
-            background-color: #c6c6c6; /* Kolor po najechaniu */
+            background-color: #c6c6c6;
         }
 
-       .search-btn {
-    background: none;
-    border: none;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+        .search-btn {
+            background: none;
+            border: none;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-.search-btn img {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
+        .search-btn img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
 
         /* Treść strony */
         .content {
@@ -140,6 +136,53 @@
             line-height: 1.6;
         }
 
+        /* Nowe style dla rozwijanej listy */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content ul li {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-content ul li:hover {
+            color: #3BBFB2;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -153,19 +196,35 @@
 
         <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
-            <a href="artykuly.html">Mentalna Siłownia</a>
+            
+            <!-- Rozwijane menu -->
+            <div class="dropdown">
+                <a href="artykuly.html">Mentalna Siłownia</a>
+                <div class="dropdown-content">
+                    <h3>Pomyśl o</h3>
+                    <ul>
+                        <li>Stres</li>
+                        <li>Chill</li>
+                        <!-- Dodaj inne tematy, jeśli chcesz -->
+                    </ul>
+                </div>
+            </div>
+            
             <a href="kontakt.html">Kontakt</a>
 
-
-
-          <!-- Przycisk z ikoną lupy -->
-<button class="search-btn">
-    <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-</button>
-
-
-         
+            <!-- Przycisk z ikoną lupy -->
+            <button class="search-btn">
+                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
+            </button>
         </div>
     </div>
 
+    <!-- Treść strony -->
+    <div class="content">
+        <h2>Witaj na stronie Psychownia!</h2>
+        <p>Psychownia to miejsce, w którym dbamy o zdrowie psychiczne poprzez różnorodne artykuły, ćwiczenia oraz inspiracje. Znajdziesz tutaj materiały, które pomogą Ci lepiej zarządzać stresem, relaksować się oraz rozwijać swoją mentalną siłę.</p>
+    </div>
+
 </body>
+</html>
+
