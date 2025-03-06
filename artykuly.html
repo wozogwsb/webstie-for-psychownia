@@ -72,21 +72,23 @@
             border-color: #f1c40f;
         }
 
-        /* Kontener na przycisk powrotu */
+        /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
             top: 20px;
             left: 20px;
-            background-color: transparent;
+            background-color: #3BBFB2;
             border: none;
+            border-radius: 50%;
             cursor: pointer;
-            z-index: 999;
-            display: none;
+            padding: 10px;
+            z-index: 100;
+            display: none; /* Ukryty początkowo */
         }
 
         .back-button img {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
         }
 
         /* Treść strony */
@@ -213,7 +215,7 @@
         </div>
     </div>
 
-    <!-- Przycisk powrotu -->
+    <!-- Przycisk powrotu w kółeczku -->
     <button class="back-button" onclick="goBack()">
         <img src="back.png" alt="Powrót">
     </button>
@@ -339,38 +341,23 @@
             document.getElementById('selfOptions').style.display = 'none';
 
             if (topic === 'odpoczynek') {
-                // Wyświetlamy artykuł o odpoczynku
+                // Wyświetlamy artykuł o odpoczynku w kontenerze
                 article.innerHTML = `
-                    <h2>Odpoczynek - Klucz do zdrowia</h2>
-                    <img src="relax.jpeg" alt="Odpoczynek">
-                    <p>Odpoczynek jest ważny dla zachowania równowagi ciała i umysłu. Pozwala na regenerację organizmu.</p>
-                    <p>Techniki odpoczynku:</p>
-                    <ul>
-                        <li>Medytacja: Pomaga w redukcji stresu i zwiększa koncentrację.</li>
-                        <li>Joga: Łączy ruch z oddechem, poprawiając zdrowie fizyczne i psychiczne.</li>
-                        <li>Chwila ciszy: Czas dla siebie bez bodźców zewnętrznych.</li>
-                    </ul>
+                    <h2>Odpoczynek - klucz do zdrowia</h2>
+                    <p>Odpoczynek to ważna część zdrowego stylu życia. Pomaga w regeneracji ciała i umysłu, a także w poprawie koncentracji i wydajności.</p>
                 `;
                 article.style.display = 'block';
                 backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             } else if (topic === 'aktywnosc') {
-                // Wyświetlamy artykuł o aktywności fizycznej
+                // Wyświetlamy artykuł o aktywności fizycznej w kontenerze
                 article.innerHTML = `
-                    <h2>Aktywność fizyczna - Klucz do dobrej kondycji</h2>
-                    <img src="exercise.jpeg" alt="Aktywność fizyczna">
-                    <p>Aktywność fizyczna jest fundamentem zdrowego trybu życia. Regularne ćwiczenia pomagają utrzymać dobrą formę fizyczną i mentalną.</p>
-                    <p>Korzyści z aktywności fizycznej:</p>
-                    <ul>
-                        <li>Poprawia kondycję i wytrzymałość.</li>
-                        <li>Pomaga w walce ze stresem.</li>
-                        <li>Pomaga w utrzymaniu prawidłowej wagi.</li>
-                    </ul>
+                    <h2>Aktywność fizyczna - klucz do zdrowia</h2>
+                    <p>Aktywność fizyczna to nie tylko sposób na poprawę kondycji, ale także na utrzymanie zdrowia psychicznego. Regularne ćwiczenia zmniejszają poziom stresu i poprawiają nastrój.</p>
                 `;
                 article.style.display = 'block';
                 backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
             }
         }
     </script>
-
 </body>
 </html>
