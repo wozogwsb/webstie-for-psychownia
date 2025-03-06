@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-<title>Psychownia</title>
+    <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -72,56 +72,63 @@
             border-color: #f1c40f; /* Złoty obrys przy kliknięciu */
         }
 
-         /* Ikona lupy */
-        .search-icon {
-            width: 30px;
-            height: 30px;
-            border: 2px solid white;
-            border-radius: 50%;
-            position: relative;
-            cursor: pointer;
+        /* Sekcja Spotlight */
+        .spotlight-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .spotlight-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .spotlight-container {
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-
-          }
-
-        .search-icon:before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 10px;
-            height: 10px;
-            border: 2px solid white;
-            border-radius: 50%;
-            border-left: none;
-            border-top: none;
-            transform: rotate(45deg);
+        .spotlight-card {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
         }
 
-        /* Efekt najechania na ikonę lupy */
-        .search-icon:hover {
-            background-color: #c6c6c6; /* Kolor po najechaniu */
+        .spotlight-card:hover {
+            transform: scale(1.05);
+            background-color: #8E79D9;
+            color: white;
         }
 
-       .search-btn {
-    background: none;
-    border: none;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+        .spotlight-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-.search-btn img {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
+        .spotlight-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .spotlight-card p {
+            font-size: 1rem;
+            color: #555;
+        }
 
         /* Treść strony */
         .content {
@@ -139,7 +146,6 @@
             color: #555;
             line-height: 1.6;
         }
-
     </style>
 </head>
 <body>
@@ -147,7 +153,7 @@
     <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
-            <img src="psycho.ico" alt="Mózg">
+            <img src="psychogym.ico" alt="Mózg">
             <h1>Psychownia</h1>
         </div>
 
@@ -156,16 +162,39 @@
             <a href="artykuly.html">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
 
+            <!-- Przycisk z ikoną lupy -->
+            <button class="search-btn">
+                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
+            </button>
+        </div>
+    </div>
 
+    <!-- Sekcja Spotlight -->
+    <div class="spotlight-section">
+        <h2>Spotlight</h2>
+        <div class="spotlight-container">
+            <!-- Kafelek 1 -->
+            <div class="spotlight-card" onclick="window.open('artykul1.html', '_blank')">
+                <img src="artykul1-thumbnail.jpg" alt="Artykuł 1">
+                <h3>Artykuł 1: Jak radzić sobie ze stresem</h3>
+                <p>Dowiedz się, jak skutecznie zarządzać stresem i poprawić swoje zdrowie psychiczne.</p>
+            </div>
 
-          <!-- Przycisk z ikoną lupy -->
-<button class="search-btn">
-    <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-</button>
+            <!-- Kafelek 2 -->
+            <div class="spotlight-card" onclick="window.open('artykul2.html', '_blank')">
+                <img src="artykul2-thumbnail.jpg" alt="Artykuł 2">
+                <h3>Artykuł 2: Medytacja i jej korzyści</h3>
+                <p>Odkryj, jak medytacja może poprawić twoje samopoczucie i zdrowie umysłowe.</p>
+            </div>
 
-
-         
+            <!-- Kafelek 3 -->
+            <div class="spotlight-card" onclick="window.open('artykul3.html', '_blank')">
+                <img src="artykul3-thumbnail.jpg" alt="Artykuł 3">
+                <h3>Artykuł 3: Złość – jak sobie z nią radzić?</h3>
+                <p>Dowiedz się, jak kontrolować swoją złość i utrzymać równowagę emocjonalną.</p>
+            </div>
         </div>
     </div>
 
 </body>
+</html>
