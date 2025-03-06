@@ -36,7 +36,7 @@
         /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.8rem;
-            color: red;  /* Zmieniony kolor tytułu na czerwony */
+            color: white;
             font-weight: bold;
             margin: 0;
             text-transform: uppercase;
@@ -72,7 +72,7 @@
             border-color: #f1c40f; /* Złoty obrys przy kliknięciu */
         }
 
-        /* Ikona lupy */
+         /* Ikona lupy */
         .search-icon {
             width: 30px;
             height: 30px;
@@ -84,6 +84,9 @@
             align-items: center;
             justify-content: center;
         }
+
+
+          }
 
         .search-icon:before {
             content: '';
@@ -104,25 +107,38 @@
             background-color: #c6c6c6; /* Kolor po najechaniu */
         }
 
-        .search-btn {
-            background: none;
-            border: none;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+       .search-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.search-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+        /* Treść strony */
+        .content {
+            padding: 20px;
         }
 
-        .search-btn img {
-            width: 24px;
-            height: 24px;
-            display: block;
+        .content h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
         }
 
-        /* Kolory dla Psycho i Wnia */
-        .header span.psycho { color: #FFD700; } /* Zmieniony kolor na złoty */
-        .header span.wnia { color: #0000FF; } /* Zmieniony kolor na niebieski */
+        .content p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
 
     </style>
 </head>
@@ -132,7 +148,7 @@
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psychogym.ico" alt="Mózg">
-            <span class="psycho">Psycho</span><span class="wnia">wnia</span>
+            <h1>Psychownia</h1>
         </div>
 
         <div class="nav-buttons">
@@ -140,372 +156,16 @@
             <a href="artykuly.html">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
 
-            <!-- Przycisk z ikoną lupy -->
-            <button class="search-btn">
-                <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
-            </button>
+
+
+          <!-- Przycisk z ikoną lupy -->
+<button class="search-btn">
+    <img src="search.png" alt="Lupa" style="width: 24px; height: 24px;">
+</button>
+
+
+         
         </div>
     </div>
 
-    <!-- Treść strony -->
-    <div class="content">
-        <h2>Witaj w Psychowni!</h2>
-        <p><strong>Ludzki mózg to mięsień, który wymaga regularnego treningu, tak jak każda część ciała.</strong> Ćwiczenie umysłu to klucz do lepszego samopoczucia, większej odporności na stres oraz skuteczniejszego radzenia sobie w codziennych wyzwaniach. Psychownia to przestrzeń, w której zadbasz o swój umysł, tak jak dbasz o swoje ciało na siłowni – tylko w bardziej cool i profesjonalny sposób.</p>
-    </div>
-
-     
-
-    </style>
-</head>
-
-    <!-- Ikonka w zakładce -->
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
-
-    <!-- Czcionka Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Ikonki FontAwesome -->
-    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            text-align: center;
-
-            }
-
-        
-        }
-        a {
-            color: #24303A;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-
-
-            
-
-        
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-
-
-
-
-        
-        }
-        .header i {
-            font-size: 2.5rem;
-            color: #3F4D56;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .button {
-            padding: 12px 24px;
-            border-radius: 25px;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        .home {
-            background-color: #9E60A6;
-            color: white;
-        }
-        .home:hover {
-            background-color: #B5E0F0;
-        }
-        .articles {
-            background-color: #B5E0F0;
-            color: white;
-        }
-        .articles:hover {
-            background-color: #9B76A6;
-        }
-        .contact {
-            background-color: #A69FBF;
-            color: white;
-        }
-        .contact:hover {
-            background-color: #9E60A6;
-        }
-
-        /* Animacja układania puzzli */
-        .puzzle-loader {
-            display: grid;
-            grid-template-columns: repeat(3, 50px);
-            grid-gap: 5px;
-            justify-content: center;
-            align-items: center;
-            margin: 40px auto;
-            width: 170px;
-        }
-        .puzzle-piece {
-            width: 50px;
-            height: 50px;
-            background-color: #2C3E50;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        /* Kostka Rubika jako duży, jednolity kafelek */
-        .rubik-container {
-            background-color: #9E60A6; /* Jednolity kolor */
-            border-radius: 20px; /* Zaokrąglone kanty */
-            padding: 30px;
-            width: 80%;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .rubik-container h2 {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .rubik-container p {
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        /* Sekcja Kim jestem z dużymi zdjęciami i tekstami */
-        .who-am-i {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Flexbox do ustawienia zdjęcia z tekstem obok siebie */
-        .flex-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
-            flex-wrap: wrap; /* Aby obrazki nie były zbyt szerokie na mniejszych ekranach */
-        }
-
-        /* Zdjęcie pieska */
-        .funny-img, .dog-img {
-            width: 100%;
-            max-width: 400px; /* Zwiększamy rozmiar */
-            height: auto;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-
-        /* Twoje zdjęcie */
-        .dog-img {
-            margin-right: 30px;
-        }
-
-        .who-am-i h2 {
-            font-size: 1.75rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .who-am-i p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .flex-container .text {
-            max-width: 600px;
-            text-align: left;
-        }
-
-        /* Responsywność */
-        @media screen and (max-width: 768px) {
-            .header {
-                font-size: 1.5rem;
-            }
-            .header i {
-                font-size: 2rem;
-            }
-            .button {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-            .funny-img {
-                width: 80%;
-            }
-            .dog-img {
-                width: 80%;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Dla małych urządzeń mobilnych */
-        @media screen and (max-width: 480px) {
-            .header {
-                font-size: 1.2rem;
-            }
-            .header i {
-                font-size: 1.5rem;
-            }
-            .button {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-            .funny-img {
-                width: 90%;
-            }
-        }
-
-
-
-        .box {
-    width: 100px;
-    height: 100px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    position: relative;
-    margin: 20px auto;
-}
-.corner {
-    background-color: transparent;
-    animation: fill 16s infinite;
-}
-.corner:nth-child(1) { animation-delay: 0s; }
-.corner:nth-child(2) { animation-delay: 4s; }
-.corner:nth-child(3) { animation-delay: 8s; }
-.corner:nth-child(4) { animation-delay: 12s; }
-
-@keyframes fill {
-    0%, 25% { background-color: transparent; }
-    26%, 100% { background-color: #4CAF50; }
-}
-.countdown {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-    </style>
-</head>
-
-
-    <!-- Animacja puzzli -->
-    <div class="puzzle-loader">
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-        <div class="puzzle-piece"></div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.puzzle-piece').forEach(piece => {
-            piece.addEventListener('click', () => {
-                const colors = ['red', 'blue', 'yellow', 'green', 'orange', 'white', 'purple', 'pink', 'cyan'];
-                const currentColor = piece.style.backgroundColor;
-
-                // Wybierz nowy kolor, który jest różny od obecnego
-                let newColor;
-                do {
-                    newColor = colors[Math.floor(Math.random() * colors.length)];
-                } while (newColor === currentColor);
-
-                piece.style.backgroundColor = newColor;
-            });
-        });
-    </script>
-
-    <p style="margin-top: 20px; font-size: 16px; color: #555; text-align: center;">
-        Ludzki mózg to jak kostka Rubika – wszystko da się ułożyć. Klikaj i odkrywaj! 👆 Klik, klik, klik!
-    </p>
-
-    <div style="height: 1cm;"></div>
-
-    <!-- Twoja nowa sekcja z tekstem i zdjęciem -->
-    <div class="kafel">
-        <div class="kafel-content">
-            <h2>Jak się tu znalazłeś?</h2>
-            <div style="height: 0,5cm;"></div>
-            <img src="funny.jpg" alt="Funny Dog" class="funny-img">
-            <p>Bo szukasz rozwiązania, a ja pomogę Ci je znaleźć!</p>
-        </div>
-    </div>
-
-    <div style="height: 1cm;"></div>
-
-    <!-- Sekcja Kim jestem -->
-    <div class="flex-container">
-        <!-- Twoje zdjęcie -->
-        <img src="mojefoto.jpg" alt="Twoje zdjęcie" class="dog-img">
-        <div class="text">
-            <h2>Kim jestem i czemu możesz mi zaufać?</h2>
-            <div style="height: 1cm;"></div>
-            <p>Bo ja przeszłam swoją drogę, wyniosłam wiele lekcji i doświadczyłam tego na własnej skórze, setki razy, póki się nie nauczyłam.</p>
-        </div>
-    </div>
-
-
-
-<!-- Sekcja Oddychania do Kwadratu -->
-<div style="margin-top: 40px;">
-    <h2>Technika Oddychania do Kwadratu</h2>
-    <div class="box">
-        <div class="corner"></div>
-        <div class="corner"></div>
-        <div class="corner"></div>
-        <div class="corner"></div>
-        <div class="countdown" id="countdown">4</div>
-    </div>
-</div>
-
-
-    
-
-
-
-
-
-    
 </body>
-</html>
