@@ -157,42 +157,36 @@
             color: #3BBFB2;
         }
 
-        /* Artykuł */
-        .article-card {
-            width: 11cm;  /* Tutaj ustawiłem szerokość karty na 11 cm */
-            max-width: 100%;
-            margin: 0 auto;
+        /* Nowy kontener na artykuł */
+        .article-container {
+            display: none;
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
 
-        .article-card img {
-            display: block;
-            margin: 0 auto;
-            width: 60%;
+        .article-container img {
+            width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
-        .article-card h2 {
+        .article-container h2 {
             font-size: 1.8rem;
             color: #333;
             margin-bottom: 15px;
         }
 
-        .article-card p {
+        .article-container p {
             font-size: 1.2rem;
             color: #555;
             line-height: 1.6;
         }
-
-        /* Ukrycie sekcji artykułu na początku */
-        .article-content {
-            display: none;
-        }
-
     </style>
 </head>
 <body>
@@ -230,10 +224,10 @@
         </div>
     </div>
 
-    <!-- Sekcja artykułu, początkowo ukryta -->
-    <div id="article" class="article-content">
+    <!-- Sekcja artykułu -->
+    <div id="article" class="article-container">
         <h2>Stres - naturalna reakcja organizmu</h2>
-        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres" style="width: 150px; height: 150px; border-radius: 15px; display: block; margin: 0.7cm auto 20px;">
+        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
         <p>Co to jest stres?</p>
         
         <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
@@ -277,7 +271,7 @@
             document.getElementById('options').style.display = 'none';
 
             if (topic === 'stres') {
-                // Wyświetlamy artykuł o stresie
+                // Wyświetlamy artykuł o stresie w kontenerze
                 article.style.display = 'block';
             } else if (topic === 'chill') {
                 // Tutaj możesz dodać artykuł o chill
