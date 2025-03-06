@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -10,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            font-size: 16px; /* Domyślny rozmiar czcionki */
         }
 
         /* Poziomy pasek na górze */
@@ -27,15 +29,15 @@
 
         /* Logo w pasku */
         .top-navbar img {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             margin-right: 10px;
         }
 
         /* Tytuł w pasku */
         .top-navbar h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: white;
             font-weight: bold;
             margin: 0;
@@ -47,7 +49,7 @@
         .top-navbar .nav-buttons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .top-navbar .nav-buttons a {
@@ -56,7 +58,7 @@
             font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
             border: 2px solid transparent;
@@ -73,20 +75,18 @@
         }
 
         /* Przycisk powrotu w kółeczku */
-.back-button {
-    position: fixed;
-    top: 80px; /* Zmienione z 20px na 80px, aby przycisk był 3 cm poniżej paska */
-    left: 20px;
-    background-color: #3BBFB2;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 100;
-    display: none; /* Ukryty początkowo */
-    
-       }
-
+        .back-button {
+            position: fixed;
+            top: 80px; 
+            left: 20px;
+            background-color: #3BBFB2;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 12px;
+            z-index: 100;
+            display: none;
+        }
 
         .back-button img {
             width: 30px;
@@ -98,42 +98,44 @@
             padding: 20px;
             text-align: center;
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
 
         /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
-            margin-top: 50px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 45%;
+            min-width: 280px;
+            text-align: center;
         }
 
         .image-container img {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             border-radius: 8px;
-            display: block;
-            margin: 0 auto;
         }
 
         .image-container .text {
             font-size: 1.4rem;
-            margin-top: 20px;
+            margin-top: 15px;
             color: #333;
         }
 
         /* Przycisk wyboru */
         .choose-button {
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 10px 20px;
             background-color: #3BBFB2;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -148,7 +150,7 @@
         .select-options {
             display: none;
             margin-top: 20px;
-            padding: 20px;
+            padding: 15px;
             background-color: #f1f1f1;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -160,7 +162,7 @@
         }
 
         .select-options ul li {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
             cursor: pointer;
         }
@@ -172,7 +174,7 @@
         /* Nowy kontener na artykuł */
         .article-container {
             display: none;
-            width: 80%;
+            width: 90%;
             max-width: 500px;
             margin: 20px auto;
             padding: 20px;
@@ -199,6 +201,77 @@
             color: #555;
             line-height: 1.6;
         }
+
+        /* Responsywność - dopasowanie do mniejszych ekranów */
+        @media (max-width: 768px) {
+            .top-navbar h1 {
+                font-size: 1.4rem;
+            }
+
+            .top-navbar .nav-buttons a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .image-container {
+                width: 90%;
+                min-width: 200px;
+                margin-top: 15px;
+            }
+
+            .image-container .text {
+                font-size: 1.2rem;
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .select-options ul li {
+                font-size: 1rem;
+            }
+
+            .article-container {
+                width: 100%;
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .article-container h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsywność - dopasowanie do bardzo małych ekranów */
+        @media (max-width: 480px) {
+            .top-navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px;
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 14px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -345,21 +418,34 @@
             if (topic === 'odpoczynek') {
                 // Wyświetlamy artykuł o odpoczynku w kontenerze
                 article.innerHTML = `
-                    <h2>Odpoczynek - klucz do zdrowia</h2>
-                    <p>Odpoczynek to ważna część zdrowego stylu życia. Pomaga w regeneracji ciała i umysłu, a także w poprawie koncentracji i wydajności.</p>
+                    <h2>Odpoczynek - regeneracja ciała i umysłu</h2>
+                    <img src="relaxation.jpeg" alt="Obrazek odpoczynku">
+                    <p>Odpoczynek jest kluczowy dla utrzymania zdrowia psychicznego i fizycznego.</p>
+                    <p>Techniki odpoczynku:</p>
+                    <ul>
+                        <li>Medytacja - 10 minut dziennie na pełną regenerację.</li>
+                        <li>Cisza i spokój - czas tylko dla siebie, z dala od hałasu i rozproszeń.</li>
+                    </ul>
                 `;
                 article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+                backButton.style.display = 'block';
             } else if (topic === 'aktywnosc') {
-                // Wyświetlamy artykuł o aktywności fizycznej w kontenerze
+                // Wyświetlamy artykuł o aktywności fizycznej
                 article.innerHTML = `
                     <h2>Aktywność fizyczna - klucz do zdrowia</h2>
-                    <p>Aktywność fizyczna to nie tylko sposób na poprawę kondycji, ale także na utrzymanie zdrowia psychicznego. Regularne ćwiczenia zmniejszają poziom stresu i poprawiają nastrój.</p>
+                    <img src="exercise.jpeg" alt="Obrazek aktywności fizycznej">
+                    <p>Regularna aktywność fizyczna wpływa na poprawę samopoczucia, kondycji i zdrowia.</p>
+                    <p>Formy aktywności:</p>
+                    <ul>
+                        <li>Siłownia - rozwój siły i wytrzymałości.</li>
+                        <li>Spacer - najlepszy sposób na relaks i oczyszczenie umysłu.</li>
+                    </ul>
                 `;
                 article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+                backButton.style.display = 'block';
             }
         }
     </script>
+
 </body>
 </html>
