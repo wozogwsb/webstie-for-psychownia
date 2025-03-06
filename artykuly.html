@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Psychownia</title>
+    <title>Artykuły - Psychownia</title>
 
     <!-- Czcionka Google -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Ikonki FontAwesome -->
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
     
     <style>
         * {
@@ -21,7 +23,7 @@
             background-color: #f4f4f4;
             color: #333;
             text-align: center;
-            padding-top: 80px; /* Dodatkowy padding dla widoczności pod paskiem */
+            padding-top: 80px;
         }
 
         /* Pasek nawigacyjny */
@@ -72,38 +74,9 @@
         .nav-links a:hover {
             opacity: 0.8;
         }
-
-        /* Wyszukiwarka */
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-        }
-
-        .search-box button {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .search-box img {
-            width: 20px;
-            height: 20px;
-        }
     </style>
 </head>
 <body>
-
     <!-- Pasek nawigacyjny -->
     <div class="navbar">
         <div class="logo">
@@ -113,265 +86,9 @@
 
         <div class="nav-links">
             <a href="index.html">Strona Główna</a>
-            <a href="artykuly.html">Mentalna Siłownia</a>
+            <a href="artykuly.html">Artykuły</a>
             <a href="kontakt.html">Kontakt</a>
         </div>
-
-        <div class="search-box">
-            <input type="text" placeholder="Szukaj...">
-            <button type="submit">
-                <img src="lupa.png" alt="Szukaj">
-            </button>
-        </div>
     </div>
-
-    
-
-        a {
-            color: #24303A;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .article-box {
-            background-color: #ffb6c1;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .article-box img {
-            max-width: 70%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .stress-box {
-            background-color: #B5E0F0;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            text-align: center; /* Wyśrodkowanie tekstu */
-        }
-
-        .chill-box {
-            background-color: #EBF0F2;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        /* Nowy styl dla artykułu o oddychaniu */
-        .breathing-box {
-            background-color: #B5E0F0; /* Dopasowany do reszty */
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .text {
-            color: #333;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .square {
-            width: 100px;
-            height: 100px;
-            background-image: url('oddech.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            animation: breathe 4s infinite alternate ease-in-out;
-            margin: 0 auto; /* Wyśrodkowanie kwadratu */
-        }
-
-        .circle {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #1a202c;
-            position: absolute;
-        }
-
-        @keyframes breathe {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.5); }
-        }
-
-        .topics-container {
-            position: fixed;
-            left: 20px;
-            bottom: 20px;
-            text-align: center;
-            z-index: 1000;
-        }
-
-        .topics-header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .topic-button {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: none;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            text-decoration: none;
-            color: white;
-            text-align: center;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            word-wrap: break-word;
-            line-height: 1.2;
-        }
-
-        .stres { background-color: #734343; }
-        .stres:hover { background-color: #e04c2d; }
-
-        .negatywne-myslenie { background-color: #348ABF; }
-        .negatywne-myslenie:hover { background-color: #2b5cd6; }
-
-        .chill { background-color: #EBF0F2; }
-        .chill:hover { background-color: #F2D16D; }
-
-        @media screen and (max-width: 768px) {
-            .header {
-                font-size: 24px;
-            }
-
-            .button-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .article-box img {
-                max-width: 90%;
-            }
-
-            .topics-container {
-                left: 10px;
-                bottom: 10px;
-            }
-
-            .topic-button {
-                width: 60px;
-                height: 60px;
-                font-size: 11px;
-            }
-
-            .button {
-                font-size: 16px;
-                padding: 10px 20px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .header {
-                font-size: 20px;
-            }
-
-            .article-box {
-                padding: 15px;
-            }
-
-            .article-box img {
-                max-width: 100%;
-            }
-
-            .button-container {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .topic-button {
-                width: 50px;
-                height: 50px;
-                font-size: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <img src="psychogym.ico" alt="Ikona mózgu">
-        Psychownia
-    </div>
-    
-    <div class="button-container">
-        <a href="index.html" class="button home">Strona Główna</a>
-        <a href="artykuly.html" class="button articles">Artykuły</a>
-        <a href="kontakt.html" class="button contact">Kontakt</a>
-    </div>
-
-    <div class="article-box" id="negatywne-myslenie-artykul">
-        <h2>Pułapki Umysłu – Jak Złapać Drabinę?</h2>
-        <img src="drabina.jpg" alt="Drabina">
-        <p>Wpadamy w pułapki własnego umysłu. Często nie zdajemy sobie sprawy z tego, jak bardzo nasze myśli mogą nas ograniczać i wpędzać w negatywne spirale. Kluczem do odzyskania kontroli jest nauka rozpoznawania tych myśli i ich przekształcania.</p>
-        <p>Spróbuj zastosować metodę "5 pytań", aby wyjść z pułapek myślowych. Zadawaj sobie pytania, które pomogą Ci zmienić sposób myślenia na bardziej pozytywny i realistyczny.</p>
-    </div>
-
-    <div class="article-box stress-box" id="stres-artykul">
-        <h2>Stres – Jak Go Rozładować?</h2>
-        <img src="stres.jpg" alt="Osoba zestresowana">
-        <p>Stres to naturalna reakcja organizmu na bodźce z otoczenia. W sytuacjach stresowych nasz organizm produkuje hormony stresu, które pomagają nam radzić sobie z trudnościami. Jednak przewlekły stres może prowadzić do problemów zdrowotnych.</p>
-        <p>Aby zredukować stres, warto zacząć od prostych technik relaksacyjnych, takich jak głębokie oddychanie, medytacja czy spacer na świeżym powietrzu.</p>
-        
-        <div class="breathing-box">
-            <div class="text">
-                Oddychaj w rytm kwadratu. Wdech przez 4 sekundy, zatrzymaj na chwilę, a potem wydech przez 4 sekundy.
-            </div>
-            <div class="square">
-                <div class="circle" id="counter">4</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-box chill-box" id="chill-artykul">
-        <h2>Dlaczego dobry chill jest kluczowy w stresie?</h2>
-        <img src="chill.jpg" alt="Osoba w wannie relaksująca się">
-        <p>Żyjemy w świecie, gdzie tempo życia nieustannie rośnie, a stres staje się nieodłączną częścią codzienności. Jednym ze sposobów radzenia sobie z napięciem jest świadome wprowadzenie do swojego dnia chwil relaksu, które pozwolą na pełną regenerację.</p>
-        <p>Chillowanie w formie medytacji, czytania książki lub po prostu relaksującej kąpieli jest kluczowe dla zachowania równowagi psychicznej.</p>
-    </div>
-
-    <div class="topics-container">
-        <div class="topics-header">Tematyki</div>
-        <a href="#stres-artykul" class="topic-button stres">Stres</a>
-        <a href="#negatywne-myslenie-artykul" class="topic-button negatywne-myslenie">Negatywne myślenie</a>
-        <a href="#chill-artykul" class="topic-button chill">Chill</a>
-    </div>
-
 </body>
 </html>
