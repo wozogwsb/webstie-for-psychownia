@@ -199,7 +199,7 @@
     </div>
 
     <!-- Sekcja z obrazkiem i przyciskiem -->
-    <div class="content">
+    <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
@@ -232,20 +232,19 @@
 
         // Funkcja obsługująca wybór tematu
         function chooseTopic(topic) {
-            let message = '';
             let article = document.getElementById('article');
-
+            let mainContent = document.getElementById('mainContent');
+            
             if (topic === 'stres') {
-                message = 'Wybrałeś temat: Stres. Czas na pracę nad tym.';
+                // Ukrywamy główną zawartość
+                mainContent.style.display = 'none';
                 // Wyświetlamy artykuł o stresie
                 article.style.display = 'block';
             } else if (topic === 'chill') {
-                message = 'Wybrałeś temat: Chill. Czas na relaks!';
+                // W przypadku "chill" możesz dodać artykuł o chill
+                alert('Wybrałeś temat: Chill. Czas na relaks!');
                 // Możesz tutaj dodać artykuł o chill
             }
-
-            alert(message);
-            // Możesz tutaj dodać kod, aby otworzyć artykuł związany z wybranym tematem
         }
     </script>
 
