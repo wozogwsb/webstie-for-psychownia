@@ -187,7 +187,7 @@
             font-weight: bold;
             padding: 10px;
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 0.9rem;
             border-radius: 8px;
             transition: background-color 0.3s;
         }
@@ -198,6 +198,16 @@
 
         .active {
             background-color: #8E79D9;
+        }
+
+        .bottom-navbar i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .bottom-navbar .home-button i,
+        .bottom-navbar .contact-button i {
+            font-size: 1.5rem;
         }
 
         @media (max-width: 768px) {
@@ -312,10 +322,16 @@
     </div>
 
     <div class="bottom-navbar">
-        <a href="index.html">Strona Główna</a>
+        <a href="index.html" class="home-button">
+            <i class="fa fa-home"></i> <!-- Ikona domku -->
+        </a>
         <a href="artykuly.html" class="active">Mentalna Siłownia</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="kontakt.html" class="contact-button">
+            <i class="fa fa-headphones"></i> <!-- Ikona słuchawki -->
+        </a>
     </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script>
         function goBack() {
