@@ -44,7 +44,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Top Navigation without background */
+        /* Menu nawigacyjne */
         .top-navigation {
             display: flex;
             justify-content: space-evenly; /* Equal spacing between items */
@@ -54,13 +54,14 @@
             top: 60px; /* Adjust for top-navbar height */
             width: 100%;
             z-index: 500;
-            background-color: #050259; /* Set the background color */
+            background-color: #fff;
+            border-radius: 15px; /* Zaokrąglone boki */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .top-navigation .nav-item {
             width: 80px; /* Size of the square button */
             height: 80px; /* Size of the square button */
-            background-color: #444;
             color: white;
             display: flex;
             justify-content: center;
@@ -71,7 +72,22 @@
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin: 0; /* No margin to make buttons touch each other */
+        }
+
+        .top-navigation .nav-item:nth-child(1) {
+            background-color: #89A6CE;
+        }
+
+        .top-navigation .nav-item:nth-child(2) {
+            background-color: #7A5FD9;
+        }
+
+        .top-navigation .nav-item:nth-child(3) {
+            background-color: #8E79D9;
+        }
+
+        .top-navigation .nav-item:nth-child(4) {
+            background-color: #3BBFB2;
         }
 
         .top-navigation .nav-item:hover {
@@ -268,12 +284,12 @@
         </div>
     </div>
 
-    <!-- Top Navigation without background -->
+    <!-- Top Navigation with rounded corners and background -->
     <div class="top-navigation">
-        <div class="nav-item" style="background-color: #2E97F2;">News</div>
-        <div class="nav-item" style="background-color: #F2C5BB;">Ćwicz</div>
-        <div class="nav-item" style="background-color: #94F2C6;">Info</div>
-        <div class="nav-item" style="background-color: #04BFBF;">1on1</div>
+        <div class="nav-item">News</div>
+        <div class="nav-item">Ćwicz</div>
+        <div class="nav-item">Info</div>
+        <div class="nav-item">1on1</div>
     </div>
 
     <div class="content" id="mainContent">
@@ -364,4 +380,3 @@
     </script>
 </body>
 </html>
-
