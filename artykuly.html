@@ -203,6 +203,39 @@
             line-height: 1.6;
         }
 
+        /* Pasek na dole - Przycisk "Mentalna Siłownia" na górze */
+        .bottom-navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3BBFB2;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .bottom-navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .bottom-navbar a:hover {
+            background-color: #8E79D9;
+        }
+
+        /* Highlight the active button (Mentalna Siłownia) */
+        .active {
+            background-color: #8E79D9;
+        }
+
         /* Responsywność - dopasowanie do mniejszych ekranów */
         @media (max-width: 768px) {
             .top-navbar h1 {
@@ -246,6 +279,23 @@
             .article-container p {
                 font-size: 1rem;
             }
+
+            .bottom-navbar {
+                padding: 8px 15px;
+            }
+
+            .bottom-navbar a {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 0.9rem;
+            }
         }
 
         /* Responsywność - dopasowanie do bardzo małych ekranów */
@@ -283,10 +333,9 @@
             <img src="psycho.ico" alt="Mózg">
             <h1>Psychownia</h1>
         </div>
-
         <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
-            <a href="artykuly.html">Mentalna Siłownia</a>
+            <a href="artykuly.html" class="active">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
         </div>
     </div>
@@ -324,6 +373,13 @@
         <h2 id="articleTitle">Artykuł o Stresie</h2>
         <img src="article-image.jpg" alt="Artykuł o stresie">
         <p id="articleContent">Treść artykułu...</p>
+    </div>
+
+    <!-- Pasek na dole -->
+    <div class="bottom-navbar">
+        <a href="index.html">Strona Główna</a>
+        <a href="artykuly.html" class="active">Mentalna Siłownia</a>
+        <a href="kontakt.html">Kontakt</a>
     </div>
 
     <script>
