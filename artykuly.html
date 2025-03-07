@@ -166,10 +166,11 @@
             height: auto;
             margin: 20px auto;
             padding: 20px;
-            background-color: white;
+            background-color: #65C7BA; /* Now it's the requested turquoise color */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
+            color: white; /* White text for better contrast */
             transition: all 0.3s ease;
         }
 
@@ -182,14 +183,17 @@
         }
 
         .article-container h2 {
-            font-size: 1.8rem;
-            color: #333;
+            font-size: 2rem;
+            color: white;
             margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .article-container p {
             font-size: 1.2rem;
-            color: #555;
+            color: white;
             line-height: 1.6;
             margin-bottom: 15px;
         }
@@ -197,16 +201,17 @@
         .article-container ul {
             list-style-type: disc;
             margin-left: 20px;
+            color: white;
         }
 
         .article-container ul li {
             margin-bottom: 10px;
             font-size: 1.1rem;
-            color: #555;
+            color: white;
         }
 
         .article-container.stress {
-            background-color: #8e79d9;
+            background-color: #65C7BA;
             color: white;
             padding: 20px;
             border-radius: 12px;
@@ -214,14 +219,9 @@
         }
 
         .article-container.stress h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 15px;
-        }
-
-        .article-container.stress img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 1024px) {
@@ -249,7 +249,7 @@
             }
 
             .article-container h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .article-container p {
@@ -273,7 +273,7 @@
             }
 
             .article-container h2 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .article-container p {
@@ -304,7 +304,7 @@
             }
 
             .article-container h2 {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
 
             .article-container p {
@@ -416,7 +416,6 @@
                         <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
                         <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
                         <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
-                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
                     </ul>
                 `;
                 article.style.display = 'block';
@@ -424,16 +423,11 @@
             }
         }
 
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
         function chooseSelfTopic(topic) {
-            if (topic === 'odpoczynek') {
-                alert('Wybierasz odpoczynek');
-            } else if (topic === 'aktywnosc') {
-                alert('Wybierasz aktywność fizyczną');
-            }
+            let article = document.getElementById('article');
+            article.style.display = 'none';
+            let mainContent = document.getElementById('mainContent');
+            mainContent.style.display = 'block';
         }
     </script>
 
