@@ -35,21 +35,30 @@
             margin-right: 10px;
         }
 
-        /* Przycisk na pasku - desktop */
+        /* Tytuł w pasku */
+        .top-navbar h1 {
+            font-size: 1.6rem;
+            color: white;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Przycisk w pasku */
         .top-navbar .nav-buttons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .top-navbar .nav-buttons a {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-decoration: none;
-            background-color: #fff;
             padding: 10px;
-            border-radius: 50%;
+            border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
             border: 2px solid transparent;
         }
@@ -204,7 +213,8 @@
             }
 
             .top-navbar .nav-buttons a {
-                padding: 8px;
+                font-size: 0.9rem;
+                padding: 8px 12px;
             }
 
             .image-container {
@@ -241,42 +251,29 @@
             }
         }
 
-        /* Pasek na dole na urządzeniach mobilnych */
+        /* Responsywność - dopasowanie do bardzo małych ekranów */
         @media (max-width: 480px) {
-            .top-navbar {
-                display: none;
+            .top-navbar h1 {
+                font-size: 1.2rem;
             }
 
-            .bottom-navbar {
-                display: flex;
-                justify-content: space-around;
-                background-color: #3BBFB2;
+            .back-button {
+                top: 70px;
                 padding: 10px;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                z-index: 1000;
+                display: block; /* Upewniamy się, że przycisk powrotu jest widoczny na bardzo małych ekranach */
             }
 
-            .bottom-navbar a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #fff;
-                padding: 10px;
-                border-radius: 50%;
-                transition: background-color 0.3s, transform 0.2s ease-in-out;
-                border: 2px solid transparent;
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 14px;
             }
 
-            .bottom-navbar a img {
-                width: 30px;
-                height: 30px;
+            .article-container h2 {
+                font-size: 1.4rem;
             }
 
-            .bottom-navbar a:hover {
-                background-color: #8E79D9;
-                transform: scale(1.05);
+            .article-container p {
+                font-size: 0.9rem;
             }
         }
 
@@ -284,7 +281,7 @@
 </head>
 <body>
 
-    <!-- Poziomy pasek na górze (Desktop) -->
+    <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
@@ -292,34 +289,70 @@
         </div>
 
         <div class="nav-buttons">
-            <a href="index.html">
-                <img src="home.png" alt="Home">
-            </a>
-            <a href="dumbbell.html">
-                <img src="dumbbell.png" alt="Dumbbell">
-            </a>
-            <a href="contact.html">
-                <img src="comment.png" alt="Comment">
-            </a>
+            <a href="index.html"><img src="home.png" alt="Home"></a>
+            <a href="artykuly.html"><img src="dumbbell.png" alt="Mentalna Siłownia"></a>
+            <a href="kontakt.html"><img src="comment.png" alt="Kontakt"></a>
         </div>
     </div>
 
-    <!-- Pasek na dole (Mobile) -->
-    <div class="bottom-navbar">
-        <a href="index.html">
-            <img src="home.png" alt="Home">
-        </a>
-        <a href="dumbbell.html">
-            <img src="dumbbell.png" alt="Dumbbell">
-        </a>
-        <a href="contact.html">
-            <img src="comment.png" alt="Comment">
-        </a>
+    <!-- Przycisk powrotu w kółeczku -->
+    <button class="back-button" onclick="goBack()">
+        <img src="back.png" alt="Powrót">
+    </button>
+
+    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
+    <div class="content" id="mainContent">
+        <div class="image-container">
+            <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
+            <div class="text">Co byś chciał dzisiaj przepracować?</div>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="options" class="select-options">
+                <ul>
+                    <li onclick="chooseTopic('stres')">Stres</li>
+                    <li onclick="chooseTopic('zlosc')">Złość</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
+        <div class="image-container">
+            <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
+            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="selfOptions" class="select-options">
+                <ul>
+                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
+                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <!-- Treść strony -->
-    <div class="content">
-        <!-- Treść strony (np. artykuł) -->
+    <!-- Sekcja artykułu -->
+    <div id="article" class="article-container">
+        <h2>Stres - naturalna reakcja organizmu</h2>
+        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+        <p>Co to jest stres?</p>
+        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+        <p>Jak stres wpływa na organizm?</p>
+        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+        <p>Techniki radzenia sobie:</p>
+        <ul>
+            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+        </ul>
     </div>
 
     <script>
@@ -334,6 +367,60 @@
             mainContent.style.display = 'block';
             backButton.style.display = 'none';
         }
+
+        // Funkcja pokazująca dostępne opcje (Stres, Złość)
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu
+        function chooseTopic(topic) {
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
+
+            // Ukrywanie głównej sekcji po wyborze tematu
+            mainContent.style.display = 'none';
+            // Ukrywamy opcje wyboru
+            document.getElementById('options').style.display = 'none';
+
+            if (topic === 'stres') {
+                // Wyświetlamy artykuł o stresie w kontenerze
+                article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+            } else if (topic === 'zlosc') {
+                // Wyświetlamy artykuł o złości w kontenerze
+                article.innerHTML = ` 
+                    <h2>Złość - emocja, która może niszczyć</h2>
+                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
+                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
+                    <p>Jak poradzić sobie z złością?</p>
+                    <ul>
+                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
+                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
+                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
+                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
+                    </ul>
+                `;
+                article.style.display = 'block';
+                backButton.style.display = 'block';
+            }
+        }
+
+        // Funkcja pokazująca dostępne opcje dla "Co zrobić dla siebie?"
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu dla "Co zrobić dla siebie?"
+        function chooseSelfTopic(topic) {
+            if (topic === 'odpoczynek') {
+                alert('Wybierasz odpoczynek');
+            } else if (topic === 'aktywnosc') {
+                alert('Wybierasz aktywność fizyczną');
+            }
+        }
     </script>
+
 </body>
 </html>
