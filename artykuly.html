@@ -28,14 +28,14 @@
         }
 
         .top-navbar img {
-            width: 45px;  /* Logo size */
-            height: 45px;
+            width: 50px;  /* Logo size */
+            height: 50px;
             border-radius: 50%;
             margin-right: 10px;
         }
 
         .top-navbar h1 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #050259;
             font-weight: bold;
             margin: 0;
@@ -53,9 +53,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 12px;  /* Ensure buttons are the same size as the logo */
-            width: 45px;  /* Equal width as the logo */
-            height: 45px;  /* Equal height as the logo */
+            padding: 12px;
+            width: 50px;
+            height: 50px;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
         }
@@ -92,7 +92,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             padding: 100px 20px 20px;
             text-align: center;
         }
@@ -112,7 +112,7 @@
         }
 
         .image-container img {
-            width: 250px;
+            width: 100%;
             height: 250px;
             object-fit: cover;
             border-radius: 8px;
@@ -214,7 +214,7 @@
 
             .image-container {
                 width: 250px;
-                height: 350px;
+                height: auto;
             }
 
             .choose-button {
@@ -414,15 +414,15 @@
             document.getElementById('selfOptions').style.display = 'none';
 
             if (topic === 'odpoczynek') {
-                article.innerHTML = ` 
-                    <h2>Odpoczynek - kluczowy element zdrowego stylu życia</h2>
-                    <img src="rest.jpeg" alt="Odpoczynek">
-                    <p>Odpoczynek pozwala na regenerację sił, poprawę kondycji fizycznej i psychicznej.</p>
-                    <p>Korzyści odpoczynku:</p>
+                article.innerHTML = `
+                    <h2>Odpoczynek - klucz do regeneracji</h2>
+                    <img src="rest.jpeg" alt="Obrazek przedstawiający odpoczynek">
+                    <p>Odpoczynek to czas, w którym nasz organizm się regeneruje. Daje to naszemu ciału i umysłowi szansę na odzyskanie energii.</p>
+                    <p>Korzyści z odpoczynku:</p>
                     <ul>
-                        <li>Lepsza koncentracja.</li>
-                        <li>Lepsze samopoczucie.</li>
-                        <li>Zwiększenie odporności organizmu.</li>
+                        <li>Poprawa jakości snu.</li>
+                        <li>Redukcja stresu i zmęczenia.</li>
+                        <li>Poprawa koncentracji i kreatywności.</li>
                     </ul>
                 `;
             }
