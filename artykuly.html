@@ -14,11 +14,57 @@
             font-size: 16px;
         }
 
-        
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .top-navbar img {
+            width: 50px; /* Zwiększamy rozmiar logo */
+            height: 50px;
+            border-radius: 50%; /* Zaokrąglamy obrazek */
+            margin-right: 10px;
+        }
 
-     
-        
+        .top-navbar h1 {
+            font-size: 1.6rem;
+            color: #050259; /* Kolor tekstu na #050259 */
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-navbar .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-navbar .nav-buttons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+        }
+
+        .top-navbar .nav-buttons a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .top-navbar .nav-buttons a:hover {
+            background-color: #8E79D9;
+            transform: scale(1.05);
+        }
 
         .back-button {
             position: fixed;
@@ -188,20 +234,27 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        /* Now we add the bold effect to subtitles */
         .article-container h3, .article-container p strong {
             font-weight: bold;
             font-size: 1.4rem;
         }
 
         @media (max-width: 1024px) {
-            .top-navbar h1 {
-                font-size: 1.4rem;
+            .back-button {
+                top: 60px;
             }
 
-            .top-navbar .nav-buttons a {
-                font-size: 0.9rem;
-                padding: 8px 12px;
+            .article-container {
+                width: 350px;
+                padding: 20px;
+            }
+
+            .article-container h2 {
+                font-size: 1.8rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
             }
 
             .image-container {
@@ -215,14 +268,6 @@
             }
 
             .select-options ul li {
-                font-size: 1rem;
-            }
-
-            .article-container h2 {
-                font-size: 1.8rem;
-            }
-
-            .article-container p {
                 font-size: 1rem;
             }
         }
@@ -241,8 +286,9 @@
                 padding: 12px;
             }
 
-            .top-navbar .nav-buttons a {
-                padding: 8px;
+            .choose-button {
+                font-size: 1rem;
+                padding: 10px 16px;
             }
 
             .article-container h2 {
@@ -260,26 +306,12 @@
                 top: 70px;
             }
 
-            .choose-button {
-                font-size: 1rem;
-                padding: 10px 16px;
-            }
-
             .image-container .text {
                 font-size: 1.2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .top-navbar h1 {
-                font-size: 1.2rem;
-            }
-
-            .back-button {
-                top: 60px;
-                padding: 8px;
-            }
-
             .image-container {
                 width: 90%;
                 height: auto;
@@ -308,36 +340,17 @@
                 padding: 10px;
             }
         }
-
-        /* New desktop style for article container */
-        @media (min-width: 1025px) {
-            .article-container {
-                width: 600px; /* Wider container for desktop */
-                padding: 40px; /* More padding for better spacing */
-            }
-
-            .article-container h2 {
-                font-size: 2.4rem; /* Larger font for headings */
-            }
-
-            .article-container p {
-                font-size: 1.3rem; /* Larger font for paragraph text */
-            }
-        }
     </style>
 </head>
 <body>
 
     <div class="top-navbar">
-        <div style="display: flex; align-items: center;">
-            <img src="psycho.ico" alt="Mózg">
-            <h1>Psychownia</h1>
-        </div>
-
+        <img src="logo.jpg" alt="Logo Psychownia">
+        <h1>Psychownia</h1>
         <div class="nav-buttons">
-            <a href="index.html"><img src="home.png" alt="Home"></a>
-            <a href="artykuly.html"><img src="dumbbell.png" alt="Mentalna Siłownia"></a>
-            <a href="kontakt.html"><img src="comment.png" alt="Kontakt"></a>
+            <a href="#"><img src="home-icon.png" alt="Home"></a>
+            <a href="#"><img src="search-icon.png" alt="Search"></a>
+            <a href="#"><img src="profile-icon.png" alt="Profile"></a>
         </div>
     </div>
 
@@ -414,21 +427,19 @@
                     </ul>
                     <p><strong>Jak sobie radzić ze stresem?</strong></p>
                     <ul>
-                        <li>Medytacja i techniki oddechowe</li>
-                        <li>Regularna aktywność fizyczna</li>
-                        <li>Dbaj o sen i regenerację</li>
+                        <li>Medytacja</li>
+                        <li>Ruch i aktywność fizyczna</li>
+                        <li>Techniki relaksacyjne</li>
                     </ul>
                 `;
                 backButton.style.display = 'block';
             }
         }
 
-        function chooseSelfTopic(topic) {
-            let article = document.getElementById('article');
-            article.style.display = 'none';
-            let mainContent = document.getElementById('mainContent');
-            mainContent.style.display = 'block';
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
         }
     </script>
+
 </body>
 </html>
