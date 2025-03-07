@@ -96,19 +96,20 @@
         .image-container {
             position: relative;
             display: inline-block;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 250px;
-            height: 400px;
+            height: 350px;
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .image-container img {
-            width: 230px;
-            height: 230px;
+            width: 250px;
+            height: 250px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -159,62 +160,146 @@
             color: #3BBFB2;
         }
 
-        /* Fiszka styl */
-        .card {
+        .article-container {
+            display: none;
             width: 250px;
-            height: 400px;
+            height: 350px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 15px;
+            border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease-in-out;
+            text-align: left;
+            transition: all 0.3s ease;
         }
 
-        .card img {
-            width: 100%;
-            height: 150px;
+        .article-container img {
+            width: 250px;
+            height: 250px;
             object-fit: cover;
             border-radius: 8px;
         }
 
-        .card h2 {
-            font-size: 1.6rem;
-            margin-top: 10px;
+        .article-container h2 {
+            font-size: 1.8rem;
             color: #333;
+            margin-bottom: 15px;
         }
 
-        .card .expand-button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #3BBFB2;
-            color: white;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .article-container p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
         }
 
-        .card .expand-button:hover {
-            background-color: #8E79D9;
+        @media (max-width: 1024px) {
+            .top-navbar h1 {
+                font-size: 1.4rem;
+            }
+
+            .top-navbar .nav-buttons a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .image-container {
+                width: 250px;
+                height: 350px;
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .select-options ul li {
+                font-size: 1rem;
+            }
+
+            .article-container h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
+            }
         }
 
-        .expanded-content {
-            display: none;
-            margin-top: 15px;
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 8px;
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 80%;
+                height: auto;
+            }
+
+            .top-navbar .nav-buttons a {
+                padding: 8px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px;
+                display: block;
+                left: 15px;
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 14px;
+            }
+
+            .article-container {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .article-container h2 {
+                font-size: 1.2rem;
+            }
+
+            .article-container p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .article-container.stress {
+            border-radius: 15px;
+            width: 250px;
+            height: auto;
+            padding: 20px;
+            background-color: #8e79d9;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            font-size: 1.1rem;
-            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .article-container.stress img {
+            border-radius: 8px;
+            max-width: 100%;
         }
 
-        /* Przyciski rozwijania w kartce */
-        .expanded {
-            display: block;
+        .article-container.stress h2 {
+            color: white;
+            font-size: 1.6rem;
         }
-
     </style>
 </head>
 <body>
@@ -262,21 +347,8 @@
         </div>
     </div>
 
-    <!-- Fiszka stres -->
-    <div id="stres-card" class="card">
-        <h2>Stres</h2>
-        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <button class="expand-button" onclick="toggleExpand('stres')">Rozwiń</button>
-        <div class="expanded-content" id="stres-expanded">
-            <p>Stres to reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły szkodzi zdrowiu.</p>
-            <ul>
-                <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-                <li>Medytacja: Pomaga zredukować napięcie i poprawia nastrój.</li>
-                <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-                <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-                <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-            </ul>
-        </div>
+    <div id="article" class="article-container">
+        <!-- Fiszka o stresie zostanie dodana dynamicznie -->
     </div>
 
     <script>
@@ -298,17 +370,47 @@
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
-            let stresCard = document.getElementById('stres-card');
 
             mainContent.style.display = 'none';
             document.getElementById('options').style.display = 'none';
-            stresCard.style.display = 'block';
-            backButton.style.display = 'block';
-        }
 
-        function toggleExpand(topic) {
-            let expandedContent = document.getElementById(topic + '-expanded');
-            expandedContent.classList.toggle('expanded');
+            if (topic === 'stres') {
+                article.classList.add('stress');
+                article.style.display = 'block';
+                article.innerHTML = `
+                    <h2>Stres - naturalna reakcja organizmu</h2>
+                    <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+                    <p>Co to jest stres?</p>
+                    <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+                    <p>Jak stres wpływa na organizm?</p>
+                    <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+                    <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+                    <p>Techniki radzenia sobie:</p>
+                    <ul>
+                        <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+                        <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+                        <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+                        <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+                        <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+                    </ul>
+                `;
+                backButton.style.display = 'block';
+            } else if (topic === 'zlosc') {
+                article.innerHTML = `
+                    <h2>Złość - emocja, która może niszczyć</h2>
+                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
+                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
+                    <p>Jak poradzić sobie z złością?</p>
+                    <ul>
+                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
+                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
+                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
+                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
+                    </ul>
+                `;
+                article.style.display = 'block';
+                backButton.style.display = 'block';
+            }
         }
 
         function showSelfOptions() {
@@ -326,4 +428,3 @@
 
 </body>
 </html>
-       
