@@ -11,10 +11,9 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 16px; /* Domyślny rozmiar czcionki */
+            font-size: 16px;
         }
 
-        /* Poziomy pasek na górze */
         .top-navbar {
             display: flex;
             align-items: center;
@@ -43,7 +42,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
             top: 80px; 
@@ -62,7 +60,6 @@
             height: 30px;
         }
 
-        /* Treść strony */
         .content {
             padding: 20px;
             text-align: center;
@@ -72,7 +69,6 @@
             gap: 20px;
         }
 
-        /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
@@ -98,7 +94,6 @@
             color: #333;
         }
 
-        /* Przycisk wyboru */
         .choose-button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -110,14 +105,13 @@
             cursor: pointer;
             transition: background-color 0.3s;
             position: relative;
-            z-index: 10; /* Dodanie z-index, aby przycisk był na wierzchu */
+            z-index: 10;
         }
 
         .choose-button:hover {
             background-color: #8E79D9;
         }
 
-        /* Sekcja z wyborem tematu */
         .select-options {
             display: none;
             margin-top: 20px;
@@ -126,7 +120,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            z-index: 5; /* Ustawienie opcji na wierzchu */
+            z-index: 5;
         }
 
         .select-options ul {
@@ -144,17 +138,17 @@
             color: #3BBFB2;
         }
 
-        /* Nowy kontener na artykuł */
         .article-container {
             display: none;
-            width: 90%;
-            max-width: 500px;
-            margin: 20px auto;
+            width: 80%;
+            max-width: 800px; /* Maksymalna szerokość kontenera */
+            margin: 40px auto; /* Wyśrodkowanie kontenera */
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
+            overflow: hidden;
         }
 
         .article-container img {
@@ -175,7 +169,6 @@
             line-height: 1.6;
         }
 
-        /* Pasek na dole - Przycisk "Mentalna Siłownia" na górze */
         .bottom-navbar {
             display: flex;
             justify-content: space-between;
@@ -203,12 +196,10 @@
             background-color: #8E79D9;
         }
 
-        /* Highlight the active button (Mentalna Siłownia) */
         .active {
             background-color: #8E79D9;
         }
 
-        /* Responsywność - dopasowanie do mniejszych ekranów */
         @media (max-width: 768px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
@@ -234,8 +225,8 @@
             }
 
             .article-container {
-                width: 100%;
-                max-width: 100%;
+                width: 90%;
+                max-width: 600px; /* Zmniejszenie kontenera na mniejszych ekranach */
                 padding: 15px;
             }
 
@@ -257,7 +248,6 @@
             }
         }
 
-        /* Responsywność - dopasowanie do bardzo małych ekranów */
         @media (max-width: 480px) {
             .top-navbar h1 {
                 font-size: 1.2rem;
@@ -281,12 +271,10 @@
                 font-size: 0.9rem;
             }
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
@@ -294,21 +282,17 @@
         </div>
     </div>
 
-    <!-- Przycisk powrotu w kółeczku -->
     <button class="back-button" onclick="goBack()">
         <img src="back.png" alt="Powrót">
     </button>
 
-    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
 
-            <!-- Przycisk do wyboru tematu -->
             <button class="choose-button" onclick="showOptions()">Wybierz</button>
 
-            <!-- Sekcja z wyborem tematu -->
             <div id="options" class="select-options">
                 <ul>
                     <li onclick="chooseTopic('stres')">Stres</li>
@@ -316,10 +300,8 @@
                 </ul>
             </div>
         </div>
-
     </div>
 
-    <!-- Kontener artykułu -->
     <div class="article-container" id="articleContainer">
         <button class="back-button" onclick="goBack()">
             <img src="back.png" alt="Powrót">
@@ -329,7 +311,6 @@
         <p id="articleContent">Treść artykułu...</p>
     </div>
 
-    <!-- Pasek na dole -->
     <div class="bottom-navbar">
         <a href="index.html">Strona Główna</a>
         <a href="artykuly.html" class="active">Mentalna Siłownia</a>
@@ -337,18 +318,15 @@
     </div>
 
     <script>
-        // Funkcja, aby wrócić do poprzedniej strony
         function goBack() {
             window.history.back();
         }
 
-        // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
             let options = document.getElementById('options');
             options.style.display = options.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Funkcja wyboru tematu
         function chooseTopic(topic) {
             let articleContainer = document.getElementById('articleContainer');
             let articleTitle = document.getElementById('articleTitle');
@@ -365,7 +343,6 @@
             articleContainer.style.display = 'block';
             document.getElementById('mainContent').style.display = 'none';
         }
-
     </script>
 
 </body>
