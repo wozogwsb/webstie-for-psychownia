@@ -327,6 +327,22 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* New desktop style for article container */
+        @media (min-width: 1025px) {
+            .article-container {
+                width: 600px; /* Wider container for desktop */
+                padding: 40px; /* More padding for better spacing */
+            }
+
+            .article-container h2 {
+                font-size: 2.4rem; /* Larger font for headings */
+            }
+
+            .article-container p {
+                font-size: 1.3rem; /* Larger font for paragraph text */
+            }
+        }
     </style>
 </head>
 <body>
@@ -412,30 +428,13 @@
                     <p><strong>Jak stres wpływa na organizm?</strong></p>
                     <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
                     <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-                    <p><strong>Techniki radzenia sobie:</strong></p>
+                    <p><strong>Jak sobie radzić ze stresem?</strong></p>
                     <ul>
-                        <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-                        <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-                        <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-                        <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-                        <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+                        <li>Medytacja i techniki oddechowe</li>
+                        <li>Regularna aktywność fizyczna</li>
+                        <li>Dbaj o sen i regenerację</li>
                     </ul>
                 `;
-                backButton.style.display = 'block';
-            } else if (topic === 'zlosc') {
-                article.innerHTML = `
-                    <h2>Złość - emocja, która może niszczyć</h2>
-                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
-                    <p><strong>Złość</strong> jest naturalną reakcją organizmu na frustrację.</p>
-                    <p><strong>Przyczyny złości</strong> mogą być bardzo różne, od nieporozumień w relacjach po frustrację związana z niepowodzeniami.</p>
-                    <p><strong>Jak sobie radzić?</strong></p>
-                    <ul>
-                        <li>Oddychaj głęboko</li>
-                        <li>Zidentyfikuj przyczyny swojej złości</li>
-                        <li>Rób przerwy od stresujących sytuacji</li>
-                    </ul>
-                `;
-                article.style.display = 'block';
                 backButton.style.display = 'block';
             }
         }
