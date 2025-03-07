@@ -140,6 +140,8 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
+            position: relative;
+            z-index: 10; /* Dodanie z-index, aby przycisk był na wierzchu */
         }
 
         .choose-button:hover {
@@ -154,6 +156,8 @@
             background-color: #f1f1f1;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 5; /* Ustawienie opcji na wierzchu */
         }
 
         .select-options ul {
@@ -324,128 +328,73 @@
             <!-- Sekcja z wyborem tematu -->
             <div id="selfOptions" class="select-options">
                 <ul>
-                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
-                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
+                    <li onclick="chooseSelfTopic('relaks')">Relaks</li>
+                    <li onclick="chooseSelfTopic('czas')">Czas dla siebie</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Sekcja artykułu -->
-    <div id="article" class="article-container">
-        <h2>Stres - naturalna reakcja organizmu</h2>
-        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <p>Co to jest stres?</p>
-        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <p>Jak stres wpływa na organizm?</p>
-        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-        <p>Techniki radzenia sobie:</p>
-        <ul>
-            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
+    <!-- Kontener artykułu -->
+    <div class="article-container" id="articleContainer">
+        <h2 id="articleTitle">Artykuł o Stresie</h2>
+        <img src="article-image.jpg" alt="Artykuł o stresie">
+        <p id="articleContent">Treść artykułu...</p>
     </div>
 
     <script>
-        // Funkcja do cofania się do poprzedniej strony
+        // Funkcja, aby wrócić do poprzedniej strony
         function goBack() {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-
-            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
-            article.style.display = 'none';
-            mainContent.style.display = 'block';
-            backButton.style.display = 'none';
+            window.history.back();
         }
 
         // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
-            document.getElementById('options').style.display = 'block';
-        }
-
-        // Funkcja obsługująca wybór tematu
-        function chooseTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-
-            // Ukrywanie głównej sekcji po wyborze tematu
-            mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
-            document.getElementById('options').style.display = 'none';
-
-            if (topic === 'stres') {
-                // Wyświetlamy artykuł o stresie w kontenerze
-                article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
-            } else if (topic === 'zlosc') {
-                // Wyświetlamy artykuł o złości w kontenerze
-                article.innerHTML = 
-                    <h2>Złość - naturalna reakcja organizmu</h2>
-                    <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Co to jest złość?</p>
-                    <p>Emocja pojawiająca się w odpowiedzi na zagrożenie, frustrację lub niesprawiedliwość.</p>
-                    <p>Jak złość wpływa na organizm?</p>
-                    <p>Fizycznie: Przyspiesza tętno, podnosi ciśnienie, zwiększa poziom adrenaliny i kortyzolu.</p>
-                    <p>Psychicznie: Może prowadzić do agresji, frustracji i obniżenia zdolności do racjonalnego myślenia.</p>
-                ;
-                article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
-            }
+            let options = document.getElementById('options');
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
         }
 
         // Funkcja pokazująca dostępne opcje (Co chciałbyś zrobić dla siebie)
         function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
+            let selfOptions = document.getElementById('selfOptions');
+            selfOptions.style.display = selfOptions.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Funkcja obsługująca wybór tematu o sobie
-        function chooseSelfTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-            let backButton = document.querySelector('.back-button');
-            
-            // Ukrywanie głównej sekcji po wyborze tematu
-            mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
-            document.getElementById('selfOptions').style.display = 'none';
+        // Funkcja wyboru tematu
+        function chooseTopic(topic) {
+            let articleContainer = document.getElementById('articleContainer');
+            let articleTitle = document.getElementById('articleTitle');
+            let articleContent = document.getElementById('articleContent');
 
-            if (topic === 'odpoczynek') {
-                // Wyświetlamy artykuł o odpoczynku w kontenerze
-                article.innerHTML = 
-                    <h2>Odpoczynek - regeneracja ciała i umysłu</h2>
-                    <img src="relaxation.jpeg" alt="Obrazek odpoczynku">
-                    <p>Odpoczynek jest kluczowy dla utrzymania zdrowia psychicznego i fizycznego.</p>
-                    <p>Techniki odpoczynku:</p>
-                    <ul>
-                        <li>Medytacja - 10 minut dziennie na pełną regenerację.</li>
-                        <li>Cisza i spokój - czas tylko dla siebie, z dala od hałasu i rozproszeń.</li>
-                    </ul>
-                ;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            } else if (topic === 'aktywnosc') {
-                // Wyświetlamy artykuł o aktywności fizycznej
-                article.innerHTML = 
-                    <h2>Aktywność fizyczna - klucz do zdrowia</h2>
-                    <img src="exercise.jpeg" alt="Obrazek aktywności fizycznej">
-                    <p>Regularna aktywność fizyczna wpływa na poprawę samopoczucia, kondycji i zdrowia.</p>
-                    <p>Formy aktywności:</p>
-                    <ul>
-                        <li>Siłownia - rozwój siły i wytrzymałości.</li>
-                        <li>Spacer - najlepszy sposób na relaks i oczyszczenie umysłu.</li>
-                    </ul>
-                ;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
+            if (topic === 'stres') {
+                articleTitle.textContent = "Artykuł o Stresie";
+                articleContent.textContent = "Stres to naturalna reakcja organizmu na wyzwania...";
+            } else if (topic === 'zlosc') {
+                articleTitle.textContent = "Artykuł o Złości";
+                articleContent.textContent = "Złość jest silną emocją, która może prowadzić do różnych sytuacji...";
             }
+
+            articleContainer.style.display = 'block';
+        }
+
+        // Funkcja wyboru tematu dla siebie
+        function chooseSelfTopic(topic) {
+            let articleContainer = document.getElementById('articleContainer');
+            let articleTitle = document.getElementById('articleTitle');
+            let articleContent = document.getElementById('articleContent');
+
+            if (topic === 'relaks') {
+                articleTitle.textContent = "Artykuł o Relaksie";
+                articleContent.textContent = "Relaks jest kluczowy dla utrzymania zdrowia psychicznego...";
+            } else if (topic === 'czas') {
+                articleTitle.textContent = "Artykuł o Czasie dla Siebie";
+                articleContent.textContent = "Czas dla siebie jest niezbędny, aby zregenerować siły...";
+            }
+
+            articleContainer.style.display = 'block';
         }
     </script>
 
 </body>
 </html>
+
