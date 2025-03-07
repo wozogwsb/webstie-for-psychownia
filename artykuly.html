@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 16px; /* Domyślny rozmiar czcionki */
+            font-size: 16px;
         }
 
         /* Poziomy pasek na górze */
@@ -67,14 +67,13 @@
             transform: scale(1.05);
         }
 
-        /* Przycisk powrotu w kółeczku */
+        /* Przycisk powrotu */
         .back-button {
             position: fixed;
             top: 80px;
             left: 20px;
-            background-color: #3BBFB2;
+            background-color: transparent;
             border: none;
-            border-radius: 50%;
             cursor: pointer;
             padding: 12px;
             display: none;
@@ -161,10 +160,11 @@
             color: #3BBFB2;
         }
 
+        /* Kontener artykułu - z zachowaniem tych samych rozmiarów co pozostałe kontenery */
         .article-container {
             display: none;
-            width: 90%;
-            max-width: 500px;
+            width: 45%;
+            min-width: 280px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -177,7 +177,7 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
-            object-fit: cover; /* Zapewnia proporcjonalne dopasowanie obrazka */
+            object-fit: cover;
         }
 
         .article-container h2 {
@@ -297,21 +297,17 @@
         </div>
     </div>
 
-    <!-- Przycisk powrotu w kółeczku -->
+    <!-- Przycisk powrotu -->
     <button class="back-button" onclick="goBack()">
         <img src="back1.png" alt="Powrót">
     </button>
 
-    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
+    <!-- Sekcja z obrazkiem i przyciskiem -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-
-            <!-- Przycisk do wyboru tematu -->
             <button class="choose-button" onclick="showOptions()">Wybierz</button>
-
-            <!-- Sekcja z wyborem tematu -->
             <div id="options" class="select-options">
                 <ul>
                     <li onclick="chooseTopic('stres')">Stres</li>
@@ -319,16 +315,10 @@
                 </ul>
             </div>
         </div>
-
-        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
         <div class="image-container">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
             <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-
-            <!-- Przycisk do wyboru tematu -->
             <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
-
-            <!-- Sekcja z wyborem tematu -->
             <div id="selfOptions" class="select-options">
                 <ul>
                     <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
