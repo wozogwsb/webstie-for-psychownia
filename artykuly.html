@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 16px;
             text-align: center;
         }
 
@@ -43,59 +42,19 @@
             text-transform: uppercase;
         }
 
-        /* MENU NAWIGACYJNE */
-        .top-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            position: fixed;
-            top: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: fit-content;
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 10px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .top-navigation .nav-item {
-            width: 100px;
-            height: 50px;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .top-navigation .nav-item:nth-child(1) { background-color: #89A6CE; }
-        .top-navigation .nav-item:nth-child(2) { background-color: #7A5FD9; }
-        .top-navigation .nav-item:nth-child(3) { background-color: #8E79D9; }
-        .top-navigation .nav-item:nth-child(4) { background-color: #3BBFB2; }
-
-        .top-navigation .nav-item:hover { background-color: #3BBFB2; }
-
         .content {
             padding: 140px 20px 20px;
         }
 
         .image-container {
-            position: relative;
             display: inline-block;
-            margin-top: 20px;
             padding: 15px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 250px;
-            height: 350px;
+            height: auto;
             text-align: center;
-            transition: all 0.3s ease;
         }
 
         .image-container img {
@@ -111,7 +70,7 @@
             color: #333;
         }
 
-        .choose-button {
+        .choose-button, .option-button {
             margin-top: 15px;
             padding: 10px 20px;
             background-color: #3BBFB2;
@@ -123,8 +82,17 @@
             transition: background-color 0.3s;
         }
 
-        .choose-button:hover {
+        .choose-button:hover, .option-button:hover {
             background-color: #8E79D9;
+        }
+
+        .options-container {
+            display: none;
+            margin-top: 10px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .article-container {
@@ -153,41 +121,14 @@
             font-weight: bold;
         }
 
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .image-container {
-                width: 80%;
-                height: auto;
-            }
-
-            .top-navigation {
-                width: 90%;
-            }
-
-            .top-navigation .nav-item {
-                width: 80px;
-                height: 50px;
-                font-size: 1rem;
-            }
-        }
-
         @media (max-width: 480px) {
             .top-navbar h1 {
                 font-size: 1.2rem;
             }
 
-            .choose-button {
+            .choose-button, .option-button {
                 font-size: 1rem;
                 padding: 8px 14px;
-            }
-
-            .article-container {
-                width: 100%;
-                padding: 15px;
             }
         }
     </style>
@@ -201,41 +142,58 @@
         </div>
     </div>
 
-    <!-- Menu Nawigacyjne -->
-    <div class="top-navigation">
-        <div class="nav-item">News</div>
-        <div class="nav-item">Ćwicz</div>
-        <div class="nav-item">Info</div>
-        <div class="nav-item">1on1</div>
-    </div>
-
     <div class="content" id="mainContent">
         <div class="image-container">
-            <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
+            <img src="cutie.jpeg" alt="Mózg ćwiczący">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleArticle()">Wybierz</button>
+            <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
+
+            <div class="options-container" id="options">
+                <button class="option-button" onclick="showArticle('stres')">Stres</button>
+                <button class="option-button" onclick="showArticle('zlosc')">Złość</button>
+            </div>
         </div>
     </div>
 
-    <div id="article" class="article-container">
+    <div id="article-stres" class="article-container">
         <h2>Stres - naturalna reakcja organizmu</h2>
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <p>Co to jest stres?</p>
-        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <button class="choose-button" onclick="toggleArticle()">Wróć</button>
+        <p>Stres to reakcja organizmu na wyzwania. Może mobilizować do działania, ale długotrwały stres szkodzi zdrowiu.</p>
+        <button class="choose-button" onclick="goBack()">Wróć</button>
+    </div>
+
+    <div id="article-zlosc" class="article-container">
+        <h2>Złość - jak nad nią zapanować?</h2>
+        <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
+        <p>Złość to naturalna emocja, ale jej niekontrolowane wybuchy mogą być szkodliwe. Naucz się skutecznych technik zarządzania złością.</p>
+        <button class="choose-button" onclick="goBack()">Wróć</button>
     </div>
 
     <script>
-        function toggleArticle() {
-            var mainContent = document.getElementById('mainContent');
-            var article = document.getElementById('article');
+        function toggleOptions() {
+            var options = document.getElementById('options');
+            options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
+        }
 
-            if (article.style.display === 'none' || article.style.display === '') {
-                mainContent.style.display = 'none';
-                article.style.display = 'block';
-            } else {
-                article.style.display = 'none';
-                mainContent.style.display = 'block';
+        function showArticle(topic) {
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('options').style.display = 'none';
+
+            var articles = document.getElementsByClassName('article-container');
+            for (var i = 0; i < articles.length; i++) {
+                articles[i].style.display = 'none';
+            }
+
+            document.getElementById('article-' + topic).style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('options').style.display = 'none';
+
+            var articles = document.getElementsByClassName('article-container');
+            for (var i = 0; i < articles.length; i++) {
+                articles[i].style.display = 'none';
             }
         }
     </script>
