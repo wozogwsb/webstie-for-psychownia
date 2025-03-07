@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,6 @@
             font-size: 16px;
         }
 
-        /* Poziomy pasek na górze */
         .top-navbar {
             display: flex;
             justify-content: space-between;
@@ -67,13 +66,13 @@
             transform: scale(1.05);
         }
 
-        /* Przycisk powrotu */
         .back-button {
             position: fixed;
             top: 80px;
             left: 20px;
-            background-color: transparent;
+            background-color: #3BBFB2;
             border: none;
+            border-radius: 50%;
             cursor: pointer;
             padding: 12px;
             display: none;
@@ -85,7 +84,6 @@
             height: 30px;
         }
 
-        /* Treść strony */
         .content {
             display: flex;
             flex-wrap: wrap;
@@ -103,14 +101,15 @@
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            min-width: 280px;
+            width: 250px;  /* Stała szerokość kontenera */
+            height: 350px; /* Stała wysokość kontenera */
             text-align: center;
         }
 
         .image-container img {
-            width: 100%;
-            max-width: 250px;
+            width: 250px;
+            height: 250px; /* Stała wysokość i szerokość obrazka */
+            object-fit: cover;  /* Zachowanie proporcji obrazka */
             border-radius: 8px;
         }
 
@@ -160,11 +159,10 @@
             color: #3BBFB2;
         }
 
-        /* Kontener artykułu - z zachowaniem tych samych rozmiarów co pozostałe kontenery */
         .article-container {
             display: none;
-            width: 45%;
-            min-width: 280px;
+            width: 90%;
+            max-width: 500px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -174,10 +172,10 @@
         }
 
         .article-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+            width: 250px;
+            height: 250px;  /* Stała wielkość obrazka w artykule */
             object-fit: cover;
+            border-radius: 8px;
         }
 
         .article-container h2 {
@@ -192,7 +190,6 @@
             line-height: 1.6;
         }
 
-        /* Responsywność */
         @media (max-width: 1024px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
@@ -204,7 +201,8 @@
             }
 
             .image-container {
-                width: 45%;
+                width: 250px;
+                height: 350px;
             }
 
             .choose-button {
@@ -233,6 +231,7 @@
 
             .image-container {
                 width: 80%;
+                height: auto;
             }
 
             .top-navbar .nav-buttons a {
@@ -283,7 +282,6 @@
 </head>
 <body>
 
-    <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
@@ -297,12 +295,10 @@
         </div>
     </div>
 
-    <!-- Przycisk powrotu -->
     <button class="back-button" onclick="goBack()">
         <img src="back1.png" alt="Powrót">
     </button>
 
-    <!-- Sekcja z obrazkiem i przyciskiem -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
@@ -315,6 +311,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="image-container">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
             <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
@@ -328,7 +325,6 @@
         </div>
     </div>
 
-    <!-- Sekcja artykułu -->
     <div id="article" class="article-container">
         <h2>Stres - naturalna reakcja organizmu</h2>
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
