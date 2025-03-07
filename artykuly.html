@@ -29,9 +29,9 @@
         }
 
         .top-navbar img {
-            width: 50px;  /* Logo size */
+            width: 50px;
             height: 50px;
-            border-radius: 12px; /* Zaokrąglone rogi */
+            border-radius: 12px;
             margin-right: 10px;
         }
 
@@ -44,12 +44,46 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        /* New top navigation */
+        .top-navigation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 0;
+            position: fixed;
+            top: 60px; /* Adjust for top-navbar height */
+            width: 100%;
+            z-index: 500;
+        }
+
+        .top-navigation .nav-item {
+            width: 80px;
+            height: 80px;
+            background-color: #444;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .top-navigation .nav-item:hover {
+            background-color: #3BBFB2;
+        }
+
+        /* Content area */
         .content {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            padding: 100px 20px 20px;
+            padding: 160px 20px 20px; /* Adjust padding to account for top navbar and navigation */
             text-align: center;
         }
 
@@ -233,6 +267,14 @@
         </div>
     </div>
 
+    <!-- Top Navigation -->
+    <div class="top-navigation">
+        <div class="nav-item" style="background-color: #FF6F61;">News</div>
+        <div class="nav-item" style="background-color: #3BBFB2;">Ćwicz</div>
+        <div class="nav-item" style="background-color: #8E79D9;">Info</div>
+        <div class="nav-item" style="background-color: #FFA726;">1on1</div>
+    </div>
+
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
@@ -343,3 +385,4 @@
 
 </body>
 </html>
+
