@@ -93,34 +93,50 @@
             text-align: center;
         }
 
-        .image-container {
+        .card-container {
             position: relative;
             display: inline-block;
-            margin-top: 20px;
-            padding: 15px;
+            width: 250px;
+            height: 350px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            height: 350px;
-            text-align: center;
-            transition: all 0.3s ease;
+            margin: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
 
-        .image-container img {
-            width: 250px;
+        .card-container img {
+            width: 100%;
             height: 250px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px 12px 0 0;
         }
 
-        .image-container .text {
-            font-size: 1.4rem;
-            margin-top: 15px;
+        .card-container .card-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
             color: #333;
         }
 
+        .card-container .card-text {
+            font-size: 1rem;
+            color: #666;
+            padding: 10px;
+            display: none;
+            text-align: left;
+        }
+
+        .card-container.flipped .card-text {
+            display: block;
+        }
+
+        .card-container:hover {
+            transform: scale(1.05);
+        }
+
         .choose-button {
+            display: block;
             margin-top: 15px;
             padding: 10px 20px;
             background-color: #3BBFB2;
@@ -160,38 +176,6 @@
             color: #3BBFB2;
         }
 
-        .article-container {
-            display: none;
-            width: 250px;
-            height: 350px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-
-        .article-container img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .article-container h2 {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .article-container p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
         @media (max-width: 1024px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
@@ -202,9 +186,9 @@
                 padding: 8px 12px;
             }
 
-            .image-container {
-                width: 250px;
-                height: 350px;
+            .card-container {
+                width: 220px;
+                height: 320px;
             }
 
             .choose-button {
@@ -215,14 +199,6 @@
             .select-options ul li {
                 font-size: 1rem;
             }
-
-            .article-container h2 {
-                font-size: 1.6rem;
-            }
-
-            .article-container p {
-                font-size: 1rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -231,21 +207,13 @@
                 align-items: center;
             }
 
-            .image-container {
-                width: 80%;
+            .card-container {
+                width: 90%;
                 height: auto;
             }
 
             .top-navbar .nav-buttons a {
                 padding: 8px;
-            }
-
-            .article-container h2 {
-                font-size: 1.4rem;
-            }
-
-            .article-container p {
-                font-size: 1rem;
             }
         }
 
@@ -264,19 +232,6 @@
             .choose-button {
                 font-size: 1rem;
                 padding: 8px 14px;
-            }
-
-            .article-container {
-                width: 100%;
-                padding: 15px;
-            }
-
-            .article-container h2 {
-                font-size: 1.2rem;
-            }
-
-            .article-container p {
-                font-size: 0.9rem;
             }
         }
 
@@ -302,26 +257,24 @@
     </button>
 
     <div class="content" id="mainContent">
-        <div class="image-container">
+        <div class="card-container" onclick="flipCard(this)">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
-            <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="showOptions()">Wybierz</button>
-            <div id="options" class="select-options">
+            <div class="card-title">Co byś chciał dzisiaj przepracować?</div>
+            <div class="card-text">
                 <ul>
-                    <li onclick="chooseTopic('stres')">Stres</li>
-                    <li onclick="chooseTopic('zlosc')">Złość</li>
+                    <li>Stres</li>
+                    <li>Złość</li>
                 </ul>
             </div>
         </div>
 
-        <div class="image-container">
+        <div class="card-container" onclick="flipCard(this)">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
-            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
-            <div id="selfOptions" class="select-options">
+            <div class="card-title">Co byś chciał dzisiaj zrobić dla siebie?</div>
+            <div class="card-text">
                 <ul>
-                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
-                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
+                    <li>Odpoczynek</li>
+                    <li>Aktywność fizyczna</li>
                 </ul>
             </div>
         </div>
@@ -356,8 +309,8 @@
             backButton.style.display = 'none';
         }
 
-        function showOptions() {
-            document.getElementById('options').style.display = 'block';
+        function flipCard(card) {
+            card.classList.toggle('flipped');
         }
 
         function chooseTopic(topic) {
@@ -386,18 +339,6 @@
                 `;
                 article.style.display = 'block';
                 backButton.style.display = 'block';
-            }
-        }
-
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
-        function chooseSelfTopic(topic) {
-            if (topic === 'odpoczynek') {
-                alert('Wybierasz odpoczynek');
-            } else if (topic === 'aktywnosc') {
-                alert('Wybierasz aktywność fizyczną');
             }
         }
     </script>
