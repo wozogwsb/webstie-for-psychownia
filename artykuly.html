@@ -221,7 +221,15 @@
         .article-container.stress h2 {
             font-size: 2rem;
             margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Now we add the bold effect to subtitles */
+        .article-container h3, .article-container p strong {
+            font-weight: bold;
+            font-size: 1.4rem;
         }
 
         @media (max-width: 1024px) {
@@ -391,12 +399,12 @@
                 article.innerHTML = `
                     <h2>Stres - naturalna reakcja organizmu</h2>
                     <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-                    <p>Co to jest stres?</p>
+                    <p><strong>Co to jest stres?</strong></p>
                     <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-                    <p>Jak stres wpływa na organizm?</p>
+                    <p><strong>Jak stres wpływa na organizm?</strong></p>
                     <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
                     <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-                    <p>Techniki radzenia sobie:</p>
+                    <p><strong>Techniki radzenia sobie:</strong></p>
                     <ul>
                         <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
                         <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
@@ -410,12 +418,12 @@
                 article.innerHTML = `
                     <h2>Złość - emocja, która może niszczyć</h2>
                     <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
-                    <p>Jak poradzić sobie z złością?</p>
+                    <p><strong>Złość</strong> jest naturalną reakcją organizmu na frustrację.</p>
+                    <p><strong>Jak poradzić sobie z złością?</strong></p>
                     <ul>
                         <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
-                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
-                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
+                        <li>Rozmowa: Czasami wystarczy spokojnie porozmawiać.</li>
+                        <li>Relaksacja: Spędzanie czasu w ciszy i spokoju pomaga w rozładowaniu emocji.</li>
                     </ul>
                 `;
                 article.style.display = 'block';
