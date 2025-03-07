@@ -17,8 +17,8 @@
         /* Poziomy pasek na górze */
         .top-navbar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             background-color: #3BBFB2;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,6 @@
             z-index: 1000;
         }
 
-        /* Logo w pasku */
         .top-navbar img {
             width: 35px;
             height: 35px;
@@ -35,7 +34,6 @@
             margin-right: 10px;
         }
 
-        /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.6rem;
             color: white;
@@ -45,10 +43,8 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Przycisk w pasku */
         .top-navbar .nav-buttons {
             display: flex;
-            align-items: center;
             gap: 15px;
         }
 
@@ -56,11 +52,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            text-decoration: none;
             padding: 10px;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
-            border: 2px solid transparent;
         }
 
         .top-navbar .nav-buttons a img {
@@ -73,22 +67,16 @@
             transform: scale(1.05);
         }
 
-        .top-navbar .nav-buttons a:focus {
-            outline: none;
-            border-color: #f1c40f;
-        }
-
         /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
-            top: 80px; 
+            top: 80px;
             left: 20px;
             background-color: #3BBFB2;
             border: none;
             border-radius: 50%;
             cursor: pointer;
             padding: 12px;
-            z-index: 100;
             display: none;
         }
 
@@ -99,15 +87,14 @@
 
         /* Treść strony */
         .content {
-            padding: 20px;
-            text-align: center;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            padding: 20px;
+            text-align: center;
         }
 
-        /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
@@ -133,7 +120,6 @@
             color: #333;
         }
 
-        /* Przycisk wyboru */
         .choose-button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -150,7 +136,6 @@
             background-color: #8E79D9;
         }
 
-        /* Sekcja z wyborem tematu */
         .select-options {
             display: none;
             margin-top: 20px;
@@ -175,7 +160,6 @@
             color: #3BBFB2;
         }
 
-        /* Nowy kontener na artykuł */
         .article-container {
             display: none;
             width: 90%;
@@ -206,8 +190,8 @@
             line-height: 1.6;
         }
 
-        /* Responsywność - dopasowanie do mniejszych ekranów */
-        @media (max-width: 768px) {
+        /* Responsywność */
+        @media (max-width: 1024px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
             }
@@ -218,13 +202,7 @@
             }
 
             .image-container {
-                width: 90%;
-                min-width: 200px;
-                margin-top: 15px;
-            }
-
-            .image-container .text {
-                font-size: 1.2rem;
+                width: 45%;
             }
 
             .choose-button {
@@ -236,12 +214,6 @@
                 font-size: 1rem;
             }
 
-            .article-container {
-                width: 100%;
-                max-width: 100%;
-                padding: 15px;
-            }
-
             .article-container h2 {
                 font-size: 1.6rem;
             }
@@ -251,7 +223,29 @@
             }
         }
 
-        /* Responsywność - dopasowanie do bardzo małych ekranów */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 80%;
+            }
+
+            .top-navbar .nav-buttons a {
+                padding: 8px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
+            }
+        }
+
         @media (max-width: 480px) {
             .top-navbar h1 {
                 font-size: 1.2rem;
@@ -260,7 +254,7 @@
             .back-button {
                 top: 70px;
                 padding: 10px;
-                display: block; /* Upewniamy się, że przycisk powrotu jest widoczny na bardzo małych ekranach */
+                display: block;
             }
 
             .choose-button {
@@ -268,8 +262,13 @@
                 padding: 8px 14px;
             }
 
+            .article-container {
+                width: 100%;
+                padding: 15px;
+            }
+
             .article-container h2 {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .article-container p {
@@ -356,40 +355,32 @@
     </div>
 
     <script>
-        // Funkcja do cofania się do poprzedniej strony
         function goBack() {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
 
-            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
             article.style.display = 'none';
             mainContent.style.display = 'block';
             backButton.style.display = 'none';
         }
 
-        // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
             document.getElementById('options').style.display = 'block';
         }
 
-        // Funkcja obsługująca wybór tematu
         function chooseTopic(topic) {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
 
-            // Ukrywanie głównej sekcji po wyborze tematu
             mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
             document.getElementById('options').style.display = 'none';
 
             if (topic === 'stres') {
-                // Wyświetlamy artykuł o stresie w kontenerze
                 article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+                backButton.style.display = 'block';
             } else if (topic === 'zlosc') {
-                // Wyświetlamy artykuł o złości w kontenerze
                 article.innerHTML = ` 
                     <h2>Złość - emocja, która może niszczyć</h2>
                     <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
@@ -407,12 +398,10 @@
             }
         }
 
-        // Funkcja pokazująca dostępne opcje dla "Co zrobić dla siebie?"
         function showSelfOptions() {
             document.getElementById('selfOptions').style.display = 'block';
         }
 
-        // Funkcja obsługująca wybór tematu dla "Co zrobić dla siebie?"
         function chooseSelfTopic(topic) {
             if (topic === 'odpoczynek') {
                 alert('Wybierasz odpoczynek');
