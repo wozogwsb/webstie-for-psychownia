@@ -78,6 +78,7 @@
             cursor: pointer;
             padding: 12px;
             display: none;
+            z-index: 9999;
         }
 
         .back-button img {
@@ -176,6 +177,7 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
+            object-fit: cover; /* Zapewnia proporcjonalne dopasowanie obrazka */
         }
 
         .article-container h2 {
@@ -255,6 +257,7 @@
                 top: 70px;
                 padding: 10px;
                 display: block;
+                left: 15px;
             }
 
             .choose-button {
@@ -296,7 +299,7 @@
 
     <!-- Przycisk powrotu w kółeczku -->
     <button class="back-button" onclick="goBack()">
-        <img src="back.png" alt="Powrót">
+        <img src="back1.png" alt="Powrót">
     </button>
 
     <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
