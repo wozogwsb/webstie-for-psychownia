@@ -18,24 +18,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
             padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            background-color: transparent; /* Usunięto kolorowy pasek */
         }
 
         .top-navbar img {
-            width: 50px; /* Zwiększamy rozmiar logo */
-            height: 50px;
-            border-radius: 50%; /* Zaokrąglamy obrazek */
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             margin-right: 10px;
         }
 
         .top-navbar h1 {
-            font-size: 1.3rem;
-            color: #050259; /* Kolor tekstu na #050259 */
+            font-size: 1.4rem; /* Zmniejszono czcionkę */
+            color: #050259;
             font-weight: bold;
             margin: 0;
             text-transform: uppercase;
@@ -71,25 +70,17 @@
             top: 80px;
             left: 20px;
             background-color: white;
-            color: #3BBFB2;
-            border: 2px solid #3BBFB2;
+            border: 2px solid #050259;
             border-radius: 50%;
             cursor: pointer;
             padding: 12px;
             display: none;
             z-index: 9999;
-            transition: background-color 0.3s, transform 0.2s ease;
         }
 
         .back-button img {
             width: 30px;
             height: 30px;
-        }
-
-        .back-button:hover {
-            background-color: #3BBFB2;
-            color: white;
-            transform: scale(1.05);
         }
 
         .content {
@@ -170,91 +161,50 @@
 
         .article-container {
             display: none;
-            width: 250px;
-            height: auto;
+            width: 100%;
+            max-width: 800px; /* Zwiększenie szerokości kontenera dla wersji desktop */
             margin: 20px auto;
             padding: 20px;
-            background-color: #65C7BA; /* Now it's the requested turquoise color */
+            background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-            color: white; /* White text for better contrast */
             transition: all 0.3s ease;
         }
 
         .article-container img {
             width: 100%;
-            height: auto;
+            max-height: 250px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 15px;
         }
 
         .article-container h2 {
-            font-size: 2rem;
-            color: white;
+            font-size: 1.8rem;
+            color: #333;
             margin-bottom: 15px;
             font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .article-container p {
             font-size: 1.2rem;
-            color: white;
+            color: #555;
             line-height: 1.6;
-            margin-bottom: 15px;
         }
 
-        .article-container ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            color: white;
-        }
-
-        .article-container ul li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .article-container.stress {
-            background-color: #65C7BA;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .article-container.stress h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
+        .article-container .subtitle {
             font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .article-container h3, .article-container p strong {
-            font-weight: bold;
-            font-size: 1.4rem;
+            color: #050259;
         }
 
         @media (max-width: 1024px) {
-            .back-button {
-                top: 60px;
+            .top-navbar h1 {
+                font-size: 1.4rem;
             }
 
-            .article-container {
-                width: 350px;
-                padding: 20px;
-            }
-
-            .article-container h2 {
-                font-size: 1.8rem;
-            }
-
-            .article-container p {
-                font-size: 1rem;
+            .top-navbar .nav-buttons a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
             }
 
             .image-container {
@@ -270,26 +220,6 @@
             .select-options ul li {
                 font-size: 1rem;
             }
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-                padding: 10px;
-            }
-
-            .image-container {
-                width: 80%;
-                height: auto;
-                padding: 12px;
-            }
-
-            .choose-button {
-                font-size: 1rem;
-                padding: 10px 16px;
-            }
 
             .article-container h2 {
                 font-size: 1.6rem;
@@ -298,29 +228,47 @@
             .article-container p {
                 font-size: 1rem;
             }
+        }
 
-            .back-button {
-                padding: 10px;
-                display: block;
-                left: 15px;
-                top: 70px;
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .image-container .text {
-                font-size: 1.2rem;
+            .image-container {
+                width: 80%;
+                height: auto;
+            }
+
+            .top-navbar .nav-buttons a {
+                padding: 8px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .image-container {
-                width: 90%;
-                height: auto;
-                padding: 12px;
+            .top-navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px;
+                display: block;
+                left: 15px;
             }
 
             .choose-button {
                 font-size: 1rem;
-                padding: 10px 14px;
+                padding: 8px 14px;
             }
 
             .article-container {
@@ -329,30 +277,28 @@
             }
 
             .article-container h2 {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .article-container p {
                 font-size: 0.9rem;
             }
-
-            .content {
-                padding: 10px;
-            }
         }
+
     </style>
 </head>
 <body>
 
     <div class="top-navbar">
-        <!-- Zmieniono logo na psycho.ico -->
-        <img src="psycho.ico" alt="Logo Psychownia">
-        <h1>Psychownia</h1>
+        <div style="display: flex; align-items: center;">
+            <img src="psycho.ico" alt="Mózg">
+            <h1>Psychownia</h1>
+        </div>
+
         <div class="nav-buttons">
-            <!-- Zmieniono ikony na home.png, dumbbell.png, comment.png -->
-            <a href="#"><img src="home.png" alt="Home"></a>
-            <a href="#"><img src="dumbbell.png" alt="Search"></a>
-            <a href="#"><img src="comment.png" alt="Profile"></a>
+            <a href="index.html"><img src="home.png" alt="Home"></a>
+            <a href="artykuly.html"><img src="dumbbell.png" alt="Mentalna Siłownia"></a>
+            <a href="kontakt.html"><img src="comment.png" alt="Kontakt"></a>
         </div>
     </div>
 
@@ -387,7 +333,21 @@
     </div>
 
     <div id="article" class="article-container">
-        <!-- Fiszka o stresie zostanie dodana dynamicznie -->
+        <h2>Stres - naturalna reakcja organizmu</h2>
+        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+        <p>Co to jest stres?</p>
+        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+        <p>Jak stres wpływa na organizm?</p>
+        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+        <p class="subtitle">Techniki radzenia sobie:</p>
+        <ul>
+            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+        </ul>
     </div>
 
     <script>
@@ -414,19 +374,71 @@
             document.getElementById('options').style.display = 'none';
 
             if (topic === 'stres') {
-                article.classList.add('stress');
                 article.style.display = 'block';
-                article.innerHTML = `
-                    <h2>Stres - naturalna reakcja organizmu</h2>
-                    <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-                    <p><strong>Co to jest stres?</strong></p>
-                    <p>Stres to naturalna reakcja organizmu na bodźce zewnętrzne. Może być wywołany zarówno przez czynniki pozytywne, jak i negatywne. W nadmiarze może prowadzić do problemów ze zdrowiem.</p>
-                    <p><strong>Objawy stresu:</strong></p>
+                backButton.style.display = 'block';
+            } else if (topic === 'zlosc') {
+                article.innerHTML = ` 
+                    <h2>Złość - emocja, która może niszczyć</h2>
+                    <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
+                    <p>Co to jest złość?</p>
+                    <p>Emocja, która powstaje w wyniku poczucia zagrożenia, niesprawiedliwości lub frustracji.</p>
+                    <p>Jak złość wpływa na organizm?</p>
+                    <p>Fizycznie: Przyspiesza tętno, podnosi ciśnienie, wyzwala reakcję "walcz lub uciekaj".</p>
+                    <p>Psychicznie: Może prowadzić do impulsywnych działań, agresji, problemów w relacjach.</p>
+                    <p class="subtitle">Jak radzić sobie z złością?</p>
                     <ul>
-                        <li>Problemy ze snem</li>
-                        <li>Zwiększone napięcie mięśniowe</li>
-                        <li>Trudności w koncentracji</li>
+                        <li>Techniki relaksacyjne (np. oddychanie głębokie, joga).</li>
+                        <li>Zmiana myślenia (np. "to nie koniec świata").</li>
+                        <li>Aktywność fizyczna (np. bieganie, pływanie).</li>
+                        <li>Odpoczynek i sen, które pomagają w wyciszeniu.</li>
                     </ul>
-                    <p><strong>Jak sobie radzić ze stresem?</strong></p>
+                `;
+                article.style.display = 'block';
+                backButton.style.display = 'block';
+            }
+        }
+        
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        function chooseSelfTopic(topic) {
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
+
+            mainContent.style.display = 'none';
+            document.getElementById('selfOptions').style.display = 'none';
+
+            if (topic === 'odpoczynek') {
+                article.innerHTML = ` 
+                    <h2>Odpoczynek - kluczowy element zdrowego stylu życia</h2>
+                    <img src="rest.jpeg" alt="Odpoczynek">
+                    <p>Odpoczynek pozwala na regenerację sił, poprawę kondycji fizycznej i psychicznej.</p>
+                    <p>Korzyści odpoczynku:</p>
                     <ul>
-                        <li>Med
+                        <li>Lepsza koncentracja.</li>
+                        <li>Lepsze samopoczucie.</li>
+                        <li>Lepsza odporność organizmu.</li>
+                    </ul>
+                `;
+            } else if (topic === 'aktywnosc') {
+                article.innerHTML = ` 
+                    <h2>Aktywność fizyczna - klucz do zdrowia</h2>
+                    <img src="fitness.jpeg" alt="Aktywność fizyczna">
+                    <p>Aktywność fizyczna poprawia kondycję, samopoczucie oraz zdrowie psychiczne.</p>
+                    <p>Korzyści aktywności fizycznej:</p>
+                    <ul>
+                        <li>Lepsze krążenie.</li>
+                        <li>Poprawa nastroju (produkcja endorfin).</li>
+                        <li>Zwiększenie energii i motywacji.</li>
+                    </ul>
+                `;
+            }
+
+            article.style.display = 'block';
+            backButton.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
