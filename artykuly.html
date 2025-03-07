@@ -93,50 +93,33 @@
             text-align: center;
         }
 
-        .card-container {
+        .image-container {
             position: relative;
             display: inline-block;
-            width: 250px;
-            height: 350px;
+            padding: 20px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            transition: transform 0.3s;
-            cursor: pointer;
+            width: 250px;
+            height: 400px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .card-container img {
-            width: 100%;
-            height: 250px;
+        .image-container img {
+            width: 230px;
+            height: 230px;
             object-fit: cover;
-            border-radius: 12px 12px 0 0;
+            border-radius: 8px;
         }
 
-        .card-container .card-title {
-            font-size: 1.5rem;
-            margin-top: 10px;
+        .image-container .text {
+            font-size: 1.4rem;
+            margin-top: 15px;
             color: #333;
         }
 
-        .card-container .card-text {
-            font-size: 1rem;
-            color: #666;
-            padding: 10px;
-            display: none;
-            text-align: left;
-        }
-
-        .card-container.flipped .card-text {
-            display: block;
-        }
-
-        .card-container:hover {
-            transform: scale(1.05);
-        }
-
         .choose-button {
-            display: block;
             margin-top: 15px;
             padding: 10px 20px;
             background-color: #3BBFB2;
@@ -176,63 +159,60 @@
             color: #3BBFB2;
         }
 
-        @media (max-width: 1024px) {
-            .top-navbar h1 {
-                font-size: 1.4rem;
-            }
-
-            .top-navbar .nav-buttons a {
-                font-size: 0.9rem;
-                padding: 8px 12px;
-            }
-
-            .card-container {
-                width: 220px;
-                height: 320px;
-            }
-
-            .choose-button {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-
-            .select-options ul li {
-                font-size: 1rem;
-            }
+        /* Fiszka styl */
+        .card {
+            width: 250px;
+            height: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-in-out;
         }
 
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .card-container {
-                width: 90%;
-                height: auto;
-            }
-
-            .top-navbar .nav-buttons a {
-                padding: 8px;
-            }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
-        @media (max-width: 480px) {
-            .top-navbar h1 {
-                font-size: 1.2rem;
-            }
+        .card h2 {
+            font-size: 1.6rem;
+            margin-top: 10px;
+            color: #333;
+        }
 
-            .back-button {
-                top: 70px;
-                padding: 10px;
-                display: block;
-                left: 15px;
-            }
+        .card .expand-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-            .choose-button {
-                font-size: 1rem;
-                padding: 8px 14px;
-            }
+        .card .expand-button:hover {
+            background-color: #8E79D9;
+        }
+
+        .expanded-content {
+            display: none;
+            margin-top: 15px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Przyciski rozwijania w kartce */
+        .expanded {
+            display: block;
         }
 
     </style>
@@ -257,45 +237,46 @@
     </button>
 
     <div class="content" id="mainContent">
-        <div class="card-container" onclick="flipCard(this)">
+        <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
-            <div class="card-title">Co byś chciał dzisiaj przepracować?</div>
-            <div class="card-text">
+            <div class="text">Co byś chciał dzisiaj przepracować?</div>
+            <button class="choose-button" onclick="showOptions()">Wybierz</button>
+            <div id="options" class="select-options">
                 <ul>
-                    <li>Stres</li>
-                    <li>Złość</li>
+                    <li onclick="chooseTopic('stres')">Stres</li>
+                    <li onclick="chooseTopic('zlosc')">Złość</li>
                 </ul>
             </div>
         </div>
 
-        <div class="card-container" onclick="flipCard(this)">
+        <div class="image-container">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
-            <div class="card-title">Co byś chciał dzisiaj zrobić dla siebie?</div>
-            <div class="card-text">
+            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
+            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
+            <div id="selfOptions" class="select-options">
                 <ul>
-                    <li>Odpoczynek</li>
-                    <li>Aktywność fizyczna</li>
+                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
+                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="article" class="article-container">
-        <h2>Stres - naturalna reakcja organizmu</h2>
+    <!-- Fiszka stres -->
+    <div id="stres-card" class="card">
+        <h2>Stres</h2>
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <p>Co to jest stres?</p>
-        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <p>Jak stres wpływa na organizm?</p>
-        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-        <p>Techniki radzenia sobie:</p>
-        <ul>
-            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
+        <button class="expand-button" onclick="toggleExpand('stres')">Rozwiń</button>
+        <div class="expanded-content" id="stres-expanded">
+            <p>Stres to reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły szkodzi zdrowiu.</p>
+            <ul>
+                <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+                <li>Medytacja: Pomaga zredukować napięcie i poprawia nastrój.</li>
+                <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+                <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+                <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -309,39 +290,40 @@
             backButton.style.display = 'none';
         }
 
-        function flipCard(card) {
-            card.classList.toggle('flipped');
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
         }
 
         function chooseTopic(topic) {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
+            let stresCard = document.getElementById('stres-card');
 
             mainContent.style.display = 'none';
             document.getElementById('options').style.display = 'none';
+            stresCard.style.display = 'block';
+            backButton.style.display = 'block';
+        }
 
-            if (topic === 'stres') {
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            } else if (topic === 'zlosc') {
-                article.innerHTML = ` 
-                    <h2>Złość - emocja, która może niszczyć</h2>
-                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
-                    <p>Jak poradzić sobie z złością?</p>
-                    <ul>
-                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
-                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
-                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
-                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
-                    </ul>
-                `;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
+        function toggleExpand(topic) {
+            let expandedContent = document.getElementById(topic + '-expanded');
+            expandedContent.classList.toggle('expanded');
+        }
+
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        function chooseSelfTopic(topic) {
+            if (topic === 'odpoczynek') {
+                alert('Wybierasz odpoczynek');
+            } else if (topic === 'aktywnosc') {
+                alert('Wybierasz aktywność fizyczną');
             }
         }
     </script>
 
 </body>
 </html>
+       
