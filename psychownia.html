@@ -183,7 +183,7 @@
             <img src="psycho.ico" alt="Logo Psychownia">
             <span>Psychownia</span>
         </button>
-        <button class="nav-button">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
         <button class="nav-button">Kontakt</button>
     </div>
 
@@ -194,8 +194,8 @@
             <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
 
             <div class="options-container" id="options">
-                <button class="option-button" onclick="showArticle('stres')">Stres</button>
-                <button class="option-button" onclick="showArticle('zlosc')">Złość</button>
+                <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
+                <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
             </div>
         </div>
     </div>
@@ -224,18 +224,6 @@
             options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
         }
 
-        function showArticle(topic) {
-            document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('options').style.display = 'none';
-
-            var articles = document.getElementsByClassName('article-container');
-            for (var i = 0; i < articles.length; i++) {
-                articles[i].style.display = 'none';
-            }
-
-            document.getElementById('article-' + topic).style.display = 'block';
-        }
-
         function goBack() {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('options').style.display = 'none';
@@ -249,3 +237,4 @@
 
 </body>
 </html>
+
