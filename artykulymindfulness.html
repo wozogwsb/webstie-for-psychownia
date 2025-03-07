@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artykuły - Psychownia</title>
+    <title>Mindfulness - Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -71,92 +71,51 @@
             color: white;
         }
 
-        /* Kontener na artykuły */
-        .articles-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 20px;
-            scroll-snap-type: x mandatory;
-            white-space: nowrap;
-        }
-
-        .article-card {
-            display: inline-block;
-            width: 250px;
-            min-width: 250px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+        /* Artykuł o Mindfulness */
+        .content {
+            padding: 30px 15px;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: left;
-            scroll-snap-align: start;
-            transition: transform 0.3s;
         }
 
-        .article-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .article-card img {
-            width: 100%;
-            border-radius: 8px;
-            height: auto;
-        }
-
-        .article-card h3 {
-            font-size: 1.2rem;
+        h1 {
+            font-size: 2rem;
             color: #333;
-            margin: 10px 0;
-        }
-
-        .article-card p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .read-more {
-            display: block;
-            margin-top: 10px;
-            padding: 8px;
-            background: #3BBFB2;
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
+            margin-bottom: 20px;
             font-weight: bold;
-            transition: background 0.3s;
         }
 
-        .read-more:hover {
-            background: #8E79D9;
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        /* Responsywność */
-        @media (max-width: 480px) {
-            .navbar {
-                width: 95%;
-                max-width: 360px;
-                padding: 8px;
-                gap: 5px;
-            }
-
-            .nav-button, .logo-button {
-                font-size: 0.9rem;
-                min-width: 100px;
-                height: 40px;
-                padding: 8px;
-            }
-
-            .logo-button img {
-                width: 24px;
-                height: 24px;
-            }
-
-            .articles-container {
-                padding: 15px;
-            }
+        h2 {
+            font-size: 1.5rem;
+            color: #3BBFB2;
+            margin-top: 30px;
         }
+
+        .call-to-action {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .call-to-action:hover {
+            background-color: #8E79D9;
+        }
+
     </style>
 </head>
 <body>
@@ -171,39 +130,32 @@
         <button class="nav-button" onclick="window.location.href='kontakt.html'">Kontakt</button>
     </div>
 
-    <h2>Artykuły i czasopisma</h2>
+    <!-- Artykuł o Mindfulness -->
+    <div class="content">
+        <h1>Mindfulness - Uważność: Siła Bycia Tu i Teraz</h1>
 
-    <!-- Poziomy kontener z artykułami -->
-    <div class="articles-container">
-        <div class="article-card">
-            <img src="article1.jpeg" alt="Stres">
-            <h3>Jak radzić sobie ze stresem?</h3>
-            <p>Stres to część życia, ale istnieją skuteczne metody radzenia sobie z nim.</p>
-            <a href="stres.html" class="read-more">Czytaj więcej</a>
-        </div>
+        <p>Mindfulness, czyli uważność, to sztuka bycia w pełni obecnym w danym momencie. W świecie, gdzie pędzimy za przyszłością i przeżywamy przeszłość, trudno jest po prostu *być* w teraźniejszości. Jednak techniki mindfulness uczą nas, jak zauważać detale, które umykają w codziennym pośpiechu. To jak moment zatrzymania się, który pomaga złapać oddech w chaosie życia.</p>
 
-        <div class="article-card">
-            <img src="article2.jpeg" alt="Złość">
-            <h3>Kontrola nad złością</h3>
-            <p>Dowiedz się, jak lepiej panować nad emocjami i unikać konfliktów.</p>
-            <a href="zlosc.html" class="read-more">Czytaj więcej</a>
-        </div>
+        <h2>Jak działa mindfulness?</h2>
 
-        <div class="article-card">
-            <img src="article3.jpeg" alt="Mindfulness">
-            <h3>Mindfulness na co dzień</h3>
-            <p>Mindfulness to technika medytacyjna, która pomaga w pełni zaangażować się w teraźniejszość.</p>
-            <a href="artykulymindfulness.html" class="read-more">Czytaj więcej</a>
-        </div>
+        <p>Mindfulness to medytacja, która polega na pełnym zaangażowaniu w teraźniejszość, niezależnie od tego, co robimy. Czy to podczas jedzenia, spaceru, czy rozmowy – chodzi o to, by nie martwić się tym, co było, ani tym, co będzie, lecz skupić się na tym, co dzieje się teraz. W ten sposób uczymy się kontrolować nasze myśli i emocje, co prowadzi do większego poczucia spokoju, wewnętrznej równowagi i większej koncentracji.</p>
 
-        <div class="article-card">
-            <img src="article4.jpeg" alt="Motywacja">
-            <h3>Jak się motywować?</h3>
-            <p>Skuteczne strategie budowania wewnętrznej motywacji do działania.</p>
-            <a href="motywacja.html" class="read-more">Czytaj więcej</a>
-        </div>
+        <h2>Korzyści płynące z praktykowania mindfulness:</h2>
+        <ul>
+            <li>Redukcja stresu i lęku</li>
+            <li>Poprawa koncentracji i uwagi</li>
+            <li>Zwiększenie odporności psychicznej</li>
+            <li>Lepsze radzenie sobie z emocjami</li>
+            <li>Wzrost poczucia spokoju i szczęścia</li>
+        </ul>
+
+        <h2>Jak zacząć?</h2>
+        <p>Najpierw zacznij od kilku minut dziennie. Wybierz ciche miejsce, usiądź wygodnie, zamknij oczy i skup się na swoim oddechu. Pozwól myślom przychodzić i odchodzić, ale nie trzymaj się ich. Zaakceptuj je, ale nie oceniaj. Z czasem nauczysz się, jak żyć bardziej świadomie i mniej reagować na to, co cię stresuje.</p>
+
+        <p>Praktykowanie mindfulness jest jak mięsień – im częściej go ćwiczymy, tym silniejszy staje się nasz umysł. Poczujesz zmiany już po kilku tygodniach regularnej praktyki!</p>
+
+        <a href="artykulymindfulness.html" class="call-to-action">Zacznij swoją podróż z mindfulness teraz!</a>
     </div>
 
 </body>
 </html>
-
