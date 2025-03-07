@@ -18,7 +18,7 @@
         .top-navbar {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             background-color: #3BBFB2;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -41,34 +41,6 @@
             margin: 0;
             text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .top-navbar .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .top-navbar .nav-buttons a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.3s, transform 0.2s ease-in-out;
-            border: 2px solid transparent;
-        }
-
-        .top-navbar .nav-buttons a:hover {
-            background-color: #8E79D9;
-            transform: scale(1.05);
-        }
-
-        .top-navbar .nav-buttons a:focus {
-            outline: none;
-            border-color: #f1c40f;
         }
 
         /* Przycisk powrotu w kółeczku */
@@ -242,11 +214,6 @@
                 font-size: 1.4rem;
             }
 
-            .top-navbar .nav-buttons a {
-                font-size: 0.9rem;
-                padding: 8px 12px;
-            }
-
             .image-container {
                 width: 90%;
                 min-width: 200px;
@@ -288,14 +255,6 @@
                 font-size: 0.9rem;
                 padding: 8px;
             }
-
-            .article-container h2 {
-                font-size: 1.4rem;
-            }
-
-            .article-container p {
-                font-size: 0.9rem;
-            }
         }
 
         /* Responsywność - dopasowanie do bardzo małych ekranów */
@@ -332,11 +291,6 @@
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
             <h1>Psychownia</h1>
-        </div>
-        <div class="nav-buttons">
-            <a href="index.html">Strona Główna</a>
-            <a href="artykuly.html" class="active">Mentalna Siłownia</a>
-            <a href="kontakt.html">Kontakt</a>
         </div>
     </div>
 
