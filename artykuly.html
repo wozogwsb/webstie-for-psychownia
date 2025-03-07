@@ -12,6 +12,7 @@
             padding: 0;
             background-color: #f4f4f4;
             font-size: 16px;
+            text-align: center;
         }
 
         .top-navbar {
@@ -25,7 +26,6 @@
             z-index: 1000;
             background-color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: top 0.3s ease;
         }
 
         .top-navbar img {
@@ -41,67 +41,47 @@
             font-weight: bold;
             margin: 0;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Menu nawigacyjne */
+        /* MENU NAWIGACYJNE */
         .top-navigation {
             display: flex;
-            justify-content: space-evenly; /* Equal spacing between items */
-            align-items: center;
-            padding: 10px 0;
+            justify-content: center;
+            gap: 15px;
             position: fixed;
-            top: 60px; /* Adjust for top-navbar height */
-            width: 100%;
-            z-index: 500;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: fit-content;
             background-color: #fff;
-            border-radius: 15px; /* Zaokrąglone boki */
+            border-radius: 15px;
+            padding: 10px 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .top-navigation .nav-item {
-            width: 80px; /* Size of the square button */
-            height: 80px; /* Size of the square button */
+            width: 100px;
+            height: 50px;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.1rem; /* Adjusted font size */
+            font-size: 1.1rem;
             font-weight: bold;
-            border-radius: 12px; /* Rounded corners */
-            text-align: center;
+            border-radius: 12px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .top-navigation .nav-item:nth-child(1) {
-            background-color: #89A6CE;
-        }
+        .top-navigation .nav-item:nth-child(1) { background-color: #89A6CE; }
+        .top-navigation .nav-item:nth-child(2) { background-color: #7A5FD9; }
+        .top-navigation .nav-item:nth-child(3) { background-color: #8E79D9; }
+        .top-navigation .nav-item:nth-child(4) { background-color: #3BBFB2; }
 
-        .top-navigation .nav-item:nth-child(2) {
-            background-color: #7A5FD9;
-        }
+        .top-navigation .nav-item:hover { background-color: #3BBFB2; }
 
-        .top-navigation .nav-item:nth-child(3) {
-            background-color: #8E79D9;
-        }
-
-        .top-navigation .nav-item:nth-child(4) {
-            background-color: #3BBFB2;
-        }
-
-        .top-navigation .nav-item:hover {
-            background-color: #3BBFB2;
-        }
-
-        /* Content area */
         .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 160px 20px 20px; /* Adjust padding to account for top navbar and navigation */
-            text-align: center;
+            padding: 140px 20px 20px;
         }
 
         .image-container {
@@ -147,30 +127,6 @@
             background-color: #8E79D9;
         }
 
-        .select-options {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .select-options ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .select-options ul li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .select-options ul li:hover {
-            color: #3BBFB2;
-        }
-
         .article-container {
             display: none;
             width: 100%;
@@ -181,7 +137,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-            transition: all 0.3s ease;
         }
 
         .article-container img {
@@ -198,45 +153,6 @@
             font-weight: bold;
         }
 
-        .article-container p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .article-container .subtitle {
-            font-weight: bold;
-            color: #050259;
-        }
-
-        @media (max-width: 1024px) {
-            .top-navbar h1 {
-                font-size: 1.4rem;
-            }
-
-            .image-container {
-                width: 250px;
-                height: auto;
-            }
-
-            .choose-button {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-
-            .select-options ul li {
-                font-size: 1rem;
-            }
-
-            .article-container h2 {
-                font-size: 1.6rem;
-            }
-
-            .article-container p {
-                font-size: 1rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
@@ -246,6 +162,16 @@
             .image-container {
                 width: 80%;
                 height: auto;
+            }
+
+            .top-navigation {
+                width: 90%;
+            }
+
+            .top-navigation .nav-item {
+                width: 80px;
+                height: 50px;
+                font-size: 1rem;
             }
         }
 
@@ -263,16 +189,7 @@
                 width: 100%;
                 padding: 15px;
             }
-
-            .article-container h2 {
-                font-size: 1.2rem;
-            }
-
-            .article-container p {
-                font-size: 0.9rem;
-            }
         }
-
     </style>
 </head>
 <body>
@@ -284,7 +201,7 @@
         </div>
     </div>
 
-    <!-- Top Navigation with rounded corners and background -->
+    <!-- Menu Nawigacyjne -->
     <div class="top-navigation">
         <div class="nav-item">News</div>
         <div class="nav-item">Ćwicz</div>
@@ -296,25 +213,7 @@
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="showOptions()">Wybierz</button>
-            <div id="options" class="select-options">
-                <ul>
-                    <li onclick="chooseTopic('stres')">Stres</li>
-                    <li onclick="chooseTopic('zlosc')">Złość</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="image-container">
-            <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
-            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
-            <div id="selfOptions" class="select-options">
-                <ul>
-                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
-                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
-                </ul>
-            </div>
+            <button class="choose-button" onclick="showArticle()">Wybierz</button>
         </div>
     </div>
 
@@ -323,60 +222,14 @@
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
         <p>Co to jest stres?</p>
         <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <p>Jak stres wpływa na organizm?</p>
-        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-        <p class="subtitle">Techniki radzenia sobie:</p>
-        <ul>
-            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
     </div>
 
     <script>
-        function showOptions() {
-            document.getElementById('options').style.display = 'block';
-        }
-
-        function chooseTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-
-            mainContent.style.display = 'none';
-            document.getElementById('options').style.display = 'none';
-
-            if (topic === 'stres') {
-                article.innerHTML = ` 
-                    <h2>Stres - naturalna reakcja organizmu</h2>
-                    <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-                    <p>Co to jest stres?</p>
-                    <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-                    <p>Jak stres wpływa na organizm?</p>
-                    <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-                    <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-                    <p class="subtitle">Techniki radzenia sobie:</p>
-                    <ul>
-                        <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-                        <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-                        <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-                        <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-                        <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-                    </ul>
-                `;
-                article.style.display = 'block';
-            }
-        }
-
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
-        function chooseSelfTopic(topic) {
-            alert("Wybrałeś temat: " + topic);
+        function showArticle() {
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('article').style.display = 'block';
         }
     </script>
+
 </body>
 </html>
