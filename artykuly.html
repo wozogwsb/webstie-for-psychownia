@@ -44,12 +44,12 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* New top navigation */
+        /* New top navigation with custom background and equal spacing */
         .top-navigation {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: #333;
+            background-color: #696969; /* Dark gray background */
             padding: 10px 0;
             position: fixed;
             top: 60px; /* Adjust for top-navbar height */
@@ -71,6 +71,8 @@
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
+            padding-top: 10px;
+            padding-bottom: 10px; /* Equal padding top and bottom */
         }
 
         .top-navigation .nav-item:hover {
@@ -369,7 +371,6 @@
                 article.innerHTML = `
                     <h2>Odpoczynek - klucz do regeneracji</h2>
                     <img src="rest.jpeg" alt="Obrazek przedstawiający odpoczynek">
-                    <p>Odpoczynek to czas, w którym nasz organizm się regeneruje. Daje to naszemu ciału i umysłowi szansę na odzyskanie energii.</p>
                     <p>Korzyści płynące z odpoczynku:</p>
                     <ul>
                         <li>Poprawia samopoczucie i poziom energii.</li>
