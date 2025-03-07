@@ -19,10 +19,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            background-color: transparent; /* Usunięto kolorowy pasek */
+            background-color: transparent;
+            transition: top 0.3s ease;
         }
 
         .top-navbar img {
@@ -33,7 +35,7 @@
         }
 
         .top-navbar h1 {
-            font-size: 1.4rem; /* Zmniejszono czcionkę */
+            font-size: 1.4rem;
             color: #050259;
             font-weight: bold;
             margin: 0;
@@ -44,6 +46,7 @@
         .top-navbar .nav-buttons {
             display: flex;
             gap: 15px;
+            justify-content: center;
         }
 
         .top-navbar .nav-buttons a {
@@ -88,7 +91,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 20px;
+            padding: 100px 20px 20px;
             text-align: center;
         }
 
@@ -162,7 +165,7 @@
         .article-container {
             display: none;
             width: 100%;
-            max-width: 800px; /* Zwiększenie szerokości kontenera dla wersji desktop */
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -355,10 +358,9 @@
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
-
             article.style.display = 'none';
-            mainContent.style.display = 'block';
             backButton.style.display = 'none';
+            mainContent.style.display = 'block';
         }
 
         function showOptions() {
@@ -374,30 +376,29 @@
             document.getElementById('options').style.display = 'none';
 
             if (topic === 'stres') {
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            } else if (topic === 'zlosc') {
                 article.innerHTML = ` 
-                    <h2>Złość - emocja, która może niszczyć</h2>
-                    <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Co to jest złość?</p>
-                    <p>Emocja, która powstaje w wyniku poczucia zagrożenia, niesprawiedliwości lub frustracji.</p>
-                    <p>Jak złość wpływa na organizm?</p>
-                    <p>Fizycznie: Przyspiesza tętno, podnosi ciśnienie, wyzwala reakcję "walcz lub uciekaj".</p>
-                    <p>Psychicznie: Może prowadzić do impulsywnych działań, agresji, problemów w relacjach.</p>
-                    <p class="subtitle">Jak radzić sobie z złością?</p>
+                    <h2>Stres - naturalna reakcja organizmu</h2>
+                    <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+                    <p>Co to jest stres?</p>
+                    <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+                    <p>Jak stres wpływa na organizm?</p>
+                    <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+                    <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+                    <p class="subtitle">Techniki radzenia sobie:</p>
                     <ul>
-                        <li>Techniki relaksacyjne (np. oddychanie głębokie, joga).</li>
-                        <li>Zmiana myślenia (np. "to nie koniec świata").</li>
-                        <li>Aktywność fizyczna (np. bieganie, pływanie).</li>
-                        <li>Odpoczynek i sen, które pomagają w wyciszeniu.</li>
+                        <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+                        <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+                        <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+                        <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+                        <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
                     </ul>
                 `;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
             }
+
+            article.style.display = 'block';
+            backButton.style.display = 'block';
         }
-        
+
         function showSelfOptions() {
             document.getElementById('selfOptions').style.display = 'block';
         }
