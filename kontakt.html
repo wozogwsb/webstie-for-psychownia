@@ -71,50 +71,14 @@
             color: white;
         }
 
-        /* Reszta stylów */
+        /* Treść */
         .content {
             padding: 30px 15px;
         }
 
-        .image-container {
-            display: inline-block;
-            padding: 12px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .choose-button, .option-button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #3BBFB2;
-            color: white;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            width: 100%;
-            max-width: 200px;
-        }
-
-        .choose-button:hover, .option-button:hover {
-            background-color: #8E79D9;
-        }
-
-        .contact-form {
-            background-color: #fff;
+        .contact-info {
             padding: 20px;
+            background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
@@ -123,27 +87,33 @@
             text-align: left;
         }
 
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
+        .contact-info h2 {
+            font-size: 1.5rem;
+            color: #333;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
         }
 
-        .contact-form button {
-            padding: 10px 20px;
-            background-color: #3BBFB2;
-            color: white;
+        .contact-info p {
             font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            color: #555;
+            margin-bottom: 15px;
         }
 
-        .contact-form button:hover {
-            background-color: #8E79D9;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #3BBFB2;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: #8E79D9;
         }
 
         /* Responsywność */
@@ -167,14 +137,12 @@
                 height: 24px;
             }
 
-            .choose-button, .option-button {
+            .contact-info p {
                 font-size: 0.9rem;
-                padding: 7px 14px;
             }
 
-            .contact-form input, .contact-form textarea {
-                font-size: 0.9rem;
-                padding: 8px;
+            .social-links a {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -191,25 +159,23 @@
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
     </div>
 
-    <div class="content" id="mainContent">
-        <h1>Kontakt</h1>
-        <p>Skontaktuj się z nami, jeśli masz pytania lub potrzebujesz wsparcia. Jesteśmy tutaj, aby Ci pomóc!</p>
+    <div class="content">
+        <h1>Kontakt z nami</h1>
+        <p>Masz pytania? Chciałbyś się skontaktować z nami? Poniżej znajdziesz nasze dane kontaktowe oraz linki do mediów społecznościowych.</p>
 
-        <!-- Formularz kontaktowy -->
-        <div class="contact-form">
-            <h3>Formularz kontaktowy</h3>
-            <form action="#" method="post">
-                <label for="name">Imię:</label>
-                <input type="text" id="name" name="name" required>
+        <!-- Informacje kontaktowe -->
+        <div class="contact-info">
+            <h2>Nasze dane kontaktowe</h2>
+            <p><strong>E-mail:</strong> <a href="mailto:kontakt@psychownia.pl">kontakt@psychownia.pl</a></p>
+            <p><strong>Telefon:</strong> <a href="tel:+48501234567">+48 501 234 567</a></p>
+            <p><strong>Adres:</strong> ul. Psychologiczna 12, 00-000 Warszawa</p>
+        </div>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Wiadomość:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Wyślij</button>
-            </form>
+        <!-- Linki do mediów społecznościowych -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/psychownia" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/psychownia" target="_blank">Facebook</a>
+            <a href="https://twitter.com/psychownia" target="_blank">Twitter</a>
         </div>
     </div>
 
