@@ -27,7 +27,6 @@
             z-index: 1000;
         }
 
-        /* Logo w pasku */
         .top-navbar img {
             width: 35px;
             height: 35px;
@@ -35,7 +34,6 @@
             margin-right: 10px;
         }
 
-        /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.6rem;
             color: white;
@@ -45,7 +43,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Przycisk w pasku */
         .top-navbar .nav-buttons {
             display: flex;
             align-items: center;
@@ -317,26 +314,13 @@
             </div>
         </div>
 
-        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
-        <div class="image-container">
-            <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
-            <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-
-            <!-- Przycisk do wyboru tematu -->
-            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
-
-            <!-- Sekcja z wyborem tematu -->
-            <div id="selfOptions" class="select-options">
-                <ul>
-                    <li onclick="chooseSelfTopic('relaks')">Relaks</li>
-                    <li onclick="chooseSelfTopic('czas')">Czas dla siebie</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <!-- Kontener artykułu -->
     <div class="article-container" id="articleContainer">
+        <button class="back-button" onclick="goBack()">
+            <img src="back.png" alt="Powrót">
+        </button>
         <h2 id="articleTitle">Artykuł o Stresie</h2>
         <img src="article-image.jpg" alt="Artykuł o stresie">
         <p id="articleContent">Treść artykułu...</p>
@@ -354,12 +338,6 @@
             options.style.display = options.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Funkcja pokazująca dostępne opcje (Co chciałbyś zrobić dla siebie)
-        function showSelfOptions() {
-            let selfOptions = document.getElementById('selfOptions');
-            selfOptions.style.display = selfOptions.style.display === 'block' ? 'none' : 'block';
-        }
-
         // Funkcja wyboru tematu
         function chooseTopic(topic) {
             let articleContainer = document.getElementById('articleContainer');
@@ -375,26 +353,10 @@
             }
 
             articleContainer.style.display = 'block';
+            document.getElementById('mainContent').style.display = 'none';
         }
 
-        // Funkcja wyboru tematu dla siebie
-        function chooseSelfTopic(topic) {
-            let articleContainer = document.getElementById('articleContainer');
-            let articleTitle = document.getElementById('articleTitle');
-            let articleContent = document.getElementById('articleContent');
-
-            if (topic === 'relaks') {
-                articleTitle.textContent = "Artykuł o Relaksie";
-                articleContent.textContent = "Relaks jest kluczowy dla utrzymania zdrowia psychicznego...";
-            } else if (topic === 'czas') {
-                articleTitle.textContent = "Artykuł o Czasie dla Siebie";
-                articleContent.textContent = "Czas dla siebie jest niezbędny, aby zregenerować siły...";
-            }
-
-            articleContainer.style.display = 'block';
-        }
     </script>
 
 </body>
 </html>
-
