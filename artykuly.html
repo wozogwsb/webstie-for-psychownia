@@ -44,12 +44,12 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* New top navigation with custom background and equal spacing */
+        /* New top navigation with dark background */
         .top-navigation {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: #696969; /* Dark gray background */
+            background-color: #050259; /* Dark purple background */
             padding: 12px 0;
             position: fixed;
             top: 60px; /* Adjust for top-navbar height */
@@ -58,8 +58,8 @@
         }
 
         .top-navigation .nav-item {
-            width: 70px; /* Width of the square */
-            height: 70px; /* Height of the square */
+            width: 60px; /* Width of the square */
+            height: 60px; /* Height of the square */
             background-color: #444;
             color: white;
             display: flex;
@@ -350,39 +350,6 @@
                         <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
                         <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
                         <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-                    </ul>
-                `;
-            }
-
-            article.style.display = 'block';
-        }
-
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
-        function chooseSelfTopic(topic) {
-            let article = document.getElementById('article');
-            let mainContent = document.getElementById('mainContent');
-
-            mainContent.style.display = 'none';
-            document.getElementById('selfOptions').style.display = 'none';
-
-            if (topic === 'odpoczynek') {
-                article.innerHTML = `
-                    <h2>Korzyści płynące z odpoczynku:</h2>
-                    <img src="rest.jpeg" alt="Obrazek przedstawiający odpoczynek">
-                    <p>Korzyści płynące z odpoczynku:</p>
-                    <ul>
-                        <li>Poprawia samopoczucie i poziom energii.</li>
-                        <li>Zmniejsza stres i napięcie mięśniowe.</li>
-                        <li>Umożliwia lepszą koncentrację i kreatywność.</li>
-                    </ul>
-                    <p>Ważne jest, aby odpoczywać regularnie. Wskazówki:</p>
-                    <ul>
-                        <li>Znajdź czas na relaks: Czytanie, medytacja, czy spacer w naturze.</li>
-                        <li>Odpowiednia ilość snu (7-8 godzin dziennie) jest kluczowa dla regeneracji.</li>
-                        <li>Unikaj przeciążenia pracą, aby nie wypalić się zawodowo.</li>
                     </ul>
                 `;
             }
