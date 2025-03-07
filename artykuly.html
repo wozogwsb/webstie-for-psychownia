@@ -163,10 +163,10 @@
         .article-container {
             display: none;
             width: 250px;
-            height: 350px;
+            height: auto;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: white;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
@@ -174,10 +174,11 @@
         }
 
         .article-container img {
-            width: 250px;
-            height: 250px;
+            width: 100%;
+            height: auto;
             object-fit: cover;
             border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         .article-container h2 {
@@ -190,6 +191,37 @@
             font-size: 1.2rem;
             color: #555;
             line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .article-container ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .article-container ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .article-container.stress {
+            background-color: #8e79d9;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-container.stress h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .article-container.stress img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         @media (max-width: 1024px) {
@@ -278,27 +310,6 @@
             .article-container p {
                 font-size: 0.9rem;
             }
-        }
-
-        .article-container.stress {
-            border-radius: 15px;
-            width: 250px;
-            height: auto;
-            padding: 20px;
-            background-color: #8e79d9;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .article-container.stress img {
-            border-radius: 8px;
-            max-width: 100%;
-        }
-
-        .article-container.stress h2 {
-            color: white;
-            font-size: 1.6rem;
         }
     </style>
 </head>
