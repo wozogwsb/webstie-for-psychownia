@@ -32,20 +32,28 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: none;
+            padding: 10px 15px;
+            background: #3BBFB2;
             border: none;
-            cursor: default;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .logo-button:hover {
+            background: #8E79D9;
         }
 
         .logo-button img {
             width: 32px;
             height: 32px;
+            border-radius: 50%;
         }
 
         .logo-button span {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #333;
+            color: white;
         }
 
         .nav-button {
@@ -152,7 +160,7 @@
 
     <!-- Nawigacja -->
     <div class="navbar">
-        <button class="logo-button">
+        <button class="logo-button" onclick="goToHome()">
             <img src="psycho.ico" alt="Logo Psychownia">
             <span>Psychownia</span>
         </button>
@@ -188,6 +196,10 @@
     </div>
 
     <script>
+        function goToHome() {
+            location.reload(); // Przycisk Psychownia odświeża stronę
+        }
+
         function toggleOptions() {
             var options = document.getElementById('options');
             options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
