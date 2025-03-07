@@ -11,13 +11,14 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 16px;
+            font-size: 16px; /* Domyślny rozmiar czcionki */
         }
 
+        /* Poziomy pasek na górze */
         .top-navbar {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             background-color: #3BBFB2;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -26,6 +27,7 @@
             z-index: 1000;
         }
 
+        /* Logo w pasku */
         .top-navbar img {
             width: 35px;
             height: 35px;
@@ -33,15 +35,41 @@
             margin-right: 10px;
         }
 
-        .top-navbar h1 {
-            font-size: 1.6rem;
-            color: white;
-            font-weight: bold;
-            margin: 0;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        /* Przycisk na pasku - desktop */
+        .top-navbar .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
+        .top-navbar .nav-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+
+        .top-navbar .nav-buttons a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .top-navbar .nav-buttons a:hover {
+            background-color: #8E79D9;
+            transform: scale(1.05);
+        }
+
+        .top-navbar .nav-buttons a:focus {
+            outline: none;
+            border-color: #f1c40f;
+        }
+
+        /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
             top: 80px; 
@@ -60,6 +88,7 @@
             height: 30px;
         }
 
+        /* Treść strony */
         .content {
             padding: 20px;
             text-align: center;
@@ -69,6 +98,7 @@
             gap: 20px;
         }
 
+        /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
@@ -94,6 +124,7 @@
             color: #333;
         }
 
+        /* Przycisk wyboru */
         .choose-button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -104,14 +135,13 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
-            position: relative;
-            z-index: 10;
         }
 
         .choose-button:hover {
             background-color: #8E79D9;
         }
 
+        /* Sekcja z wyborem tematu */
         .select-options {
             display: none;
             margin-top: 20px;
@@ -119,8 +149,6 @@
             background-color: #f1f1f1;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 5;
         }
 
         .select-options ul {
@@ -138,17 +166,17 @@
             color: #3BBFB2;
         }
 
+        /* Nowy kontener na artykuł */
         .article-container {
             display: none;
-            width: 80%;
-            max-width: 800px; /* Maksymalna szerokość kontenera */
-            margin: 40px auto; /* Wyśrodkowanie kontenera */
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-            overflow: hidden;
         }
 
         .article-container img {
@@ -169,50 +197,14 @@
             line-height: 1.6;
         }
 
-        .bottom-navbar {
-            display: flex;
-            justify-content: space-between;
-            background-color: #3BBFB2;
-            padding: 10px 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .bottom-navbar a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 10px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .bottom-navbar a:hover {
-            background-color: #8E79D9;
-        }
-
-        .active {
-            background-color: #8E79D9;
-        }
-
-        .bottom-navbar i {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .bottom-navbar .home-button i,
-        .bottom-navbar .contact-button i {
-            font-size: 1.5rem;
-        }
-
+        /* Responsywność - dopasowanie do mniejszych ekranów */
         @media (max-width: 768px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
+            }
+
+            .top-navbar .nav-buttons a {
+                padding: 8px;
             }
 
             .image-container {
@@ -235,8 +227,8 @@
             }
 
             .article-container {
-                width: 90%;
-                max-width: 600px; /* Zmniejszenie kontenera na mniejszych ekranach */
+                width: 100%;
+                max-width: 100%;
                 padding: 15px;
             }
 
@@ -247,119 +239,101 @@
             .article-container p {
                 font-size: 1rem;
             }
+        }
+
+        /* Pasek na dole na urządzeniach mobilnych */
+        @media (max-width: 480px) {
+            .top-navbar {
+                display: none;
+            }
 
             .bottom-navbar {
-                padding: 8px 15px;
+                display: flex;
+                justify-content: space-around;
+                background-color: #3BBFB2;
+                padding: 10px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                z-index: 1000;
             }
 
             .bottom-navbar a {
-                font-size: 0.9rem;
-                padding: 8px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .top-navbar h1 {
-                font-size: 1.2rem;
-            }
-
-            .back-button {
-                top: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
                 padding: 10px;
+                border-radius: 50%;
+                transition: background-color 0.3s, transform 0.2s ease-in-out;
+                border: 2px solid transparent;
             }
 
-            .choose-button {
-                font-size: 1rem;
-                padding: 8px 14px;
+            .bottom-navbar a img {
+                width: 30px;
+                height: 30px;
             }
 
-            .article-container h2 {
-                font-size: 1.4rem;
-            }
-
-            .article-container p {
-                font-size: 0.9rem;
+            .bottom-navbar a:hover {
+                background-color: #8E79D9;
+                transform: scale(1.05);
             }
         }
+
     </style>
 </head>
 <body>
 
+    <!-- Poziomy pasek na górze (Desktop) -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
             <h1>Psychownia</h1>
         </div>
-    </div>
 
-    <button class="back-button" onclick="goBack()">
-        <img src="back.png" alt="Powrót">
-    </button>
-
-    <div class="content" id="mainContent">
-        <div class="image-container">
-            <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
-            <div class="text">Co byś chciał dzisiaj przepracować?</div>
-
-            <button class="choose-button" onclick="showOptions()">Wybierz</button>
-
-            <div id="options" class="select-options">
-                <ul>
-                    <li onclick="chooseTopic('stres')">Stres</li>
-                    <li onclick="chooseTopic('zlosc')">Złość</li>
-                </ul>
-            </div>
+        <div class="nav-buttons">
+            <a href="index.html">
+                <img src="home.png" alt="Home">
+            </a>
+            <a href="dumbbell.html">
+                <img src="dumbbell.png" alt="Dumbbell">
+            </a>
+            <a href="contact.html">
+                <img src="comment.png" alt="Comment">
+            </a>
         </div>
     </div>
 
-    <div class="article-container" id="articleContainer">
-        <button class="back-button" onclick="goBack()">
-            <img src="back.png" alt="Powrót">
-        </button>
-        <h2 id="articleTitle">Artykuł o Stresie</h2>
-        <img src="article-image.jpg" alt="Artykuł o stresie">
-        <p id="articleContent">Treść artykułu...</p>
-    </div>
-
+    <!-- Pasek na dole (Mobile) -->
     <div class="bottom-navbar">
-        <a href="index.html" class="home-button">
-            <i class="fa fa-home"></i> <!-- Ikona domku -->
+        <a href="index.html">
+            <img src="home.png" alt="Home">
         </a>
-        <a href="artykuly.html" class="active">Mentalna Siłownia</a>
-        <a href="kontakt.html" class="contact-button">
-            <i class="fa fa-headphones"></i> <!-- Ikona słuchawki -->
+        <a href="dumbbell.html">
+            <img src="dumbbell.png" alt="Dumbbell">
+        </a>
+        <a href="contact.html">
+            <img src="comment.png" alt="Comment">
         </a>
     </div>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Treść strony -->
+    <div class="content">
+        <!-- Treść strony (np. artykuł) -->
+    </div>
 
     <script>
+        // Funkcja do cofania się do poprzedniej strony
         function goBack() {
-            window.history.back();
-        }
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
 
-        function showOptions() {
-            let options = document.getElementById('options');
-            options.style.display = options.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function chooseTopic(topic) {
-            let articleContainer = document.getElementById('articleContainer');
-            let articleTitle = document.getElementById('articleTitle');
-            let articleContent = document.getElementById('articleContent');
-
-            if (topic === 'stres') {
-                articleTitle.textContent = "Artykuł o Stresie";
-                articleContent.textContent = "Stres to naturalna reakcja organizmu na wyzwania...";
-            } else if (topic === 'zlosc') {
-                articleTitle.textContent = "Artykuł o Złości";
-                articleContent.textContent = "Złość jest silną emocją, która może prowadzić do różnych sytuacji...";
-            }
-
-            articleContainer.style.display = 'block';
-            document.getElementById('mainContent').style.display = 'none';
+            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
+            article.style.display = 'none';
+            mainContent.style.display = 'block';
+            backButton.style.display = 'none';
         }
     </script>
-
 </body>
 </html>
