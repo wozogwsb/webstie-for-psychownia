@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 16px; /* Domyślny rozmiar czcionki */
+            font-size: 16px;
         }
 
         /* Poziomy pasek na górze */
@@ -27,7 +27,6 @@
             z-index: 1000;
         }
 
-        /* Logo w pasku */
         .top-navbar img {
             width: 35px;
             height: 35px;
@@ -35,7 +34,6 @@
             margin-right: 10px;
         }
 
-        /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.6rem;
             color: white;
@@ -45,7 +43,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Przycisk w pasku */
         .top-navbar .nav-buttons {
             display: flex;
             align-items: center;
@@ -74,10 +71,9 @@
             border-color: #f1c40f;
         }
 
-        /* Przycisk powrotu w kółeczku */
         .back-button {
             position: fixed;
-            top: 80px; 
+            top: 80px;
             left: 20px;
             background-color: #3BBFB2;
             border: none;
@@ -93,7 +89,6 @@
             height: 30px;
         }
 
-        /* Treść strony */
         .content {
             padding: 20px;
             text-align: center;
@@ -103,7 +98,6 @@
             gap: 20px;
         }
 
-        /* Kontener na obrazek i przycisk */
         .image-container {
             position: relative;
             display: inline-block;
@@ -123,13 +117,6 @@
             border-radius: 8px;
         }
 
-        .image-container .text {
-            font-size: 1.4rem;
-            margin-top: 15px;
-            color: #333;
-        }
-
-        /* Przycisk wyboru */
         .choose-button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -146,7 +133,6 @@
             background-color: #8E79D9;
         }
 
-        /* Sekcja z wyborem tematu */
         .select-options {
             display: none;
             margin-top: 20px;
@@ -171,7 +157,6 @@
             color: #3BBFB2;
         }
 
-        /* Nowy kontener na artykuł */
         .article-container {
             display: none;
             width: 90%;
@@ -202,34 +187,15 @@
             line-height: 1.6;
         }
 
-        /* Responsywność - dopasowanie do mniejszych ekranów */
         @media (max-width: 768px) {
             .top-navbar h1 {
                 font-size: 1.4rem;
-            }
-
-            .top-navbar .nav-buttons a {
-                font-size: 0.9rem;
-                padding: 8px 12px;
             }
 
             .image-container {
                 width: 90%;
                 min-width: 200px;
                 margin-top: 15px;
-            }
-
-            .image-container .text {
-                font-size: 1.2rem;
-            }
-
-            .choose-button {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-
-            .select-options ul li {
-                font-size: 1rem;
             }
 
             .article-container {
@@ -247,7 +213,6 @@
             }
         }
 
-        /* Responsywność - dopasowanie do bardzo małych ekranów */
         @media (max-width: 480px) {
             .top-navbar h1 {
                 font-size: 1.2rem;
@@ -256,7 +221,6 @@
             .back-button {
                 top: 70px;
                 padding: 10px;
-                display: block; /* Upewniamy się, że przycisk powrotu jest widoczny na bardzo małych ekranach */
             }
 
             .choose-button {
@@ -277,7 +241,6 @@
 </head>
 <body>
 
-    <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
@@ -291,21 +254,15 @@
         </div>
     </div>
 
-    <!-- Przycisk powrotu w kółeczku -->
     <button class="back-button" onclick="goBack()">
         <img src="back.png" alt="Powrót">
     </button>
 
-    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-
-            <!-- Przycisk do wyboru tematu -->
             <button class="choose-button" onclick="showOptions()">Wybierz</button>
-
-            <!-- Sekcja z wyborem tematu -->
             <div id="options" class="select-options">
                 <ul>
                     <li onclick="chooseTopic('stres')">Stres</li>
@@ -314,15 +271,10 @@
             </div>
         </div>
 
-        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
         <div class="image-container">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
             <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-
-            <!-- Przycisk do wyboru tematu -->
             <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
-
-            <!-- Sekcja z wyborem tematu -->
             <div id="selfOptions" class="select-options">
                 <ul>
                     <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
@@ -332,91 +284,51 @@
         </div>
     </div>
 
-    <!-- Sekcja artykułu -->
-    <div id="article" class="article-container">
-        <h2>Stres - naturalna reakcja organizmu</h2>
-        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
-        <p>Co to jest stres?</p>
-        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
-        <p>Jak stres wpływa na organizm?</p>
-        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
-        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
-        <p>Techniki radzenia sobie:</p>
-        <ul>
-            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
-            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
-            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
-            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
-            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
-        </ul>
-    </div>
+    <div id="article" class="article-container"></div>
 
     <script>
-        // Funkcja do cofania się do poprzedniej strony
         function goBack() {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
-
-            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
             article.style.display = 'none';
             mainContent.style.display = 'block';
             backButton.style.display = 'none';
         }
 
-        // Funkcja pokazująca dostępne opcje (Stres, Złość)
         function showOptions() {
             document.getElementById('options').style.display = 'block';
         }
 
-        // Funkcja obsługująca wybór tematu
         function chooseTopic(topic) {
             let article = document.getElementById('article');
             let mainContent = document.getElementById('mainContent');
             let backButton = document.querySelector('.back-button');
-
-            // Ukrywanie głównej sekcji po wyborze tematu
             mainContent.style.display = 'none';
-            // Ukrywamy opcje wyboru
             document.getElementById('options').style.display = 'none';
 
             if (topic === 'stres') {
-                // Wyświetlamy artykuł o stresie w kontenerze
-                article.style.display = 'block';
-                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
-            } else if (topic === 'zlosc') {
-                // Wyświetlamy artykuł o złości w kontenerze
-                article.innerHTML = ` 
-                    <h2>Złość - emocja, która może niszczyć</h2>
-                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
-                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
-                    <p>Jak poradzić sobie z złością?</p>
+                article.innerHTML = `
+                    <h2>Stres - naturalna reakcja organizmu</h2>
+                    <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+                    <p>Co to jest stres?</p>
+                    <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+                    <p>Jak stres wpływa na organizm?</p>
+                    <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+                    <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+                    <p>Techniki radzenia sobie:</p>
                     <ul>
-                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
-                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
-                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
-                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
+                        <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+                        <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+                        <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+                        <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+                        <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
                     </ul>
-                `;
-                article.style.display = 'block';
-                backButton.style.display = 'block';
-            }
-        }
+                    <p>Zmiana myślenia:</p>
+                    <ul>
+                        <li>Przeformułowanie: Zamiast widzieć problem, traktuj go jako wyzwanie.</li>
+                        <li>Realistyczne cele: Małe kroki zamiast przytłaczających zadań.</li>
+                    </ul>
+                    <p
 
-        // Funkcja pokazująca dostępne opcje dla "Co zrobić dla siebie?"
-        function showSelfOptions() {
-            document.getElementById('selfOptions').style.display = 'block';
-        }
-
-        // Funkcja obsługująca wybór tematu dla "Co zrobić dla siebie?"
-        function chooseSelfTopic(topic) {
-            if (topic === 'odpoczynek') {
-                alert('Wybierasz odpoczynek');
-            } else if (topic === 'aktywnosc') {
-                alert('Wybierasz aktywność fizyczną');
-            }
-        }
-    </script>
-
-</body>
-</html>
+    
