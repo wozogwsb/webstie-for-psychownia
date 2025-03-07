@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychownia - Stres</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Nawigacja */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 15px auto;
+        }
+
+        .nav-button, .logo-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            background-color: #89A6CE;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 45px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .nav-button:hover {
+            background-color: #7A5FD9;
+        }
+
+        .logo-button {
+            background: #3BBFB2;
+        }
+
+        .logo-button:hover {
+            background: #8E79D9;
+        }
+
+        .logo-button img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        .logo-button span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Reszta stylów */
+        .content {
+            padding: 30px 15px;
+        }
+
+        .info-container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .info-container h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .info-container p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .choose-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .choose-button:hover {
+            background-color: #8E79D9;
+        }
+
+        .techniques-container {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .techniques-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .techniques-container li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .techniques-container li:hover {
+            background-color: #e2e2e2;
+        }
+
+        .technique-details {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsywność */
+        @media (max-width: 480px) {
+            .navbar {
+                width: 95%;
+                max-width: 360px;
+                padding: 8px;
+                gap: 5px;
+            }
+
+            .nav-button, .logo-button {
+                font-size: 0.9rem;
+                min-width: 100px;
+                height: 40px;
+                padding: 8px;
+            }
+
+            .logo-button img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .choose-button {
+                font-size: 0.9rem;
+                padding: 8px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nawigacja -->
+    <div class="navbar">
+        <button class="logo-button" onclick="goToHome()">
+            <img src="psycho.ico" alt="Logo Psychownia">
+            <span>Psychownia</span>
+        </button>
+        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
+    </div>
+
+    <div class="content">
+        <!-- Co to jest stres? -->
+        <div class="info-container">
+            <h2>Co to jest stres?</h2>
+            <p>
+                Stres to naturalna reakcja organizmu na wyzwania lub zagrożenia. Może występować w różnych formach, takich jak stres fizyczny, emocjonalny czy psychiczny. To reakcja na sytuacje, które mogą wywoływać poczucie niepewności lub zagrożenia.
+            </p>
+        </div>
+
+        <!-- Dlaczego doświadczamy stresu? -->
+        <div class="info-container">
+            <h2>Dlaczego doświadczamy stresu?</h2>
+            <p>
+                Stres jest odpowiedzią naszego organizmu na bodźce zewnętrzne. W momencie, gdy napotykamy sytuacje, które uznajemy za stresujące, nasz układ nerwowy uruchamia odpowiedź „walki lub ucieczki”. Ciało uwalnia hormony, takie jak kortyzol i adrenalina, przygotowując nas do szybkiej reakcji.
+            </p>
+        </div>
+
+        <!-- Jak radzić sobie ze stresem? -->
+        <div class="info-container">
+            <h2>Jak radzić sobie ze stresem?</h2>
+            <p>
+                Istnieje wiele metod radzenia sobie ze stresem. Poniżej przedstawiamy kilka z nich:
+            </p>
+            <button class="choose-button" onclick="toggleTechniques()">Sprawdź techniki</button>
+
+            <!-- Sekcja z technikami -->
+            <div class="techniques-container" id="techniques">
+                <ul>
+                    <li onclick="showTechnique('medytacja')">Medytacja</li>
+                    <li onclick="showTechnique('oddech')">Ćwiczenia oddechowe</li>
+                    <li onclick="showTechnique('ruch')">Aktywność fizyczna</li>
+                    <li onclick="showTechnique('odpoczynek')">Odpoczynek i sen</li>
+                </ul>
+            </div>
+
+            <!-- Szczegóły dla technik -->
+            <div id="medytacja" class="technique-details">
+                <h3>Medytacja</h3>
+                <p>Medytacja pozwala wyciszyć umysł i zredukować poziom stresu. Regularne praktykowanie medytacji może pomóc w zarządzaniu emocjami i poprawie koncentracji.</p>
+            </div>
+            <div id="oddech" class="technique-details">
+                <h3>Ćwiczenia oddechowe</h3>
+                <p>Ćwiczenia oddechowe pomagają obniżyć poziom stresu, poprawiając dotlenienie organizmu. Skupienie się na głębokim oddychaniu wpływa na uspokojenie układu nerwowego.</p>
+            </div>
+            <div id="ruch" class="technique-details">
+                <h3>Aktywność fizyczna</h3>
+                <p>Ruch to jedna z najlepszych metod na redukcję stresu. Aktywność fizyczna pomaga uwolnić endorfiny, które poprawiają nastrój i zmniejszają napięcie.</p>
+            </div>
+            <div id="odpoczynek" class="technique-details">
+                <h3>Odpoczynek i sen</h3>
+                <p>Sen to fundament zdrowia psychicznego. Odpowiednia ilość snu pozwala na regenerację organizmu i układu nerwowego, co jest kluczowe w walce ze stresem.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToHome() {
+            location.reload(); // Przycisk Psychownia odświeża stronę
+        }
+
+        function toggleTechniques() {
+            var techniques = document.getElementById('techniques');
+            techniques.style.display = (techniques.style.display === 'none' || techniques.style.display === '') ? 'block' : 'none';
+        }
+
+        function showTechnique(technique) {
+            var allTechniques = document.getElementsByClassName('technique-details');
+            for (var i = 0; i < allTechniques.length; i++) {
+                allTechniques[i].style.display = 'none';
+            }
+
+            var selectedTechnique = document.getElementById(technique);
+            selectedTechnique.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
 
