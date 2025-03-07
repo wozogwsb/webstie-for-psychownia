@@ -6,58 +6,53 @@
     <title>Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
             background-color: #f4f4f4;
-            font-size: 16px;
+            font-size: 16px; /* Domyślny rozmiar czcionki */
         }
 
+        /* Poziomy pasek na górze */
         .top-navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: #3BBFB2;
-            padding: 15px 20px;
+            padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
         }
 
+        /* Logo w pasku */
         .top-navbar img {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             margin-right: 10px;
         }
 
+        /* Tytuł w pasku */
         .top-navbar h1 {
             font-size: 1.6rem;
             color: white;
             font-weight: bold;
+            margin: 0;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .nav-buttons {
+        /* Przycisk w pasku */
+        .top-navbar .nav-buttons {
             display: flex;
+            align-items: center;
             gap: 15px;
         }
 
-        .nav-buttons a {
+        .top-navbar .nav-buttons a {
             text-decoration: none;
             color: white;
             font-size: 1rem;
@@ -66,15 +61,41 @@
             padding: 10px 15px;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
+            border: 2px solid transparent;
         }
 
-        .nav-buttons a:hover {
+        .top-navbar .nav-buttons a:hover {
             background-color: #8E79D9;
             transform: scale(1.05);
         }
 
+        .top-navbar .nav-buttons a:focus {
+            outline: none;
+            border-color: #f1c40f;
+        }
+
+        /* Przycisk powrotu w kółeczku */
+        .back-button {
+            position: fixed;
+            top: 80px; 
+            left: 20px;
+            background-color: #3BBFB2;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 12px;
+            z-index: 100;
+            display: none;
+        }
+
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Treść strony */
         .content {
-            padding: 100px 20px 20px;
+            padding: 20px;
             text-align: center;
             display: flex;
             flex-wrap: wrap;
@@ -82,9 +103,13 @@
             gap: 20px;
         }
 
+        /* Kontener na obrazek i przycisk */
         .image-container {
-            background-color: white;
-            padding: 20px;
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 45%;
@@ -98,6 +123,13 @@
             border-radius: 8px;
         }
 
+        .image-container .text {
+            font-size: 1.4rem;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        /* Przycisk wyboru */
         .choose-button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -114,69 +146,277 @@
             background-color: #8E79D9;
         }
 
+        /* Sekcja z wyborem tematu */
+        .select-options {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .select-options ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .select-options ul li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .select-options ul li:hover {
+            color: #3BBFB2;
+        }
+
+        /* Nowy kontener na artykuł */
+        .article-container {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .article-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .article-container h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article-container p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Responsywność - dopasowanie do mniejszych ekranów */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .top-navbar h1 {
+                font-size: 1.4rem;
             }
 
-            .nav-buttons {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: #333;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .nav-buttons a {
-                display: block;
-                padding: 10px;
+            .top-navbar .nav-buttons a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
             }
 
             .image-container {
                 width: 90%;
+                min-width: 200px;
+                margin-top: 15px;
+            }
+
+            .image-container .text {
+                font-size: 1.2rem;
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .select-options ul li {
+                font-size: 1rem;
+            }
+
+            .article-container {
+                width: 100%;
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .article-container h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-container p {
+                font-size: 1rem;
             }
         }
+
+        /* Responsywność - dopasowanie do bardzo małych ekranów */
+        @media (max-width: 480px) {
+            .top-navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px;
+                display: block; /* Upewniamy się, że przycisk powrotu jest widoczny na bardzo małych ekranach */
+            }
+
+            .choose-button {
+                font-size: 1rem;
+                padding: 8px 14px;
+            }
+
+            .article-container h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-container p {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("nav-menu");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-                menu.style.flexDirection = "column";
-            }
-        }
-    </script>
 </head>
 <body>
+
+    <!-- Poziomy pasek na górze -->
     <div class="top-navbar">
         <div style="display: flex; align-items: center;">
             <img src="psycho.ico" alt="Mózg">
             <h1>Psychownia</h1>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <div class="nav-buttons" id="nav-menu">
+
+        <div class="nav-buttons">
             <a href="index.html">Strona Główna</a>
             <a href="artykuly.html">Mentalna Siłownia</a>
             <a href="kontakt.html">Kontakt</a>
         </div>
     </div>
-    <div class="content">
+
+    <!-- Przycisk powrotu w kółeczku -->
+    <button class="back-button" onclick="goBack()">
+        <img src="back.png" alt="Powrót">
+    </button>
+
+    <!-- Sekcja z obrazkiem i przyciskiem - Pierwsza -->
+    <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button">Wybierz</button>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="options" class="select-options">
+                <ul>
+                    <li onclick="chooseTopic('stres')">Stres</li>
+                    <li onclick="chooseTopic('zlosc')">Złość</li>
+                </ul>
+            </div>
         </div>
+
+        <!-- Sekcja z obrazkiem i przyciskiem - Nowa -->
         <div class="image-container">
             <img src="dlamnie.jpeg" alt="Co byś chciał dzisiaj zrobić dla siebie?">
             <div class="text">Co byś chciał dzisiaj zrobić dla siebie?</div>
-            <button class="choose-button">Wybierz</button>
+
+            <!-- Przycisk do wyboru tematu -->
+            <button class="choose-button" onclick="showSelfOptions()">Wybierz</button>
+
+            <!-- Sekcja z wyborem tematu -->
+            <div id="selfOptions" class="select-options">
+                <ul>
+                    <li onclick="chooseSelfTopic('odpoczynek')">Odpoczynek</li>
+                    <li onclick="chooseSelfTopic('aktywnosc')">Aktywność fizyczna</li>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <!-- Sekcja artykułu -->
+    <div id="article" class="article-container">
+        <h2>Stres - naturalna reakcja organizmu</h2>
+        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+        <p>Co to jest stres?</p>
+        <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+        <p>Jak stres wpływa na organizm?</p>
+        <p>Fizycznie: Podnosi ciśnienie, przyspiesza tętno, obniża odporność.</p>
+        <p>Psychicznie: Może prowadzić do lęku, depresji, problemów z koncentracją.</p>
+        <p>Techniki radzenia sobie:</p>
+        <ul>
+            <li>Oddychanie: Głębokie wdechy (np. 4-7-8) obniżają stres.</li>
+            <li>Medytacja i mindfulness: Pomaga zredukować napięcie i poprawia nastrój.</li>
+            <li>Aktywność fizyczna: Regularne ćwiczenia poprawiają samopoczucie.</li>
+            <li>Sen: Odpowiednia ilość snu (7-9 h) jest kluczowa.</li>
+            <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
+        </ul>
+    </div>
+
+    <script>
+        // Funkcja do cofania się do poprzedniej strony
+        function goBack() {
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
+
+            // Ukrywamy artykuł, pokazujemy główną sekcję i przycisk powrotu
+            article.style.display = 'none';
+            mainContent.style.display = 'block';
+            backButton.style.display = 'none';
+        }
+
+        // Funkcja pokazująca dostępne opcje (Stres, Złość)
+        function showOptions() {
+            document.getElementById('options').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu
+        function chooseTopic(topic) {
+            let article = document.getElementById('article');
+            let mainContent = document.getElementById('mainContent');
+            let backButton = document.querySelector('.back-button');
+
+            // Ukrywanie głównej sekcji po wyborze tematu
+            mainContent.style.display = 'none';
+            // Ukrywamy opcje wyboru
+            document.getElementById('options').style.display = 'none';
+
+            if (topic === 'stres') {
+                // Wyświetlamy artykuł o stresie w kontenerze
+                article.style.display = 'block';
+                backButton.style.display = 'block'; // Pokazujemy przycisk powrotu
+            } else if (topic === 'zlosc') {
+                // Wyświetlamy artykuł o złości w kontenerze
+                article.innerHTML = ` 
+                    <h2>Złość - emocja, która może niszczyć</h2>
+                    <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
+                    <p>Złość jest naturalną reakcją organizmu na frustrację.</p>
+                    <p>Jak poradzić sobie z złością?</p>
+                    <ul>
+                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
+                        <li>Rozmowa: Czasami wystarczy wyrazić swoje uczucia, by poczuć się lepiej.</li>
+                        <li>Aktywność fizyczna: Rozładowuje napięcie i stres.</li>
+                        <li>Medytacja: Pomaga w zarządzaniu emocjami.</li>
+                    </ul>
+                `;
+                article.style.display = 'block';
+                backButton.style.display = 'block';
+            }
+        }
+
+        // Funkcja pokazująca dostępne opcje dla "Co zrobić dla siebie?"
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        // Funkcja obsługująca wybór tematu dla "Co zrobić dla siebie?"
+        function chooseSelfTopic(topic) {
+            if (topic === 'odpoczynek') {
+                alert('Wybierasz odpoczynek');
+            } else if (topic === 'aktywnosc') {
+                alert('Wybierasz aktywność fizyczną');
+            }
+        }
+    </script>
+
 </body>
 </html>
