@@ -70,18 +70,26 @@
             position: fixed;
             top: 80px;
             left: 20px;
-            background-color: #3BBFB2;
-            border: none;
+            background-color: white;
+            color: #3BBFB2;
+            border: 2px solid #3BBFB2;
             border-radius: 50%;
             cursor: pointer;
             padding: 12px;
             display: none;
             z-index: 9999;
+            transition: background-color 0.3s, transform 0.2s ease;
         }
 
         .back-button img {
             width: 30px;
             height: 30px;
+        }
+
+        .back-button:hover {
+            background-color: #3BBFB2;
+            color: white;
+            transform: scale(1.05);
         }
 
         .content {
@@ -419,11 +427,12 @@
                     <h2>Złość - emocja, która może niszczyć</h2>
                     <img src="angry.jpeg" alt="Obrazek przedstawiający złość">
                     <p><strong>Złość</strong> jest naturalną reakcją organizmu na frustrację.</p>
-                    <p><strong>Jak poradzić sobie z złością?</strong></p>
+                    <p><strong>Przyczyny złości</strong> mogą być bardzo różne, od nieporozumień w relacjach po frustrację związana z niepowodzeniami.</p>
+                    <p><strong>Jak sobie radzić?</strong></p>
                     <ul>
-                        <li>Oddychanie: Zamiast reagować od razu, weź głęboki oddech.</li>
-                        <li>Rozmowa: Czasami wystarczy spokojnie porozmawiać.</li>
-                        <li>Relaksacja: Spędzanie czasu w ciszy i spokoju pomaga w rozładowaniu emocji.</li>
+                        <li>Oddychaj głęboko</li>
+                        <li>Zidentyfikuj przyczyny swojej złości</li>
+                        <li>Rób przerwy od stresujących sytuacji</li>
                     </ul>
                 `;
                 article.style.display = 'block';
@@ -438,6 +447,5 @@
             mainContent.style.display = 'block';
         }
     </script>
-
 </body>
 </html>
