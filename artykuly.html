@@ -47,35 +47,38 @@
         /* Top Navigation without background */
         .top-navigation {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly; /* Equal spacing between items */
             align-items: center;
-            padding: 10px 20px;
+            padding: 10px 0;
             position: fixed;
             top: 60px; /* Adjust for top-navbar height */
             width: 100%;
             z-index: 500;
+            background-color: #050259; /* Set the background color */
         }
 
         .top-navigation .nav-item {
-            width: 60px; /* Width of the square */
-            height: 60px; /* Height of the square */
+            width: 80px; /* Size of the square button */
+            height: 80px; /* Size of the square button */
             background-color: #444;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.9rem; /* Adjusted font size */
+            font-size: 1.1rem; /* Adjusted font size */
             font-weight: bold;
             border-radius: 12px; /* Rounded corners */
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin: 0; /* No margin to make buttons touch each other */
         }
 
         .top-navigation .nav-item:hover {
             background-color: #3BBFB2;
         }
 
+        /* Content area */
         .content {
             display: flex;
             flex-wrap: wrap;
@@ -347,10 +350,18 @@
                         <li>Wsparcie społeczne: Bliscy pomagają w radzeniu sobie ze stresem.</li>
                     </ul>
                 `;
+                article.style.display = 'block';
             }
+        }
 
-            article.style.display = 'block';
+        function showSelfOptions() {
+            document.getElementById('selfOptions').style.display = 'block';
+        }
+
+        function chooseSelfTopic(topic) {
+            alert("Wybrałeś temat: " + topic);
         }
     </script>
 </body>
 </html>
+
