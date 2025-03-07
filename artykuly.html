@@ -213,7 +213,7 @@
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący miesięcznie">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="showArticle()">Wybierz</button>
+            <button class="choose-button" onclick="toggleArticle()">Wybierz</button>
         </div>
     </div>
 
@@ -222,12 +222,21 @@
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
         <p>Co to jest stres?</p>
         <p>Reakcja organizmu na wyzwania lub zagrożenia. Krótkotrwały stres mobilizuje do działania, przewlekły - szkodzi zdrowiu.</p>
+        <button class="choose-button" onclick="toggleArticle()">Wróć</button>
     </div>
 
     <script>
-        function showArticle() {
-            document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('article').style.display = 'block';
+        function toggleArticle() {
+            var mainContent = document.getElementById('mainContent');
+            var article = document.getElementById('article');
+
+            if (article.style.display === 'none' || article.style.display === '') {
+                mainContent.style.display = 'none';
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+                mainContent.style.display = 'block';
+            }
         }
     </script>
 
