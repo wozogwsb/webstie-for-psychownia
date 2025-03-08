@@ -60,6 +60,23 @@
             transform: scale(1.05); /* Delikatne powiększenie przy hoverze */
         }
 
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #FF6F61;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: #FF4D40;
+            transform: scale(1.05); /* Delikatne powiększenie przy hoverze */
+        }
+
         .techniques-container {
             display: none;
             margin-top: 20px;
@@ -137,7 +154,7 @@
 
         <div class="info-container">
             <h2>Jak radzić sobie ze stresem?</h2>
-            <p>Istnieje wiele metod radzenia sobie ze stresem. Przećwicz!</p>
+            <p>Istnieje wiele metod radzenia sobie ze stresem. Poniżej przedstawiamy kilka z nich:</p>
             <button class="choose-button" onclick="toggleTechniques()">Sprawdź techniki</button>
             <div class="techniques-container" id="techniques">
                 <ul>
@@ -164,7 +181,11 @@
                 <p>Unikaj ekranów przed snem, stwórz przyjemną rutynę wieczorną i zadbaj o regularny rytm dobowy.</p>
             </div>
         </div>
+
+        <!-- Przycisk powrotu do "Psychowni" -->
+        <button class="back-button" onclick="window.location.href='#';">Powrót do Psychowni</button>
     </div>
+
     <script>
         function toggleTechniques() {
             var techniques = document.getElementById('techniques');
