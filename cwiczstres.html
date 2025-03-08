@@ -14,64 +14,6 @@
             text-align: center;
         }
 
-        /* Nawigacja */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            margin: 15px auto;
-        }
-
-        .nav-button, .logo-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px;
-            background-color: #89A6CE;
-            color: white;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-            height: 45px;
-            min-width: 120px;
-            text-align: center;
-        }
-
-        .nav-button:hover {
-            background-color: #7A5FD9;
-        }
-
-        .logo-button {
-            background: #3BBFB2;
-        }
-
-        .logo-button:hover {
-            background: #8E79D9;
-        }
-
-        .logo-button img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
-
-        .logo-button span {
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* Reszta stylów */
         .content {
             padding: 30px 15px;
         }
@@ -85,19 +27,6 @@
             max-width: 800px;
             margin: 0 auto 30px;
             text-align: left;
-        }
-
-        .info-container h2 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .info-container p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
         }
 
         .choose-button {
@@ -151,73 +80,14 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        /* Responsywność */
-        @media (max-width: 480px) {
-            .navbar {
-                width: 95%;
-                max-width: 360px;
-                padding: 8px;
-                gap: 5px;
-            }
-
-            .nav-button, .logo-button {
-                font-size: 0.9rem;
-                min-width: 100px;
-                height: 40px;
-                padding: 8px;
-            }
-
-            .logo-button img {
-                width: 24px;
-                height: 24px;
-            }
-
-            .choose-button {
-                font-size: 0.9rem;
-                padding: 8px 18px;
-            }
-        }
     </style>
 </head>
 <body>
-
-    <!-- Nawigacja -->
-    <div class="navbar">
-        <button class="logo-button" onclick="goToHome()">
-            <img src="psycho.ico" alt="Logo Psychownia">
-            <span>Psychownia</span>
-        </button>
-        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
-        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
-    </div>
-
     <div class="content">
-        <!-- Co to jest stres? -->
-        <div class="info-container">
-            <h2>Co to jest stres?</h2>
-            <p>
-                Stres to naturalna reakcja organizmu na wyzwania lub zagrożenia. Może występować w różnych formach, takich jak stres fizyczny, emocjonalny czy psychiczny. To reakcja na sytuacje, które mogą wywoływać poczucie niepewności lub zagrożenia.
-            </p>
-        </div>
-
-        <!-- Dlaczego doświadczamy stresu? -->
-        <div class="info-container">
-            <h2>Dlaczego doświadczamy stresu?</h2>
-            <p>
-                Stres jest odpowiedzią naszego organizmu na bodźce zewnętrzne. W momencie, gdy napotykamy sytuacje, które uznajemy za stresujące, nasz układ nerwowy uruchamia odpowiedź „walki lub ucieczki”. Ciało uwalnia hormony, takie jak kortyzol i adrenalina, przygotowując nas do szybkiej reakcji.
-            </p>
-        </div>
-
-        <!-- Jak radzić sobie ze stresem? -->
         <div class="info-container">
             <h2>Jak radzić sobie ze stresem?</h2>
-            <p>
-                Istnieje wiele metod radzenia sobie ze stresem. Poniżej przedstawiamy kilka z nich:
-            </p>
+            <p>Istnieje wiele metod radzenia sobie ze stresem. Poniżej przedstawiamy kilka z nich:</p>
             <button class="choose-button" onclick="toggleTechniques()">Sprawdź techniki</button>
-
-            <!-- Sekcja z technikami -->
             <div class="techniques-container" id="techniques">
                 <ul>
                     <li onclick="showTechnique('medytacja')">Medytacja</li>
@@ -226,32 +96,25 @@
                     <li onclick="showTechnique('odpoczynek')">Odpoczynek i sen</li>
                 </ul>
             </div>
-
-            <!-- Szczegóły dla technik -->
             <div id="medytacja" class="technique-details">
                 <h3>Medytacja</h3>
-                <p>Medytacja pozwala wyciszyć umysł i zredukować poziom stresu. Regularne praktykowanie medytacji może pomóc w zarządzaniu emocjami i poprawie koncentracji.</p>
+                <p>Znajdź ciche miejsce, usiądź wygodnie, zamknij oczy i skoncentruj się na oddechu. Staraj się utrzymać uwagę na tu i teraz.</p>
             </div>
             <div id="oddech" class="technique-details">
                 <h3>Ćwiczenia oddechowe</h3>
-                <p>Ćwiczenia oddechowe pomagają obniżyć poziom stresu, poprawiając dotlenienie organizmu. Skupienie się na głębokim oddychaniu wpływa na uspokojenie układu nerwowego.</p>
+                <p>Weź głęboki wdech przez nos, przytrzymaj na 4 sekundy, a następnie powoli wypuść powietrze ustami. Powtórz kilka razy.</p>
             </div>
             <div id="ruch" class="technique-details">
                 <h3>Aktywność fizyczna</h3>
-                <p>Ruch to jedna z najlepszych metod na redukcję stresu. Aktywność fizyczna pomaga uwolnić endorfiny, które poprawiają nastrój i zmniejszają napięcie.</p>
+                <p>Idź na spacer, wykonaj kilka ćwiczeń rozciągających lub poćwicz jogę. Ruch pomaga uwolnić napięcie.</p>
             </div>
             <div id="odpoczynek" class="technique-details">
                 <h3>Odpoczynek i sen</h3>
-                <p>Sen to fundament zdrowia psychicznego. Odpowiednia ilość snu pozwala na regenerację organizmu i układu nerwowego, co jest kluczowe w walce ze stresem.</p>
+                <p>Unikaj ekranów przed snem, stwórz przyjemną rutynę wieczorną i zadbaj o regularny rytm dobowy.</p>
             </div>
         </div>
     </div>
-
     <script>
-        function goToHome() {
-            location.reload(); // Przycisk Psychownia odświeża stronę
-        }
-
         function toggleTechniques() {
             var techniques = document.getElementById('techniques');
             techniques.style.display = (techniques.style.display === 'none' || techniques.style.display === '') ? 'block' : 'none';
@@ -262,11 +125,8 @@
             for (var i = 0; i < allTechniques.length; i++) {
                 allTechniques[i].style.display = 'none';
             }
-
-            var selectedTechnique = document.getElementById(technique);
-            selectedTechnique.style.display = 'block';
+            document.getElementById(technique).style.display = 'block';
         }
     </script>
-
 </body>
 </html>
