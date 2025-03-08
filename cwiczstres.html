@@ -10,7 +10,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f3f8f9; /* Jasny, spokojny odcień */
             text-align: center;
         }
 
@@ -27,6 +27,20 @@
             max-width: 800px;
             margin: 0 auto 30px;
             text-align: left;
+            display: flex; /* Dodanie flexboxa */
+            flex-direction: row; /* Rozkładanie na 2 kolumny */
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .info-container h2 {
+            color: #3BBFB2; /* Zastosowanie koloru nawiązującego do spokoju */
+        }
+
+        .info-container p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
         }
 
         .choose-button {
@@ -83,22 +97,37 @@
 
         .stress-image {
             width: 100%;
-            max-width: 400px;
+            max-width: 380px; /* Zmniejszenie szerokości */
             display: block;
-            margin: 20px auto;
+            margin: 0 20px;
             border-radius: 12px;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .info-container {
+                flex-direction: column; /* Układ pionowy na mniejszych ekranach */
+                text-align: center;
+            }
+
+            .stress-image {
+                margin: 20px auto;
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="content">
         <div class="info-container">
-            <h2>Co to jest stres?</h2>
-            <p>Stres to naturalna reakcja organizmu na wyzwania i trudne sytuacje. Może być krótkotrwały (np. przed ważnym wystąpieniem) lub przewlekły (np. długotrwałe problemy w pracy lub życiu osobistym).</p>
-            <h2>Jakie są objawy stresu?</h2>
-            <p>Stres objawia się na wiele sposobów: bóle głowy, napięcie mięśniowe, problemy ze snem, rozdrażnienie, trudności z koncentracją, uczucie zmęczenia czy niepokój.</p>
-            <h2>Co powoduje stres?</h2>
-            <p>Najczęstsze przyczyny stresu to nadmiar obowiązków, konflikty interpersonalne, niepewność finansowa, szybkie tempo życia oraz brak odpoczynku i relaksu.</p>
+            <div>
+                <h2>Co to jest stres?</h2>
+                <p>Stres to naturalna reakcja organizmu na wyzwania i trudne sytuacje. Może być krótkotrwały (np. przed ważnym wystąpieniem) lub przewlekły (np. długotrwałe problemy w pracy lub życiu osobistym).</p>
+                <h2>Jakie są objawy stresu?</h2>
+                <p>Stres objawia się na wiele sposobów: bóle głowy, napięcie mięśniowe, problemy ze snem, rozdrażnienie, trudności z koncentracją, uczucie zmęczenia czy niepokój.</p>
+                <h2>Co powoduje stres?</h2>
+                <p>Najczęstsze przyczyny stresu to nadmiar obowiązków, konflikty interpersonalne, niepewność finansowa, szybkie tempo życia oraz brak odpoczynku i relaksu.</p>
+            </div>
             <img src="stressed.jpeg" alt="Osoba odczuwająca stres" class="stress-image">
         </div>
 
