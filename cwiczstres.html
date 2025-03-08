@@ -10,7 +10,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f3f8f9; /* Jasny, spokojny odcień */
+            background-color: #f3f8f9;
             text-align: center;
         }
 
@@ -27,14 +27,14 @@
             max-width: 800px;
             margin: 0 auto 30px;
             text-align: left;
-            display: flex; /* Dodanie flexboxa */
-            flex-direction: row; /* Rozkładanie na 2 kolumny */
+            display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
 
         .info-container h2 {
-            color: #3BBFB2; /* Zastosowanie koloru nawiązującego do spokoju */
+            color: #3BBFB2;
         }
 
         .info-container p {
@@ -52,11 +52,12 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
         }
 
         .choose-button:hover {
             background-color: #8E79D9;
+            transform: scale(1.05); /* Delikatne powiększenie przy hoverze */
         }
 
         .techniques-container {
@@ -75,15 +76,18 @@
 
         .techniques-container li {
             background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 15px;
+            border-radius: 12px;
             margin: 10px 0;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+            font-weight: bold;
+            color: #3BBFB2;
         }
 
         .techniques-container li:hover {
             background-color: #e2e2e2;
+            transform: scale(1.03); /* Efekt powiększenia przy hoverze */
         }
 
         .technique-details {
@@ -97,7 +101,7 @@
 
         .stress-image {
             width: 100%;
-            max-width: 380px; /* Zmniejszenie szerokości */
+            max-width: 380px;
             display: block;
             margin: 0 20px;
             border-radius: 12px;
@@ -106,7 +110,7 @@
         /* Responsywność */
         @media (max-width: 768px) {
             .info-container {
-                flex-direction: column; /* Układ pionowy na mniejszych ekranach */
+                flex-direction: column;
                 text-align: center;
             }
 
@@ -133,7 +137,7 @@
 
         <div class="info-container">
             <h2>Jak radzić sobie ze stresem?</h2>
-            <p>Istnieje wiele metod radzenia sobie ze stresem. Przećwicz sobie.</p>
+            <p>Istnieje wiele metod radzenia sobie ze stresem. Poniżej przedstawiamy kilka z nich:</p>
             <button class="choose-button" onclick="toggleTechniques()">Sprawdź techniki</button>
             <div class="techniques-container" id="techniques">
                 <ul>
