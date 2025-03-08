@@ -84,6 +84,7 @@
             color: #333;
             margin-bottom: 20px;
             font-weight: bold;
+            text-align: center;
         }
 
         p {
@@ -99,9 +100,24 @@
             margin-top: 30px;
         }
 
+        /* Stylizacja zdjęcia */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .call-to-action {
-            margin-top: 30px;
-            padding: 10px 20px;
+            display: block;
+            margin: 30px auto;
+            padding: 12px 20px;
             background-color: #3BBFB2;
             color: white;
             font-size: 1.1rem;
@@ -110,12 +126,13 @@
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
+            text-align: center;
+            width: fit-content;
         }
 
         .call-to-action:hover {
             background-color: #8E79D9;
         }
-
     </style>
 </head>
 <body>
@@ -133,6 +150,10 @@
     <!-- Artykuł o Mindfulness -->
     <div class="content">
         <h1>Mindfulness - Uważność: Siła Bycia Tu i Teraz</h1>
+
+        <div class="image-container">
+            <img src="mindfulness.jpg" alt="Osoba praktykująca mindfulness">
+        </div>
 
         <p>Mindfulness, czyli uważność, to sztuka bycia w pełni obecnym w danym momencie. W świecie, gdzie pędzimy za przyszłością i przeżywamy przeszłość, trudno jest po prostu *być* w teraźniejszości. Jednak techniki mindfulness uczą nas, jak zauważać detale, które umykają w codziennym pośpiechu. To jak moment zatrzymania się, który pomaga złapać oddech w chaosie życia.</p>
 
