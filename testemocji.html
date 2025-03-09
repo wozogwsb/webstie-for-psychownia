@@ -153,8 +153,8 @@
             background-color: #8E79D9 !important;
         }
 
-        /* Przyciski powrotu zawsze widoczne */
-        .go-home-button {
+        /* Przyciski powrotu na wersji desktop */
+        .go-home-button-desktop {
             position: absolute;
             bottom: 20px;
             right: 20px;
@@ -168,8 +168,30 @@
             transition: background-color 0.3s;
         }
 
-        .go-home-button:hover {
+        .go-home-button-desktop:hover {
             background-color: #F14F4F;
+        }
+
+        /* Przyciski powrotu w wersji mobilnej */
+        .go-home-button-mobile {
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .go-home-button-mobile:hover {
+            background-color: #F14F4F;
+        }
+
+        .selected {
+            background-color: #8E79D9 !important;
         }
 
         /* Media queries for smaller screens */
@@ -208,13 +230,13 @@
                 padding: 10px 20px;
             }
 
-            /* Ustawienie przycisku powrotu w wersji mobilnej */
-            .go-home-button {
-                position: static;
+            /* Przyciski powrotu w wersji mobilnej */
+            .go-home-button-desktop {
+                display: none;
+            }
+
+            .go-home-button-mobile {
                 display: block;
-                margin-top: 20px;
-                left: auto;
-                right: auto;
             }
         }
     </style>
@@ -224,7 +246,7 @@
 <div class="test-container">
     <h1>Test emocji</h1>
     <div id="question-container">
-        <p class="question">Jak się dzisiaj czujesz?</p>
+        <p class="question">Jak się czujesz dzisiaj?</p>
         <div class="options">
             <button class="option-button" onclick="selectOption(this)">Zły</button>
             <button class="option-button" onclick="selectOption(this)">Smutny</button>
@@ -233,11 +255,31 @@
         </div>
     </div>
     <button id="next-button" class="next-button" onclick="nextQuestion()">Następne</button>
-    <button id="go-home" class="go-home-button" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
+
+    <!-- Przycisk powrotu na desktop -->
+    <button id="go-home-desktop" class="go-home-button-desktop" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
+
+    <!-- Przycisk powrotu na wersji mobilnej -->
+    <button id="go-home-mobile" class="go-home-button-mobile" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
 </div>
 
 <script>
     let selectedOption = null;
+    let currentQuestionIndex = 0;
+    const questions = [
+        "Jak się czujesz dzisiaj?",
+        "Czy ostatnio czułeś/aś się zestresowany/a?",
+        "Czy twoje emocje często zmieniają się w ciągu dnia?",
+        "Czy ostatnio odczuwałeś/aś złość?",
+        "Czy dzisiaj czujesz się szczęśliwy/a?"
+    ];
+    const options = [
+        ['Zły', 'Smutny', 'Zestresowany', 'Szczęśliwy'],
+        ['Zestresowany', 'Smutny', 'Zły', 'Spokojny'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Szczęśliwy', 'Neutralny', 'Smukły', 'Zestresowany']
+    ];
 
     function selectOption(button) {
         const buttons = document.querySelectorAll('.option-button');
@@ -248,16 +290,46 @@
 
     function nextQuestion() {
         if (!selectedOption) {
-            alert('Wybierz jedną z opcji!');
+            alert('Proszę wybrać jedną z opcji!');
             return;
         }
 
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+            selectedOption = null;
+        } else {
+            showResult();
+        }
+    }
+
+    function showQuestion(index) {
+        document.querySelector('.question').textContent = questions[index];
+        const buttons = document.querySelectorAll('.option-button');
+        buttons.forEach((button, i) => {
+            button.textContent = options[index][i];
+        });
+    }
+
+    function showResult() {
+        let resultMessage = '';
+        if (selectedOption === 'Zły') {
+            resultMessage = 'Twoja emocja to Złość!';
+        } else if (selectedOption === 'Smutny') {
+            resultMessage = 'Twoja emocja to Smutek!';
+        } else if (selectedOption === 'Zestresowany') {
+            resultMessage = 'Twoja emocja to Stres!';
+        } else {
+            resultMessage = 'Twoja emocja to Szczęście!';
+        }
+
         document.getElementById('question-container').innerHTML = `
-            <p class="question">Twój wynik to: <span>${selectedOption}</span></p>
+            <p class="question">${resultMessage}</p>
             <button class="coping-button" onclick="handleResult()">Jak sobie z tym poradzić?</button>
         `;
         document.getElementById('next-button').style.display = 'none';
-        document.getElementById('go-home').style.display = 'block'; // Pokaż przycisk "Powrót do strony głównej"
+        document.getElementById('go-home-desktop').style.display = 'none'; // Ukryj przycisk powrotu w wersji desktop
+        document.getElementById('go-home-mobile').style.display = 'block'; // Pokaż przycisk powrotu w wersji mobilnej
     }
 
     function handleResult() {
@@ -282,6 +354,9 @@
             window.location.href = redirectUrl;
         }
     }
+
+    // Start the test
+    showQuestion(currentQuestionIndex);
 </script>
 
 </body>
