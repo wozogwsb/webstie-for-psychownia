@@ -25,7 +25,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 80%;
             max-width: 600px;
-            min-height: 500px; /* Zwiększyłem wysokość kontenera */
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -196,14 +196,24 @@
         function showResult() {
             let dominantEmotion = getDominantEmotion();
             document.getElementById("result").style.display = "block";
-            document.getElementById("emotion-result").innerText = dominantEmotion;
+            document.getElementById("emotion-result").innerText = getEmotionDescription(dominantEmotion);
             document.getElementById("next-button").style.display = "none";
         }
 
         function getDominantEmotion() {
             const maxScore = Math.max(...Object.values(scores));
             const dominantEmotion = Object.keys(scores).find(emotion => scores[emotion] === maxScore);
-            return dominantEmotion.charAt(0).toUpperCase() + dominantEmotion.slice(1);
+            return dominantEmotion;
+        }
+
+        function getEmotionDescription(emotion) {
+            const descriptions = {
+                happy: "Szczęśliwy/a – czujesz radość i zadowolenie z życia.",
+                sad: "Smutny/a – czujesz smutek, przygnębienie lub tęsknotę.",
+                anger: "Zły/a – czujesz złość, irytację lub frustrację.",
+                fear: "Zestresowany/a – czujesz lęk, niepokój lub obawy."
+            };
+            return descriptions[emotion] || "Nieznana emocja";
         }
 
         function restartTest() {
