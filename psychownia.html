@@ -147,23 +147,25 @@
             font-weight: bold;
         }
 
-        /* Styl dla kontenera emocji */
+        /* Nowe style dla emocji */
         .emotion-container {
-            margin-top: 30px;
+            margin-top: 20px;
             background-color: #fff;
-            padding: 15px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 350px;
             text-align: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
         }
 
         .emotion-button {
-            margin: 8px;
+            margin: 5px;
             padding: 10px 20px;
             background-color: #3BBFB2;
             color: white;
+            font-size: 1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -175,12 +177,11 @@
         }
 
         .emotion-result {
-            margin-top: 15px;
+            margin-top: 20px;
             padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: none;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            text-align: left;
         }
 
         /* Responsywność */
@@ -234,6 +235,18 @@
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
             </div>
         </div>
+
+        <!-- Nowy kontener emocji -->
+        <div class="emotion-container">
+            <h2>Jak się dzisiaj czujesz?</h2>
+            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            <div class="emotion-result" id="emotionResult"></div>
+        </div>
     </div>
 
     <div id="article-stres" class="article-container">
@@ -250,38 +263,15 @@
         <button class="choose-button" onclick="goBack()">Wróć</button>
     </div>
 
-    <!-- Kontener emocji -->
-    <div class="content" id="emotionSection">
-        <div class="emotion-container">
-            <h2>Którą emocją teraz jesteś?</h2>
-            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
-            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
-            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
-            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
-            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
-            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
-            <div class="emotion-result" id="emotionResult"></div>
-        </div>
-    </div>
-
     <script>
-        function goToHome() {
-            location.reload(); // Przycisk Psychownia odświeża stronę
-        }
-
-        function toggleOptions() {
-            var options = document.getElementById('options');
-            options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
-        }
-
         function showEmotion(emotion) {
             var descriptions = {
-                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia.",
-                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie.",
-                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości.",
-                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań.",
-                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu.",
-                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje."
+                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia. Badania pokazują, że regularne doświadczanie radości wzmacnia układ odpornościowy i poprawia funkcje poznawcze.",
+                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie. Według psychologii ewolucyjnej pozwala na refleksję i przystosowanie się do zmian w otoczeniu.",
+                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości. Badania pokazują, że kontrolowana złość może motywować do działania i obrony swoich granic.",
+                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań. Może prowadzić do szybszego uczenia się i zwiększonej uważności na otoczenie.",
+                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu i wspomaga regenerację organizmu. Regularna praktyka technik relaksacyjnych sprzyja zdrowiu psychicznemu i fizycznemu.",
+                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje. Krótkotrwały stres może zwiększać wydajność, ale długotrwały prowadzi do problemów zdrowotnych."
             };
             
             var resultDiv = document.getElementById('emotionResult');
@@ -289,8 +279,14 @@
             resultDiv.style.display = 'block';
         }
 
+        // Funkcja do przechodzenia do strony głównej
+        function goToHome() {
+            window.location.href = 'index.html'; // Zmienna w zależności od twojej struktury plików
+        }
+
+        // Funkcja do powrotu do poprzedniej strony artykułu
         function goBack() {
-            window.history.back(); // Funkcja wracania do poprzedniej strony
+            window.history.back();
         }
     </script>
 
