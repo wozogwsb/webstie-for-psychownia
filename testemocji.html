@@ -297,7 +297,7 @@
         if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
             showQuestion(currentQuestionIndex);
-            selectedOption = null;
+            selectedOption = null; // Resetuj zaznaczenie po przejściu do nowego pytania
         } else {
             showResult();
         }
@@ -308,6 +308,7 @@
         const buttons = document.querySelectorAll('.option-button');
         buttons.forEach((button, i) => {
             button.textContent = options[index][i];
+            button.classList.remove('selected'); // Resetuj zaznaczenie przed pokazaniem nowego pytania
         });
     }
 
