@@ -86,6 +86,57 @@
             background-color: #7A5FD9;
         }
 
+        .result {
+            background: #89A6CE;
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.5rem;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result span {
+            font-weight: bold;
+        }
+
+        .result-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .result-button {
+            padding: 12px 30px;
+            background-color: #3BBFB2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .result-button:hover {
+            background-color: #8E79D9;
+        }
+
+        .result-link {
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .result-link:hover {
+            background-color: #F14F4F;
+        }
+
         .coping-button {
             padding: 12px 30px;
             background-color: #F1B340;
@@ -102,6 +153,89 @@
             background-color: #F1A327;
         }
 
+        /* Przyciski powrotu w wersji desktop */
+        .go-home-button-desktop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .go-home-button-desktop:hover {
+            background-color: #F14F4F;
+        }
+
+        /* Przyciski powrotu w wersji mobilnej */
+        .go-home-button-mobile {
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            width: 100%;
+            display: none; /* Ukryte na wersji desktopowej */
+        }
+
+        .go-home-button-mobile:hover {
+            background-color: #F14F4F;
+        }
+
+        /* Media queries for smaller screens */
+        @media (max-width: 600px) {
+            .test-container {
+                padding: 20px;
+            }
+
+            .question {
+                font-size: 1rem;
+            }
+
+            .option-button {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+
+            .next-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .result {
+                font-size: 1.3rem;
+            }
+
+            .result-button {
+                padding: 10px 20px;
+            }
+
+            .result-link {
+                padding: 10px 20px;
+            }
+
+            .coping-button {
+                padding: 10px 20px;
+            }
+
+            /* Przyciski powrotu w wersji mobilnej */
+            .go-home-button-desktop {
+                display: none;
+            }
+
+            .go-home-button-mobile {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -116,14 +250,37 @@
         </div>
     </div>
     <button id="next-button" class="next-button" onclick="nextQuestion()">Następne</button>
+
+    <!-- Przycisk powrotu na desktop -->
+    <button id="go-home-desktop" class="go-home-button-desktop" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
+
+    <!-- Przycisk powrotu na wersji mobilnej -->
+    <button id="go-home-mobile" class="go-home-button-mobile" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
 </div>
 
 <script>
     let selectedOption = null;
     let currentQuestionIndex = 0;
 
+    const questions = [
+        "Czy odczuwasz w ostatnich dniach emocje, które trudno Ci kontrolować?",
+        "Czy często czujesz się przytłoczony/a codziennymi obowiązkami?",
+        "Czy czujesz się szczęśliwy/a, gdy spędzasz czas z bliskimi?",
+        "Czy masz trudności z relaksowaniem się, nawet gdy masz czas dla siebie?",
+        "Czy odczuwasz częściej lęk w stosunku do przyszłości?"
+    ];
+
+    const options = [
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie']
+    ];
+
     function selectOption(button) {
-        document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected'));
+        const buttons = document.querySelectorAll('.option-button');
+        buttons.forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
         selectedOption = button.innerText;
     }
@@ -133,45 +290,79 @@
             alert('Proszę wybrać jedną z opcji!');
             return;
         }
-        showResult();
+
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion(currentQuestionIndex);
+            selectedOption = null;
+        } else {
+            showResult();
+        }
+    }
+
+    function showQuestion(index) {
+        document.querySelector('.question').textContent = questions[index];
+        const buttons = document.querySelectorAll('.option-button');
+        buttons.forEach((button, i) => {
+            button.textContent = options[index][i];
+            button.classList.remove('selected');
+        });
     }
 
     function showResult() {
         let resultMessage = '';
         let resultDescription = '';
-        
+
         if (selectedOption === 'Tak') {
             resultMessage = 'Twoja emocja to Złość lub Lęk!';
             resultDescription = `
-                <p>Złość to intensywna emocja wywołana frustracją, niesprawiedliwością lub zagrożeniem. Jest częścią mechanizmu obronnego i pomaga reagować na zagrożenia.</p>
-                <p>🔹 Pozytywna rola – motywuje do działania, wyznaczania granic i rozwiązywania problemów.</p>
-                <p>🔹 Jak kontrolować? – techniki oddechowe, aktywność fizyczna i zmiana myślenia pomagają unikać impulsywnych reakcji.</p>
-                <p>Lęk to emocja związana z przewidywaniem zagrożenia, nawet gdy nie jest ono bezpośrednie. Jest ewolucyjnie ważny, ale przewlekły lęk może prowadzić do problemów psychicznych.</p>
-                <p>🔹 Pozytywna rola – zwiększa czujność i pomaga unikać ryzyka.</p>
-                <p>🔹 Jak go zmniejszyć? – medytacja, techniki oddechowe, aktywność fizyczna i terapia poznawcza mogą obniżyć poziom lęku.</p>
+                Złość to intensywna emocja wywołana frustracją, niesprawiedliwością lub zagrożeniem. Jest częścią mechanizmu obronnego i pomaga reagować na zagrożenia.
+                Pozytywna rola – motywuje do działania, wyznaczania granic i rozwiązywania problemów.
+                🔹 Jak kontrolować? – techniki oddechowe, aktywność fizyczna i zmiana myślenia pomagają unikać impulsywnych reakcji.
+
+                Lęk to emocja związana z przewidywaniem zagrożenia, nawet gdy nie jest ono bezpośrednie. Jest ewolucyjnie ważny, ale przewlekły lęk może prowadzić do problemów psychicznych.
+                🔹 Pozytywna rola – zwiększa czujność i pomaga unikać ryzyka.
+                🔹 Jak go zmniejszyć? – medytacja, techniki oddechowe, aktywność fizyczna i terapia poznawcza mogą obniżyć poziom lęku.
             `;
         } else {
             resultMessage = 'Twoja emocja to Spokój!';
             resultDescription = `
-                <p>Spokój to stan emocjonalny charakteryzujący się harmonią, niskim pobudzeniem i brakiem stresu. Spokój sprzyja racjonalnemu myśleniu i dobremu samopoczuciu.</p>
-                <p>Aby usprawnić i zachować spokój, warto:</p>
-                <ul>
-                    <li>🧘‍♂️ Ćwiczyć uważność (mindfulness) – skupianie się na chwili obecnej zmniejsza stres.</li>
-                    <li>🌿 Spędzać czas w naturze – kontakt z przyrodą obniża poziom kortyzolu.</li>
-                    <li>💨 Stosować techniki oddechowe – np. metoda 4-7-8 pomaga regulować układ nerwowy.</li>
-                    <li>🏃‍♂️ Regularnie się ruszać – aktywność fizyczna zwiększa poziom endorfin i serotoniny.</li>
-                    <li>😌 Unikać nadmiaru bodźców – ograniczenie hałasu i mediów społecznościowych sprzyja wewnętrznej równowadze.</li>
-                    <li>🛏️ Dbać o sen – regeneracja organizmu jest kluczowa dla stabilności emocjonalnej.</li>
-                </ul>
+                Spokój to stan emocjonalny charakteryzujący się harmonią, niskim pobudzeniem i brakiem stresu. Spokój sprzyja racjonalnemu myśleniu i dobremu samopoczuciu.
+                Aby usprawnić i zachować spokój, warto:
+
+                🧘‍♂️ Ćwiczyć uważność (mindfulness) – skupianie się na chwili obecnej zmniejsza stres.
+                🌿 Spędzać czas w naturze – kontakt z przyrodą obniża poziom kortyzolu.
+                💨 Stosować techniki oddechowe – np. metoda 4-7-8 pomaga regulować układ nerwowy.
+                🏃‍♂️ Regularnie się ruszać – aktywność fizyczna zwiększa poziom endorfin i serotoniny.
+                😌 Unikać nadmiaru bodźców – ograniczenie hałasu i mediów społecznościowych sprzyja wewnętrznej równowadze.
+                🛏️ Dbać o sen – regeneracja organizmu jest kluczowa dla stabilności emocjonalnej.
             `;
         }
 
         document.getElementById('question-container').innerHTML = `
             <p class="question">${resultMessage}</p>
-            ${resultDescription}
+            <p>${resultDescription}</p>
+            <button class="coping-button" onclick="handleResult()">Jak sobie z tym poradzić?</button>
         `;
         document.getElementById('next-button').style.display = 'none';
+        document.getElementById('go-home-desktop').style.display = 'none';
+        document.getElementById('go-home-mobile').style.display = 'block';
     }
+
+    function handleResult() {
+        let redirectUrl = '';
+        if (selectedOption === 'Tak') {
+            redirectUrl = 'zlosc.html';
+        } else {
+            redirectUrl = 'spokoj.html';
+        }
+
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        }
+    }
+
+    showQuestion(currentQuestionIndex);
 </script>
 
 </body>
