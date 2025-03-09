@@ -153,9 +153,9 @@
             background-color: #8E79D9 !important;
         }
 
-        /* Przyciski powrotu na wersji desktop */
+        /* Przyciski powrotu w wersji desktop */
         .go-home-button-desktop {
-            position: absolute;
+            position: fixed;
             bottom: 20px;
             right: 20px;
             padding: 12px 30px;
@@ -184,14 +184,11 @@
             transition: background-color 0.3s;
             margin-top: 20px;
             width: 100%;
+            display: none; /* Ukryte na wersji desktopowej */
         }
 
         .go-home-button-mobile:hover {
             background-color: #F14F4F;
-        }
-
-        .selected {
-            background-color: #8E79D9 !important;
         }
 
         /* Media queries for smaller screens */
@@ -244,14 +241,12 @@
 <body>
 
 <div class="test-container">
-    <h1>Test emocji</h1>
+    <h1>Test Emocji</h1>
     <div id="question-container">
-        <p class="question">Jak się czujesz dzisiaj?</p>
+        <p class="question">Czy odczuwasz w ostatnich dniach emocje, które trudno Ci kontrolować?</p>
         <div class="options">
-            <button class="option-button" onclick="selectOption(this)">Zły</button>
-            <button class="option-button" onclick="selectOption(this)">Smutny</button>
-            <button class="option-button" onclick="selectOption(this)">Zestresowany</button>
-            <button class="option-button" onclick="selectOption(this)">Szczęśliwy</button>
+            <button class="option-button" onclick="selectOption(this)">Tak</button>
+            <button class="option-button" onclick="selectOption(this)">Nie</button>
         </div>
     </div>
     <button id="next-button" class="next-button" onclick="nextQuestion()">Następne</button>
@@ -266,21 +261,26 @@
 <script>
     let selectedOption = null;
     let currentQuestionIndex = 0;
+
+    // Zaktualizowane pytania
     const questions = [
-        "Jak się czujesz dzisiaj?",
-        "Czy ostatnio czułeś/aś się zestresowany/a?",
-        "Czy twoje emocje często zmieniają się w ciągu dnia?",
-        "Czy ostatnio odczuwałeś/aś złość?",
-        "Czy dzisiaj czujesz się szczęśliwy/a?"
-    ];
-    const options = [
-        ['Zły', 'Smutny', 'Zestresowany', 'Szczęśliwy'],
-        ['Zestresowany', 'Smutny', 'Zły', 'Spokojny'],
-        ['Tak', 'Nie'],
-        ['Tak', 'Nie'],
-        ['Szczęśliwy', 'Neutralny', 'Smukły', 'Zestresowany']
+        "Czy odczuwasz w ostatnich dniach emocje, które trudno Ci kontrolować?",
+        "Czy często czujesz się przytłoczony/a codziennymi obowiązkami?",
+        "Czy czujesz się szczęśliwy/a, gdy spędzasz czas z bliskimi?",
+        "Czy masz trudności z relaksowaniem się, nawet gdy masz czas dla siebie?",
+        "Czy odczuwasz częściej lęk w stosunku do przyszłości?"
     ];
 
+    // Opcje odpowiedzi
+    const options = [
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie'],
+        ['Tak', 'Nie']
+    ];
+
+    // Zmienna na przechowywanie wyboru
     function selectOption(button) {
         const buttons = document.querySelectorAll('.option-button');
         buttons.forEach(btn => btn.classList.remove('selected'));
@@ -313,14 +313,10 @@
 
     function showResult() {
         let resultMessage = '';
-        if (selectedOption === 'Zły') {
-            resultMessage = 'Twoja emocja to Złość!';
-        } else if (selectedOption === 'Smutny') {
-            resultMessage = 'Twoja emocja to Smutek!';
-        } else if (selectedOption === 'Zestresowany') {
-            resultMessage = 'Twoja emocja to Stres!';
+        if (selectedOption === 'Tak') {
+            resultMessage = 'Twoja emocja to Złość lub Lęk!';
         } else {
-            resultMessage = 'Twoja emocja to Szczęście!';
+            resultMessage = 'Twoja emocja to Spokój!';
         }
 
         document.getElementById('question-container').innerHTML = `
@@ -335,19 +331,10 @@
     function handleResult() {
         let redirectUrl = '';
 
-        switch (selectedOption) {
-            case 'Zły':
-                redirectUrl = 'zlosc.html';
-                break;
-            case 'Smutny':
-                redirectUrl = 'smutek.html';
-                break;
-            case 'Zestresowany':
-                redirectUrl = 'strach.html';
-                break;
-            case 'Szczęśliwy':
-                redirectUrl = 'szczescie.html';
-                break;
+        if (selectedOption === 'Tak') {
+            redirectUrl = 'zlosc.html';
+        } else {
+            redirectUrl = 'spokoj.html';
         }
 
         if (redirectUrl) {
@@ -355,7 +342,7 @@
         }
     }
 
-    // Start the test
+    // Start testu
     showQuestion(currentQuestionIndex);
 </script>
 
