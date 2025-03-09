@@ -147,6 +147,42 @@
             font-weight: bold;
         }
 
+        /* Styl dla kontenera emocji */
+        .emotion-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .emotion-button {
+            margin: 8px;
+            padding: 10px 20px;
+            background-color: #3BBFB2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .emotion-button:hover {
+            background-color: #8E79D9;
+        }
+
+        .emotion-result {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
         /* Responsywność */
         @media (max-width: 480px) {
             .navbar {
@@ -214,29 +250,8 @@
         <button class="choose-button" onclick="goBack()">Wróć</button>
     </div>
 
-    <script>
-        function goToHome() {
-            location.reload(); // Przycisk Psychownia odświeża stronę
-        }
-
-        function toggleOptions() {
-            var options = document.getElementById('options');
-            options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
-        }
-
-        function goBack() {
-            document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('options').style.display = 'none';
-
-            var articles = document.getElementsByClassName('article-container');
-            for (var i = 0; i < articles.length; i++) {
-                articles[i].style.display = 'none';
-            }
-        }
-    </script>
-
-
- <div class="content">
+    <!-- Kontener emocji -->
+    <div class="content">
         <div class="emotion-container">
             <h2>Którą emocją teraz jesteś?</h2>
             <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
@@ -249,29 +264,37 @@
         </div>
     </div>
 
-    
-
     <script>
+        function goToHome() {
+            location.reload(); // Przycisk Psychownia odświeża stronę
+        }
+
+        function toggleOptions() {
+            var options = document.getElementById('options');
+            options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
+        }
+
         function showEmotion(emotion) {
             var descriptions = {
-                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia. Badania pokazują, że regularne doświadczanie radości wzmacnia układ odpornościowy i poprawia funkcje poznawcze.",
-                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie. Według psychologii ewolucyjnej pozwala na refleksję i przystosowanie się do zmian w otoczeniu.",
-                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości. Badania pokazują, że kontrolowana złość może motywować do działania i obrony swoich granic.",
-                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań. Może prowadzić do szybszego uczenia się i zwiększonej uważności na otoczenie.",
-                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu i wspomaga regenerację organizmu. Regularna praktyka technik relaksacyjnych sprzyja zdrowiu psychicznemu i fizycznemu.",
-                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje. Krótkotrwały stres może zwiększać wydajność, ale długotrwały prowadzi do problemów zdrowotnych."
+                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia.",
+                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie.",
+                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości.",
+                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań.",
+                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu.",
+                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje."
             };
             
             var resultDiv = document.getElementById('emotionResult');
             resultDiv.innerHTML = `<p><strong>Wybrałeś:</strong> ${emotion}</p><p>${descriptions[emotion]}</p>`;
             resultDiv.style.display = 'block';
         }
+
+        function goBack() {
+            window.history.back(); // Funkcja wracania do poprzedniej strony
+        }
     </script>
 
-
-    
-
-    
 </body>
 </html>
+
 
