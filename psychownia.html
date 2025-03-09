@@ -235,6 +235,43 @@
         }
     </script>
 
+
+ <div class="content">
+        <div class="emotion-container">
+            <h2>Którą emocją teraz jesteś?</h2>
+            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            <div class="emotion-result" id="emotionResult"></div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        function showEmotion(emotion) {
+            var descriptions = {
+                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia. Badania pokazują, że regularne doświadczanie radości wzmacnia układ odpornościowy i poprawia funkcje poznawcze.",
+                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie. Według psychologii ewolucyjnej pozwala na refleksję i przystosowanie się do zmian w otoczeniu.",
+                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości. Badania pokazują, że kontrolowana złość może motywować do działania i obrony swoich granic.",
+                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań. Może prowadzić do szybszego uczenia się i zwiększonej uważności na otoczenie.",
+                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu i wspomaga regenerację organizmu. Regularna praktyka technik relaksacyjnych sprzyja zdrowiu psychicznemu i fizycznemu.",
+                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje. Krótkotrwały stres może zwiększać wydajność, ale długotrwały prowadzi do problemów zdrowotnych."
+            };
+            
+            var resultDiv = document.getElementById('emotionResult');
+            resultDiv.innerHTML = `<p><strong>Wybrałeś:</strong> ${emotion}</p><p>${descriptions[emotion]}</p>`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+
+
+    
+
+    
 </body>
 </html>
 
