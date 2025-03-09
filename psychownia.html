@@ -239,18 +239,22 @@
     </div>
 
     <!-- Drugi kontener: Emocje -->
-    <div class="content" id="emotionContent">
-        <div class="emotion-container">
-            <h2>Jak się dzisiaj czujesz?</h2>
+<div class="content" id="emotionContent">
+    <div class="image-container">
+        <img src="lupa.jpg" alt="Definicja emocji">
+        <div class="text">Jak się dzisiaj czujesz?</div>
+        <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
+
+        <div class="options-container" id="options">
             <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
             <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
             <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
             <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
             <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
             <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
-            <div class="emotion-result" id="emotionResult"></div>
         </div>
     </div>
+</div>
 
     <div id="article-stres" class="article-container">
         <h2>Stres - naturalna reakcja organizmu</h2>
