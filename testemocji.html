@@ -16,6 +16,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            position: relative;
         }
 
         .test-container {
@@ -152,6 +153,7 @@
             background-color: #8E79D9 !important;
         }
 
+        /* Przyciski powrotu zawsze widoczne */
         .go-home-button {
             position: absolute;
             bottom: 20px;
@@ -206,24 +208,13 @@
                 padding: 10px 20px;
             }
 
-            /* Przyciski i kontener dostosowane do wersji mobilnej */
+            /* Ustawienie przycisku powrotu w wersji mobilnej */
             .go-home-button {
-                position: fixed;
-                bottom: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                padding: 12px 30px;
-                background-color: #F18F8F;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                font-size: 1.1rem;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-            .go-home-button:hover {
-                background-color: #F14F4F;
+                position: static;
+                display: block;
+                margin-top: 20px;
+                left: auto;
+                right: auto;
             }
         }
     </style>
@@ -266,6 +257,7 @@
             <button class="coping-button" onclick="handleResult()">Jak sobie z tym poradzić?</button>
         `;
         document.getElementById('next-button').style.display = 'none';
+        document.getElementById('go-home').style.display = 'block'; // Pokaż przycisk "Powrót do strony głównej"
     }
 
     function handleResult() {
