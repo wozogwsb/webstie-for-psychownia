@@ -121,6 +121,69 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        .article-container {
+            display: none;
+            width: 90%;
+            max-width: 350px;
+            margin: 15px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .article-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .article-container h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Nowe style dla emocji */
+        .emotion-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .emotion-button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .emotion-button:hover {
+            background-color: #8E79D9;
+        }
+
+        .emotion-result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            text-align: left;
+        }
+
         /* Responsywność */
         @media (max-width: 480px) {
             .navbar {
@@ -158,31 +221,89 @@
             <span>Psychownia</span>
         </button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
-        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
+        <button class="nav-button">Kontakt</button>
     </div>
 
+    <!-- Pierwszy kontener: Opcje -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
+            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz</button>
 
-            <div class="options-container" id="options">
-                <!-- Link przekierowujący do strony stres.html -->
-                <button class="option-button" onclick="window.location.href = 'cwiczstres.html'">Stres</button>
+            <div class="options-container" id="options1">
+                <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
             </div>
         </div>
     </div>
 
+    <!-- Drugi kontener: Emocje -->
+    <div class="content" id="emotionContent" style="display: block;">
+        <div class="image-container">
+            <img src="lupa.jpg" alt="Definicja emocji">
+            <div class="text">Jak się dzisiaj czujesz?</div>
+            <button class="choose-button" onclick="toggleOptions('options2')">Wybierz</button>
+
+            <div class="options-container" id="options2">
+                <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+                <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+                <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+                <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+                <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+                <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="article-stres" class="article-container">
+        <h2>Stres - naturalna reakcja organizmu</h2>
+        <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
+        <p>Stres to reakcja organizmu na wyzwania. Może mobilizować do działania, ale długotrwały stres szkodzi zdrowiu.</p>
+        <button class="choose-button" onclick="goBack()">Wróć</button>
+    </div>
+
+    <div id="article-zlosc" class="article-container">
+        <h2>Złość - jak nad nią zapanować?</h2>
+        <img src="anger.jpeg" alt="Obrazek przedstawiający złość">
+        <p>Złość to naturalna emocja, ale jej niekontrolowane wybuchy mogą być szkodliwe. Naucz się skutecznych technik zarządzania złością.</p>
+        <button class="choose-button" onclick="goBack()">Wróć</button>
+    </div>
+
     <script>
-        function goToHome() {
-            location.reload(); // Przycisk Psychownia odświeża stronę
+        function showEmotion(emotion) {
+            var descriptions = {
+                'Szczęśliwy': "Szczęście to pozytywny stan emocjonalny związany z poczuciem spełnienia i zadowolenia. Badania pokazują, że regularne doświadczanie radości wzmacnia układ odpornościowy i poprawia funkcje poznawcze.",
+                'Smutny': "Smutek to naturalna reakcja na stratę lub rozczarowanie. Według psychologii ewolucyjnej pozwala na refleksję i przystosowanie się do zmian w otoczeniu.",
+                'Zły': "Złość to emocja związana z poczuciem frustracji i niesprawiedliwości. Badania pokazują, że kontrolowana złość może motywować do działania i obrony swoich granic.",
+                'Zaskoczony': "Zaskoczenie to emocja nagłej zmiany oczekiwań. Może prowadzić do szybszego uczenia się i zwiększonej uważności na otoczenie.",
+                'Zrelaksowany': "Relaksacja pomaga obniżyć poziom kortyzolu i wspomaga regenerację organizmu. Regularna praktyka technik relaksacyjnych sprzyja zdrowiu psychicznemu i fizycznemu.",
+                'Zestresowany': "Stres to reakcja organizmu na wymagające sytuacje. Krótkotrwały stres może zwiększać wydajność, ale długotrwały prowadzi do problemów zdrowotnych."
+            };
+            
+            var resultDiv = document.getElementById('emotionResult');
+            resultDiv.innerHTML = `<p><strong>Wybrałeś:</strong> ${emotion}</p><p>${descriptions[emotion]}</p>`;
+            resultDiv.style.display = 'block';
         }
 
-        function toggleOptions() {
-            var options = document.getElementById('options');
-            options.style.display = (options.style.display === 'none' || options.style.display === '') ? 'block' : 'none';
+        // Funkcja do przechodzenia do strony głównej
+        function goToHome() {
+            window.location.href = 'index.html'; // Zmienna w zależności od twojej struktury plików
+        }
+
+        // Funkcja do powrotu do poprzedniej strony artykułu
+        function goBack() {
+            window.history.back();
+        }
+
+        // Funkcja do przełączania widoczności opcji
+        function toggleOptions(optionId) {
+            var options = document.getElementById(optionId);
+            if (options.style.display === "none" || options.style.display === "") {
+                options.style.display = "block";
+            } else {
+                options.style.display = "none";
+            }
         }
     </script>
 
