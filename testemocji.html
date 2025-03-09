@@ -146,6 +146,11 @@
         .coping-button:hover {
             background-color: #F1A327;
         }
+
+        .selected {
+            background-color: #8E79D9 !important;
+        }
+
     </style>
 </head>
 <body>
@@ -206,15 +211,22 @@
                 <div class="question">${question.question}</div>
                 <div class="options">
                     ${question.options.map((option, index) => `
-                        <button class="option-button" onclick="selectOption('${question.emotion}', ${index})">${option}</button>
+                        <button class="option-button" onclick="selectOption('${question.emotion}', ${index}, this)">${option}</button>
                     `).join('')}
                 </div>
             `;
             document.getElementById("next-button").style.display = "none";
         }
 
-        function selectOption(emotion, score) {
+        function selectOption(emotion, score, button) {
+            // Wybór opcji i zmiana koloru
             scores[emotion] += score;
+            
+            // Podświetlenie wybranej opcji
+            const buttons = button.parentNode.querySelectorAll(".option-button");
+            buttons.forEach(btn => btn.classList.remove("selected"));
+            button.classList.add("selected");
+
             document.getElementById("next-button").style.display = "block";
         }
 
