@@ -29,6 +29,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
 
         .test-container h1 {
@@ -151,6 +152,24 @@
             background-color: #8E79D9 !important;
         }
 
+        .go-home-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .go-home-button:hover {
+            background-color: #F14F4F;
+        }
+
     </style>
 </head>
 <body>
@@ -165,12 +184,14 @@
             Twoja dominująca emocja to: <span id="emotion-result"></span>
             <div class="result-buttons">
                 <button class="result-button" onclick="restartTest()">Zrób test od nowa</button>
-                <button class="result-button" onclick="goHome()">Powrót do strony głównej</button>
             </div>
-            <button class="result-link" id="emotion-link" onclick="goToArticle()">Co możesz z tym zrobić?</button>
+            <button class="result-link" id="emotion-link" onclick="goToArticle()">Jak sobie z tym poradzić?</button>
             <button class="coping-button" id="coping-button" onclick="showCopingArticle()">Jak sobie z tym poradzić?</button>
         </div>
     </div>
+
+    <!-- Przycisk powrotu do strony głównej -->
+    <button class="go-home-button" onclick="goHome()">Powrót do strony głównej</button>
 
     <script>
         const questions = [
