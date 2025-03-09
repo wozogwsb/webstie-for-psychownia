@@ -224,6 +224,7 @@
         <button class="nav-button">Kontakt</button>
     </div>
 
+    <!-- Pierwszy kontener: Opcje -->
     <div class="content" id="mainContent">
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący">
@@ -237,16 +238,18 @@
         </div>
     </div>
 
-    <!-- Kontener emocji -->
-    <div class="emotion-container">
-        <h2>Jak się dzisiaj czujesz?</h2>
-        <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
-        <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
-        <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
-        <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
-        <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
-        <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
-        <div class="emotion-result" id="emotionResult"></div>
+    <!-- Drugi kontener: Emocje -->
+    <div class="content" id="emotionContent">
+        <div class="emotion-container">
+            <h2>Jak się dzisiaj czujesz?</h2>
+            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            <div class="emotion-result" id="emotionResult"></div>
+        </div>
     </div>
 
     <div id="article-stres" class="article-container">
