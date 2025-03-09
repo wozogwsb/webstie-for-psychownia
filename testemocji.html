@@ -20,15 +20,19 @@
 
         .test-container {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 80%;
-            max-width: 500px;
+            max-width: 600px;
+            min-height: 500px; /* Zwiększyłem wysokość kontenera */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .test-container h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #333;
             margin-bottom: 20px;
         }
@@ -41,8 +45,8 @@
 
         .options {
             display: flex;
-            justify-content: space-evenly;
-            gap: 10px;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .option-button {
@@ -89,6 +93,27 @@
         .result span {
             font-weight: bold;
         }
+
+        .result-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .result-button {
+            padding: 12px 30px;
+            background-color: #3BBFB2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .result-button:hover {
+            background-color: #8E79D9;
+        }
     </style>
 </head>
 <body>
@@ -101,6 +126,10 @@
         <button class="next-button" id="next-button" onclick="nextQuestion()">Następne pytanie</button>
         <div class="result" id="result">
             Twoja dominująca emocja to: <span id="emotion-result"></span>
+            <div class="result-buttons">
+                <button class="result-button" onclick="restartTest()">Zrób test od nowa</button>
+                <button class="result-button" onclick="goHome()">Powrót do strony głównej</button>
+            </div>
         </div>
     </div>
 
@@ -175,6 +204,23 @@
             const maxScore = Math.max(...Object.values(scores));
             const dominantEmotion = Object.keys(scores).find(emotion => scores[emotion] === maxScore);
             return dominantEmotion.charAt(0).toUpperCase() + dominantEmotion.slice(1);
+        }
+
+        function restartTest() {
+            currentQuestionIndex = 0;
+            scores = {
+                happy: 0,
+                sad: 0,
+                anger: 0,
+                fear: 0
+            };
+            document.getElementById("result").style.display = "none";
+            loadQuestion();
+            document.getElementById("next-button").style.display = "block";
+        }
+
+        function goHome() {
+            window.location.href = 'index.html'; // Powrót do strony głównej
         }
 
         loadQuestion(); // Załaduj pierwsze pytanie
