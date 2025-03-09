@@ -316,26 +316,36 @@
         if (selectedOption === 'Tak') {
             resultMessage = 'Twoja emocja to Złość lub Lęk!';
             resultDescription = `
-                Złość to intensywna emocja wywołana frustracją, niesprawiedliwością lub zagrożeniem. Jest częścią mechanizmu obronnego i pomaga reagować na zagrożenia.
-                Pozytywna rola – motywuje do działania, wyznaczania granic i rozwiązywania problemów.
-                🔹 Jak kontrolować? – techniki oddechowe, aktywność fizyczna i zmiana myślenia pomagają unikać impulsywnych reakcji.
-
-                Lęk to emocja związana z przewidywaniem zagrożenia, nawet gdy nie jest ono bezpośrednie. Jest ewolucyjnie ważny, ale przewlekły lęk może prowadzić do problemów psychicznych.
-                🔹 Pozytywna rola – zwiększa czujność i pomaga unikać ryzyka.
-                🔹 Jak go zmniejszyć? – medytacja, techniki oddechowe, aktywność fizyczna i terapia poznawcza mogą obniżyć poziom lęku.
+                <strong>Złość</strong> to intensywna emocja wywołana frustracją, niesprawiedliwością lub zagrożeniem. Jest częścią naszego mechanizmu obronnego, który pomaga reagować na zagrożenia.
+                <br><br>
+                🔹 <strong>Pozytywna rola:</strong> Złość motywuje do działania, wyznaczania granic i rozwiązywania problemów.
+                <br><br>
+                🔹 <strong>Jak kontrolować?</strong> Stosuj techniki oddechowe, regularną aktywność fizyczną i staraj się zmieniać myślenie, aby unikać impulsywnych reakcji.
+                <br><br>
+                <strong>Lęk</strong> to emocja, która wiąże się z przewidywaniem zagrożenia, nawet gdy nie jest ono bezpośrednie. Choć ewolucyjnie pełni ważną rolę, przewlekły lęk może prowadzić do problemów psychicznych.
+                <br><br>
+                🔹 <strong>Pozytywna rola:</strong> Lęk zwiększa naszą czujność i pomaga unikać ryzykownych sytuacji.
+                <br><br>
+                🔹 <strong>Jak go zmniejszyć?</strong> Regularna medytacja, techniki oddechowe, aktywność fizyczna i terapia poznawcza to skuteczne metody na obniżenie poziomu lęku.
             `;
         } else {
             resultMessage = 'Twoja emocja to Spokój!';
             resultDescription = `
-                Spokój to stan emocjonalny charakteryzujący się harmonią, niskim pobudzeniem i brakiem stresu. Spokój sprzyja racjonalnemu myśleniu i dobremu samopoczuciu.
+                <strong>Spokój</strong> to stan emocjonalny, który charakteryzuje się harmonią, niskim pobudzeniem i brakiem stresu. Sprzyja racjonalnemu myśleniu oraz dobremu samopoczuciu.
+                <br><br>
                 Aby usprawnić i zachować spokój, warto:
-
-                🧘‍♂️ Ćwiczyć uważność (mindfulness) – skupianie się na chwili obecnej zmniejsza stres.
-                🌿 Spędzać czas w naturze – kontakt z przyrodą obniża poziom kortyzolu.
-                💨 Stosować techniki oddechowe – np. metoda 4-7-8 pomaga regulować układ nerwowy.
-                🏃‍♂️ Regularnie się ruszać – aktywność fizyczna zwiększa poziom endorfin i serotoniny.
-                😌 Unikać nadmiaru bodźców – ograniczenie hałasu i mediów społecznościowych sprzyja wewnętrznej równowadze.
-                🛏️ Dbać o sen – regeneracja organizmu jest kluczowa dla stabilności emocjonalnej.
+                <br><br>
+                🧘‍♂️ <strong>Ćwiczyć uważność (mindfulness)</strong> – skupianie się na chwili obecnej zmniejsza stres i pomaga w koncentracji.
+                <br><br>
+                🌿 <strong>Spędzać czas w naturze</strong> – kontakt z przyrodą obniża poziom kortyzolu (hormonu stresu).
+                <br><br>
+                💨 <strong>Stosować techniki oddechowe</strong> – np. metoda 4-7-8 pomaga regulować układ nerwowy, dając uczucie spokoju.
+                <br><br>
+                🏃‍♂️ <strong>Regularnie się ruszać</strong> – aktywność fizyczna zwiększa poziom endorfin i serotoniny, poprawiając nastrój.
+                <br><br>
+                😌 <strong>Unikać nadmiaru bodźców</strong> – ograniczenie hałasu, mediów społecznościowych i niepotrzebnych informacji sprzyja wewnętrznej równowadze.
+                <br><br>
+                🛏️ <strong>Dbać o sen</strong> – odpowiednia ilość snu to klucz do regeneracji organizmu i utrzymania stabilności emocjonalnej.
             `;
         }
 
@@ -352,9 +362,9 @@
     function handleResult() {
         let redirectUrl = '';
         if (selectedOption === 'Tak') {
-            redirectUrl = 'zlosc.html';
+            redirectUrl = 'zlosc.html';  // Adres strony, gdzie znajdziesz więcej o Złości
         } else {
-            redirectUrl = 'spokoj.html';
+            redirectUrl = 'spokoj.html';  // Adres strony, gdzie znajdziesz więcej o Spokoju
         }
 
         if (redirectUrl) {
@@ -364,6 +374,5 @@
 
     showQuestion(currentQuestionIndex);
 </script>
-
 </body>
 </html>
