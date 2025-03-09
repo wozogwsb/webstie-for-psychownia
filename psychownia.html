@@ -158,7 +158,7 @@
             width: 90%;
             max-width: 400px;
             margin: 20px auto;
-            display: block; /* Upewnij się, że kontener emocji jest widoczny */
+            display: block;
         }
 
         .emotion-button {
@@ -236,18 +236,18 @@
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
             </div>
         </div>
+    </div>
 
-        <!-- Kontener emocji -->
-        <div class="emotion-container">
-            <h2>Jak się dzisiaj czujesz?</h2>
-            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
-            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
-            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
-            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
-            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
-            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
-            <div class="emotion-result" id="emotionResult"></div>
-        </div>
+    <!-- Kontener emocji -->
+    <div class="emotion-container">
+        <h2>Jak się dzisiaj czujesz?</h2>
+        <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+        <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+        <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+        <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+        <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+        <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+        <div class="emotion-result" id="emotionResult"></div>
     </div>
 
     <div id="article-stres" class="article-container">
@@ -255,7 +255,7 @@
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
         <p>Stres to reakcja organizmu na wyzwania. Może mobilizować do działania, ale długotrwały stres szkodzi zdrowiu.</p>
         <button class="choose-button" onclick="goBack()">Wróć</button>
-    </div>
+    </div> 
 
     <div id="article-zlosc" class="article-container">
         <h2>Złość - jak nad nią zapanować?</h2>
