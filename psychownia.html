@@ -158,7 +158,6 @@
             width: 90%;
             max-width: 400px;
             margin: 20px auto;
-            display: block;
         }
 
         .emotion-button {
@@ -255,7 +254,7 @@
         <img src="stressed.jpeg" alt="Obrazek przedstawiający stres">
         <p>Stres to reakcja organizmu na wyzwania. Może mobilizować do działania, ale długotrwały stres szkodzi zdrowiu.</p>
         <button class="choose-button" onclick="goBack()">Wróć</button>
-    </div> 
+    </div>
 
     <div id="article-zlosc" class="article-container">
         <h2>Złość - jak nad nią zapanować?</h2>
@@ -288,6 +287,16 @@
         // Funkcja do powrotu do poprzedniej strony artykułu
         function goBack() {
             window.history.back();
+        }
+
+        // Funkcja do przełączania widoczności opcji
+        function toggleOptions() {
+            var options = document.getElementById('options');
+            if (options.style.display === "none" || options.style.display === "") {
+                options.style.display = "block";
+            } else {
+                options.style.display = "none";
+            }
         }
     </script>
 
