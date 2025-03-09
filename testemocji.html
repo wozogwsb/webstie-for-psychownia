@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Emocji</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -170,165 +170,127 @@
             background-color: #F14F4F;
         }
 
+        /* Media queries for smaller screens */
+        @media (max-width: 600px) {
+            .test-container {
+                padding: 20px;
+            }
+
+            .question {
+                font-size: 1rem;
+            }
+
+            .option-button {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+
+            .next-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .result {
+                font-size: 1.3rem;
+            }
+
+            .result-button {
+                padding: 10px 20px;
+            }
+
+            .result-link {
+                padding: 10px 20px;
+            }
+
+            .coping-button {
+                padding: 10px 20px;
+            }
+
+            /* Przyciski i kontener dostosowane do wersji mobilnej */
+            .go-home-button {
+                position: fixed;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 12px 30px;
+                background-color: #F18F8F;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .go-home-button:hover {
+                background-color: #F14F4F;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="test-container">
-        <h1>Test Emocji</h1>
-        <div id="question-container">
-            <!-- Pytania będą wyświetlane dynamicznie tutaj -->
-        </div>
-        <button class="next-button" id="next-button" onclick="nextQuestion()">Następne pytanie</button>
-        <div class="result" id="result">
-            Twoja dominująca emocja to: <span id="emotion-result"></span>
-            <div class="result-buttons">
-                <button class="result-button" onclick="restartTest()">Zrób test od nowa</button>
-            </div>
-            <button class="coping-button" id="coping-button" onclick="showCopingArticle()">Jak sobie z tym poradzić?</button>
+<div class="test-container">
+    <h1>Test emocji</h1>
+    <div id="question-container">
+        <p class="question">Jak się dzisiaj czujesz?</p>
+        <div class="options">
+            <button class="option-button" onclick="selectOption(this)">Zły</button>
+            <button class="option-button" onclick="selectOption(this)">Smutny</button>
+            <button class="option-button" onclick="selectOption(this)">Zestresowany</button>
+            <button class="option-button" onclick="selectOption(this)">Szczęśliwy</button>
         </div>
     </div>
+    <button id="next-button" class="next-button" onclick="nextQuestion()">Następne</button>
+    <button id="go-home" class="go-home-button" onclick="window.location.href='index.html'">Powrót do strony głównej</button>
+</div>
 
-    <!-- Przycisk powrotu do strony głównej -->
-    <button class="go-home-button" onclick="goHome()">Powrót do strony głównej</button>
+<script>
+    let selectedOption = null;
 
-    <script>
-        const questions = [
-            {
-                question: "Czujesz się ostatnio szczęśliwy/a?",
-                options: ["Zdecydowanie nie", "Raczej nie", "Neutralnie", "Raczej tak", "Zdecydowanie tak"],
-                emotion: "happy"
-            },
-            {
-                question: "Jak często czujesz się smutny/a?",
-                options: ["Zdecydowanie nie", "Rzadko", "Czasami", "Często", "Zdecydowanie tak"],
-                emotion: "sad"
-            },
-            {
-                question: "Czy łatwo wpadasz w złość?",
-                options: ["Zdecydowanie nie", "Rzadko", "Czasami", "Często", "Zdecydowanie tak"],
-                emotion: "anger"
-            },
-            {
-                question: "Czy czujesz się czasem lękliwy/a?",
-                options: ["Zdecydowanie nie", "Rzadko", "Czasami", "Często", "Zdecydowanie tak"],
-                emotion: "fear"
-            }
-        ];
+    function selectOption(button) {
+        const buttons = document.querySelectorAll('.option-button');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+        selectedOption = button.innerText;
+    }
 
-        let currentQuestionIndex = 0;
-        let scores = {
-            happy: 0,
-            sad: 0,
-            anger: 0,
-            fear: 0
-        };
-
-        function loadQuestion() {
-            const question = questions[currentQuestionIndex];
-            const questionContainer = document.getElementById("question-container");
-            questionContainer.innerHTML = `
-                <div class="question">${question.question}</div>
-                <div class="options">
-                    ${question.options.map((option, index) => `
-                        <button class="option-button" onclick="selectOption('${question.emotion}', ${index}, this)">${option}</button>
-                    `).join('')}
-                </div>
-            `;
-            document.getElementById("next-button").style.display = "none";
+    function nextQuestion() {
+        if (!selectedOption) {
+            alert('Wybierz jedną z opcji!');
+            return;
         }
 
-        function selectOption(emotion, score, button) {
-            // Wybór opcji i zmiana koloru
-            scores[emotion] += score;
-            
-            // Podświetlenie wybranej opcji
-            const buttons = button.parentNode.querySelectorAll(".option-button");
-            buttons.forEach(btn => btn.classList.remove("selected"));
-            button.classList.add("selected");
+        document.getElementById('question-container').innerHTML = `
+            <p class="question">Twój wynik to: <span>${selectedOption}</span></p>
+            <button class="coping-button" onclick="handleResult()">Jak sobie z tym poradzić?</button>
+        `;
+        document.getElementById('next-button').style.display = 'none';
+    }
 
-            document.getElementById("next-button").style.display = "block";
+    function handleResult() {
+        let redirectUrl = '';
+
+        switch (selectedOption) {
+            case 'Zły':
+                redirectUrl = 'zlosc.html';
+                break;
+            case 'Smutny':
+                redirectUrl = 'smutek.html';
+                break;
+            case 'Zestresowany':
+                redirectUrl = 'strach.html';
+                break;
+            case 'Szczęśliwy':
+                redirectUrl = 'szczescie.html';
+                break;
         }
 
-        function nextQuestion() {
-            if (currentQuestionIndex < questions.length - 1) {
-                currentQuestionIndex++;
-                loadQuestion();
-            } else {
-                showResult();
-            }
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
         }
-
-        function showResult() {
-            let dominantEmotion = getDominantEmotion();
-            document.getElementById("result").style.display = "block";
-            document.getElementById("emotion-result").innerText = getEmotionDescription(dominantEmotion);
-            document.getElementById("next-button").style.display = "none";
-            document.getElementById("coping-button").style.display = "block";
-            setEmotionLink(dominantEmotion);
-        }
-
-        function getDominantEmotion() {
-            const maxScore = Math.max(...Object.values(scores));
-            const dominantEmotion = Object.keys(scores).find(emotion => scores[emotion] === maxScore);
-            return dominantEmotion;
-        }
-
-        function getEmotionDescription(emotion) {
-            const descriptions = {
-                happy: "Szczęśliwy/a – czujesz radość i zadowolenie z życia.",
-                sad: "Smutny/a – czujesz smutek, przygnębienie lub tęsknotę.",
-                anger: "Zły/a – czujesz złość, irytację lub frustrację.",
-                fear: "Zestresowany/a – czujesz lęk, niepokój lub obawy."
-            };
-            return descriptions[emotion] || "Nieznana emocja";
-        }
-
-        function setEmotionLink(emotion) {
-            const link = document.getElementById("coping-button");
-            if (emotion === "anger") {
-                link.onclick = () => window.location.href = 'zlosc.html';
-            } else if (emotion === "sad") {
-                link.onclick = () => window.location.href = 'smutek.html';
-            } else if (emotion === "fear") {
-                link.onclick = () => window.location.href = 'strach.html';
-            } else if (emotion === "happy") {
-                link.onclick = () => window.location.href = 'szczescie.html';
-            }
-        }
-
-        function showCopingArticle() {
-            const dominantEmotion = getDominantEmotion();
-            if (dominantEmotion === "anger") {
-                window.location.href = 'zlosc.html';
-            } else if (dominantEmotion === "sad") {
-                window.location.href = 'smutek.html';
-            } else if (dominantEmotion === "fear") {
-                window.location.href = 'strach.html';
-            } else if (dominantEmotion === "happy") {
-                window.location.href = 'szczescie.html';
-            }
-        }
-
-        function restartTest() {
-            currentQuestionIndex = 0;
-            scores = {
-                happy: 0,
-                sad: 0,
-                anger: 0,
-                fear: 0
-            };
-            document.getElementById("result").style.display = "none";
-            loadQuestion();
-            document.getElementById("next-button").style.display = "block";
-        }
-
-        function goHome() {
-            window.location.href = 'index.html'; // Powrót do strony głównej
-        }
-
-        loadQuestion(); // Załaduj pierwsze pytanie
-    </script>
+    }
+</script>
 
 </body>
 </html>
