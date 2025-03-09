@@ -66,6 +66,10 @@
             background-color: #8E79D9;
         }
 
+        .selected {
+            background-color: #8E79D9 !important;
+        }
+
         .next-button {
             padding: 12px 30px;
             background-color: #89A6CE;
@@ -147,10 +151,6 @@
 
         .coping-button:hover {
             background-color: #F1A327;
-        }
-
-        .selected {
-            background-color: #8E79D9 !important;
         }
 
         /* Przyciski powrotu w wersji desktop */
@@ -283,8 +283,8 @@
     // Zmienna na przechowywanie wyboru
     function selectOption(button) {
         const buttons = document.querySelectorAll('.option-button');
-        buttons.forEach(btn => btn.classList.remove('selected'));
-        button.classList.add('selected');
+        buttons.forEach(btn => btn.classList.remove('selected')); // Usunięcie zaznaczenia z innych przycisków
+        button.classList.add('selected'); // Dodanie zaznaczenia na kliknięty przycisk
         selectedOption = button.innerText;
     }
 
