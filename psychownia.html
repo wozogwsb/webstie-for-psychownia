@@ -229,9 +229,9 @@
         <div class="image-container">
             <img src="cutie.jpeg" alt="Mózg ćwiczący">
             <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
+            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz</button>
 
-            <div class="options-container" id="options">
+            <div class="options-container" id="options1">
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
             </div>
@@ -239,22 +239,22 @@
     </div>
 
     <!-- Drugi kontener: Emocje -->
-<div class="content" id="emotionContent">
-    <div class="image-container">
-        <img src="lupa.jpg" alt="Definicja emocji">
-        <div class="text">Jak się dzisiaj czujesz?</div>
-        <button class="choose-button" onclick="toggleOptions()">Wybierz</button>
+    <div class="content" id="emotionContent">
+        <div class="image-container">
+            <img src="lupa.jpg" alt="Definicja emocji">
+            <div class="text">Jak się dzisiaj czujesz?</div>
+            <button class="choose-button" onclick="toggleOptions('options2')">Wybierz</button>
 
-        <div class="options-container" id="options">
-            <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
-            <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
-            <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
-            <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
-            <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
-            <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            <div class="options-container" id="options2">
+                <button class="emotion-button" onclick="showEmotion('Szczęśliwy')">😊 Szczęśliwy</button>
+                <button class="emotion-button" onclick="showEmotion('Smutny')">😢 Smutny</button>
+                <button class="emotion-button" onclick="showEmotion('Zły')">😡 Zły</button>
+                <button class="emotion-button" onclick="showEmotion('Zaskoczony')">😲 Zaskoczony</button>
+                <button class="emotion-button" onclick="showEmotion('Zrelaksowany')">😌 Zrelaksowany</button>
+                <button class="emotion-button" onclick="showEmotion('Zestresowany')">😰 Zestresowany</button>
+            </div>
         </div>
     </div>
-</div>
 
     <div id="article-stres" class="article-container">
         <h2>Stres - naturalna reakcja organizmu</h2>
@@ -297,8 +297,8 @@
         }
 
         // Funkcja do przełączania widoczności opcji
-        function toggleOptions() {
-            var options = document.getElementById('options');
+        function toggleOptions(optionId) {
+            var options = document.getElementById(optionId);
             if (options.style.display === "none" || options.style.display === "") {
                 options.style.display = "block";
             } else {
