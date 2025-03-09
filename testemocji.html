@@ -185,7 +185,6 @@
             <div class="result-buttons">
                 <button class="result-button" onclick="restartTest()">Zrób test od nowa</button>
             </div>
-            <button class="result-link" id="emotion-link" onclick="goToArticle()">Jak sobie z tym poradzić?</button>
             <button class="coping-button" id="coping-button" onclick="showCopingArticle()">Jak sobie z tym poradzić?</button>
         </div>
     </div>
@@ -265,9 +264,8 @@
             document.getElementById("result").style.display = "block";
             document.getElementById("emotion-result").innerText = getEmotionDescription(dominantEmotion);
             document.getElementById("next-button").style.display = "none";
-            document.getElementById("emotion-link").style.display = "block";
-            setEmotionLink(dominantEmotion);
             document.getElementById("coping-button").style.display = "block";
+            setEmotionLink(dominantEmotion);
         }
 
         function getDominantEmotion() {
@@ -287,7 +285,7 @@
         }
 
         function setEmotionLink(emotion) {
-            const link = document.getElementById("emotion-link");
+            const link = document.getElementById("coping-button");
             if (emotion === "anger") {
                 link.onclick = () => window.location.href = 'zlosc.html';
             } else if (emotion === "sad") {
