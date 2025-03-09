@@ -114,6 +114,38 @@
         .result-button:hover {
             background-color: #8E79D9;
         }
+
+        .result-link {
+            padding: 12px 30px;
+            background-color: #F18F8F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .result-link:hover {
+            background-color: #F14F4F;
+        }
+
+        .coping-button {
+            padding: 12px 30px;
+            background-color: #F1B340;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .coping-button:hover {
+            background-color: #F1A327;
+        }
     </style>
 </head>
 <body>
@@ -130,6 +162,8 @@
                 <button class="result-button" onclick="restartTest()">Zrób test od nowa</button>
                 <button class="result-button" onclick="goHome()">Powrót do strony głównej</button>
             </div>
+            <button class="result-link" id="emotion-link" onclick="goToArticle()">Co możesz z tym zrobić?</button>
+            <button class="coping-button" id="coping-button" onclick="showCopingArticle()">Jak sobie z tym poradzić?</button>
         </div>
     </div>
 
@@ -198,6 +232,9 @@
             document.getElementById("result").style.display = "block";
             document.getElementById("emotion-result").innerText = getEmotionDescription(dominantEmotion);
             document.getElementById("next-button").style.display = "none";
+            document.getElementById("emotion-link").style.display = "block";
+            setEmotionLink(dominantEmotion);
+            document.getElementById("coping-button").style.display = "block";
         }
 
         function getDominantEmotion() {
@@ -214,6 +251,32 @@
                 fear: "Zestresowany/a – czujesz lęk, niepokój lub obawy."
             };
             return descriptions[emotion] || "Nieznana emocja";
+        }
+
+        function setEmotionLink(emotion) {
+            const link = document.getElementById("emotion-link");
+            if (emotion === "anger") {
+                link.onclick = () => window.location.href = 'zlosc.html';
+            } else if (emotion === "sad") {
+                link.onclick = () => window.location.href = 'smutek.html';
+            } else if (emotion === "fear") {
+                link.onclick = () => window.location.href = 'strach.html';
+            } else if (emotion === "happy") {
+                link.onclick = () => window.location.href = 'szczescie.html';
+            }
+        }
+
+        function showCopingArticle() {
+            const dominantEmotion = getDominantEmotion();
+            if (dominantEmotion === "anger") {
+                window.location.href = 'zlosc.html';
+            } else if (dominantEmotion === "sad") {
+                window.location.href = 'smutek.html';
+            } else if (dominantEmotion === "fear") {
+                window.location.href = 'strach.html';
+            } else if (dominantEmotion === "happy") {
+                window.location.href = 'szczescie.html';
+            }
         }
 
         function restartTest() {
