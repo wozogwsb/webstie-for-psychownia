@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychownia</title>
+    <title>Artykuły - Psychownia</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            text-align: center;
+            color: #333;
         }
 
         /* Nawigacja */
@@ -21,7 +21,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            background: #E5E5E5; /* Delikatny szary gradient */
+            background: #E5E5E5;
             padding: 12px 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -37,30 +37,22 @@
             gap: 10px;
             padding: 12px 18px;
             background-color: transparent;
-            color: #333; /* Ciemny tekst */
+            color: #333;
             font-size: 1.2rem;
-            border: 2px solid #72A603; /* Subtelna ramka */
+            border: 2px solid #72A603;
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s ease, color 0.2s ease;
             height: 50px;
             min-width: 160px;
             text-align: center;
-            font-family: 'Lora', serif; /* Czcionka Lora dla przycisków */
+            font-family: 'Lora', serif;
         }
 
         .nav-button:hover, .logo-button:hover {
-            background-color: #72A603; /* Zieleń */
+            background-color: #72A603;
             color: white;
             transform: translateY(-3px);
-        }
-
-        .logo-button {
-            background: transparent;
-        }
-
-        .logo-button:hover {
-            background: #99D0F2;  /* Jasny niebieski */
         }
 
         .logo-button img {
@@ -73,121 +65,96 @@
         .logo-button span {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #333; /* Ciemny tekst */
+            color: #333;
         }
 
-        /* Responsywność */
-        @media (max-width: 768px) {
-            .navbar {
-                justify-content: space-around;
-            }
-
-            .nav-button, .logo-button {
-                font-size: 1rem;
-                padding: 10px;
-                flex: 1;
-                min-width: 120px;
-                height: 45px;
-            }
+        /* Nagłówek */
+        .header {
+            background-color: #72A603;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-button, .logo-button {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-
-        /* Reszta stylów */
-        .content {
-            padding: 30px 15px;
-        }
-
-        .image-container {
-            display: inline-block;
+        /* Artykuły */
+        .articles-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
             padding: 20px;
-            background-color: #fff;
+            margin-top: 40px;
+            justify-content: center;
+            scroll-behavior: smooth;
+        }
+
+        .article-item {
+            flex: 0 0 auto;
+            width: 250px;
+            background-color: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 350px;
             text-align: center;
-            margin: 20px auto;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
-        .image-container img {
+        .article-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-item img {
             width: 100%;
-            height: auto;
+            height: 150px;
             object-fit: cover;
             border-radius: 8px;
         }
 
-        .choose-button, .option-button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            background-color: transparent;
-            color: #333;
-            font-size: 1.1rem;
-            border: 2px solid #72A603;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s ease;
-            width: 100%;
-            max-width: 220px;
-            font-family: 'Lora', serif;
+        .article-item h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        .choose-button:hover, .option-button:hover {
+        .article-item p {
+            font-size: 1rem;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .article-item a {
+            text-decoration: none;
+            color: #72A603;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .article-item a:hover {
+            color: #4a8f22;
+        }
+
+        .load-more-btn {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            padding: 12px;
             background-color: #72A603;
             color: white;
-            transform: translateY(-3px);
-        }
-
-        .options-container {
-            display: none;
-            margin-top: 15px;
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styl dla testu emocji */
-        .emotion-container {
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
             text-align: center;
-            width: 90%;
-            max-width: 400px;
-            margin: 20px auto;
-        }
-
-        .emotion-button {
-            margin: 10px;
-            padding: 12px 25px;
-            background-color: transparent;
-            color: #333;
-            font-size: 1.1rem;
-            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s ease;
-            font-family: 'Lora', serif;
+            transition: background-color 0.3s ease;
         }
 
-        .emotion-button:hover {
-            background-color: #72A603;
-            color: white;
-            transform: translateY(-3px);
+        .load-more-btn:hover {
+            background-color: #4a8f22;
         }
+
     </style>
 </head>
 <body>
@@ -205,41 +172,54 @@
         <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
     </div>
 
-    <!-- Pierwszy kontener: Opcje -->
-    <div class="content" id="mainContent">
-        <div class="image-container">
-            <img src="cutie.jpeg" alt="Mózg ćwiczący">
-            <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz</button>
+    <!-- Nagłówek -->
+    <header class="header">
+        Artykuły na temat psychologii
+    </header>
 
-            <div class="options-container" id="options1">
-                <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
-                <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
+    <!-- Sekcja artykułów -->
+    <section>
+        <div class="articles-scroll">
+            <!-- Pierwszy artykuł -->
+            <div class="article-item">
+                <img src="article1.jpg" alt="Artykuł 1">
+                <h3>Tytuł artykułu 1</h3>
+                <p>Krótki opis artykułu, który zachęca do kliknięcia i przeczytania pełnej treści...</p>
+                <a href="artykul1.html">Czytaj więcej</a>
             </div>
-        </div>
-    </div>
 
-    <!-- Drugi kontener: Test emocji -->
-    <div class="content" id="emotionContent">
-        <div class="image-container">
-            <img src="lupa.jpg" alt="Test emocji">
-            <div class="text">Chcesz sprawdzić, jak się dzisiaj czujesz?</div>
-            <button class="choose-button" onclick="startEmotionTest()">Testuj moje samopoczucie</button>
+            <!-- Drugi artykuł -->
+            <div class="article-item">
+                <img src="article2.jpg" alt="Artykuł 2">
+                <h3>Tytuł artykułu 2</h3>
+                <p>Krótki opis artykułu 2, który wprowadza w tematykę i zainteresuje czytelnika...</p>
+                <a href="artykul2.html">Czytaj więcej</a>
+            </div>
+
+            <!-- Trzeci artykuł -->
+            <div class="article-item">
+                <img src="article3.jpg" alt="Artykuł 3">
+                <h3>Tytuł artykułu 3</h3>
+                <p>Krótki opis artykułu 3, który jest ciekawy i przystępny...</p>
+                <a href="artykul3.html">Czytaj więcej</a>
+            </div>
+
+            <!-- Kolejne artykuły (powtarzaj strukturę .article-item w razie potrzeby) -->
         </div>
-    </div>
+
+        <!-- Przycisk do ładowania kolejnych artykułów -->
+        <button class="load-more-btn" onclick="loadMoreArticles()">Załaduj więcej</button>
+    </section>
 
     <script>
-        function startEmotionTest() {
-            window.location.href = 'testemocji.html';
+        // Funkcja do ładowania kolejnych artykułów (symulacja)
+        function loadMoreArticles() {
+            alert('Ładowanie kolejnych artykułów...');
+            // Możesz dodać tutaj kod do dynamicznego ładowania artykułów, np. przez AJAX
         }
 
         function goToHome() {
             window.location.href = 'index.html';
-        }
-
-        function toggleOptions(optionId) {
-            var options = document.getElementById(optionId);
-            options.style.display = (options.style.display === "none" || options.style.display === "") ? "block" : "none";
         }
     </script>
 
