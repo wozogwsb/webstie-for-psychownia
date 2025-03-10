@@ -10,7 +10,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f7f7f7;
             color: #333;
             text-align: center;
         }
@@ -21,9 +21,9 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            background-color: #2C3E50;
+            background-color: #2E5A46; /* Subtelna zieleń */
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .logo-button {
@@ -53,7 +53,7 @@
 
         .nav-button {
             padding: 10px 20px;
-            background-color: #3BBFB2;
+            background-color: #A0C9A7; /* Pastelowa zieleń */
             color: white;
             font-size: 1rem;
             font-weight: bold;
@@ -73,24 +73,25 @@
         }
 
         .section-title {
-            font-size: 2rem;
-            color: #3BBFB2;
+            font-size: 2.2rem;
+            color: #2E5A46;
             margin-bottom: 20px;
             font-weight: bold;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: #2C3E50;
+            font-size: 1.3rem;
+            color: #5C6B56; /* Umiarkowana zieleń */
             margin-bottom: 30px;
+            font-weight: 400;
         }
 
         .image-container {
             display: inline-block;
-            padding: 20px;
+            padding: 25px;
             background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 350px;
             margin: 0 auto;
@@ -100,17 +101,17 @@
             width: 100%;
             height: auto;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .choose-button {
-            margin-top: 20px;
-            padding: 10px 25px;
+            margin-top: 25px;
+            padding: 12px 28px;
             background-color: #3BBFB2;
             color: white;
             font-size: 1.1rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -123,15 +124,15 @@
             margin-top: 20px;
             display: none;
             background-color: #fff;
-            padding: 10px;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .option-button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #3BBFB2;
+            margin-top: 15px;
+            padding: 12px 22px;
+            background-color: #A0C9A7;
             color: white;
             font-size: 1rem;
             border: none;
@@ -141,6 +142,34 @@
         }
 
         .option-button:hover {
+            background-color: #2C97A1;
+        }
+
+        /* Styl dla testu emocji */
+        .emotion-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .emotion-button {
+            padding: 12px 24px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .emotion-button:hover {
             background-color: #2C97A1;
         }
 
@@ -154,6 +183,11 @@
             .nav-button {
                 width: 100%;
                 margin: 5px 0;
+            }
+
+            .image-container {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -178,9 +212,9 @@
         <div class="section-title">Test Emocji</div>
         <div class="section-subtitle">Chcesz sprawdzić, jak się dzisiaj czujesz?</div>
 
-        <div class="image-container">
+        <div class="emotion-container">
             <img src="test_emocji.jpg" alt="Test emocji">
-            <div class="choose-button" onclick="startEmotionTest()">Testuj moje samopoczucie</div>
+            <button class="emotion-button" onclick="startEmotionTest()">Testuj moje samopoczucie</button>
         </div>
     </div>
 
@@ -191,7 +225,7 @@
 
         <div class="image-container">
             <img src="psychology_area.jpg" alt="Stres, Złość, etc.">
-            <div class="choose-button" onclick="toggleOptions('options1')">Wybierz temat</div>
+            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz temat</button>
 
             <div class="options-container" id="options1">
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
@@ -217,4 +251,3 @@
 
 </body>
 </html>
-
