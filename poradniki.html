@@ -118,6 +118,7 @@
             background-color: #8E79D9;
         }
 
+        /* Sekcja z poradnikami płatnymi */
         .paid-guide {
             background-color: #f9f9f9;
             padding: 15px;
@@ -150,6 +151,21 @@
             background-color: #8E79D9;
         }
 
+        /* Formularz na pomysły */
+        .idea-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
+        .idea-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
         /* Responsywność */
         @media (max-width: 768px) {
             h1 {
@@ -173,16 +189,14 @@
     </div>
 
     <!-- Nagłówek strony -->
-    <h1>Poradniki – Propozycje od użytkowników oraz płatne materiały</h1>
+    <h1>Poradniki – Twoje zasoby na Psychownia</h1>
 
-    <!-- Formularz propozycji na poradnik -->
+    <!-- Ogólnodostępne poradniki z YouTube -->
     <div class="content-container">
-        <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
-        <form action="https://formspree.io/f/your-email-address" method="POST">
-            <input type="text" name="userName" placeholder="Twoje imię" required>
-            <textarea name="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
-            <button type="submit">Wyślij pomysł</button>
-        </form>
+        <h2>Ogólnodostępne poradniki</h2>
+        <p>Zapraszam do obejrzenia moich poradników dostępnych na YouTube! Kliknij w poniższy film, aby obejrzeć.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Dodaj tutaj inne wideo z YouTube -->
     </div>
 
     <!-- Płatne poradniki -->
@@ -202,6 +216,16 @@
             <p>Poradnik, który pomoże Ci zwiększyć swoją produktywność i skupić się na najważniejszych zadaniach.</p>
             <button onclick="window.location.href = 'payment.html'">Zakup poradnik</button>
         </div>
+    </div>
+
+    <!-- Formularz na pomysły na poradniki od użytkowników -->
+    <div class="idea-container">
+        <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
+        <form action="https://formspree.io/f/your-email-address" method="POST">
+            <input type="text" name="userName" placeholder="Twoje imię" required>
+            <textarea name="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
+            <button type="submit">Wyślij pomysł</button>
+        </form>
     </div>
 
     <script>
