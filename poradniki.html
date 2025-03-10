@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poradniki – Psychownia</title>
+    <title>Psychownia - Poradniki</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Ogólne style strony */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             text-align: center;
-            padding-top: 80px; /* Odstęp od górnego menu */
         }
 
         /* Nawigacja */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 10px 0;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            margin: 15px auto;
         }
 
-        .nav-button, .logo-button {
+        .nav-button {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,132 +45,125 @@
             transition: background 0.3s;
             height: 45px;
             min-width: 120px;
+            text-align: center;
         }
 
         .nav-button:hover {
             background-color: #7A5FD9;
         }
 
-        .logo-button {
-            background: #3BBFB2;
-        }
-
-        .logo-button:hover {
-            background: #8E79D9;
-        }
-
-        .logo-button img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
-
-        .logo-button span {
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* Treść strony */
-        h1 {
-            color: #333;
-            font-size: 2rem;
-            margin-top: 40px;
-        }
-
+        /* Sekcja poradników */
         .content-container {
-            width: 90%;
             max-width: 800px;
-            margin: 30px auto;
-            background-color: #fff;
+            margin: 40px auto;
             padding: 20px;
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .content-container h2 {
-            font-size: 1.5rem;
-            color: #333;
+            font-size: 1.8rem;
+            color: #3BBFB2;
+            margin-bottom: 10px;
+        }
+
+        .content-container p {
+            font-size: 1.1rem;
+            color: #666666;
             margin-bottom: 20px;
         }
 
-        .content-container textarea, .content-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
+        .video-list, .paid-guide-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .content-container button {
-            padding: 12px 20px;
-            background-color: #3BBFB2;
+        .video-list li, .paid-guide-list li {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+
+        .video-list li a, .paid-guide-list li a {
+            text-decoration: none;
+            color: #3BBFB2;
+            font-weight: bold;
+        }
+
+        .video-list li a:hover, .paid-guide-list li a:hover {
+            color: #7A5FD9;
+        }
+
+        .idea-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .idea-container h2 {
+            font-size: 1.8rem;
+            color: #3BBFB2;
+            margin-bottom: 10px;
+        }
+
+        .idea-container p {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            color: #333333;
+            text-align: left;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #3BBFB2;
+            outline: none;
+        }
+
+        button.submit-button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
             color: white;
+            background-color: #3BBFB2;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .content-container button:hover {
+        button.submit-button:hover {
             background-color: #8E79D9;
         }
 
-        /* Sekcja z poradnikami płatnymi */
-        .paid-guide {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 15px 0;
-        }
-
-        .paid-guide h3 {
+        #thankYouMessage {
+            margin-top: 20px;
             font-size: 1.2rem;
-            color: #333;
-        }
-
-        .paid-guide p {
-            color: #555;
-            font-size: 1rem;
-            margin: 10px 0;
-        }
-
-        .paid-guide button {
-            padding: 10px 20px;
-            background-color: #7A5FD9;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .paid-guide button:hover {
-            background-color: #8E79D9;
-        }
-
-        /* Formularz na pomysły */
-        .idea-container {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 30px 0;
-        }
-
-        .idea-container h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        /* Responsywność */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
+            color: #3BBFB2;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -178,47 +171,36 @@
 
     <!-- Nawigacja -->
     <div class="navbar">
-        <button class="logo-button" onclick="goToHome()">
-            <img src="psycho.ico" alt="Logo Psychownia">
-            <span>Psychownia</span>
-        </button>
+        <button class="nav-button" onclick="window.location.href = 'index.html'">Strona Główna</button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
         <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
         <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
     </div>
 
-    <!-- Nagłówek strony -->
-    <h1>Poradniki – Twoje zasoby na Psychownia</h1>
-
-    <!-- Ogólnodostępne poradniki z YouTube -->
+    <!-- Sekcja ogólnodostępnych poradników -->
     <div class="content-container">
-        <h2>Ogólnodostępne poradniki</h2>
-        <p>Zapraszam do obejrzenia moich poradników dostępnych na YouTube! Kliknij w poniższy film, aby obejrzeć.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <!-- Dodaj tutaj inne wideo z YouTube -->
+        <h2>Ogólnodostępne Poradniki</h2>
+        <p>Sprawdź nasze darmowe poradniki wideo, które pomagają w codziennym rozwoju!</p>
+        <ul class="video-list">
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 1: Jak radzić sobie ze stresem</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 2: Jak poprawić swoją pewność siebie</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 3: Techniki relaksacyjne</a></li>
+        </ul>
     </div>
 
-    <!-- Płatne poradniki -->
+    <!-- Sekcja płatnych poradników -->
     <div class="content-container">
         <h2>Płatne Poradniki</h2>
-
-        <!-- Przykład płatnego poradnika -->
-        <div class="paid-guide">
-            <h3>Poradnik: Radzenie sobie ze stresem</h3>
-            <p>W tym poradniku omawiamy skuteczne techniki radzenia sobie ze stresem, które pomogą Ci w codziennym życiu.</p>
-            <button onclick="window.location.href = 'payment.html'">Zakup poradnik</button>
-        </div>
-
-        <!-- Inny przykład płatnego poradnika -->
-        <div class="paid-guide">
-            <h3>Poradnik: Jak poprawić koncentrację</h3>
-            <p>Poradnik, który pomoże Ci zwiększyć swoją produktywność i skupić się na najważniejszych zadaniach.</p>
-            <button onclick="window.location.href = 'payment.html'">Zakup poradnik</button>
-        </div>
+        <p>Chcesz czegoś więcej? Sprawdź nasze płatne poradniki i kursy, które oferują głębszą wiedzę na tematy psychologiczne!</p>
+        <ul class="paid-guide-list">
+            <li><a href="#">Płatny poradnik 1: Rozwój osobisty w pracy</a> - 50 PLN</li>
+            <li><a href="#">Płatny poradnik 2: Zrozumienie emocji</a> - 60 PLN</li>
+            <li><a href="#">Płatny poradnik 3: Jak osiągnąć sukces w życiu</a> - 80 PLN</li>
+        </ul>
     </div>
 
-   <!-- Formularz na pomysły na poradniki -->
+    <!-- Formularz na pomysły na poradniki -->
     <div class="idea-container">
         <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
         <p>Podziel się swoimi pomysłami i pomóż stworzyć poradniki, które będą pomocne dla innych!</p>
