@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Playfair Display', serif; /* Elegancka czcionka */
+            font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -17,16 +17,16 @@
         /* Nawigacja */
         .navbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
             gap: 10px;
-            background: #72A603; /* Zieleń */
-            padding: 12px;
+            background: #89D9D9;
+            padding: 10px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 420px;
-            margin: 20px auto;
+            margin: 15px auto;
+            overflow-x: auto;
         }
 
         .nav-button, .logo-button {
@@ -34,8 +34,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px;
-            background-color: #5BA8A2; /* Ciemniejszy turkus */
+            padding: 10px;
+            background-color: #5BA8A2;
             color: white;
             font-size: 1rem;
             border: none;
@@ -44,19 +44,18 @@
             transition: background 0.3s;
             height: 45px;
             min-width: 120px;
-            text-align: center;
         }
 
         .nav-button:hover {
-            background-color: #038C8C; /* Ciemniejszy turkus */
+            background-color: #038C8C;
         }
 
         .logo-button {
-            background: #72A603; /* Zieleń */
+            background: #72A603;
         }
 
         .logo-button:hover {
-            background: #5BA8A2; /* Ciemniejszy turkus */
+            background: #5BA8A2;
         }
 
         .logo-button img {
@@ -71,14 +70,7 @@
             color: white;
         }
 
-        /* Nagłówek */
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            color: #333;
-        }
-
-        /* Kontener na artykuły */
+        /* Artykuły */
         .articles-container {
             display: flex;
             overflow-x: auto;
@@ -98,12 +90,11 @@
             padding: 15px;
             text-align: left;
             scroll-snap-align: start;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .article-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .article-card img {
@@ -127,7 +118,7 @@
             display: block;
             margin-top: 10px;
             padding: 8px;
-            background: #72A603; /* Zieleń */
+            background: #72A603;
             color: white;
             text-align: center;
             border-radius: 8px;
@@ -137,39 +128,53 @@
         }
 
         .read-more:hover {
-            background: #5BA8A2; /* Ciemniejszy turkus */
+            background: #5BA8A2;
         }
 
         /* Responsywność */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .navbar {
-                width: 95%;
-                max-width: 360px;
-                padding: 8px;
+                flex-wrap: wrap;
+                justify-content: space-around;
                 gap: 5px;
+                width: 100%;
             }
 
-            .nav-button, .logo-button {
-                font-size: 0.9rem;
-                min-width: 100px;
-                height: 40px;
-                padding: 8px;
-            }
-
-            .logo-button img {
-                width: 24px;
-                height: 24px;
+            .nav-button {
+                min-width: 90px;
             }
 
             .articles-container {
                 padding: 15px;
-                gap: 10px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .nav-button {
+                font-size: 0.9rem;
+                min-width: 100%;
+            }
+
+            .articles-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .article-card {
+                width: 100%;
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Nawigacja -->
     <div class="navbar">
         <button class="logo-button" onclick="window.location.href='index.html'">
@@ -215,6 +220,5 @@
             <a href="motywacja.html" class="read-more">Czytaj więcej</a>
         </div>
     </div>
-
 </body>
 </html>
