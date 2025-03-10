@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychownia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Merriweather', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -20,56 +20,55 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            background: #89D9D9;  /* Turkusowy */
-            padding: 10px;
+            gap: 12px;
+            background: #5BA8A2;  /* Ciemniejszy turkus */
+            padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 100%;
-            margin: 15px auto;
+            margin: 20px auto;
         }
 
         .nav-button, .logo-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 10px;
-            background-color: #5BA8A2;  /* Ciemniejszy turkus */
+            gap: 10px;
+            padding: 12px 18px;
+            background-color: #72A603;  /* Zieleń */
             color: white;
-            font-size: 1rem;
+            font-size: 1.2rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
-            height: 45px;
-            min-width: auto;
+            transition: background 0.3s, transform 0.2s ease;
+            height: 50px;
+            min-width: 160px;
             text-align: center;
-            flex: 1;
-            max-width: 180px;
         }
 
-        .nav-button:hover {
+        .nav-button:hover, .logo-button:hover {
             background-color: #5A7302;  /* Stonowana zieleń */
+            transform: translateY(-4px);
         }
 
         .logo-button {
-            background: #72A603;  /* Zieleń */
+            background: #99D0F2;  /* Jasny niebieski */
         }
 
         .logo-button:hover {
-            background: #5BA8A2;  /* Ciemniejszy turkus */
+            background: #72A603;  /* Zieleń */
         }
 
         .logo-button img {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
         }
 
         .logo-button span {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: white;
         }
@@ -81,11 +80,11 @@
             }
 
             .nav-button, .logo-button {
-                font-size: 0.9rem;
-                padding: 8px;
+                font-size: 1.1rem;
+                padding: 10px;
                 flex: 1;
-                min-width: 90px;
-                height: 40px;
+                min-width: 120px;
+                height: 45px;
             }
         }
 
@@ -108,13 +107,14 @@
 
         .image-container {
             display: inline-block;
-            padding: 12px;
+            padding: 20px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 300px;
+            max-width: 350px;
             text-align: center;
+            margin: 10px auto;
         }
 
         .image-container img {
@@ -125,17 +125,17 @@
         }
 
         .choose-button, .option-button {
-            margin-top: 10px;
-            padding: 8px 16px;
+            margin-top: 15px;
+            padding: 12px 20px;
             background-color: #99D0F2;  /* Jasny niebieski */
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
             width: 100%;
-            max-width: 200px;
+            max-width: 220px;
         }
 
         .choose-button:hover, .option-button:hover {
@@ -144,9 +144,9 @@
 
         .options-container {
             display: none;
-            margin-top: 10px;
+            margin-top: 15px;
             background: #fff;
-            padding: 10px;
+            padding: 15px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -165,11 +165,11 @@
         }
 
         .emotion-button {
-            margin: 5px;
-            padding: 10px 20px;
+            margin: 10px;
+            padding: 12px 25px;
             background-color: #99D0F2;  /* Jasny niebieski */
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
