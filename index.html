@@ -10,9 +10,9 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f3f4;
-            text-align: center;
+            background-color: #f4f4f4;
             color: #333;
+            text-align: center;
         }
 
         /* Nawigacja */
@@ -21,34 +21,28 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            background: #2C3E50;
-            padding: 15px 0;
-            border-bottom: 3px solid #3BBFB2;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-button, .logo-button {
-            padding: 10px 20px;
-            background-color: #3BBFB2;
-            color: white;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-            text-decoration: none;
-        }
-
-        .nav-button:hover, .logo-button:hover {
-            background-color: #2C97A1;
+            background-color: #2C3E50;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo-button {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            font-size: 1.3rem;
+            padding: 10px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logo-button:hover {
+            background-color: #2C97A1;
         }
 
         .logo-button img {
@@ -57,38 +51,61 @@
             border-radius: 50%;
         }
 
-        /* Sekcja główna */
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #3BBFB2;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #2C97A1;
+        }
+
+        /* Sekcje */
         .content {
             padding: 40px 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            width: 90%;
-            max-width: 900px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #3BBFB2;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #2C3E50;
+            margin-bottom: 30px;
         }
 
         .image-container {
-            margin-bottom: 30px;
+            display: inline-block;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 350px;
+            margin: 0 auto;
         }
 
         .image-container img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            border-radius: 8px;
         }
 
-        .image-container .text {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-top: 15px;
-            color: #2C3E50;
-        }
-
-        .choose-button, .option-button {
+        .choose-button {
             margin-top: 20px;
-            padding: 12px 24px;
+            padding: 10px 25px;
             background-color: #3BBFB2;
             color: white;
             font-size: 1.1rem;
@@ -96,49 +113,34 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 100%;
-            max-width: 250px;
         }
 
-        .choose-button:hover, .option-button:hover {
+        .choose-button:hover {
             background-color: #2C97A1;
         }
 
         .options-container {
+            margin-top: 20px;
             display: none;
-            margin-top: 10px;
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .emotion-container {
-            margin-top: 40px;
             background-color: #fff;
-            padding: 30px;
+            padding: 10px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-            margin: 40px auto;
         }
 
-        .emotion-button {
-            padding: 12px 24px;
+        .option-button {
+            margin-top: 10px;
+            padding: 10px 20px;
             background-color: #3BBFB2;
             color: white;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 100%;
-            max-width: 250px;
         }
 
-        .emotion-button:hover {
+        .option-button:hover {
             background-color: #2C97A1;
         }
 
@@ -146,27 +148,12 @@
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 15px;
+                padding: 15px;
             }
 
-            .nav-button, .logo-button {
-                font-size: 1rem;
-                padding: 10px;
-                width: 80%;
-            }
-
-            .choose-button, .option-button, .emotion-button {
+            .nav-button {
                 width: 100%;
-                padding: 14px 0;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .image-container {
-                max-width: 90%;
-                margin: 0 auto;
+                margin: 5px 0;
             }
         }
     </style>
@@ -175,45 +162,53 @@
 
     <!-- Nawigacja -->
     <div class="navbar">
-        <a href="index.html" class="logo-button">
+        <button class="logo-button" onclick="window.location.href = 'index.html'">
             <img src="psycho.ico" alt="Logo Psychownia">
             <span>Psychownia</span>
-        </a>
-        <a href="artykuly.html" class="nav-button">Artykuły</a>
-        <a href="poradniki.html" class="nav-button">Poradniki</a>
-        <a href="kontakt.html" class="nav-button">Kontakt</a>
-        <a href="specjalisci.html" class="nav-button">Specjaliści</a>
-        <a href="szkolenia.html" class="nav-button">Szkolenia</a>
+        </button>
+        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradniki</button>
+        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
+        <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
+        <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
     </div>
 
-    <!-- Pierwszy kontener: Opcje -->
-    <div class="content" id="mainContent">
+    <!-- Sekcja Test Emocji -->
+    <div class="content">
+        <div class="section-title">Test Emocji</div>
+        <div class="section-subtitle">Chcesz sprawdzić, jak się dzisiaj czujesz?</div>
+
         <div class="image-container">
-            <img src="cutie.jpeg" alt="Mózg ćwiczący">
-            <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz</button>
+            <img src="test_emocji.jpg" alt="Test emocji">
+            <div class="choose-button" onclick="startEmotionTest()">Testuj moje samopoczucie</div>
+        </div>
+    </div>
+
+    <!-- Sekcja Co chcesz przepracować -->
+    <div class="content">
+        <div class="section-title">Co chcesz przepracować?</div>
+        <div class="section-subtitle">Wybierz obszar, który chciałbyś poprawić lub rozwinąć.</div>
+
+        <div class="image-container">
+            <img src="psychology_area.jpg" alt="Stres, Złość, etc.">
+            <div class="choose-button" onclick="toggleOptions('options1')">Wybierz temat</div>
 
             <div class="options-container" id="options1">
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
                 <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
+                <button class="option-button" onclick="window.location.href = 'artykuly.html#poczucie_wlasnej_wartosci'">Poczucie własnej wartości</button>
+                <button class="option-button" onclick="window.location.href = 'artykuly.html#motywacja'">Motywacja</button>
             </div>
         </div>
     </div>
 
-    <!-- Drugi kontener: Test emocji -->
-    <div class="content" id="emotionContent">
-        <div class="image-container">
-            <img src="lupa.jpg" alt="Test emocji">
-            <div class="text">Chcesz sprawdzić, jak się dzisiaj czujesz?</div>
-            <button class="emotion-button" onclick="startEmotionTest()">Testuj moje samopoczucie</button>
-        </div>
-    </div>
-
     <script>
+        // Funkcja do rozpoczęcia testu emocji
         function startEmotionTest() {
             window.location.href = 'testemocji.html';
         }
 
+        // Funkcja do rozwijania opcji
         function toggleOptions(optionId) {
             var options = document.getElementById(optionId);
             options.style.display = (options.style.display === "none" || options.style.display === "") ? "block" : "none";
@@ -222,3 +217,4 @@
 
 </body>
 </html>
+
