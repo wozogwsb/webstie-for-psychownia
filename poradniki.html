@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poradniki – Psychownia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 80px; /* Odstęp od górnego menu */
+        }
+
+        /* Nawigacja */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-button, .logo-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            background-color: #89A6CE;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 45px;
+            min-width: 120px;
+        }
+
+        .nav-button:hover {
+            background-color: #7A5FD9;
+        }
+
+        .logo-button {
+            background: #3BBFB2;
+        }
+
+        .logo-button:hover {
+            background: #8E79D9;
+        }
+
+        .logo-button img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        .logo-button span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Treść poradników */
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-top: 40px;
+        }
+
+        .post-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .post-date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .post-content {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .video-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 720px;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Formularz dodawania postów (opcjonalnie) */
+        .add-post-form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-post-form input, .add-post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .add-post-form button {
+            padding: 12px 20px;
+            background-color: #3BBFB2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-post-form button:hover {
+            background-color: #8E79D9;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nawigacja -->
+    <div class="navbar">
+        <button class="logo-button" onclick="goToHome()">
+            <img src="psycho.ico" alt="Logo Psychownia">
+            <span>Psychownia</span>
+        </button>
+        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
+        <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
+    </div>
+
+    <!-- Nagłówek strony -->
+    <h1>Poradniki – Rozwój osobisty</h1>
+
+    <!-- Przykładowy post -->
+    <div class="post-container">
+        <div class="post-title">Jak radzić sobie ze stresem? – Praktyczny poradnik</div>
+        <div class="post-date">Data publikacji: 12 marca 2025</div>
+        <div class="post-content">
+            <p>W tym poradniku omawiamy skuteczne metody radzenia sobie ze stresem, które można wdrożyć w codzienne życie...</p>
+            <p><strong>1. Oddychanie głębokie:</strong> Jedną z podstawowych technik jest kontrolowanie oddechu, co pomaga zredukować napięcie...</p>
+            <p><strong>2. Regularna aktywność fizyczna:</strong> Ćwiczenia pomagają uwolnić stres i poprawić nastrój...</p>
+        </div>
+    </div>
+
+    <!-- Przykładowy filmik -->
+    <div class="video-container">
+        <h2>Filmik: Jak radzić sobie ze stresem?</h2>
+        <iframe src="https://www.youtube.com/embed/your_video_id" allowfullscreen></iframe>
+    </div>
+
+    <!-- Formularz dodawania postów (opcjonalnie) -->
+    <div class="add-post-form">
+        <h2>Dodaj nowy poradnik</h2>
+        <input type="text" id="postTitle" placeholder="Tytuł poradnika">
+        <textarea id="postContent" rows="6" placeholder="Treść poradnika..."></textarea>
+        <input type="text" id="videoLink" placeholder="Link do filmu YouTube (opcjonalnie)">
+        <button onclick="addPost()">Dodaj post</button>
+    </div>
+
+    <script>
+        function goToHome() {
+            window.location.href = 'index.html'; // Zmienna w zależności od twojej struktury plików
+        }
+
+        // Funkcja do dodawania postu (demo)
+        function addPost() {
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const videoLink = document.getElementById('videoLink').value;
+            const newPostContainer = document.createElement('div');
+            newPostContainer.classList.add('post-container');
+            
+            newPostContainer.innerHTML = `
+                <div class="post-title">${title}</div>
+                <div class="post-date">Data publikacji: ${new Date().toLocaleDateString()}</div>
+                <div class="post-content">${content}</div>
+            `;
+            
+            // Dodawanie filmu (jeśli link jest dostępny)
+            if (videoLink) {
+                const videoEmbed = `
+                    <div class="video-container">
+                        <h2>Filmik: ${title}</h2>
+                        <iframe src="${videoLink}" allowfullscreen></iframe>
+                    </div>
+                `;
+                newPostContainer.innerHTML += videoEmbed;
+            }
+            
+            document.body.appendChild(newPostContainer);
+        }
+    </script>
+
+</body>
+</html>
