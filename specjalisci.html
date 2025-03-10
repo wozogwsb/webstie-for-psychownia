@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Specjaliści - Psychownia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Lora', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -18,29 +18,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 10px;
+            gap: 15px;
+            background: #E5E5E5;
+            padding: 12px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 400px;
-            margin: 15px auto;
+            max-width: 100%;
+            margin: 20px auto;
         }
 
         .nav-button {
-            padding: 10px;
-            background-color: #89A6CE;
-            color: white;
-            font-size: 1rem;
-            border: none;
+            padding: 12px 18px;
+            background-color: transparent;
+            color: #333;
+            font-size: 1.1rem;
+            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease, color 0.2s ease;
         }
 
         .nav-button:hover {
-            background-color: #7A5FD9;
+            background-color: #72A603;
+            color: white;
+            transform: translateY(-3px);
         }
 
         .content {
@@ -61,31 +63,45 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .specialist-card:hover {
+            transform: translateY(-5px);
         }
 
         .specialist-card img {
-            width: 180px; /* stała szerokość */
-            height: 180px; /* stała wysokość */
-            object-fit: cover; /* wypełnia przestrzeń, zachowując proporcje */
-            border-radius: 50%; /* okrągły obrazek */
-            margin-bottom: 15px; /* odstęp od tekstu */
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
 
         .contact-button {
             margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #3BBFB2;
-            color: white;
+            padding: 12px 18px;
+            background-color: transparent;
+            color: #333;
             font-size: 1rem;
-            border: none;
+            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease, color 0.2s ease;
         }
 
         .contact-button:hover {
-            background-color: #8E79D9;
+            background-color: #72A603;
+            color: white;
+            transform: translateY(-3px);
         }
+
+        .reviews {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
