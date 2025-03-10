@@ -14,11 +14,13 @@
             text-align: center;
         }
 
+        /* Nawigacja */
         .navbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             background: #E5E5E5;
             padding: 12px 30px;
             border-radius: 12px;
@@ -28,8 +30,12 @@
             margin: 20px auto;
         }
 
-        .nav-button {
-            padding: 12px 18px;
+        .nav-button, .logo-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
             background-color: transparent;
             color: #333;
             font-size: 1.1rem;
@@ -39,10 +45,16 @@
             transition: background-color 0.3s, transform 0.2s ease, color 0.2s ease;
         }
 
-        .nav-button:hover {
+        .nav-button:hover, .logo-button:hover {
             background-color: #72A603;
             color: white;
             transform: translateY(-3px);
+        }
+
+        .logo-button img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
         }
 
         .content {
@@ -105,7 +117,12 @@
     </style>
 </head>
 <body>
+    <!-- Nawigacja -->
     <div class="navbar">
+        <button class="logo-button" onclick="goToHome()">
+            <img src="newlogo1.ico" alt="Logo Psychownia">
+            <span>Psychownia</span>
+        </button>
         <button class="nav-button" onclick="window.location.href = 'index.html'">Strona Główna</button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
@@ -135,5 +152,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
