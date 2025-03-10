@@ -218,20 +218,35 @@
         </div>
     </div>
 
-    <!-- Formularz na pomysły na poradniki od użytkowników -->
+   <!-- Formularz na pomysły na poradniki -->
     <div class="idea-container">
         <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
-        <form action="https://formspree.io/f/xblgjgrg" method="POST">
-            <input type="text" name="userName" placeholder="Twoje imię" required>
-            <textarea name="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
-            <button type="submit">Wyślij pomysł</button>
+        <p>Podziel się swoimi pomysłami i pomóż stworzyć poradniki, które będą pomocne dla innych!</p>
+        
+        <form action="https://formspree.io/f/maykvwzg" method="POST" id="ideaForm">
+            <label for="userName">Twoje imię</label>
+            <input type="text" name="userName" id="userName" placeholder="Twoje imię" required>
+            
+            <label for="suggestion">Opisz swój pomysł na poradnik</label>
+            <textarea name="suggestion" id="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
+            
+            <button type="submit" class="submit-button">Wyślij</button>
         </form>
+
+        <div id="thankYouMessage" style="display:none;">
+            <p>Dziękujemy za podesłanie pomysłu! Niedługo się z Tobą skontaktujemy.</p>
+        </div>
     </div>
 
+    <!-- Skrypt JavaScript do pokazywania komunikatu po wysłaniu formularza -->
     <script>
-        function goToHome() {
-            window.location.href = 'index.html'; 
-        }
+        document.getElementById('ideaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Pokazujemy komunikat po wysłaniu formularza
+            document.getElementById('thankYouMessage').style.display = 'block';
+            // Ukrywamy formularz po wysłaniu
+            document.getElementById('ideaForm').style.display = 'none';
+        });
     </script>
 
 </body>
