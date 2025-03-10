@@ -17,6 +17,7 @@
         /* Nawigacja */
         .navbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             gap: 10px;
@@ -25,7 +26,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 400px;
+            max-width: 100%;
             margin: 15px auto;
         }
 
@@ -43,8 +44,10 @@
             cursor: pointer;
             transition: background 0.3s;
             height: 45px;
-            min-width: 120px;
+            min-width: auto;
             text-align: center;
+            flex: 1; /* Dynamiczna szerokość */
+            max-width: 180px; /* Ograniczenie szerokości */
         }
 
         .nav-button:hover {
@@ -69,6 +72,33 @@
             font-size: 1rem;
             font-weight: bold;
             color: white;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: space-around;
+            }
+
+            .nav-button, .logo-button {
+                font-size: 0.9rem;
+                padding: 8px;
+                flex: 1;
+                min-width: 90px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-button, .logo-button {
+                width: 100%;
+                max-width: 100%;
+            }
         }
 
         /* Reszta stylów */
@@ -121,7 +151,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Nowe style dla emocji */
+        /* Styl dla testu emocji */
         .emotion-container {
             margin-top: 20px;
             background-color: #fff;
@@ -149,33 +179,6 @@
         .emotion-button:hover {
             background-color: #8E79D9;
         }
-
-        /* Responsywność */
-        @media (max-width: 480px) {
-            .navbar {
-                width: 95%;
-                max-width: 360px;
-                padding: 8px;
-                gap: 5px;
-            }
-
-            .nav-button, .logo-button {
-                font-size: 0.9rem;
-                min-width: 100px;
-                height: 40px;
-                padding: 8px;
-            }
-
-            .logo-button img {
-                width: 24px;
-                height: 24px;
-            }
-
-            .choose-button, .option-button {
-                font-size: 0.9rem;
-                padding: 7px 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -187,8 +190,8 @@
             <span>Psychownia</span>
         </button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
-        <button class="nav-button">Kontakt</button>
-        <button class="nav-button">Specjaliści</button>
+        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
+        <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
     </div>
 
     <!-- Pierwszy kontener: Opcje -->
@@ -216,23 +219,16 @@
 
     <script>
         function startEmotionTest() {
-            // Przekierowanie do strony testu emocji
             window.location.href = 'testemocji.html';
         }
 
-        // Funkcja do przechodzenia do strony głównej
         function goToHome() {
-            window.location.href = 'index.html'; // Zmienna w zależności od twojej struktury plików
+            window.location.href = 'index.html';
         }
 
-        // Funkcja do przełączania widoczności opcji
         function toggleOptions(optionId) {
             var options = document.getElementById(optionId);
-            if (options.style.display === "none" || options.style.display === "") {
-                options.style.display = "block";
-            } else {
-                options.style.display = "none";
-            }
+            options.style.display = (options.style.display === "none" || options.style.display === "") ? "block" : "none";
         }
     </script>
 
