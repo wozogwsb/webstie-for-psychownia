@@ -3,244 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychownia - Artykuły</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Artykuły - Psychownia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Ogólne style strony */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Lora', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             text-align: center;
         }
 
-        /* Nawigacja */
         .navbar {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            background: #89D9D9;
-            padding: 10px;
+            background: #E5E5E5;
+            padding: 12px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            margin: 15px auto;
-            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
         }
 
         .nav-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px;
-            background-color: #5BA8A2;
-            color: white;
-            font-size: 1rem;
-            border: none;
+            padding: 12px 20px;
+            background-color: transparent;
+            color: #333;
+            font-size: 1.1rem;
+            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s;
-            height: 45px;
-            min-width: 120px;
+            transition: background-color 0.3s, transform 0.2s ease;
+            text-align: center;
+            margin: 5px;
         }
 
         .nav-button:hover {
-            background-color: #038C8C;
-        }
-
-        .logo-button {
-            background: #72A603;
-        }
-
-        .logo-button:hover {
-            background: #5BA8A2;
-        }
-
-        .logo-button img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
-
-        .logo-button span {
-            font-size: 1rem;
-            font-weight: bold;
+            background-color: #72A603;
             color: white;
+            transform: translateY(-3px);
         }
 
-        /* Sekcja artykułów */
-        .content-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
+        .content {
+            padding: 30px 15px;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .article-card {
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-container h2 {
-            font-size: 1.8rem;
-            color: #3BBFB2;
-            margin-bottom: 10px;
-        }
-
-        .content-container p {
-            font-size: 1.1rem;
-            color: #666666;
-            margin-bottom: 20px;
-        }
-
-        .article-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .article-list li {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            font-size: 1.1rem;
-        }
-
-        .article-list li a {
-            text-decoration: none;
-            color: #3BBFB2;
-            font-weight: bold;
-        }
-
-        .article-list li a:hover {
-            color: #7A5FD9;
-        }
-
-        /* Formularz na pomysły na artykuły */
-        .idea-container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .idea-container h2 {
-            font-size: 1.8rem;
-            color: #3BBFB2;
-            margin-bottom: 10px;
-        }
-
-        .idea-container p {
-            font-size: 1.1rem;
-            color: #666666;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        label {
-            font-size: 1.1rem;
-            color: #333333;
+            overflow: hidden;
             text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s ease;
         }
 
-        input, textarea {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-card img {
             width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
+            height: auto;
+            object-fit: cover;
+            border-bottom: 2px solid #E5E5E5;
         }
 
-        input:focus, textarea:focus {
-            border-color: #3BBFB2;
-            outline: none;
+        .article-content {
+            padding: 20px;
         }
 
-        button.submit-button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
+        .article-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            padding: 12px 20px;
+            background-color: #72A603;
             color: white;
-            background-color: #3BBFB2;
+            font-size: 1.1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease;
         }
 
-        button.submit-button:hover {
-            background-color: #8E79D9;
+        .read-more:hover {
+            background-color: #5a8f03;
+            transform: translateY(-3px);
         }
 
-        #thankYouMessage {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #3BBFB2;
-            font-weight: bold;
-        }
-
-        /* Responsywność */
         @media (max-width: 768px) {
-            .navbar {
-                flex-wrap: wrap;
-                justify-content: space-around;
-                gap: 5px;
-                width: 100%;
-            }
-
-            .nav-button {
-                min-width: 90px;
-            }
-
-            .article-list li {
-                font-size: 1rem;
+            .article-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .nav-button {
-                font-size: 0.9rem;
-                min-width: 100%;
-            }
-
-            .article-list li {
-                font-size: 0.9rem;
-            }
-
-            .content-container {
-                padding: 15px;
-            }
-
-            form {
-                gap: 10px;
-            }
-
-            button.submit-button {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
 
     <!-- Nawigacja -->
     <div class="navbar">
-        <button class="logo-button" onclick="window.location.href='index.html'">
-            <img src="psycho.ico" alt="Logo Psychownia">
-            <span>Psychownia</span>
-        </button>
+        <button class="nav-button" onclick="window.location.href = 'index.html'">Psychownia</button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
         <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradniki</button>
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
@@ -249,46 +131,36 @@
     </div>
 
     <!-- Sekcja artykułów -->
-    <div class="content-container">
-        <h2>Artykuły</h2>
-        <p>Przeczytaj nasze artykuły na temat psychologii, rozwoju osobistego i emocji.</p>
-        <ul class="article-list">
-            <li><a href="#">Artykuł 1: Jak radzić sobie ze stresem</a></li>
-            <li><a href="#">Artykuł 2: Jak poprawić swoją pewność siebie</a></li>
-            <li><a href="#">Artykuł 3: Zrozumienie emocji</a></li>
-        </ul>
-    </div>
+    <div class="content">
+        <h1>Artykuły</h1>
+        <div class="article-grid">
+            <!-- Przykładowa karta z artykułem -->
+            <div class="article-card">
+                <img src="article1.jpg" alt="Artykuł 1">
+                <div class="article-content">
+                    <div class="article-title">Jak radzić sobie ze stresem?</div>
+                    <div class="article-excerpt">
+                        Stres jest nieodłączną częścią naszego życia. W tym artykule przedstawimy skuteczne techniki radzenia sobie z nim...
+                    </div>
+                    <button class="read-more" onclick="window.location.href = 'artykul1.html'">Czytaj więcej</button>
+                </div>
+            </div>
 
-    <!-- Formularz na pomysły na artykuły -->
-    <div class="idea-container">
-        <h2>Masz pomysł na artykuł? Podziel się nim!</h2>
-        <p>Podziel się swoimi pomysłami i pomóż stworzyć artykuły, które będą pomocne dla innych!</p>
-        
-        <form action="https://formspree.io/f/maykvwzg" method="POST" id="ideaForm">
-            <label for="userName">Twoje imię</label>
-            <input type="text" name="userName" id="userName" placeholder="Twoje imię" required>
-            
-            <label for="suggestion">Opisz swój pomysł na artykuł</label>
-            <textarea name="suggestion" id="suggestion" rows="6" placeholder="Opisz swój pomysł na artykuł..." required></textarea>
-            
-            <button type="submit" class="submit-button">Wyślij</button>
-        </form>
+            <!-- Kolejna karta z artykułem -->
+            <div class="article-card">
+                <img src="article2.jpg" alt="Artykuł 2">
+                <div class="article-content">
+                    <div class="article-title">Złość – jak ją opanować?</div>
+                    <div class="article-excerpt">
+                        Złość może prowadzić do trudnych sytuacji w naszym życiu. W tym artykule dowiesz się, jak skutecznie ją kontrolować...
+                    </div>
+                    <button class="read-more" onclick="window.location.href = 'artykul2.html'">Czytaj więcej</button>
+                </div>
+            </div>
 
-        <div id="thankYouMessage" style="display:none;">
-            <p>Dziękujemy za podesłanie pomysłu! Niedługo się z Tobą skontaktujemy.</p>
+            <!-- Kolejne artykuły... -->
         </div>
     </div>
-
-    <!-- Skrypt JavaScript do pokazywania komunikatu po wysłaniu formularza -->
-    <script>
-        document.getElementById('ideaForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Pokazujemy komunikat po wysłaniu formularza
-            document.getElementById('thankYouMessage').style.display = 'block';
-            // Ukrywamy formularz po wysłaniu
-            document.getElementById('ideaForm').style.display = 'none';
-        });
-    </script>
 
 </body>
 </html>
