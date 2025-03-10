@@ -18,16 +18,16 @@
         /* Nawigacja */
         .navbar {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
             gap: 10px;
             background: white;
             padding: 10px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 400px;
             margin: 15px auto;
+            overflow-x: auto;
         }
 
         .nav-button {
@@ -45,7 +45,6 @@
             transition: background 0.3s;
             height: 45px;
             min-width: 120px;
-            text-align: center;
         }
 
         .nav-button:hover {
@@ -165,6 +164,52 @@
             color: #3BBFB2;
             font-weight: bold;
         }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 5px;
+                width: 100%;
+            }
+
+            .nav-button {
+                min-width: 90px;
+            }
+
+            .video-list li, .paid-guide-list li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .nav-button {
+                font-size: 0.9rem;
+                min-width: 100%;
+            }
+
+            .video-list li, .paid-guide-list li {
+                font-size: 0.9rem;
+            }
+
+            .content-container {
+                padding: 15px;
+            }
+
+            form {
+                gap: 10px;
+            }
+
+            button.submit-button {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -180,56 +225,31 @@
 
     <!-- Sekcja ogólnodostępnych poradników -->
     <div class="content-container">
-        <h2>Ogólnodostępne Poradniki</h2>
-        <p>Sprawdź nasze darmowe poradniki wideo, które pomagają w codziennym rozwoju!</p>
+        <h2>Poradniki dostępne za darmo</h2>
         <ul class="video-list">
-            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 1: Jak radzić sobie ze stresem</a></li>
-            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 2: Jak poprawić swoją pewność siebie</a></li>
-            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 3: Techniki relaksacyjne</a></li>
+            <li><a href="#">Poradnik nr 1</a></li>
+            <li><a href="#">Poradnik nr 2</a></li>
+            <li><a href="#">Poradnik nr 3</a></li>
         </ul>
-    </div>
 
-    <!-- Sekcja płatnych poradników -->
-    <div class="content-container">
-        <h2>Płatne Poradniki</h2>
-        <p>Chcesz czegoś więcej? Sprawdź nasze płatne poradniki i kursy, które oferują głębszą wiedzę na tematy psychologiczne!</p>
+        <h2>Poradniki płatne</h2>
         <ul class="paid-guide-list">
-            <li><a href="#">Płatny poradnik 1: Rozwój osobisty w pracy</a> - 50 PLN</li>
-            <li><a href="#">Płatny poradnik 2: Zrozumienie emocji</a> - 60 PLN</li>
-            <li><a href="#">Płatny poradnik 3: Jak osiągnąć sukces w życiu</a> - 80 PLN</li>
+            <li><a href="#">Poradnik nr 1</a></li>
+            <li><a href="#">Poradnik nr 2</a></li>
+            <li><a href="#">Poradnik nr 3</a></li>
         </ul>
     </div>
 
-    <!-- Formularz na pomysły na poradniki -->
+    <!-- Pomysł na przyszłość -->
     <div class="idea-container">
-        <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
-        <p>Podziel się swoimi pomysłami i pomóż stworzyć poradniki, które będą pomocne dla innych!</p>
-        
-        <form action="https://formspree.io/f/maykvwzg" method="POST" id="ideaForm">
-            <label for="userName">Twoje imię</label>
-            <input type="text" name="userName" id="userName" placeholder="Twoje imię" required>
-            
-            <label for="suggestion">Opisz swój pomysł na poradnik</label>
-            <textarea name="suggestion" id="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
-            
+        <h2>Twój pomysł</h2>
+        <p>Podziel się z nami swoim pomysłem lub sugestią!</p>
+        <form id="ideaForm">
+            <label for="idea">Wpisz swój pomysł:</label>
+            <textarea id="idea" rows="4" required></textarea>
             <button type="submit" class="submit-button">Wyślij</button>
         </form>
-
-        <div id="thankYouMessage" style="display:none;">
-            <p>Dziękujemy za podesłanie pomysłu! Niedługo się z Tobą skontaktujemy.</p>
-        </div>
+        <p id="thankYouMessage"></p>
     </div>
-
-    <!-- Skrypt JavaScript do pokazywania komunikatu po wysłaniu formularza -->
-    <script>
-        document.getElementById('ideaForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Pokazujemy komunikat po wysłaniu formularza
-            document.getElementById('thankYouMessage').style.display = 'block';
-            // Ukrywamy formularz po wysłaniu
-            document.getElementById('ideaForm').style.display = 'none';
-        });
-    </script>
-
 </body>
 </html>
