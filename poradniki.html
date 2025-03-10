@@ -21,7 +21,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            background: white;
+            background: #89D9D9;
             padding: 10px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@
             justify-content: center;
             gap: 8px;
             padding: 10px;
-            background-color: #89A6CE;
+            background-color: #5BA8A2;
             color: white;
             font-size: 1rem;
             border: none;
@@ -48,7 +48,27 @@
         }
 
         .nav-button:hover {
-            background-color: #7A5FD9;
+            background-color: #038C8C;
+        }
+
+        .logo-button {
+            background: #72A603;
+        }
+
+        .logo-button:hover {
+            background: #5BA8A2;
+        }
+
+        .logo-button img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        .logo-button span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
         }
 
         /* Sekcja poradników */
@@ -56,7 +76,7 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
@@ -98,7 +118,7 @@
             max-width: 600px;
             margin: 40px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -216,8 +236,12 @@
 
     <!-- Nawigacja -->
     <div class="navbar">
-        <button class="nav-button" onclick="window.location.href = 'index.html'">Strona Główna</button>
+        <button class="logo-button" onclick="window.location.href='index.html'">
+            <img src="psycho.ico" alt="Logo Psychownia">
+            <span>Psychownia</span>
+        </button>
         <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradniki</button>
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
         <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
         <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
@@ -225,31 +249,56 @@
 
     <!-- Sekcja ogólnodostępnych poradników -->
     <div class="content-container">
-        <h2>Poradniki dostępne za darmo</h2>
+        <h2>Ogólnodostępne Poradniki</h2>
+        <p>Sprawdź nasze darmowe poradniki wideo, które pomagają w codziennym rozwoju!</p>
         <ul class="video-list">
-            <li><a href="#">Poradnik nr 1</a></li>
-            <li><a href="#">Poradnik nr 2</a></li>
-            <li><a href="#">Poradnik nr 3</a></li>
-        </ul>
-
-        <h2>Poradniki płatne</h2>
-        <ul class="paid-guide-list">
-            <li><a href="#">Poradnik nr 1</a></li>
-            <li><a href="#">Poradnik nr 2</a></li>
-            <li><a href="#">Poradnik nr 3</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 1: Jak radzić sobie ze stresem</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 2: Jak poprawić swoją pewność siebie</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Poradnik 3: Techniki relaksacyjne</a></li>
         </ul>
     </div>
 
-    <!-- Pomysł na przyszłość -->
+    <!-- Sekcja płatnych poradników -->
+    <div class="content-container">
+        <h2>Płatne Poradniki</h2>
+        <p>Chcesz czegoś więcej? Sprawdź nasze płatne poradniki i kursy, które oferują głębszą wiedzę na tematy psychologiczne!</p>
+        <ul class="paid-guide-list">
+            <li><a href="#">Płatny poradnik 1: Rozwój osobisty w pracy</a> - 50 PLN</li>
+            <li><a href="#">Płatny poradnik 2: Zrozumienie emocji</a> - 60 PLN</li>
+            <li><a href="#">Płatny poradnik 3: Jak osiągnąć sukces w życiu</a> - 80 PLN</li>
+        </ul>
+    </div>
+
+    <!-- Formularz na pomysły na poradniki -->
     <div class="idea-container">
-        <h2>Twój pomysł</h2>
-        <p>Podziel się z nami swoim pomysłem lub sugestią!</p>
-        <form id="ideaForm">
-            <label for="idea">Wpisz swój pomysł:</label>
-            <textarea id="idea" rows="4" required></textarea>
+        <h2>Masz pomysł na poradnik? Podziel się nim!</h2>
+        <p>Podziel się swoimi pomysłami i pomóż stworzyć poradniki, które będą pomocne dla innych!</p>
+        
+        <form action="https://formspree.io/f/maykvwzg" method="POST" id="ideaForm">
+            <label for="userName">Twoje imię</label>
+            <input type="text" name="userName" id="userName" placeholder="Twoje imię" required>
+            
+            <label for="suggestion">Opisz swój pomysł na poradnik</label>
+            <textarea name="suggestion" id="suggestion" rows="6" placeholder="Opisz swój pomysł na poradnik..." required></textarea>
+            
             <button type="submit" class="submit-button">Wyślij</button>
         </form>
-        <p id="thankYouMessage"></p>
+
+        <div id="thankYouMessage" style="display:none;">
+            <p>Dziękujemy za podesłanie pomysłu! Niedługo się z Tobą skontaktujemy.</p>
+        </div>
     </div>
+
+    <!-- Skrypt JavaScript do pokazywania komunikatu po wysłaniu formularza -->
+    <script>
+        document.getElementById('ideaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Pokazujemy komunikat po wysłaniu formularza
+            document.getElementById('thankYouMessage').style.display = 'block';
+            // Ukrywamy formularz po wysłaniu
+            document.getElementById('ideaForm').style.display = 'none';
+        });
+    </script>
+
 </body>
 </html>
