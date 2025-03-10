@@ -20,11 +20,11 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 12px;
-            background: #5BA8A2;  /* Ciemniejszy turkus */
-            padding: 15px;
+            gap: 20px;
+            background: #E5E5E5; /* Delikatny szary gradient */
+            padding: 12px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 100%;
             margin: 20px auto;
@@ -36,13 +36,13 @@
             justify-content: center;
             gap: 10px;
             padding: 12px 18px;
-            background-color: #72A603;  /* Zieleń */
-            color: white;
+            background-color: transparent;
+            color: #333; /* Ciemny tekst */
             font-size: 1.2rem;
-            border: none;
+            border: 2px solid #72A603; /* Subtelna ramka */
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s ease;
+            transition: background 0.3s, transform 0.2s ease, color 0.2s ease;
             height: 50px;
             min-width: 160px;
             text-align: center;
@@ -50,29 +50,30 @@
         }
 
         .nav-button:hover, .logo-button:hover {
-            background-color: #5A7302;  /* Stonowana zieleń */
-            transform: translateY(-4px);
+            background-color: #72A603; /* Zieleń */
+            color: white;
+            transform: translateY(-3px);
         }
 
         .logo-button {
-            background: #99D0F2;  /* Jasny niebieski */
+            background: transparent;
         }
 
         .logo-button:hover {
-            background: #72A603;  /* Zieleń */
+            background: #99D0F2;  /* Jasny niebieski */
         }
 
         .logo-button img {
-            width: 40px; /* Dostosowano wielkość logo */
-            height: 40px; /* Dostosowano wielkość logo */
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            object-fit: contain; /* Umożliwia zachowanie proporcji */
+            object-fit: contain;
         }
 
         .logo-button span {
             font-size: 1.2rem;
             font-weight: bold;
-            color: white;
+            color: #333; /* Ciemny tekst */
         }
 
         /* Responsywność */
@@ -82,7 +83,7 @@
             }
 
             .nav-button, .logo-button {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 10px;
                 flex: 1;
                 min-width: 120px;
@@ -93,7 +94,7 @@
         @media (max-width: 480px) {
             .navbar {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
             }
 
             .nav-button, .logo-button {
@@ -112,11 +113,11 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 350px;
             text-align: center;
-            margin: 10px auto;
+            margin: 20px auto;
         }
 
         .image-container img {
@@ -129,20 +130,22 @@
         .choose-button, .option-button {
             margin-top: 15px;
             padding: 12px 20px;
-            background-color: #99D0F2;  /* Jasny niebieski */
-            color: white;
+            background-color: transparent;
+            color: #333;
             font-size: 1.1rem;
-            border: none;
+            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s ease;
             width: 100%;
             max-width: 220px;
-            font-family: 'Lora', serif; /* Czcionka Lora dla przycisków */
+            font-family: 'Lora', serif;
         }
 
         .choose-button:hover, .option-button:hover {
-            background-color: #72A603;  /* Zieleń */
+            background-color: #72A603;
+            color: white;
+            transform: translateY(-3px);
         }
 
         .options-container {
@@ -151,7 +154,7 @@
             background: #fff;
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Styl dla testu emocji */
@@ -160,7 +163,7 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 90%;
             max-width: 400px;
@@ -170,18 +173,20 @@
         .emotion-button {
             margin: 10px;
             padding: 12px 25px;
-            background-color: #99D0F2;  /* Jasny niebieski */
-            color: white;
+            background-color: transparent;
+            color: #333;
             font-size: 1.1rem;
-            border: none;
+            border: 2px solid #72A603;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Lora', serif; /* Czcionka Lora dla przycisków */
+            transition: background-color 0.3s, transform 0.2s ease;
+            font-family: 'Lora', serif;
         }
 
         .emotion-button:hover {
-            background-color: #5BA8A2;  /* Ciemniejszy turkus */
+            background-color: #72A603;
+            color: white;
+            transform: translateY(-3px);
         }
     </style>
 </head>
