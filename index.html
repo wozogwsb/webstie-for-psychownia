@@ -110,12 +110,11 @@
         .emotion-test .nav-button {
             background-color: #4CAF50; /* Zielony */
             font-size: 1.2rem;
-            padding: 12px 30px;
+            padding: 15px 40px;
             width: auto;
             margin: 0 auto;
             border-radius: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-transform: uppercase;
         }
 
         .emotion-test .nav-button:hover {
@@ -124,13 +123,52 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
-        .emotion-test .nav-button:nth-child(1) {
-            background-color: #C9F2E7; /* Kolor dla przycisku "Zrób Test Emocji" */
-            color: #333;
+        /* Zmiana koloru dla ostatnich trzech przycisków */
+        .navbar .nav-button:nth-child(4),
+        .navbar .nav-button:nth-child(5),
+        .navbar .nav-button:nth-child(6) {
+            background-color: #4BBF94; /* Zielony kolor dla trzech ostatnich przycisków */
         }
 
-        .emotion-test .nav-button:nth-child(1):hover {
+        .navbar .nav-button:nth-child(4):hover,
+        .navbar .nav-button:nth-child(5):hover,
+        .navbar .nav-button:nth-child(6):hover {
+            background-color: #42a97d; /* Zmiana koloru na ciemniejszy po najechaniu */
+        }
+
+        /* Kolor dla drugiego i trzeciego przycisku (Artykuły i Poradniki) */
+        .navbar .nav-button:nth-child(2),
+        .navbar .nav-button:nth-child(3) {
+            background-color: #C9F2E7; /* Kolor dla Artykuły i Poradniki */
+            color: #333; /* Zmieniamy tekst na ciemny, aby był lepiej widoczny na jasnym tle */
+        }
+
+        .navbar .nav-button:nth-child(2):hover,
+        .navbar .nav-button:nth-child(3):hover {
             background-color: #a7d9c5; /* Zmiana koloru na ciemniejszy po najechaniu */
+        }
+
+        /* Przyciski na dole Testu Emocji */
+        .emotion-test .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .emotion-test .bottom-buttons .nav-button {
+            background-color: #C9F2E7; /* Kolor dla przycisków w sekcji na dole */
+            color: #333;
+            font-size: 1rem;
+            padding: 12px 30px;
+            width: auto;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        .emotion-test .bottom-buttons .nav-button:hover {
+            background-color: #a7d9c5;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsywność */
@@ -167,6 +205,11 @@
             .nav-button, .logo-button {
                 width: 100%;
             }
+
+            .emotion-test .bottom-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -191,6 +234,12 @@
         <p>Każdego dnia przeżywamy różne emocje. Daj sobie chwilę, aby dowiedzieć się, co czujesz dzisiaj. Nasz test pomoże Ci lepiej zrozumieć, co dzieje się w Twojej psychice. Kliknij poniżej, aby rozpocząć!</p>
         <img src="stress.jpg" alt="Stres - Rozpoznaj swoje emocje" />
         <button class="nav-button" onclick="window.location.href = 'testemocji.html'">Zrób Test Emocji</button>
+
+        <!-- Przyciski na dole -->
+        <div class="bottom-buttons">
+            <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuł 1</button>
+            <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradnik 1</button>
+        </div>
     </div>
 
     <script>
