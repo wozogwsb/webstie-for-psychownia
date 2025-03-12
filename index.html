@@ -20,45 +20,44 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            background: #ffffff;
-            padding: 15px 40px;
+            background-image: url('free.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
             border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 1000px;
             margin: 20px auto;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .nav-button, .logo-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             padding: 12px 22px;
-            background: #72A603;
+            background-color: transparent;
             color: white;
             font-size: 1.1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
             height: 45px;
-            min-width: 140px;
+            min-width: 120px;
             text-align: center;
             font-family: 'Lora', serif;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .nav-button:hover, .logo-button:hover {
-            background: #5f8e02;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         .logo-button {
-            background: transparent;
-            border: 2px solid #72A603;
-            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo-button img {
@@ -71,7 +70,7 @@
         .logo-button span {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #333;
+            color: white;
         }
 
         /* Sekcja testu emocji */
@@ -88,7 +87,7 @@
         }
 
         .emotion-test h2 {
-            color: #72A603;
+            color: #4CAF50; /* Zielony */
             font-size: 2rem;
             margin-bottom: 20px;
         }
@@ -108,7 +107,7 @@
         }
 
         .emotion-test .nav-button {
-            background-color: #72A603;
+            background-color: #4CAF50; /* Zielony */
             font-size: 1.2rem;
             padding: 15px 40px;
             width: auto;
@@ -118,7 +117,7 @@
         }
 
         .emotion-test .nav-button:hover {
-            background-color: #5f8e02;
+            background-color: #388E3C;
             transform: translateY(-3px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
@@ -173,7 +172,6 @@
         <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
         <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
         <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
-        <!-- Test Emocji -->
         <button class="nav-button" onclick="window.location.href = 'testemocji.html'">Test Emocji</button>
     </div>
 
