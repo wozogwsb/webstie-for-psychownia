@@ -10,7 +10,10 @@
             font-family: 'Lora', serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url('free2.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #A4A698; /* Szaro-zielony kolor dla tekstu */
             text-align: center;
         }
 
@@ -20,15 +23,13 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            background-image: url('free1.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: rgba(26, 38, 36, 0.8); /* Przezroczyste tło w ciemnym odcieniu */
             padding: 20px;
             border-radius: 50px;
             width: 90%;
             max-width: 1000px;
             margin: 20px auto;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-button, .logo-button {
@@ -75,28 +76,26 @@
 
         /* Sekcja testu emocji */
         .emotion-test {
-            background-color: #ffffff;
+            background-color: rgba(26, 38, 36, 0.8); /* Przezroczyste tło w ciemnym odcieniu */
             padding: 30px 20px;
             margin-top: 50px;
             border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
         }
 
         .emotion-test h2 {
-            color: #4CAF50; /* Zielony */
+            color: #F8E4B1; /* Kolor tytułu */
             font-size: 2rem;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #F8E4B1; /* Zmiana koloru czcionki na #F8E4B1 */
         }
 
         .emotion-test p {
             font-size: 1.2rem; /* Zwiększona czcionka */
-            color: #333; /* Ciemniejszy kolor tekstu */
+            color: #A4A698; /* Szaro-zielony dla tekstu */
             margin-bottom: 30px;
             line-height: 1.6; /* Zwiększenie odstępu między wierszami */
         }
@@ -111,19 +110,19 @@
 
         /* Przyciski w sekcji testu emocji */
         .emotion-test .nav-button {
-            background-color: #4CAF50; /* Zielony */
+            background-color: #32402C; /* Zielony */
             font-size: 1.2rem;
             padding: 15px 40px;
             width: auto;
             margin: 0 auto;
             border-radius: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #F8E4B1; /* Kolor czcionki w przyciskach */
+            color: #F8E4B1; /* Kolor czcionki */
             text-transform: uppercase;
         }
 
         .emotion-test .nav-button:hover {
-            background-color: #388E3C;
+            background-color: #5A7334; /* Jaśniejszy zielony */
             transform: translateY(-3px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
@@ -132,25 +131,25 @@
         .navbar .nav-button:nth-child(4),
         .navbar .nav-button:nth-child(5),
         .navbar .nav-button:nth-child(6) {
-            background-color: #4BBF94; /* Zielony kolor dla trzech ostatnich przycisków */
+            background-color: #5A7334; /* Zielony kolor dla trzech ostatnich przycisków */
         }
 
         .navbar .nav-button:nth-child(4):hover,
         .navbar .nav-button:nth-child(5):hover,
         .navbar .nav-button:nth-child(6):hover {
-            background-color: #42a97d; /* Zmiana koloru na ciemniejszy po najechaniu */
+            background-color: #32402C; /* Zmiana koloru na ciemniejszy po najechaniu */
         }
 
         /* Kolor dla drugiego i trzeciego przycisku (Artykuły i Poradniki) */
         .navbar .nav-button:nth-child(2),
         .navbar .nav-button:nth-child(3) {
-            background-color: #C9F2E7; /* Kolor dla Artykuły i Poradniki */
-            color: #333; /* Zmieniamy tekst na ciemny, aby był lepiej widoczny na jasnym tle */
+            background-color: #A4A698; /* Kolor dla Artykuły i Poradniki */
+            color: #1A2624; /* Ciemny kolor tekstu */
         }
 
         .navbar .nav-button:nth-child(2):hover,
         .navbar .nav-button:nth-child(3):hover {
-            background-color: #a7d9c5; /* Zmiana koloru na ciemniejszy po najechaniu */
+            background-color: #73736C; /* Zmiana koloru na ciemniejszy po najechaniu */
         }
 
         /* Przyciski na dole Testu Emocji */
@@ -162,8 +161,8 @@
         }
 
         .emotion-test .bottom-buttons .nav-button {
-            background-color: #C9F2E7; /* Kolor dla przycisków w sekcji na dole */
-            color: #F8E4B1; /* Zmiana koloru czcionki */
+            background-color: #A4A698; /* Kolor dla przycisków w sekcji na dole */
+            color: #1A2624; /* Ciemny kolor czcionki */
             font-size: 1rem;
             padding: 12px 30px;
             width: auto;
@@ -172,7 +171,7 @@
         }
 
         .emotion-test .bottom-buttons .nav-button:hover {
-            background-color: #a7d9c5;
+            background-color: #73736C;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -240,11 +239,7 @@
         <img src="stress.jpg" alt="Stres - Rozpoznaj swoje emocje" />
         <button class="nav-button" onclick="window.location.href = 'testemocji.html'">Zrób Test Emocji</button>
 
-        <!-- Przyciski na dole -->
-        <div class="bottom-buttons">
-            <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuł 1</button>
-            <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradnik 1</button>
-        </div>
+      
     </div>
 
     <script>
