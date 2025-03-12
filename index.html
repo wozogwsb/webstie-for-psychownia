@@ -122,6 +122,19 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
+        /* Zmiana koloru dla ostatnich trzech przycisków */
+        .navbar .nav-button:nth-child(4),
+        .navbar .nav-button:nth-child(5),
+        .navbar .nav-button:nth-child(6) {
+            background-color: #4BBF94; /* Zielony kolor dla trzech ostatnich przycisków */
+        }
+
+        .navbar .nav-button:nth-child(4):hover,
+        .navbar .nav-button:nth-child(5):hover,
+        .navbar .nav-button:nth-child(6):hover {
+            background-color: #42a97d; /* Zmiana koloru na ciemniejszy po najechaniu */
+        }
+
         /* Responsywność */
         @media (max-width: 768px) {
             .navbar {
