@@ -11,56 +11,39 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            text-align: center;
+            color: #333;
         }
 
         /* Nawigacja */
         .navbar {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            background: #E5E5E5; /* Delikatny szary gradient */
-            padding: 12px 30px;
+            gap: 15px;
+            background: #E5E5E5;
+            padding: 15px 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 100%;
+            max-width: 1200px;
             margin: 20px auto;
         }
 
         .nav-button, .logo-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
             padding: 12px 18px;
             background-color: transparent;
-            color: #333; /* Ciemny tekst */
+            color: #333;
             font-size: 1.2rem;
-            border: 2px solid #72A603; /* Subtelna ramka */
+            border: 2px solid #72A603;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s ease, color 0.2s ease;
-            height: 50px;
-            min-width: 160px;
-            text-align: center;
-            font-family: 'Lora', serif; /* Czcionka Lora dla przycisków */
+            transition: background 0.3s, transform 0.2s;
         }
 
         .nav-button:hover, .logo-button:hover {
-            background-color: #72A603; /* Zieleń */
+            background-color: #72A603;
             color: white;
             transform: translateY(-3px);
-        }
-
-        .logo-button {
-            background: transparent;
-        }
-
-        .logo-button:hover {
-            background: #99D0F2;  /* Jasny niebieski */
         }
 
         .logo-button img {
@@ -70,178 +53,102 @@
             object-fit: contain;
         }
 
-        .logo-button span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333; /* Ciemny tekst */
+        /* Sekcja artykułów */
+        .articles-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* Responsywność */
-        @media (max-width: 768px) {
-            .navbar {
-                justify-content: space-around;
-            }
-
-            .nav-button, .logo-button {
-                font-size: 1rem;
-                padding: 10px;
-                flex: 1;
-                min-width: 120px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-button, .logo-button {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-
-        /* Reszta stylów */
-        .content {
-            padding: 30px 15px;
-        }
-
-        .image-container {
-            display: inline-block;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 12px;
+        .article-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 350px;
-            text-align: center;
-            margin: 20px auto;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+            transition: transform 0.3s;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
+        .article-card:hover {
+            transform: scale(1.02);
+        }
+
+        .article-card img {
+            width: 40%;
+            height: 200px;
             object-fit: cover;
-            border-radius: 8px;
         }
 
-        .choose-button, .option-button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            background-color: transparent;
-            color: #333;
-            font-size: 1.1rem;
-            border: 2px solid #72A603;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s ease;
-            width: 100%;
-            max-width: 220px;
-            font-family: 'Lora', serif;
-        }
-
-        .choose-button:hover, .option-button:hover {
-            background-color: #72A603;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .options-container {
-            display: none;
-            margin-top: 15px;
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styl dla testu emocji */
-        .emotion-container {
-            margin-top: 20px;
-            background-color: #fff;
+        .article-content {
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-            margin: 20px auto;
+            width: 60%;
         }
 
-        .emotion-button {
-            margin: 10px;
-            padding: 12px 25px;
-            background-color: transparent;
-            color: #333;
-            font-size: 1.1rem;
-            border: 2px solid #72A603;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s ease;
-            font-family: 'Lora', serif;
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .emotion-button:hover {
+        .article-description {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
             background-color: #72A603;
             color: white;
-            transform: translateY(-3px);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #5a8502;
         }
     </style>
 </head>
 <body>
-
-    <!-- Nawigacja -->
     <div class="navbar">
-        <button class="logo-button" onclick="goToHome()">
-            <img src="newlogo1.ico" alt="Logo Psychownia">
+        <button class="logo-button" onclick="window.location.href='index.html'">
+            <img src="newlogo1.ico" alt="Psychownia">
             <span>Psychownia</span>
         </button>
-        <button class="nav-button" onclick="window.location.href = 'artykuly.html'">Artykuły</button>
-        <button class="nav-button" onclick="window.location.href = 'poradniki.html'">Poradniki</button>
-        <button class="nav-button" onclick="window.location.href = 'kontakt.html'">Kontakt</button>
-        <button class="nav-button" onclick="window.location.href = 'specjalisci.html'">Specjaliści</button>
-        <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
+        <button class="nav-button" onclick="window.location.href='artykuly.html'">Artykuły</button>
+        <button class="nav-button" onclick="window.location.href='poradniki.html'">Poradniki</button>
+        <button class="nav-button" onclick="window.location.href='kontakt.html'">Kontakt</button>
+        <button class="nav-button" onclick="window.location.href='specjalisci.html'">Specjaliści</button>
+        <button class="nav-button" onclick="window.location.href='szkolenia.html'">Szkolenia</button>
     </div>
 
-    <!-- Pierwszy kontener: Opcje -->
-    <div class="content" id="mainContent">
-        <div class="image-container">
-            <img src="cutie.jpeg" alt="Mózg ćwiczący">
-            <div class="text">Co byś chciał dzisiaj przepracować?</div>
-            <button class="choose-button" onclick="toggleOptions('options1')">Wybierz</button>
+    <div class="articles-container">
+        <div class="article-card">
+            <img src="article1.jpg" alt="Artykuł 1">
+            <div class="article-content">
+                <div class="article-title">Jak radzić sobie ze stresem?</div>
+                <div class="article-description">Dowiedz się, jak skutecznie zarządzać stresem i poprawić swoje samopoczucie.</div>
+                <a href="#" class="read-more">Czytaj więcej</a>
+            </div>
+        </div>
 
-            <div class="options-container" id="options1">
-                <button class="option-button" onclick="window.location.href = 'artykuly.html#stres'">Stres</button>
-                <button class="option-button" onclick="window.location.href = 'artykuly.html#zlosc'">Złość</button>
+        <div class="article-card">
+            <img src="article2.jpg" alt="Artykuł 2">
+            <div class="article-content">
+                <div class="article-title">Budowanie zdrowych nawyków</div>
+                <div class="article-description">Odkryj, jak tworzyć pozytywne nawyki, które wspierają Twoje zdrowie psychiczne.</div>
+                <a href="#" class="read-more">Czytaj więcej</a>
             </div>
         </div>
     </div>
-
-    <!-- Drugi kontener: Test emocji -->
-    <div class="content" id="emotionContent">
-        <div class="image-container">
-            <img src="lupa.jpg" alt="Test emocji">
-            <div class="text">Chcesz sprawdzić, jak się dzisiaj czujesz?</div>
-            <button class="choose-button" onclick="startEmotionTest()">Testuj moje samopoczucie</button>
-        </div>
-    </div>
-
-    <script>
-        function startEmotionTest() {
-            window.location.href = 'testemocji.html';
-        }
-
-        function goToHome() {
-            window.location.href = 'index.html';
-        }
-
-        function toggleOptions(optionId) {
-            var options = document.getElementById(optionId);
-            options.style.display = (options.style.display === "none" || options.style.display === "") ? "block" : "none";
-        }
-    </script>
-
 </body>
 </html>
