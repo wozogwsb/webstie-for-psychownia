@@ -35,11 +35,11 @@
             justify-content: center;
             gap: 10px;
             padding: 12px 22px;
-            background: linear-gradient(135deg, #72A603, #99D0F2);
+            background: #72A603;
             color: white;
             font-size: 1.1rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             height: 45px;
@@ -50,8 +50,8 @@
         }
 
         .nav-button:hover, .logo-button:hover {
-            background: linear-gradient(135deg, #99D0F2, #72A603);
-            transform: translateY(-3px);
+            background: #5f8e02;
+            transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
 
@@ -113,6 +113,14 @@
             padding: 15px 40px;
             width: auto;
             margin: 0 auto;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .emotion-test .nav-button:hover {
+            background-color: #5f8e02;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsywność */
