@@ -106,14 +106,16 @@
             margin-bottom: 30px;
         }
 
+        /* Przyciski w sekcji testu emocji */
         .emotion-test .nav-button {
             background-color: #4CAF50; /* Zielony */
             font-size: 1.2rem;
-            padding: 15px 40px;
+            padding: 12px 30px;
             width: auto;
             margin: 0 auto;
             border-radius: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
         }
 
         .emotion-test .nav-button:hover {
@@ -122,17 +124,13 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
-        /* Zmiana koloru dla ostatnich trzech przycisków */
-        .navbar .nav-button:nth-child(4),
-        .navbar .nav-button:nth-child(5),
-        .navbar .nav-button:nth-child(6) {
-            background-color: #4BBF94; /* Zielony kolor dla trzech ostatnich przycisków */
+        .emotion-test .nav-button:nth-child(1) {
+            background-color: #C9F2E7; /* Kolor dla przycisku "Zrób Test Emocji" */
+            color: #333;
         }
 
-        .navbar .nav-button:nth-child(4):hover,
-        .navbar .nav-button:nth-child(5):hover,
-        .navbar .nav-button:nth-child(6):hover {
-            background-color: #42a97d; /* Zmiana koloru na ciemniejszy po najechaniu */
+        .emotion-test .nav-button:nth-child(1):hover {
+            background-color: #a7d9c5; /* Zmiana koloru na ciemniejszy po najechaniu */
         }
 
         /* Responsywność */
