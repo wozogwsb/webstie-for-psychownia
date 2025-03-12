@@ -17,16 +17,15 @@
         /* Nawigacja */
         .navbar {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             gap: 15px;
-            background: #E5E5E5;
-            padding: 15px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 100%;
+            max-width: 1000px;
             margin: 20px auto;
         }
 
@@ -36,22 +35,30 @@
             justify-content: center;
             gap: 10px;
             padding: 12px 22px;
-            background: linear-gradient(135deg, #99D0F2, #72A603);
+            background: linear-gradient(135deg, #72A603, #99D0F2);
             color: white;
             font-size: 1.1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            height: 45px;
+            min-width: 140px;
+            text-align: center;
+            font-family: 'Lora', serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .nav-button:hover, .logo-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #99D0F2, #72A603);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-button {
+            background: transparent;
+            border: 2px solid #72A603;
+            color: #333;
         }
 
         .logo-button img {
@@ -61,64 +68,40 @@
             object-fit: contain;
         }
 
-        /* Artykuły */
-        .articles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .article-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .article-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .article-content {
-            padding: 20px;
-            text-align: left;
-        }
-
-        .article-title {
-            font-size: 1.5rem;
+        .logo-button span {
+            font-size: 1.2rem;
+            font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
         }
 
-        .article-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #72A603;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: background 0.3s ease;
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .nav-button, .logo-button {
+                font-size: 1rem;
+                padding: 10px;
+                min-width: 120px;
+            }
         }
 
-        .article-button:hover {
-            background: #99D0F2;
-        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
 
+            .nav-button, .logo-button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Nawigacja -->
     <div class="navbar">
         <button class="logo-button" onclick="goToHome()">
             <img src="newlogo1.ico" alt="Logo Psychownia">
@@ -131,29 +114,11 @@
         <button class="nav-button" onclick="window.location.href = 'szkolenia.html'">Szkolenia</button>
     </div>
 
-    <div class="articles-container">
-        <div class="article-card">
-            <img src="article1.jpg" alt="Zdjęcie artykułu">
-            <div class="article-content">
-                <h3 class="article-title">Jak radzić sobie ze stresem?</h3>
-                <p>Poznaj techniki relaksacyjne i sposoby zarządzania stresem.</p>
-                <a href="#" class="article-button">Czytaj więcej</a>
-            </div>
-        </div>
-        <div class="article-card">
-            <img src="article2.jpg" alt="Zdjęcie artykułu">
-            <div class="article-content">
-                <h3 class="article-title">Budowanie zdrowych nawyków</h3>
-                <p>Dowiedz się, jak wprowadzić zdrowe nawyki do swojego życia.</p>
-                <a href="#" class="article-button">Czytaj więcej</a>
-            </div>
-        </div>
-    </div>
-
     <script>
         function goToHome() {
             window.location.href = 'index.html';
         }
     </script>
+
 </body>
 </html>
